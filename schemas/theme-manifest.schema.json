@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "morphocore:theme-manifest:1.0",
+  "title": "Theme Manifest",
+  "type": "object",
+  "required": ["schemaVersion", "themeId", "themeName", "iblPath", "directionalLight", "colorTokens"],
+  "properties": {
+    "schemaVersion":    { "type": "string", "const": "1.0" },
+    "themeId":          { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "themeName":        { "type": "string", "minLength": 1 },
+    "iblPath":          { "type": "string", "pattern": "\\.ktx2$" },
+    "directionalLight": {
+      "type": "object",
+      "required": ["colorHex", "intensityLux", "directionXYZ"],
+      "properties": {
+        "colorHex":     { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "intensityLux": { "type": "number", "minimum": 0 },
+        "directionXYZ": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 }
+      }
+    },
+    "colorTokens": {
+      "type": "object",
+      "required": ["primary", "onPrimary", "surface", "onSurface", "background", "onBackground", "accent"],
+      "additionalProperties": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+    }
+  }
+}

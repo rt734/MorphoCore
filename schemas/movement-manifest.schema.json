@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "morphocore:movement-manifest:1.0",
+  "title": "Movement Manifest",
+  "description": "Describes a discipline and all its movements",
+  "type": "object",
+  "required": ["schemaVersion", "disciplineId", "disciplineName", "movements"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0" },
+    "disciplineId":  { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "disciplineName":{ "type": "string", "minLength": 1 },
+    "iconPath":      { "type": "string" },
+    "movements":     { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/movement" } }
+  },
+  "$defs": {
+    "movement": {
+      "type": "object",
+      "required": ["id", "name", "modelPath", "defaultClip", "clips", "muscles", "difficulty"],
+      "properties": {
+        "id":           { "type": "string", "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$" },
+        "name":         { "type": "string", "minLength": 1 },
+        "modelPath":    { "type": "string", "pattern": "\\.glb$" },
+        "defaultClip":  { "type": "string" },
+        "clips":        { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/animationClip" } },
+        "muscles":      { "type": "array", "items": { "type": "string" } },
+        "difficulty":   { "type": "string", "enum": ["BEGINNER", "INTERMEDIATE", "ADVANCED"] },
+        "tags":         { "type": "array", "items": { "type": "string" } },
+        "cameraPreset": { "type": "string" },
+        "prerequisites":{ "type": "array", "items": { "type": "string" } },
+        "commonMistakes":{ "type": "array", "items": {
+          "type": "object", "required": ["description"],
+          "properties": { "description": { "type": "string" } }
+        }},
+        "audioCuesPath":{ "type": "string" }
+      }
+    },
+    "animationClip": {
+      "type": "object",
+      "required": ["name", "durationSeconds", "fps"],
+      "properties": {
+        "name":            { "type": "string" },
+        "durationSeconds": { "type": "number", "exclusiveMinimum": 0 },
+        "fps":             { "type": "integer", "minimum": 1, "maximum": 120 }
+      }
+    }
+  }
+}
