@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "studio",
+  "displayName": "Studio",
+  "description": "Clean photography studio — neutral default for all disciplines.",
+  "isDefault": true,
+  "colors": {
+    "primary": "#1565C0", "onPrimary": "#FFFFFF",
+    "secondary": "#0097A7", "onSecondary": "#FFFFFF",
+    "background": "#FAFAFA", "onBackground": "#1A1A1A",
+    "surface": "#FFFFFF", "onSurface": "#1A1A1A",
+    "surfaceVariant": "#F0F0F0", "onSurfaceVariant": "#555555",
+    "outline": "#AAAAAA",
+    "semantic": {
+      "discipline.karate": "#D32F2F", "discipline.kungfu": "#F57C00",
+      "discipline.yoga": "#388E3C", "discipline.gym": "#1565C0",
+      "discipline.calisthenics": "#7B1FA2",
+      "difficulty.easy": "#388E3C", "difficulty.medium": "#F57C00", "difficulty.hard": "#D32F2F"
+    }
+  },
+  "typography": {
+    "fontFamily": { "display": null, "body": null, "label": null },
+    "scale": {
+      "displayLarge":  { "size": 57, "weight": 400, "lineHeight": 64 },
+      "headlineLarge": { "size": 32, "weight": 400, "lineHeight": 40 },
+      "titleLarge":    { "size": 22, "weight": 500, "lineHeight": 28 },
+      "bodyLarge":     { "size": 16, "weight": 400, "lineHeight": 24 },
+      "labelLarge":    { "size": 14, "weight": 500, "lineHeight": 20 }
+    }
+  },
+  "shapes": { "small": 4, "medium": 12, "large": 16 },
+  "motion": { "durationShort": 150, "durationMedium": 300, "durationLong": 500, "easingStandard": "cubicBezier(0.2, 0.0, 0.0, 1.0)" },
+  "scene": {
+    "skyboxPath": null,
+    "iblEnvironmentPath": "environments/studio_ibl.ktx2",
+    "iblIntensity": 1.0,
+    "directLight": { "colorHex": "#FFFFFF", "intensityLux": 50000.0, "azimuthDegrees": 0.0, "elevationDegrees": -45.0 },
+    "ambientIntensity": 0.5,
+    "groundPlane": { "enabled": false, "colorHex": "#FFFFFF", "opacity": 0.0 },
+    "postProcessing": { "bloomIntensity": 0.0, "vignetteIntensity": 0.0, "toneMapping": "LINEAR" }
+  }
+}

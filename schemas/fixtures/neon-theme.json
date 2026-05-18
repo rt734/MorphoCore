@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "neon",
+  "displayName": "Neon",
+  "description": "Futuristic training space with bloom-heavy post-processing.",
+  "isDefault": false,
+  "colors": {
+    "primary": "#00E5FF", "onPrimary": "#000000",
+    "secondary": "#FF00FF", "onSecondary": "#000000",
+    "background": "#050510", "onBackground": "#E0E0FF",
+    "surface": "#0A0A20", "onSurface": "#E0E0FF",
+    "surfaceVariant": "#151530", "onSurfaceVariant": "#8888CC",
+    "outline": "#3333AA",
+    "semantic": {
+      "discipline.karate": "#FF4488", "discipline.kungfu": "#FF8800",
+      "discipline.yoga": "#00FF88", "discipline.gym": "#00E5FF",
+      "discipline.calisthenics": "#AA00FF",
+      "difficulty.easy": "#00FF88", "difficulty.medium": "#FFAA00", "difficulty.hard": "#FF0044"
+    }
+  },
+  "typography": {
+    "fontFamily": { "display": null, "body": null, "label": null },
+    "scale": {
+      "displayLarge":  { "size": 57, "weight": 700, "lineHeight": 64 },
+      "headlineLarge": { "size": 32, "weight": 700, "lineHeight": 40 },
+      "titleLarge":    { "size": 22, "weight": 600, "lineHeight": 28 },
+      "bodyLarge":     { "size": 16, "weight": 300, "lineHeight": 24 },
+      "labelLarge":    { "size": 14, "weight": 400, "lineHeight": 20 }
+    }
+  },
+  "shapes": { "small": 0, "medium": 2, "large": 4 },
+  "motion": { "durationShort": 80, "durationMedium": 180, "durationLong": 350, "easingStandard": "cubicBezier(0.0, 0.0, 0.2, 1.0)" },
+  "scene": {
+    "skyboxPath": "environments/neon_skybox.ktx2",
+    "iblEnvironmentPath": "environments/neon_ibl.ktx2",
+    "iblIntensity": 0.5,
+    "directLight": { "colorHex": "#00FFFF", "intensityLux": 150000.0, "azimuthDegrees": 90.0, "elevationDegrees": -10.0 },
+    "ambientIntensity": 0.05,
+    "groundPlane": { "enabled": true, "colorHex": "#000033", "opacity": 0.8 },
+    "postProcessing": { "bloomIntensity": 0.8, "vignetteIntensity": 0.5, "toneMapping": "ACES" }
+  }
+}
