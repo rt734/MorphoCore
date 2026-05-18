@@ -6,3 +6,8 @@ local.properties
 .DS_Store
 captures/
 *.hprof
+*.apk
+*.aab
+*.aar
+.externalNativeBuild/
+lintResults/
