@@ -58,4 +58,9 @@ class MovementTest {
         assertEquals(Difficulty.BEGINNER, Difficulty.fromString("beginner"))
         assertEquals(Difficulty.ADVANCED, Difficulty.fromString("ADVANCED"))
     }
+
+    @Test
+    fun `Difficulty fromString throws on unknown value`() {
+        assertThrows<IllegalArgumentException> { Difficulty.fromString("expert") }
+    }
 }
