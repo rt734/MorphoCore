@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "themeId": "iron",
+  "themeName": "Iron",
+  "iblPath": "themes/iron/environment.ktx2",
+  "directionalLight": {
+    "colorHex": "#D0E8FF",
+    "intensityLux": 80000,
+    "directionXYZ": [-0.3, -1.0, 0.8]
+  },
+  "colorTokens": {
+    "primary":      "#2980B9",
+    "onPrimary":    "#FFFFFF",
+    "surface":      "#0F1923",
+    "onSurface":    "#CDD6E0",
+    "background":   "#070D12",
+    "onBackground": "#CDD6E0",
+    "accent":       "#3498DB"
+  }
+}

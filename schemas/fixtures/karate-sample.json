@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "karate",
+  "disciplineName": "Karate",
+  "iconPath": "content/karate/icon.png",
+  "movements": [
+    {
+      "id": "karate.roundhouse_kick",
+      "name": "Roundhouse Kick",
+      "modelPath": "content/karate/roundhouse_kick.glb",
+      "defaultClip": "kick_loop",
+      "clips": [
+        { "name": "kick_loop", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "hip_flexors", "core"],
+      "difficulty": "INTERMEDIATE",
+      "tags": ["strike", "kick"],
+      "prerequisites": ["karate.front_kick"],
+      "commonMistakes": [
+        { "description": "Not pivoting the supporting foot" }
+      ]
+    },
+    {
+      "id": "karate.front_kick",
+      "name": "Front Kick",
+      "modelPath": "content/karate/front_kick.glb",
+      "defaultClip": "kick_loop",
+      "clips": [
+        { "name": "kick_loop", "durationSeconds": 1.5, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "hip_flexors"],
+      "difficulty": "BEGINNER",
+      "tags": ["strike", "kick"]
+    },
+    {
+      "id": "karate.side_block",
+      "name": "Side Block",
+      "modelPath": "content/karate/side_block.glb",
+      "defaultClip": "block_loop",
+      "clips": [
+        { "name": "block_loop", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "back"],
+      "difficulty": "BEGINNER",
+      "tags": ["block", "defense"]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "yoga",
+  "disciplineName": "Yoga",
+  "movements": [
+    {
+      "id": "yoga.warrior_one",
+      "name": "Warrior I",
+      "modelPath": "content/yoga/warrior_one.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "hold", "durationSeconds": 3.0, "fps": 24 },
+        { "name": "transition_in", "durationSeconds": 1.5, "fps": 24 }
+      ],
+      "muscles": ["quadriceps", "glutes", "shoulders"],
+      "difficulty": "BEGINNER",
+      "tags": ["standing", "strength"]
+    },
+    {
+      "id": "yoga.downward_dog",
+      "name": "Downward Dog",
+      "modelPath": "content/yoga/downward_dog.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "hold", "durationSeconds": 3.0, "fps": 24 }
+      ],
+      "muscles": ["hamstrings", "calves", "back", "shoulders"],
+      "difficulty": "BEGINNER",
+      "tags": ["inversion", "stretch"]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "themeId": "dojo",
+  "themeName": "Dojo",
+  "iblPath": "themes/dojo/environment.ktx2",
+  "directionalLight": {
+    "colorHex": "#FFF0D0",
+    "intensityLux": 60000,
+    "directionXYZ": [0.5, -1.0, 0.5]
+  },
+  "colorTokens": {
+    "primary":      "#C0392B",
+    "onPrimary":    "#FFFFFF",
+    "surface":      "#1A1210",
+    "onSurface":    "#F5E6D3",
+    "background":   "#0D0A09",
+    "onBackground": "#F5E6D3",
+    "accent":       "#E67E22"
+  }
+}
