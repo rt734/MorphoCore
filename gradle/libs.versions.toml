@@ -8,6 +8,9 @@ junit5                = "5.11.3"
 turbine               = "1.2.0"
 detekt                = "1.23.7"
 ktlint                = "12.1.2"
+sceneview             = "2.2.1"
+compose-bom           = "2024.09.03"
+datastore             = "1.1.1"
 
 [libraries]
 kotlinx-coroutines-core      = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core",      version.ref = "coroutines" }
@@ -20,6 +23,12 @@ junit5-engine                = { module = "org.junit.jupiter:junit-jupiter-engin
 turbine                      = { module = "app.cash.turbine:turbine",                            version.ref = "turbine" }
 gradlePlugin-android         = { module = "com.android.tools.build:gradle",                      version.ref = "agp" }
 gradlePlugin-kotlin          = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin",           version.ref = "kotlin" }
+compose-bom                  = { module = "androidx.compose:compose-bom",                 version.ref = "compose-bom" }
+compose-ui                   = { module = "androidx.compose.ui:ui" }
+compose-material3            = { module = "androidx.compose.material3:material3" }
+compose-activity             = { module = "androidx.activity:activity-compose",            version = "1.9.2" }
+sceneview                    = { module = "io.github.sceneview:sceneview",                 version.ref = "sceneview" }
+datastore-preferences        = { module = "androidx.datastore:datastore-preferences",      version.ref = "datastore" }
 
 [plugins]
 android-application      = { id = "com.android.application",                           version.ref = "agp" }
@@ -30,3 +39,4 @@ kotlin-serialization     = { id = "org.jetbrains.kotlin.plugin.serialization",  
 hilt                     = { id = "com.google.dagger.hilt.android",                    version.ref = "hilt" }
 detekt                   = { id = "io.gitlab.arturbosch.detekt",                       version.ref = "detekt" }
 ktlint                   = { id = "org.jlleitschuh.gradle.ktlint",                     version.ref = "ktlint" }
+kotlin-compose-compiler  = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
