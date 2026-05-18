@@ -56,11 +56,12 @@ class MovementsViewModelTest {
         SavedStateHandle(mapOf("disciplineId" to disciplineId))
 
     @Test
-    fun `uiState is Loading when movements list is empty`() = runTest {
+    fun `uiState is Ready with empty movements when repository has no movements`() = runTest {
         val vm = MovementsViewModel(savedState("karate"), FakeContentRepository())
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
-        assertIs<MovementsUiState.Loading>(vm.uiState.value)
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(emptyList(), state.movements)
     }
 
     @Test

@@ -34,11 +34,12 @@ class BrowseViewModelTest {
         Discipline(id = id, name = name, iconPath = null, movementIds = emptyList())
 
     @Test
-    fun `uiState is Loading when repository emits empty list`() = runTest {
+    fun `uiState is Ready with empty list when repository emits nothing`() = runTest {
         val vm = BrowseViewModel(FakeContentRepository())
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
-        assertIs<BrowseUiState.Loading>(vm.uiState.value)
+        val state = assertIs<BrowseUiState.Ready>(vm.uiState.value)
+        assertEquals(emptyList(), state.disciplines)
     }
 
     @Test

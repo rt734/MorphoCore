@@ -18,10 +18,7 @@ class BrowseViewModel @Inject constructor(
 
     val uiState: StateFlow<BrowseUiState> = contentRepository
         .observeDisciplines()
-        .map { disciplines ->
-            if (disciplines.isEmpty()) BrowseUiState.Loading
-            else BrowseUiState.Ready(disciplines)
-        }
+        .map { disciplines -> BrowseUiState.Ready(disciplines) }
         .catch { e -> emit(BrowseUiState.Error(e.message ?: "Failed to load disciplines")) }
         .stateIn(
             scope = viewModelScope,

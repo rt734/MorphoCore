@@ -24,12 +24,8 @@ class MovementsViewModel @Inject constructor(
         contentRepository.observeMovements(disciplineId),
         contentRepository.observeDisciplines()
     ) { movements, disciplines ->
-        if (movements.isEmpty()) {
-            MovementsUiState.Loading
-        } else {
-            val disciplineName = disciplines.find { it.id == disciplineId }?.name ?: disciplineId
-            MovementsUiState.Ready(disciplineName = disciplineName, movements = movements)
-        }
+        val disciplineName = disciplines.find { it.id == disciplineId }?.name ?: disciplineId
+        MovementsUiState.Ready(disciplineName = disciplineName, movements = movements)
     }
         .catch { e -> emit(MovementsUiState.Error(e.message ?: "Failed to load movements")) }
         .stateIn(
