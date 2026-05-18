@@ -1,4 +1,8 @@
 plugins { id("morphocore.android.application") }
+
+android {
+    namespace = "com.morphocore.app"
+}
 dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:common"))
