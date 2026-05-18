@@ -3,5 +3,9 @@
     <application
         android:name=".MorphoCoreApplication"
         android:label="MorphoCore"
-        android:theme="@style/Theme.AppCompat" />
+        android:theme="@style/Theme.AppCompat">
+        <activity
+            android:name=".SmokeTestActivity"
+            android:exported="true" />
+    </application>
 </manifest>
