@@ -134,11 +134,8 @@ internal fun parseTheme(path: String, jsonString: String): ThemeParseResult =
 
 internal fun hexToArgbLong(hex: String): Long {
     val cleaned = hex.trimStart('#')
-    return when (cleaned.length) {
-        6 -> 0xFF000000L or cleaned.toLong(16)
-        8 -> cleaned.toLong(16)
-        else -> throw IllegalArgumentException("Invalid hex color: '$hex'")
-    }
+    if (cleaned.length != 6) throw IllegalArgumentException("Expected #RRGGBB hex color, got: '$hex'")
+    return 0xFF000000L or cleaned.toLong(16)
 }
 
 private fun ThemeDto.toTheme() = Theme(
