@@ -1,5 +1,14 @@
-plugins { id("morphocore.android.library") }
+plugins {
+    id("morphocore.compose.feature")
+}
 
 android {
     namespace = "com.morphocore.feature.detail"
+}
+
+dependencies {
+    implementation(project(":core:domain"))
+    implementation(project(":rendering:rendering-api"))
+    implementation(project(":content:content-api"))
+    implementation(project(":core:design-system"))
 }
