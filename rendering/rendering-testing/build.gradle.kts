@@ -1,5 +1,6 @@
-plugins { id("morphocore.android.library") }
+plugins { id("morphocore.kotlin.library") }
 
-android {
-    namespace = "com.morphocore.rendering.testing"
+dependencies {
+    implementation(project(":rendering:rendering-api"))
+    implementation(project(":core:domain"))
 }
