@@ -28,6 +28,8 @@ class ThemeProviderImpl(
             val saved = themes.find { it.id == savedId }
             if (saved != null) return saved
         }
-        return themes.find { it.isDefault } ?: themes.first()
+        return themes.find { it.isDefault }
+            ?: themes.firstOrNull()
+            ?: error("No themes loaded — ThemeRegistryImpl.refresh() must complete before constructing ThemeProviderImpl")
     }
 }
