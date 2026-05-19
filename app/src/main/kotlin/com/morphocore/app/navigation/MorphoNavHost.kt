@@ -7,7 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.morphocore.feature.browse.ui.BrowseScreen
+import com.morphocore.feature.detail.ui.DetailScreen
 import com.morphocore.feature.movements.ui.MovementsScreen
+import com.morphocore.feature.settings.ui.SettingsScreen
 
 @Composable
 fun MorphoNavHost(
@@ -33,11 +35,17 @@ fun MorphoNavHost(
                 onBack = { navController.popBackStack() }
             )
         }
-        composable<Detail> {
-            // Sprint 4
+        composable<Detail> { backStackEntry ->
+            val dest: Detail = backStackEntry.toRoute()
+            DetailScreen(
+                movementId = dest.movementId,
+                onBack = { navController.popBackStack() }
+            )
         }
         composable<Settings> {
-            // Sprint 4
+            SettingsScreen(
+                onBack = { navController.popBackStack() }
+            )
         }
     }
 }

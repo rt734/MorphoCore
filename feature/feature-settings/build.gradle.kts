@@ -9,5 +9,4 @@ android {
 dependencies {
     implementation(project(":core:domain"))
     implementation(project(":theme:theme-api"))
-    implementation(project(":core:design-system"))
 }
