@@ -27,8 +27,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.morphocore.domain.Difficulty
 import com.morphocore.feature.movements.MovementsUiState
 import com.morphocore.feature.movements.MovementsViewModel
+
+private fun Difficulty.displayLabel(): String = when (this) {
+    Difficulty.BEGINNER     -> "Beginner"
+    Difficulty.INTERMEDIATE -> "Intermediate"
+    Difficulty.ADVANCED     -> "Advanced"
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -78,6 +85,23 @@ fun MovementsScreen(
                         .fillMaxSize()
                         .padding(innerPadding)
                 ) {
+                    item {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .horizontalScroll(rememberScrollState())
+                                .padding(horizontal = 16.dp, vertical = 4.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Difficulty.entries.forEach { difficulty ->
+                                FilterChip(
+                                    selected = difficulty in state.selectedDifficulties,
+                                    onClick = { viewModel.toggleDifficulty(difficulty) },
+                                    label = { Text(difficulty.displayLabel()) }
+                                )
+                            }
+                        }
+                    }
                     if (state.availableTags.isNotEmpty()) {
                         item {
                             Row(

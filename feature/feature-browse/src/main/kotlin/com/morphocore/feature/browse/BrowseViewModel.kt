@@ -2,7 +2,9 @@ package com.morphocore.feature.browse
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.morphocore.content.api.ContentRegistry
 import com.morphocore.content.api.ContentRepository
+import com.morphocore.content.api.RegistryState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,12 +15,14 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @OptIn(FlowPreview::class)
 @HiltViewModel
 class BrowseViewModel @Inject constructor(
-    private val contentRepository: ContentRepository
+    private val contentRepository: ContentRepository,
+    private val contentRegistry: ContentRegistry
 ) : ViewModel() {
 
     private val _query = MutableStateFlow("")
@@ -27,17 +31,24 @@ class BrowseViewModel @Inject constructor(
     val uiState: StateFlow<BrowseUiState> = combine(
         contentRepository.observeDisciplines(),
         contentRepository.observeAllMovements(),
+        contentRegistry.state,
         _query.debounce(300)
-    ) { disciplines, movements, query ->
-        if (query.isBlank()) {
-            BrowseUiState.Ready(disciplines = disciplines)
-        } else {
-            val q = query.trim().lowercase()
-            val matchingDisciplines = disciplines.filter { it.name.lowercase().contains(q) }
-            val matchingMovements = movements.filter { m ->
-                m.name.lowercase().contains(q) || m.tags.any { it.lowercase().contains(q) }
+    ) { disciplines, movements, registryState, query ->
+        when {
+            registryState is RegistryState.Error ->
+                BrowseUiState.Error("Content failed to load. Tap retry to try again.")
+            registryState is RegistryState.Loading ->
+                BrowseUiState.Loading
+            query.isBlank() ->
+                BrowseUiState.Ready(disciplines = disciplines)
+            else -> {
+                val q = query.trim().lowercase()
+                val matchingDisciplines = disciplines.filter { it.name.lowercase().contains(q) }
+                val matchingMovements = movements.filter { m ->
+                    m.name.lowercase().contains(q) || m.tags.any { it.lowercase().contains(q) }
+                }
+                BrowseUiState.Ready(matchingDisciplines, matchingMovements, query)
             }
-            BrowseUiState.Ready(matchingDisciplines, matchingMovements, query)
         }
     }
         .catch { e -> emit(BrowseUiState.Error(e.message ?: "Failed to load disciplines")) }
@@ -49,5 +60,9 @@ class BrowseViewModel @Inject constructor(
 
     fun setQuery(query: String) {
         _query.value = query
+    }
+
+    fun retry() {
+        viewModelScope.launch { contentRegistry.refresh() }
     }
 }
