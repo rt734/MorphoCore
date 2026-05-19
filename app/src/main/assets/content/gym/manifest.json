@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "gym",
+  "disciplineName": "Weight Training",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "gym.squat",
+      "name": "Barbell Back Squat",
+      "modelPath": "content/gym/models/squat.glb",
+      "defaultClip": "squat",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "squat", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "hamstrings", "core"],
+      "difficulty": "intermediate",
+      "tags": ["squat", "compound", "legs"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Allowing the knees to track inward (valgus collapse) during the ascent, placing high shear stress on the ACL and medial collateral ligament." },
+        { "description": "Performing a butt-wink by allowing the pelvis to posteriorly tilt at the bottom of the squat, which flexes the lumbar spine under load and increases disc injury risk." }
+      ]
+    },
+    {
+      "id": "gym.deadlift",
+      "name": "Conventional Deadlift",
+      "modelPath": "content/gym/models/deadlift.glb",
+      "defaultClip": "lift",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "lift", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "muscles": ["hamstrings", "glutes", "back", "core"],
+      "difficulty": "advanced",
+      "tags": ["deadlift", "compound", "posterior-chain"],
+      "cameraPreset": "side",
+      "prerequisites": ["gym.squat"],
+      "commonMistakes": [
+        { "description": "Jerking the bar off the floor instead of building tension gradually, causing the lower back to round before the legs can engage." },
+        { "description": "Allowing the bar to drift away from the body during the pull, increasing the moment arm on the lumbar spine and dramatically raising injury risk." }
+      ]
+    },
+    {
+      "id": "gym.bench-press",
+      "name": "Barbell Bench Press",
+      "modelPath": "content/gym/models/bench-press.glb",
+      "defaultClip": "press",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "press", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["chest", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["press", "compound", "upper-body"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Flaring the elbows to 90 degrees relative to the torso, which places excessive anterior shear on the glenohumeral joint and strains the rotator cuff." },
+        { "description": "Bouncing the bar off the chest to overcome the sticking point, reducing time under tension and risking rib or sternum injury." }
+      ]
+    },
+    {
+      "id": "gym.pull-up",
+      "name": "Pull-Up",
+      "modelPath": "content/gym/models/pull-up.glb",
+      "defaultClip": "pull",
+      "clips": [
+        { "name": "hang", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "pull", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["back", "shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["pull", "compound", "upper-body", "bodyweight"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Using a kipping or swinging motion to generate momentum, removing tension from the lats and placing sudden rotational stress on the shoulder joint at the top." },
+        { "description": "Not achieving full scapular depression and retraction before pulling, causing the upper trapezius to dominate and reducing lat engagement." }
+      ]
+    },
+    {
+      "id": "gym.overhead-press",
+      "name": "Barbell Overhead Press",
+      "modelPath": "content/gym/models/overhead-press.glb",
+      "defaultClip": "press",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "press", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["press", "compound", "overhead"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Hyperextending the lumbar spine to push the chest forward under heavy load, compensating for limited thoracic mobility and compressing the lumbar discs." },
+        { "description": "Pressing the bar in a straight vertical path rather than slightly back behind the head, preventing the bar from traveling over the body's center of gravity and making the lift mechanically inefficient." }
+      ]
+    }
+  ]
+}
