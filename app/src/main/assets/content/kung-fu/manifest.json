@@ -98,6 +98,61 @@
         { "description": "Hyperextending the wrist backward at the moment of contact instead of maintaining a neutral wrist, which risks wrist sprain and diminishes force transmission." },
         { "description": "Pushing the strike from the arm alone without engaging the pectorals and core rotation, producing a weak, arm-only strike with no whole-body power." }
       ]
+    },
+    {
+      "id": "kung-fu.spinning-kick",
+      "name": "Xuan Feng Tui (Spinning Kick)",
+      "modelPath": "content/kung-fu/models/spinning-kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "core"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning", "advanced-kick"],
+      "cameraPreset": "front",
+      "prerequisites": ["kung-fu.hook-kick"],
+      "commonMistakes": [
+        { "description": "Initiating the spin with the arm rather than driving from the supporting hip, causing a slow and uncontrolled rotation." },
+        { "description": "Looking away from the target before contact, reducing accuracy and leaving the fighter blind." }
+      ]
+    },
+    {
+      "id": "kung-fu.low-sweep",
+      "name": "Di Tang (Low Sweep)",
+      "modelPath": "content/kung-fu/models/low-sweep.glb",
+      "defaultClip": "sweep",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "sweep", "durationSeconds": 1.8, "fps": 30 }
+      ],
+      "muscles": ["core", "glutes", "hamstrings"],
+      "difficulty": "intermediate",
+      "tags": ["sweep", "takedown", "ground"],
+      "cameraPreset": "side",
+      "prerequisites": ["kung-fu.horse-stance"],
+      "commonMistakes": [
+        { "description": "Sweeping with a bent leg instead of extending fully, reducing reach and power." }
+      ]
+    },
+    {
+      "id": "kung-fu.leopard-punch",
+      "name": "Bao Quan (Leopard Punch)",
+      "modelPath": "content/kung-fu/models/leopard-punch.glb",
+      "defaultClip": "punch",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "punch", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "muscles": ["core", "shoulders", "chest"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "punch", "close-range"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Using full fist contact instead of the second knuckle row, losing the concentrated impact of the technique." }
+      ]
     }
   ]
 }

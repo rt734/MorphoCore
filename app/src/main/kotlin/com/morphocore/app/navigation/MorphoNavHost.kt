@@ -24,6 +24,7 @@ fun MorphoNavHost(
         composable<Browse> {
             BrowseScreen(
                 onDisciplineSelected = { id -> navController.navigate(Movements(id)) },
+                onMovementSelected = { id -> navController.navigate(Detail(id)) },
                 onSettingsClick = { navController.navigate(Settings) }
             )
         }

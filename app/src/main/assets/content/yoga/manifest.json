@@ -98,6 +98,62 @@
         { "description": "Placing the raised foot against the standing knee, putting lateral stress on the joint." },
         { "description": "Fixing the gaze on something unstable or shifting it around, which disrupts the balance drishti." }
       ]
+    },
+    {
+      "id": "yoga.cobra",
+      "name": "Cobra Pose (Bhujangasana)",
+      "modelPath": "content/yoga/models/cobra.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["back", "core", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["backbend", "fundamental", "spine"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Pushing up with the hands and engaging the arms rather than using back strength, compressing the lumbar spine." },
+        { "description": "Crunching the neck back instead of lengthening through the crown of the head." }
+      ]
+    },
+    {
+      "id": "yoga.child",
+      "name": "Child's Pose (Balasana)",
+      "modelPath": "content/yoga/models/child.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["back", "core", "glutes"],
+      "difficulty": "beginner",
+      "tags": ["rest", "fundamental", "recovery"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Holding tension in the shoulders instead of letting them melt toward the floor." }
+      ]
+    },
+    {
+      "id": "yoga.bridge",
+      "name": "Bridge Pose (Setu Bandha)",
+      "modelPath": "content/yoga/models/bridge.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["glutes", "hamstrings", "core", "back"],
+      "difficulty": "beginner",
+      "tags": ["backbend", "strength", "hip-flexors"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Allowing the knees to splay outward instead of staying hip-width and parallel." },
+        { "description": "Squeezing the glutes so hard that the lower back overextends and takes the load." }
+      ]
     }
   ]
 }
