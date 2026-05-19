@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "iron",
+  "displayName": "Iron",
+  "description": "Industrial gym aesthetic with steel greys and harsh overhead lighting.",
+  "isDefault": false,
+  "colors": {
+    "primary": "#455A64",
+    "onPrimary": "#FFFFFF",
+    "secondary": "#78909C",
+    "onSecondary": "#000000",
+    "background": "#121212",
+    "onBackground": "#E0E0E0",
+    "surface": "#1E1E1E",
+    "onSurface": "#E0E0E0",
+    "surfaceVariant": "#2C2C2C",
+    "onSurfaceVariant": "#9E9E9E",
+    "outline": "#424242"
+  },
+  "typography": {},
+  "shapes": { "small": 4.0, "medium": 8.0, "large": 16.0 },
+  "motion": { "durationShort": 150, "durationMedium": 250, "durationLong": 400 },
+  "scene": {
+    "iblEnvironmentPath": "themes/iron/env/iron.hdr",
+    "iblIntensity": 25000.0,
+    "directLight": {
+      "colorHex": "#B0C4DE",
+      "intensityLux": 120000.0,
+      "azimuthDegrees": 90.0,
+      "elevationDegrees": 60.0
+    },
+    "groundPlane": {
+      "enabled": true,
+      "colorHex": "#1A1A1A",
+      "opacity": 0.9
+    }
+  }
+}

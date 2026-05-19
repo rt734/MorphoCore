@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "karate",
+  "disciplineName": "Karate",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "karate.mae-geri",
+      "name": "Mae Geri (Front Kick)",
+      "modelPath": "content/karate/models/mae_geri.glb",
+      "defaultClip": "kick",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 1.5, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "core", "hip_flexors"],
+      "difficulty": "beginner",
+      "tags": ["kick", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Leaning backward during the kick, reducing power and exposing the body." },
+        { "description": "Not retracting the kicking leg quickly after extension, leaving it vulnerable." }
+      ]
+    },
+    {
+      "id": "karate.mawashi-geri",
+      "name": "Mawashi Geri (Roundhouse Kick)",
+      "modelPath": "content/karate/models/mawashi_geri.glb",
+      "defaultClip": "kick",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 1.8, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "advanced-kick"],
+      "cameraPreset": "front",
+      "prerequisites": ["karate.mae-geri"],
+      "commonMistakes": [
+        { "description": "Dropping the guard hand on the kicking side, leaving the head open to counterattack." },
+        { "description": "Insufficient hip rotation, reducing reach and impact power of the kick." }
+      ]
+    },
+    {
+      "id": "karate.gyaku-zuki",
+      "name": "Gyaku Zuki (Reverse Punch)",
+      "modelPath": "content/karate/models/gyaku_zuki.glb",
+      "defaultClip": "punch",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "punch", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "beginner",
+      "tags": ["punch", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Punching with the arm only and not engaging hip rotation, resulting in weak technique." },
+        { "description": "Raising the shoulder during the punch instead of keeping it relaxed and down." }
+      ]
+    },
+    {
+      "id": "karate.oi-zuki",
+      "name": "Oi Zuki (Lunge Punch)",
+      "modelPath": "content/karate/models/oi_zuki.glb",
+      "defaultClip": "punch",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "punch", "durationSeconds": 1.6, "fps": 30 }
+      ],
+      "muscles": ["core", "shoulders", "back", "quadriceps"],
+      "difficulty": "beginner",
+      "tags": ["punch", "stepping"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Bobbing the head up and down during the stepping motion, telegraphing the attack." },
+        { "description": "Landing with the front foot before the punch arrives, breaking the kime and losing power." }
+      ]
+    },
+    {
+      "id": "karate.shuto-uke",
+      "name": "Shuto Uke (Knife Hand Block)",
+      "modelPath": "content/karate/models/shuto_uke.glb",
+      "defaultClip": "block",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "block", "durationSeconds": 1.3, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["block", "defense"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["karate.gyaku-zuki"],
+      "commonMistakes": [
+        { "description": "Bending the elbow too much on the blocking arm, reducing the effective blocking area." },
+        { "description": "Neglecting to pull the opposite hand back to the hip, losing the body's counter-balance and power." }
+      ]
+    }
+  ]
+}

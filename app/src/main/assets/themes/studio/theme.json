@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "studio",
+  "displayName": "Studio",
+  "description": "Clean photography studio aesthetic with professional blue accents and neutral lighting.",
+  "isDefault": false,
+  "colors": {
+    "primary": "#1976D2",
+    "onPrimary": "#FFFFFF",
+    "secondary": "#42A5F5",
+    "onSecondary": "#000000",
+    "background": "#FAFAFA",
+    "onBackground": "#212121",
+    "surface": "#FFFFFF",
+    "onSurface": "#212121",
+    "surfaceVariant": "#F5F5F5",
+    "onSurfaceVariant": "#616161",
+    "outline": "#BDBDBD"
+  },
+  "typography": {},
+  "shapes": { "small": 4.0, "medium": 8.0, "large": 16.0 },
+  "motion": { "durationShort": 150, "durationMedium": 250, "durationLong": 400 },
+  "scene": {
+    "iblEnvironmentPath": "themes/studio/env/studio.hdr",
+    "iblIntensity": 45000.0,
+    "directLight": {
+      "colorHex": "#FFFFFF",
+      "intensityLux": 80000.0,
+      "azimuthDegrees": 30.0,
+      "elevationDegrees": 50.0
+    },
+    "groundPlane": {
+      "enabled": false,
+      "colorHex": "#F0F0F0",
+      "opacity": 0.0
+    }
+  }
+}
