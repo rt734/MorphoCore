@@ -29,6 +29,10 @@ class FakeSceneViewport(
         calls += ViewportCall.SeekTo(timeSeconds)
     }
 
+    override fun setPlaybackSpeed(speed: Float) {
+        calls += ViewportCall.SetPlaybackSpeed(speed)
+    }
+
     override fun setCamera(preset: CameraPreset, animated: Boolean) {
         calls += ViewportCall.SetCamera(preset, animated)
     }

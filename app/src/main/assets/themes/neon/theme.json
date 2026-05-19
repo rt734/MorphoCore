@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "neon",
+  "displayName": "Neon",
+  "description": "Cyberpunk night aesthetic with electric cyan and magenta neon accents on a dark background.",
+  "isDefault": false,
+  "colors": {
+    "primary": "#00E5FF",
+    "onPrimary": "#000000",
+    "secondary": "#E040FB",
+    "onSecondary": "#000000",
+    "background": "#0A0A12",
+    "onBackground": "#E0E0E0",
+    "surface": "#12121E",
+    "onSurface": "#E0E0E0",
+    "surfaceVariant": "#1A1A2E",
+    "onSurfaceVariant": "#9E9E9E",
+    "outline": "#303050"
+  },
+  "typography": {},
+  "shapes": { "small": 4.0, "medium": 8.0, "large": 16.0 },
+  "motion": { "durationShort": 150, "durationMedium": 250, "durationLong": 400 },
+  "scene": {
+    "iblEnvironmentPath": "themes/neon/env/neon.hdr",
+    "iblIntensity": 15000.0,
+    "directLight": {
+      "colorHex": "#8080FF",
+      "intensityLux": 60000.0,
+      "azimuthDegrees": 180.0,
+      "elevationDegrees": 25.0
+    },
+    "groundPlane": {
+      "enabled": true,
+      "colorHex": "#0A0A1A",
+      "opacity": 0.95
+    }
+  }
+}

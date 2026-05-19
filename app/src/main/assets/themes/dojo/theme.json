@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "dojo",
+  "displayName": "Dojo",
+  "description": "Traditional Japanese dojo aesthetic with warm wood tones and amber lighting.",
+  "isDefault": true,
+  "colors": {
+    "primary": "#8B4513",
+    "onPrimary": "#FFFFFF",
+    "secondary": "#D2691E",
+    "onSecondary": "#FFFFFF",
+    "background": "#1C1008",
+    "onBackground": "#F5E6D0",
+    "surface": "#2A1A0C",
+    "onSurface": "#F5E6D0",
+    "surfaceVariant": "#3D2A15",
+    "onSurfaceVariant": "#C8A882",
+    "outline": "#7A5C3A"
+  },
+  "typography": {},
+  "shapes": { "small": 4.0, "medium": 8.0, "large": 16.0 },
+  "motion": { "durationShort": 150, "durationMedium": 250, "durationLong": 400 },
+  "scene": {
+    "iblEnvironmentPath": "themes/dojo/env/dojo.hdr",
+    "iblIntensity": 30000.0,
+    "directLight": {
+      "colorHex": "#FFE0A0",
+      "intensityLux": 100000.0,
+      "azimuthDegrees": 45.0,
+      "elevationDegrees": 35.0
+    },
+    "groundPlane": {
+      "enabled": true,
+      "colorHex": "#5C3A1E",
+      "opacity": 0.7
+    }
+  }
+}

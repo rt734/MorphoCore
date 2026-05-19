@@ -46,8 +46,13 @@ class DetailViewModel @Inject constructor(
     private val _playbackState = MutableStateFlow(PlaybackState("", false))
     val playbackState: StateFlow<PlaybackState> = _playbackState.asStateFlow()
 
-    fun onModelLoaded(defaultClip: String) {
-        _playbackState.value = PlaybackState(defaultClip, true)
+    fun onModelLoaded(defaultClip: String, defaultCamera: String?) {
+        _playbackState.value = PlaybackState(
+            currentClip = defaultClip,
+            isPlaying = true,
+            speedMultiplier = 1f,
+            cameraPreset = defaultCamera
+        )
     }
 
     fun togglePlayPause() {
@@ -56,5 +61,13 @@ class DetailViewModel @Inject constructor(
 
     fun selectClip(clipName: String) {
         _playbackState.update { it.copy(currentClip = clipName, isPlaying = true) }
+    }
+
+    fun setSpeed(speed: Float) {
+        _playbackState.update { it.copy(speedMultiplier = speed) }
+    }
+
+    fun selectCamera(presetName: String) {
+        _playbackState.update { it.copy(cameraPreset = presetName) }
     }
 }

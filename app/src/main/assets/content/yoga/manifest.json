@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "yoga",
+  "disciplineName": "Yoga",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "yoga.mountain-pose",
+      "name": "Mountain Pose (Tadasana)",
+      "modelPath": "content/yoga/models/mountain_pose.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "muscles": ["core", "back", "calves"],
+      "difficulty": "beginner",
+      "tags": ["standing", "fundamental", "balance"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Locking the knees rigidly rather than keeping a microbend, which compresses the joint." },
+        { "description": "Letting the chin jut forward instead of lengthening the back of the neck, disrupting spinal alignment." }
+      ]
+    },
+    {
+      "id": "yoga.warrior-1",
+      "name": "Warrior I (Virabhadrasana I)",
+      "modelPath": "content/yoga/models/warrior_1.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "shoulders", "core"],
+      "difficulty": "beginner",
+      "tags": ["standing", "strength"],
+      "cameraPreset": "front",
+      "prerequisites": ["yoga.mountain-pose"],
+      "commonMistakes": [
+        { "description": "Allowing the front knee to collapse inward rather than tracking over the second toe." },
+        { "description": "Shrugging the shoulders up toward the ears when raising the arms, creating neck tension." }
+      ]
+    },
+    {
+      "id": "yoga.warrior-2",
+      "name": "Warrior II (Virabhadrasana II)",
+      "modelPath": "content/yoga/models/warrior_2.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["standing", "strength"],
+      "cameraPreset": "side",
+      "prerequisites": ["yoga.warrior-1"],
+      "commonMistakes": [
+        { "description": "Leaning the torso forward over the front leg rather than keeping it stacked directly over the hips." },
+        { "description": "Allowing the back foot to angle inward too much, which reduces hip opening and stability." }
+      ]
+    },
+    {
+      "id": "yoga.downward-dog",
+      "name": "Downward Facing Dog (Adho Mukha Svanasana)",
+      "modelPath": "content/yoga/models/downward_dog.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "hamstrings", "calves", "back"],
+      "difficulty": "beginner",
+      "tags": ["inversion", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": ["yoga.mountain-pose"],
+      "commonMistakes": [
+        { "description": "Rounding the upper back rather than externally rotating the shoulders to create a flat spine." },
+        { "description": "Forcing the heels to touch the floor by bending the knees, which removes the hamstring stretch." }
+      ]
+    },
+    {
+      "id": "yoga.tree-pose",
+      "name": "Tree Pose (Vrksasana)",
+      "modelPath": "content/yoga/models/tree_pose.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "muscles": ["core", "calves", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["balance", "standing"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["yoga.mountain-pose"],
+      "commonMistakes": [
+        { "description": "Placing the raised foot against the standing knee, putting lateral stress on the joint." },
+        { "description": "Fixing the gaze on something unstable or shifting it around, which disrupts the balance drishti." }
+      ]
+    }
+  ]
+}

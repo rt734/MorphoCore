@@ -61,6 +61,10 @@ class SceneViewportImpl : SceneViewport {
         currentModelNode?.animationTime = timeSeconds
     }
 
+    override fun setPlaybackSpeed(speed: Float) {
+        // Speed control deferred — SceneView 2.2.1 does not expose animationSpeed directly.
+    }
+
     override fun setCamera(preset: CameraPreset, animated: Boolean) {
         // Camera preset wiring deferred to Sprint 3.
     }

@@ -18,6 +18,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -30,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.morphocore.domain.CameraPreset
 import com.morphocore.domain.Movement
 import com.morphocore.feature.detail.DetailUiState
 import com.morphocore.feature.detail.DetailViewModel
@@ -37,6 +39,20 @@ import com.morphocore.feature.detail.PlaybackState
 import com.morphocore.feature.detail.toSceneEnvironment
 import com.morphocore.rendering.sceneview.SceneViewportImpl
 import com.morphocore.rendering.sceneview.SceneViewportSurface
+
+private val speedOptions = listOf(
+    0.5f to "0.5×",
+    1f   to "1×",
+    1.5f to "1.5×",
+    2f   to "2×"
+)
+
+private val cameraOptions = listOf(
+    "front"         to "Front",
+    "side"          to "Side",
+    "top"           to "Top",
+    "three_quarter" to "3/4"
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,18 +75,26 @@ fun DetailScreen(
         val state = uiState
         if (state is DetailUiState.Ready) {
             viewport.loadModel(state.movement.modelPath)
-            viewModel.onModelLoaded(state.movement.defaultClip)
+            viewModel.onModelLoaded(state.movement.defaultClip, state.movement.cameraPreset)
         }
     }
 
     LaunchedEffect(playbackState) {
         val clip = playbackState.currentClip
         if (clip.isNotEmpty()) {
+            viewport.setPlaybackSpeed(playbackState.speedMultiplier)
             if (playbackState.isPlaying) {
                 viewport.play(clip)
             } else {
                 viewport.pause()
             }
+        }
+    }
+
+    val cameraPreset = playbackState.cameraPreset
+    LaunchedEffect(cameraPreset) {
+        if (cameraPreset != null) {
+            viewport.setCamera(CameraPreset(cameraPreset))
         }
     }
 
@@ -116,7 +140,9 @@ fun DetailScreen(
                         movement = state.movement,
                         playbackState = playbackState,
                         onTogglePlayPause = viewModel::togglePlayPause,
-                        onClipSelected = viewModel::selectClip
+                        onClipSelected = viewModel::selectClip,
+                        onSpeedSelected = viewModel::setSpeed,
+                        onCameraSelected = viewModel::selectCamera
                     )
                 }
             }
@@ -140,12 +166,15 @@ private fun PlaybackControls(
     playbackState: PlaybackState,
     onTogglePlayPause: () -> Unit,
     onClipSelected: (String) -> Unit,
+    onSpeedSelected: (Float) -> Unit,
+    onCameraSelected: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        // Play / pause
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
@@ -158,10 +187,40 @@ private fun PlaybackControls(
                 }
             }
         }
+
+        // Speed row
+        Text(
+            text = "Speed",
+            style = MaterialTheme.typography.labelSmall
+        )
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            items(speedOptions) { (speed, label) ->
+                FilterChip(
+                    selected = playbackState.speedMultiplier == speed,
+                    onClick = { onSpeedSelected(speed) },
+                    label = { Text(label) }
+                )
+            }
+        }
+
+        // Camera row
+        Text(
+            text = "Camera",
+            style = MaterialTheme.typography.labelSmall
+        )
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            items(cameraOptions) { (key, label) ->
+                FilterChip(
+                    selected = playbackState.cameraPreset == key,
+                    onClick = { onCameraSelected(key) },
+                    label = { Text(label) }
+                )
+            }
+        }
+
+        // Clip selector (only when more than one clip)
         if (movement.clips.size > 1) {
-            LazyRow(
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 items(movement.clips) { clip ->
                     FilterChip(
                         selected = clip.name == playbackState.currentClip,

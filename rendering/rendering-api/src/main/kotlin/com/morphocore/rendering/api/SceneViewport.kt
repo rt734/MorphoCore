@@ -8,6 +8,7 @@ interface SceneViewport {
     fun play(clipName: String, loop: Boolean = true)
     fun pause()
     fun seekTo(timeSeconds: Float)
+    fun setPlaybackSpeed(speed: Float)
     fun setCamera(preset: CameraPreset, animated: Boolean = true)
     fun applySceneEnvironment(env: SceneEnvironment)
 }
