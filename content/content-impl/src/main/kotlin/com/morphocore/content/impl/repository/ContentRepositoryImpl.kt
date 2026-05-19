@@ -21,6 +21,9 @@ class ContentRepositoryImpl(private val registry: ContentRegistryImpl) : Content
                 .sortedWith(compareBy({ it.difficulty.ordinal }, { it.name }))
         }
 
+    override fun observeAllMovements(): Flow<List<Movement>> =
+        registry.index.map { index -> index.movements.values.sortedBy { it.name } }
+
     override suspend fun getMovement(movementId: String): Movement? =
         registry.index.value.movements[movementId]
 }

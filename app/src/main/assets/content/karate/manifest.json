@@ -98,6 +98,62 @@
         { "description": "Bending the elbow too much on the blocking arm, reducing the effective blocking area." },
         { "description": "Neglecting to pull the opposite hand back to the hip, losing the body's counter-balance and power." }
       ]
+    },
+    {
+      "id": "karate.ushiro-geri",
+      "name": "Ushiro Geri (Back Kick)",
+      "modelPath": "content/karate/models/ushiro_geri.glb",
+      "defaultClip": "kick",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 1.6, "fps": 30 }
+      ],
+      "muscles": ["glutes", "hamstrings", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "power"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Not looking over the shoulder to aim before firing the kick, resulting in poor accuracy." },
+        { "description": "Leaning too far forward to compensate for balance, which telegraphs the kick and reduces power." }
+      ]
+    },
+    {
+      "id": "karate.jodan-uke",
+      "name": "Jodan Uke (Upper Block)",
+      "modelPath": "content/karate/models/jodan_uke.glb",
+      "defaultClip": "block",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "block", "durationSeconds": 1.1, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "beginner",
+      "tags": ["block", "defense", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Blocking too far out from the head, reducing protection and losing structural integrity." }
+      ]
+    },
+    {
+      "id": "karate.morote-uke",
+      "name": "Morote Uke (Augmented Block)",
+      "modelPath": "content/karate/models/morote_uke.glb",
+      "defaultClip": "block",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "block", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["block", "defense", "power"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["karate.jodan-uke"],
+      "commonMistakes": [
+        { "description": "Failing to rotate the hips into the block, making it arm-only and easily overwhelmed." },
+        { "description": "Placing the augmenting fist too high on the blocking arm, reducing leverage." }
+      ]
     }
   ]
 }

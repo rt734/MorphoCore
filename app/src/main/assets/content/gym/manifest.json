@@ -98,6 +98,63 @@
         { "description": "Hyperextending the lumbar spine to push the chest forward under heavy load, compensating for limited thoracic mobility and compressing the lumbar discs." },
         { "description": "Pressing the bar in a straight vertical path rather than slightly back behind the head, preventing the bar from traveling over the body's center of gravity and making the lift mechanically inefficient." }
       ]
+    },
+    {
+      "id": "gym.barbell-row",
+      "name": "Barbell Bent-Over Row",
+      "modelPath": "content/gym/models/barbell-row.glb",
+      "defaultClip": "row",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "row", "durationSeconds": 2.2, "fps": 30 }
+      ],
+      "muscles": ["back", "shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["pull", "compound", "upper-body", "posterior-chain"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Jerking the weight up with the lower back rather than initiating the pull with the elbows, risking spinal injury." },
+        { "description": "Allowing the torso to rise above 45 degrees during the pull, converting it into a partial deadlift." }
+      ]
+    },
+    {
+      "id": "gym.dip",
+      "name": "Parallel Bar Dip",
+      "modelPath": "content/gym/models/dip.glb",
+      "defaultClip": "dip",
+      "clips": [
+        { "name": "hang", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "dip", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["chest", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["push", "compound", "upper-body", "bodyweight"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Flaring the elbows outward excessively, placing the shoulder joint in an impingement-prone position." },
+        { "description": "Not reaching full lockout at the top, reducing the stimulus to the triceps." }
+      ]
+    },
+    {
+      "id": "gym.romanian-deadlift",
+      "name": "Romanian Deadlift",
+      "modelPath": "content/gym/models/romanian-deadlift.glb",
+      "defaultClip": "hinge",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "hinge", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "muscles": ["hamstrings", "glutes", "back"],
+      "difficulty": "intermediate",
+      "tags": ["deadlift", "hinge", "posterior-chain"],
+      "cameraPreset": "side",
+      "prerequisites": ["gym.deadlift"],
+      "commonMistakes": [
+        { "description": "Bending the knees too much and converting the movement into a conventional deadlift, missing the hamstring stretch." },
+        { "description": "Rounding the upper back instead of maintaining a neutral spine throughout the hinge." }
+      ]
     }
   ]
 }

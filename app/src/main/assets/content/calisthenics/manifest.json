@@ -98,6 +98,62 @@
         { "description": "Neglecting to use a false grip (wrapping the wrists over the bar) on ring or bar muscle-ups, making the transition phase nearly impossible because the wrist cannot rotate around the bar efficiently at the top of the pull." },
         { "description": "Losing tension during the transition phase between pull and push by allowing the elbows to flare wide, which causes the chest to collide with the bar instead of clearing it and stalls forward momentum." }
       ]
+    },
+    {
+      "id": "calisthenics.handstand-push-up",
+      "name": "Handstand Push-Up",
+      "modelPath": "content/calisthenics/models/handstand-push-up.glb",
+      "defaultClip": "press",
+      "clips": [
+        { "name": "hold", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "press", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["push", "advanced", "overhead", "bodyweight"],
+      "cameraPreset": "front",
+      "prerequisites": ["calisthenics.push-up"],
+      "commonMistakes": [
+        { "description": "Kicking up with momentum instead of pressing into a controlled handstand, masking instability." },
+        { "description": "Allowing the lower back to arch excessively in the handstand, compressing the lumbar spine." }
+      ]
+    },
+    {
+      "id": "calisthenics.dragon-flag",
+      "name": "Dragon Flag",
+      "modelPath": "content/calisthenics/models/dragon-flag.glb",
+      "defaultClip": "flag",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "flag", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["core", "advanced", "strength"],
+      "cameraPreset": "side",
+      "prerequisites": ["calisthenics.l-sit"],
+      "commonMistakes": [
+        { "description": "Allowing the hips to break and the body to jackknife, removing the spinal alignment that makes the movement challenging." }
+      ]
+    },
+    {
+      "id": "calisthenics.front-lever",
+      "name": "Front Lever Hold",
+      "modelPath": "content/calisthenics/models/front-lever.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["back", "core", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["hold", "advanced", "strength", "bodyweight"],
+      "cameraPreset": "side",
+      "prerequisites": ["calisthenics.pull-up"],
+      "commonMistakes": [
+        { "description": "Bending at the hips instead of maintaining full-body horizontal alignment, reducing lat engagement." },
+        { "description": "Internally rotating the shoulders which collapses the position and places stress on the rotator cuff." }
+      ]
     }
   ]
 }

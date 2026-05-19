@@ -23,5 +23,8 @@ class FakeContentRepository(
         if (throwOnMovements != null) flow { throw throwOnMovements }
         else flowOf(movementsByDiscipline[disciplineId] ?: emptyList())
 
+    override fun observeAllMovements(): Flow<List<Movement>> =
+        flowOf(movementsById.values.toList())
+
     override suspend fun getMovement(movementId: String): Movement? = movementsById[movementId]
 }

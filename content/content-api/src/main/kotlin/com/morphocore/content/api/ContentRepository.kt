@@ -7,5 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface ContentRepository {
     fun observeDisciplines(): Flow<List<Discipline>>
     fun observeMovements(disciplineId: String): Flow<List<Movement>>
+    fun observeAllMovements(): Flow<List<Movement>>
     suspend fun getMovement(movementId: String): Movement?
 }
