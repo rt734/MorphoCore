@@ -109,4 +109,37 @@ class MovementsViewModelTest {
         advanceUntilIdle()
         assertIs<MovementsUiState.Error>(vm.uiState.value)
     }
+
+    @Test
+    fun `toggleDifficulty filters movements by difficulty`() = runTest {
+        val beginnerMovement = movement("karate", "front_kick")
+            .copy(difficulty = Difficulty.BEGINNER)
+        val advancedMovement = movement("karate", "spinning_heel_kick")
+            .copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(beginnerMovement, advancedMovement))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+
+        // No filter — both movements visible
+        val stateAll = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(2, stateAll.movements.size)
+
+        // Toggle ADVANCED filter — only advanced movement visible
+        vm.toggleDifficulty(Difficulty.ADVANCED)
+        advanceUntilIdle()
+        val stateAdvanced = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(listOf(advancedMovement), stateAdvanced.movements)
+        assertEquals(setOf(Difficulty.ADVANCED), stateAdvanced.selectedDifficulties)
+
+        // Toggle ADVANCED off — both movements visible again
+        vm.toggleDifficulty(Difficulty.ADVANCED)
+        advanceUntilIdle()
+        val stateCleared = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(2, stateCleared.movements.size)
+        assertEquals(emptySet(), stateCleared.selectedDifficulties)
+    }
 }

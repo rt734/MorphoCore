@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.morphocore.content.api.ContentRepository
+import com.morphocore.domain.Difficulty
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -23,17 +24,20 @@ class MovementsViewModel @Inject constructor(
     private val disciplineId: String = checkNotNull(savedStateHandle["disciplineId"])
 
     private val _selectedTags = MutableStateFlow<Set<String>>(emptySet())
+    private val _selectedDifficulties = MutableStateFlow<Set<Difficulty>>(emptySet())
 
     val uiState: StateFlow<MovementsUiState> = combine(
         contentRepository.observeMovements(disciplineId),
         contentRepository.observeDisciplines(),
-        _selectedTags
-    ) { movements, disciplines, selectedTags ->
+        _selectedTags,
+        _selectedDifficulties
+    ) { movements, disciplines, selectedTags, selectedDifficulties ->
         val disciplineName = disciplines.find { it.id == disciplineId }?.name ?: disciplineId
         val availableTags = movements.flatMap { it.tags }.distinct().sorted()
-        val filtered = if (selectedTags.isEmpty()) movements
-            else movements.filter { m -> m.tags.any { it in selectedTags } }
-        MovementsUiState.Ready(disciplineName, filtered, availableTags, selectedTags)
+        val filtered = movements
+            .filter { m -> selectedTags.isEmpty() || m.tags.any { it in selectedTags } }
+            .filter { m -> selectedDifficulties.isEmpty() || m.difficulty in selectedDifficulties }
+        MovementsUiState.Ready(disciplineName, filtered, availableTags, selectedTags, selectedDifficulties)
     }
         .catch { e -> emit(MovementsUiState.Error(e.message ?: "Failed to load movements")) }
         .stateIn(
@@ -44,5 +48,9 @@ class MovementsViewModel @Inject constructor(
 
     fun toggleTag(tag: String) {
         _selectedTags.update { tags -> if (tag in tags) tags - tag else tags + tag }
+    }
+
+    fun toggleDifficulty(difficulty: Difficulty) {
+        _selectedDifficulties.update { d -> if (difficulty in d) d - difficulty else d + difficulty }
     }
 }
