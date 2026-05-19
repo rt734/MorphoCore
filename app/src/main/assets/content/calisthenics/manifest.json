@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "calisthenics",
+  "disciplineName": "Calisthenics",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "calisthenics.push-up",
+      "name": "Push-Up",
+      "modelPath": "content/calisthenics/models/push-up.glb",
+      "defaultClip": "push",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "push", "durationSeconds": 1.8, "fps": 30 }
+      ],
+      "muscles": ["chest", "shoulders", "core"],
+      "difficulty": "beginner",
+      "tags": ["push", "fundamental", "bodyweight"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Allowing the hips to sag toward the floor because the core is not engaged, placing compressive load on the lumbar spine throughout the movement." },
+        { "description": "Positioning the hands too far forward of the shoulders, which shifts load onto the anterior deltoids and away from the pectorals while overstressing the wrists." }
+      ]
+    },
+    {
+      "id": "calisthenics.pull-up",
+      "name": "Pull-Up",
+      "modelPath": "content/calisthenics/models/pull-up.glb",
+      "defaultClip": "pull",
+      "clips": [
+        { "name": "hang", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "pull", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["back", "shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["pull", "bodyweight", "compound"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Failing to initiate the pull with scapular depression and retraction, leading to a shoulder-dominant pull that bypasses the lats entirely." },
+        { "description": "Not reaching full elbow extension at the bottom of each rep, shortening the effective range of motion and reducing the stretch stimulus on the lats." }
+      ]
+    },
+    {
+      "id": "calisthenics.dip",
+      "name": "Parallel Bar Dip",
+      "modelPath": "content/calisthenics/models/dip.glb",
+      "defaultClip": "dip",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "dip", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["chest", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["push", "bodyweight", "upper-body"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["calisthenics.push-up"],
+      "commonMistakes": [
+        { "description": "Descending too shallowly to avoid discomfort, stopping before the upper arms reach parallel, which drastically reduces the pectoral and tricep stimulus." },
+        { "description": "Allowing the torso to pitch excessively forward without intent, shifting stress from the triceps onto the anterior shoulder capsule at a compromised angle." }
+      ]
+    },
+    {
+      "id": "calisthenics.l-sit",
+      "name": "L-Sit Hold",
+      "modelPath": "content/calisthenics/models/l-sit.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["core", "hip_flexors", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["hold", "strength", "core"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Bending the knees to reduce hip flexor demand, which converts the skill into a tuck hold and removes the lever-length challenge central to L-sit progression." },
+        { "description": "Failing to achieve full shoulder depression, causing the body to hang low with bent arms rather than elevating the hips above bar or floor level." }
+      ]
+    },
+    {
+      "id": "calisthenics.muscle-up",
+      "name": "Muscle-Up",
+      "modelPath": "content/calisthenics/models/muscle-up.glb",
+      "defaultClip": "muscle_up",
+      "clips": [
+        { "name": "hang", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "muscle_up", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "muscles": ["back", "shoulders", "chest", "core"],
+      "difficulty": "advanced",
+      "tags": ["compound", "advanced", "bodyweight"],
+      "cameraPreset": "front",
+      "prerequisites": ["calisthenics.pull-up", "calisthenics.dip"],
+      "commonMistakes": [
+        { "description": "Neglecting to use a false grip (wrapping the wrists over the bar) on ring or bar muscle-ups, making the transition phase nearly impossible because the wrist cannot rotate around the bar efficiently at the top of the pull." },
+        { "description": "Losing tension during the transition phase between pull and push by allowing the elbows to flare wide, which causes the chest to collide with the bar instead of clearing it and stalls forward momentum." }
+      ]
+    }
+  ]
+}

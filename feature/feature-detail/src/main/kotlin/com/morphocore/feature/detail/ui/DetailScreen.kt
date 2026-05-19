@@ -1,14 +1,18 @@
 package com.morphocore.feature.detail.ui
 
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Pause
@@ -20,6 +24,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -28,17 +34,33 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.morphocore.domain.CameraPreset
+import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Movement
+import com.morphocore.domain.MuscleGroup
 import com.morphocore.feature.detail.DetailUiState
 import com.morphocore.feature.detail.DetailViewModel
 import com.morphocore.feature.detail.PlaybackState
 import com.morphocore.feature.detail.toSceneEnvironment
 import com.morphocore.rendering.sceneview.SceneViewportImpl
 import com.morphocore.rendering.sceneview.SceneViewportSurface
+
+private fun MuscleGroup.displayName(): String = when (this) {
+    MuscleGroup.Quadriceps  -> "Quads"
+    MuscleGroup.Hamstrings  -> "Hamstrings"
+    MuscleGroup.Glutes      -> "Glutes"
+    MuscleGroup.Core        -> "Core"
+    MuscleGroup.Shoulders   -> "Shoulders"
+    MuscleGroup.Back        -> "Back"
+    MuscleGroup.Chest       -> "Chest"
+    MuscleGroup.Calves      -> "Calves"
+    MuscleGroup.HipFlexors  -> "Hip Flexors"
+    is MuscleGroup.Unknown  -> this.raw.replaceFirstChar { it.uppercaseChar() }
+}
 
 private val speedOptions = listOf(
     0.5f to "0.5×",
@@ -129,12 +151,13 @@ fun DetailScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding)
+                        .verticalScroll(rememberScrollState())
                 ) {
                     SceneViewportSurface(
                         viewport = viewport,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .weight(1f)
+                            .height(260.dp)
                     )
                     PlaybackControls(
                         movement = state.movement,
@@ -144,6 +167,7 @@ fun DetailScreen(
                         onSpeedSelected = viewModel::setSpeed,
                         onCameraSelected = viewModel::selectCamera
                     )
+                    MovementInfoPanel(movement = state.movement)
                 }
             }
             is DetailUiState.Error -> {
@@ -226,6 +250,71 @@ private fun PlaybackControls(
                         selected = clip.name == playbackState.currentClip,
                         onClick = { onClipSelected(clip.name) },
                         label = { Text(clip.name) }
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MovementInfoPanel(
+    movement: Movement,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        // Difficulty row
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text("Difficulty", style = MaterialTheme.typography.labelSmall)
+            val (label, color) = when (movement.difficulty) {
+                Difficulty.BEGINNER     -> "Beginner"     to Color(0xFF4CAF50)
+                Difficulty.INTERMEDIATE -> "Intermediate" to Color(0xFFFF9800)
+                Difficulty.ADVANCED     -> "Advanced"     to Color(0xFFF44336)
+            }
+            Surface(
+                color = color.copy(alpha = 0.15f),
+                shape = MaterialTheme.shapes.small
+            ) {
+                Text(
+                    text = label,
+                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                    color = color,
+                    style = MaterialTheme.typography.labelMedium
+                )
+            }
+        }
+
+        // Muscles section
+        if (movement.muscles.isNotEmpty()) {
+            Text("Muscles", style = MaterialTheme.typography.labelSmall)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                movement.muscles.forEach { muscle ->
+                    SuggestionChip(
+                        onClick = {},
+                        label = { Text(muscle.displayName()) }
+                    )
+                }
+            }
+        }
+
+        // Common mistakes section
+        if (movement.commonMistakes.isNotEmpty()) {
+            Text("Common Mistakes", style = MaterialTheme.typography.labelSmall)
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                movement.commonMistakes.forEach { mistake ->
+                    Text(
+                        text = "• $mistake",
+                        style = MaterialTheme.typography.bodySmall
                     )
                 }
             }

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "kung-fu",
+  "disciplineName": "Kung Fu",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "kung-fu.straight-punch",
+      "name": "Zhi Quan (Straight Punch)",
+      "modelPath": "content/kung-fu/models/straight-punch.glb",
+      "defaultClip": "punch",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "punch", "durationSeconds": 1.1, "fps": 30 }
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "beginner",
+      "tags": ["punch", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Raising the punching shoulder and tensing the trapezius throughout the strike, which slows arm extension and reduces power transfer from the core." },
+        { "description": "Failing to rotate the fist to a vertical-then-horizontal position at extension, leaving the wrist misaligned and reducing structural integrity on impact." }
+      ]
+    },
+    {
+      "id": "kung-fu.front-kick",
+      "name": "Zheng Ti Tui (Front Kick)",
+      "modelPath": "content/kung-fu/models/front-kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 1.4, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "core", "hip_flexors"],
+      "difficulty": "beginner",
+      "tags": ["kick", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Leaning the torso backward to compensate for limited hip flexor mobility, reducing power and exposing the centerline." },
+        { "description": "Extending the leg fully before the hip reaches full flexion, causing a pushing action rather than a snapping strike." }
+      ]
+    },
+    {
+      "id": "kung-fu.hook-kick",
+      "name": "Gou Tui (Hook Kick)",
+      "modelPath": "content/kung-fu/models/hook-kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 1.7, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "advanced-kick"],
+      "cameraPreset": "front",
+      "prerequisites": ["kung-fu.front-kick"],
+      "commonMistakes": [
+        { "description": "Initiating the hooking arc from the knee rather than the hip, shortening the strike arc and losing the centrifugal momentum of the leg." },
+        { "description": "Pivoting the support foot insufficiently, which limits hip rotation and forces the body to compensate with lateral trunk lean." }
+      ]
+    },
+    {
+      "id": "kung-fu.horse-stance",
+      "name": "Ma Bu (Horse Stance)",
+      "modelPath": "content/kung-fu/models/horse-stance.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 1.2, "fps": 30 },
+        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "core"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental", "strength"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Allowing the knees to cave inward (valgus collapse) rather than tracking over the toes, placing excessive stress on the medial knee ligaments." },
+        { "description": "Anteriorly tilting the pelvis and arching the lower back instead of maintaining a neutral spine with engaged abdominals." }
+      ]
+    },
+    {
+      "id": "kung-fu.palm-strike",
+      "name": "Zhang Zhong Zhang (Palm Strike)",
+      "modelPath": "content/kung-fu/models/palm-strike.glb",
+      "defaultClip": "strike",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "strike", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "muscles": ["core", "shoulders", "chest"],
+      "difficulty": "beginner",
+      "tags": ["strike", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Hyperextending the wrist backward at the moment of contact instead of maintaining a neutral wrist, which risks wrist sprain and diminishes force transmission." },
+        { "description": "Pushing the strike from the arm alone without engaging the pectorals and core rotation, producing a weak, arm-only strike with no whole-body power." }
+      ]
+    }
+  ]
+}
