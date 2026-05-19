@@ -13,5 +13,6 @@ dependencies {
     implementation(project(":core:design-system"))
     implementation(project(":theme:theme-api"))
     implementation(project(":rendering:rendering-scene-view"))
+    implementation(project(":core:preferences-api"))
     testImplementation(project(":content:content-testing"))
 }

@@ -49,6 +49,11 @@ import com.morphocore.feature.detail.toSceneEnvironment
 import com.morphocore.rendering.sceneview.SceneViewportImpl
 import com.morphocore.rendering.sceneview.SceneViewportSurface
 
+private fun String.movementIdToDisplayName(): String =
+    substringAfter('.').split('-').joinToString(" ") { word ->
+        word.replaceFirstChar { it.uppercaseChar() }
+    }
+
 private fun MuscleGroup.displayName(): String = when (this) {
     MuscleGroup.Quadriceps  -> "Quads"
     MuscleGroup.Hamstrings  -> "Hamstrings"
@@ -81,6 +86,7 @@ private val cameraOptions = listOf(
 fun DetailScreen(
     movementId: String,
     onBack: () -> Unit,
+    onNavigateToMovement: (String) -> Unit = {},
     viewModel: DetailViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -167,7 +173,7 @@ fun DetailScreen(
                         onSpeedSelected = viewModel::setSpeed,
                         onCameraSelected = viewModel::selectCamera
                     )
-                    MovementInfoPanel(movement = state.movement)
+                    MovementInfoPanel(movement = state.movement, onNavigateToMovement = onNavigateToMovement)
                 }
             }
             is DetailUiState.Error -> {
@@ -260,6 +266,7 @@ private fun PlaybackControls(
 @Composable
 private fun MovementInfoPanel(
     movement: Movement,
+    onNavigateToMovement: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -315,6 +322,24 @@ private fun MovementInfoPanel(
                     Text(
                         text = "• $mistake",
                         style = MaterialTheme.typography.bodySmall
+                    )
+                }
+            }
+        }
+
+        // Prerequisites section
+        if (movement.prerequisites.isNotEmpty()) {
+            Text("Prerequisites", style = MaterialTheme.typography.labelSmall)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                movement.prerequisites.forEach { prereqId ->
+                    SuggestionChip(
+                        onClick = { onNavigateToMovement(prereqId) },
+                        label = { Text(prereqId.movementIdToDisplayName()) }
                     )
                 }
             }

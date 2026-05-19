@@ -40,7 +40,8 @@ fun MorphoNavHost(
             val dest: Detail = backStackEntry.toRoute()
             DetailScreen(
                 movementId = dest.movementId,
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
+                onNavigateToMovement = { id -> navController.navigate(Detail(id)) }
             )
         }
         composable<Settings> {
