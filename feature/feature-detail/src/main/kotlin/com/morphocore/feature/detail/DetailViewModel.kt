@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.morphocore.content.api.ContentRepository
 import com.morphocore.domain.Theme
+import com.morphocore.preferences.api.UserPreferences
 import com.morphocore.theme.api.ThemeProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,7 +22,8 @@ import javax.inject.Inject
 class DetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val contentRepository: ContentRepository,
-    private val themeProvider: ThemeProvider
+    private val themeProvider: ThemeProvider,
+    private val userPreferences: UserPreferences
 ) : ViewModel() {
 
     private val movementId: String = checkNotNull(savedStateHandle["movementId"])
@@ -46,12 +48,12 @@ class DetailViewModel @Inject constructor(
     private val _playbackState = MutableStateFlow(PlaybackState("", false))
     val playbackState: StateFlow<PlaybackState> = _playbackState.asStateFlow()
 
-    fun onModelLoaded(defaultClip: String, defaultCamera: String?) {
+    fun onModelLoaded(defaultClip: String, defaultCamera: String? = null) {
         _playbackState.value = PlaybackState(
             currentClip = defaultClip,
             isPlaying = true,
-            speedMultiplier = 1f,
-            cameraPreset = defaultCamera
+            speedMultiplier = userPreferences.getDefaultSpeed(),
+            cameraPreset = defaultCamera ?: userPreferences.getDefaultCamera()
         )
     }
 
@@ -64,10 +66,12 @@ class DetailViewModel @Inject constructor(
     }
 
     fun setSpeed(speed: Float) {
+        userPreferences.setDefaultSpeed(speed)
         _playbackState.update { it.copy(speedMultiplier = speed) }
     }
 
     fun selectCamera(presetName: String) {
+        userPreferences.setDefaultCamera(presetName)
         _playbackState.update { it.copy(cameraPreset = presetName) }
     }
 }

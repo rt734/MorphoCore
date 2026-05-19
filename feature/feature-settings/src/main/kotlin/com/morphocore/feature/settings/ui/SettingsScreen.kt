@@ -1,5 +1,7 @@
 package com.morphocore.feature.settings.ui
 
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,11 +10,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -37,6 +41,8 @@ fun SettingsScreen(
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val defaultSpeed by viewModel.defaultSpeed.collectAsStateWithLifecycle()
+    val defaultCamera by viewModel.defaultCamera.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -96,6 +102,49 @@ fun SettingsScreen(
                                     selected = theme.id == state.activeThemeId,
                                     onClick = { viewModel.selectTheme(theme.id) }
                                 )
+                            }
+                        }
+                    }
+                    item {
+                        Text(
+                            text = "Playback Defaults",
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
+                        )
+                    }
+                    item {
+                        // Speed row
+                        Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+                            Text("Default Speed", style = MaterialTheme.typography.labelSmall)
+                            Row(
+                                modifier = Modifier.horizontalScroll(rememberScrollState()),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                listOf(0.5f to "0.5×", 1f to "1×", 1.5f to "1.5×", 2f to "2×").forEach { (speed, label) ->
+                                    FilterChip(
+                                        selected = defaultSpeed == speed,
+                                        onClick = { viewModel.setDefaultSpeed(speed) },
+                                        label = { Text(label) }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                    item {
+                        // Camera row
+                        Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+                            Text("Default Camera", style = MaterialTheme.typography.labelSmall)
+                            Row(
+                                modifier = Modifier.horizontalScroll(rememberScrollState()),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                listOf("front" to "Front", "side" to "Side", "top" to "Top", "three_quarter" to "3/4").forEach { (key, label) ->
+                                    FilterChip(
+                                        selected = defaultCamera == key,
+                                        onClick = { viewModel.setDefaultCamera(if (defaultCamera == key) null else key) },
+                                        label = { Text(label) }
+                                    )
+                                }
                             }
                         }
                     }

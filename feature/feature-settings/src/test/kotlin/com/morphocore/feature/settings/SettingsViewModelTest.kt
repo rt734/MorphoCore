@@ -9,6 +9,7 @@ import com.morphocore.domain.MorphoTypography
 import com.morphocore.domain.PostProcessingConfig
 import com.morphocore.domain.SceneConfig
 import com.morphocore.domain.Theme
+import com.morphocore.preferences.api.UserPreferences
 import com.morphocore.theme.api.ThemeProvider
 import com.morphocore.theme.api.ThemeRegistry
 import kotlinx.coroutines.Dispatchers
@@ -98,7 +99,8 @@ class SettingsViewModelTest {
     fun `uiState is Loading initially`() = runTest {
         val vm = SettingsViewModel(
             themeProvider = FakeThemeProvider(fakeTheme("light")),
-            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light")))
+            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"))),
+            userPreferences = FakeUserPreferences()
         )
         assertIs<SettingsUiState.Loading>(vm.uiState.value)
     }
@@ -107,7 +109,8 @@ class SettingsViewModelTest {
     fun `uiState is Ready with active theme`() = runTest {
         val vm = SettingsViewModel(
             themeProvider = FakeThemeProvider(fakeTheme("light")),
-            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light")))
+            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"))),
+            userPreferences = FakeUserPreferences()
         )
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
@@ -119,7 +122,8 @@ class SettingsViewModelTest {
         val themes = listOf(fakeTheme("light"), fakeTheme("dark"))
         val vm = SettingsViewModel(
             themeProvider = FakeThemeProvider(fakeTheme("light")),
-            themeRegistry = FakeThemeRegistry(themes)
+            themeRegistry = FakeThemeRegistry(themes),
+            userPreferences = FakeUserPreferences()
         )
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
@@ -132,7 +136,8 @@ class SettingsViewModelTest {
         val provider = FakeThemeProvider(fakeTheme("light"))
         val vm = SettingsViewModel(
             themeProvider = provider,
-            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark")))
+            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark"))),
+            userPreferences = FakeUserPreferences()
         )
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
@@ -147,12 +152,26 @@ class SettingsViewModelTest {
         val activeTheme = fakeTheme("light")
         val vm = SettingsViewModel(
             themeProvider = FakeThemeProvider(activeTheme),
-            themeRegistry = FakeThemeRegistry(listOf(activeTheme, fakeTheme("dark")))
+            themeRegistry = FakeThemeRegistry(listOf(activeTheme, fakeTheme("dark"))),
+            userPreferences = FakeUserPreferences()
         )
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<SettingsUiState.Ready>(vm.uiState.value)
         assertEquals("light", state.activeThemeId)
+    }
+
+    @Test
+    fun `setDefaultSpeed persists value`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = SettingsViewModel(
+            themeProvider = FakeThemeProvider(fakeTheme("light")),
+            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"))),
+            userPreferences = prefs
+        )
+        vm.setDefaultSpeed(1.5f)
+        assertEquals(1.5f, vm.defaultSpeed.value)
+        assertEquals(1.5f, prefs.getDefaultSpeed())
     }
 }
 
@@ -168,4 +187,13 @@ private class FakeThemeRegistry(themes: List<Theme> = emptyList()) : ThemeRegist
     val _themes = MutableStateFlow(themes)
     override val themes: StateFlow<List<Theme>> = _themes.asStateFlow()
     override suspend fun refresh() {}
+}
+
+private class FakeUserPreferences : UserPreferences {
+    private var speed: Float = 1f
+    private var camera: String? = null
+    override fun getDefaultSpeed(): Float = speed
+    override fun setDefaultSpeed(s: Float) { speed = s }
+    override fun getDefaultCamera(): String? = camera
+    override fun setDefaultCamera(p: String?) { camera = p }
 }

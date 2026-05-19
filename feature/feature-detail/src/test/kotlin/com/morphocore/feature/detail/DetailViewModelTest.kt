@@ -3,6 +3,7 @@ package com.morphocore.feature.detail
 import androidx.lifecycle.SavedStateHandle
 import com.morphocore.content.api.ContentRepository
 import com.morphocore.content.testing.FakeContentRepository
+import com.morphocore.preferences.api.UserPreferences
 import com.morphocore.domain.AnimationClip
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.DirectLightConfig
@@ -50,6 +51,13 @@ class DetailViewModelTest {
         Dispatchers.resetMain()
     }
 
+    private class FakeUserPreferences : UserPreferences {
+        override fun getDefaultSpeed(): Float = 1f
+        override fun setDefaultSpeed(speed: Float) {}
+        override fun getDefaultCamera(): String? = null
+        override fun setDefaultCamera(preset: String?) {}
+    }
+
     private class FakeThemeProvider(theme: Theme) : ThemeProvider {
         private val _activeTheme = MutableStateFlow(theme)
         override val activeTheme: StateFlow<Theme> = _activeTheme.asStateFlow()
@@ -89,7 +97,8 @@ class DetailViewModelTest {
         DetailViewModel(
             SavedStateHandle(mapOf("movementId" to movementId)),
             repo,
-            FakeThemeProvider(fakeTheme())
+            FakeThemeProvider(fakeTheme()),
+            FakeUserPreferences()
         )
 
     @Test
