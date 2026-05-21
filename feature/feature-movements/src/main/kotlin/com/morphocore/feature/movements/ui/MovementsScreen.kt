@@ -231,7 +231,8 @@ fun MovementsScreen(
                         items(state.movements, key = { it.id }) { movement ->
                             MovementRow(
                                 movement = movement,
-                                onClick = { onMovementSelected(movement.id) }
+                                onClick = { onMovementSelected(movement.id) },
+                                onTagClick = viewModel::toggleTag
                             )
                         }
                     }

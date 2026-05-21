@@ -264,7 +264,8 @@ private fun PlaybackControls(
                         selected = clip.name == playbackState.currentClip,
                         onClick = { onClipSelected(clip.name) },
                         label = {
-                            Text(clip.name.replace('_', ' ').replaceFirstChar { it.uppercaseChar() })
+                            val name = clip.name.replace('_', ' ').replaceFirstChar { it.uppercaseChar() }
+                            Text("$name · ${"%.1fs".format(clip.durationSeconds)}")
                         }
                     )
                 }
