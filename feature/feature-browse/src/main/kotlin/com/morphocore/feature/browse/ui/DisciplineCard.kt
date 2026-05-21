@@ -34,10 +34,19 @@ fun DisciplineCard(discipline: Discipline, onClick: () -> Unit) {
                     text = discipline.name,
                     style = MaterialTheme.typography.titleLarge
                 )
+                if (discipline.description.isNotBlank()) {
+                    Text(
+                        text = discipline.description,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 2.dp)
+                    )
+                }
                 Text(
                     text = "${discipline.movementIds.size} movements",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp)
                 )
             }
             Spacer(modifier = Modifier.width(8.dp))

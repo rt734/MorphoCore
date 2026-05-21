@@ -14,6 +14,7 @@ internal data class ManifestDto(
     val schemaVersion: String,
     val disciplineId: String,
     val disciplineName: String,
+    val description: String = "",
     val iconPath: String? = null,
     val movements: List<MovementDto>
 )
@@ -81,6 +82,7 @@ internal fun parseManifest(path: String, jsonString: String): ParseResult =
         val discipline = Discipline(
             id = dto.disciplineId,
             name = dto.disciplineName,
+            description = dto.description,
             iconPath = dto.iconPath,
             movementIds = movements.map { it.id }
         )

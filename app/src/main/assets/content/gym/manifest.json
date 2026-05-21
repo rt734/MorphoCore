@@ -2,6 +2,7 @@
   "schemaVersion": "1.0",
   "disciplineId": "gym",
   "disciplineName": "Weight Training",
+  "description": "Barbell and bodyweight strength training grounded in progressive overload. Builds maximal strength, hypertrophy, and movement quality through compound lifts.",
   "iconPath": null,
   "movements": [
     {
@@ -10,17 +11,38 @@
       "modelPath": "content/gym/models/squat.glb",
       "defaultClip": "squat",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "squat", "durationSeconds": 2.5, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "squat",
+          "durationSeconds": 2.5,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "hamstrings", "core"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "hamstrings",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["squat", "compound", "legs"],
+      "tags": [
+        "squat",
+        "compound",
+        "legs"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Allowing the knees to track inward (valgus collapse) during the ascent, placing high shear stress on the ACL and medial collateral ligament." },
-        { "description": "Performing a butt-wink by allowing the pelvis to posteriorly tilt at the bottom of the squat, which flexes the lumbar spine under load and increases disc injury risk." }
+        {
+          "description": "Allowing the knees to track inward (valgus collapse) during the ascent, placing high shear stress on the ACL and medial collateral ligament."
+        },
+        {
+          "description": "Performing a butt-wink by allowing the pelvis to posteriorly tilt at the bottom of the squat, which flexes the lumbar spine under load and increases disc injury risk."
+        }
       ]
     },
     {
@@ -29,17 +51,40 @@
       "modelPath": "content/gym/models/deadlift.glb",
       "defaultClip": "lift",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "lift", "durationSeconds": 2.5, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "lift",
+          "durationSeconds": 2.5,
+          "fps": 30
+        }
       ],
-      "muscles": ["hamstrings", "glutes", "back", "core"],
+      "muscles": [
+        "hamstrings",
+        "glutes",
+        "back",
+        "core"
+      ],
       "difficulty": "advanced",
-      "tags": ["deadlift", "compound", "posterior-chain"],
+      "tags": [
+        "deadlift",
+        "compound",
+        "posterior-chain"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["gym.squat"],
+      "prerequisites": [
+        "gym.squat"
+      ],
       "commonMistakes": [
-        { "description": "Jerking the bar off the floor instead of building tension gradually, causing the lower back to round before the legs can engage." },
-        { "description": "Allowing the bar to drift away from the body during the pull, increasing the moment arm on the lumbar spine and dramatically raising injury risk." }
+        {
+          "description": "Jerking the bar off the floor instead of building tension gradually, causing the lower back to round before the legs can engage."
+        },
+        {
+          "description": "Allowing the bar to drift away from the body during the pull, increasing the moment arm on the lumbar spine and dramatically raising injury risk."
+        }
       ]
     },
     {
@@ -48,17 +93,37 @@
       "modelPath": "content/gym/models/bench-press.glb",
       "defaultClip": "press",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "press", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "press",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["chest", "shoulders", "back"],
+      "muscles": [
+        "chest",
+        "shoulders",
+        "back"
+      ],
       "difficulty": "intermediate",
-      "tags": ["press", "compound", "upper-body"],
+      "tags": [
+        "press",
+        "compound",
+        "upper-body"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Flaring the elbows to 90 degrees relative to the torso, which places excessive anterior shear on the glenohumeral joint and strains the rotator cuff." },
-        { "description": "Bouncing the bar off the chest to overcome the sticking point, reducing time under tension and risking rib or sternum injury." }
+        {
+          "description": "Flaring the elbows to 90 degrees relative to the torso, which places excessive anterior shear on the glenohumeral joint and strains the rotator cuff."
+        },
+        {
+          "description": "Bouncing the bar off the chest to overcome the sticking point, reducing time under tension and risking rib or sternum injury."
+        }
       ]
     },
     {
@@ -67,17 +132,38 @@
       "modelPath": "content/gym/models/pull-up.glb",
       "defaultClip": "pull",
       "clips": [
-        { "name": "hang", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "pull", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "hang",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "pull",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "shoulders", "core"],
+      "muscles": [
+        "back",
+        "shoulders",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["pull", "compound", "upper-body", "bodyweight"],
+      "tags": [
+        "pull",
+        "compound",
+        "upper-body",
+        "bodyweight"
+      ],
       "cameraPreset": "front",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Using a kipping or swinging motion to generate momentum, removing tension from the lats and placing sudden rotational stress on the shoulder joint at the top." },
-        { "description": "Not achieving full scapular depression and retraction before pulling, causing the upper trapezius to dominate and reducing lat engagement." }
+        {
+          "description": "Using a kipping or swinging motion to generate momentum, removing tension from the lats and placing sudden rotational stress on the shoulder joint at the top."
+        },
+        {
+          "description": "Not achieving full scapular depression and retraction before pulling, causing the upper trapezius to dominate and reducing lat engagement."
+        }
       ]
     },
     {
@@ -86,17 +172,37 @@
       "modelPath": "content/gym/models/overhead-press.glb",
       "defaultClip": "press",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "press", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "press",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "core", "back"],
+      "muscles": [
+        "shoulders",
+        "core",
+        "back"
+      ],
       "difficulty": "intermediate",
-      "tags": ["press", "compound", "overhead"],
+      "tags": [
+        "press",
+        "compound",
+        "overhead"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Hyperextending the lumbar spine to push the chest forward under heavy load, compensating for limited thoracic mobility and compressing the lumbar discs." },
-        { "description": "Pressing the bar in a straight vertical path rather than slightly back behind the head, preventing the bar from traveling over the body's center of gravity and making the lift mechanically inefficient." }
+        {
+          "description": "Hyperextending the lumbar spine to push the chest forward under heavy load, compensating for limited thoracic mobility and compressing the lumbar discs."
+        },
+        {
+          "description": "Pressing the bar in a straight vertical path rather than slightly back behind the head, preventing the bar from traveling over the body's center of gravity and making the lift mechanically inefficient."
+        }
       ]
     },
     {
@@ -105,17 +211,38 @@
       "modelPath": "content/gym/models/barbell-row.glb",
       "defaultClip": "row",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "row", "durationSeconds": 2.2, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "row",
+          "durationSeconds": 2.2,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "shoulders", "core"],
+      "muscles": [
+        "back",
+        "shoulders",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["pull", "compound", "upper-body", "posterior-chain"],
+      "tags": [
+        "pull",
+        "compound",
+        "upper-body",
+        "posterior-chain"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Jerking the weight up with the lower back rather than initiating the pull with the elbows, risking spinal injury." },
-        { "description": "Allowing the torso to rise above 45 degrees during the pull, converting it into a partial deadlift." }
+        {
+          "description": "Jerking the weight up with the lower back rather than initiating the pull with the elbows, risking spinal injury."
+        },
+        {
+          "description": "Allowing the torso to rise above 45 degrees during the pull, converting it into a partial deadlift."
+        }
       ]
     },
     {
@@ -124,17 +251,38 @@
       "modelPath": "content/gym/models/dip.glb",
       "defaultClip": "dip",
       "clips": [
-        { "name": "hang", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "dip", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "hang",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "dip",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["chest", "shoulders", "back"],
+      "muscles": [
+        "chest",
+        "shoulders",
+        "back"
+      ],
       "difficulty": "intermediate",
-      "tags": ["push", "compound", "upper-body", "bodyweight"],
+      "tags": [
+        "push",
+        "compound",
+        "upper-body",
+        "bodyweight"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Flaring the elbows outward excessively, placing the shoulder joint in an impingement-prone position." },
-        { "description": "Not reaching full lockout at the top, reducing the stimulus to the triceps." }
+        {
+          "description": "Flaring the elbows outward excessively, placing the shoulder joint in an impingement-prone position."
+        },
+        {
+          "description": "Not reaching full lockout at the top, reducing the stimulus to the triceps."
+        }
       ]
     },
     {
@@ -143,17 +291,39 @@
       "modelPath": "content/gym/models/romanian-deadlift.glb",
       "defaultClip": "hinge",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "hinge", "durationSeconds": 2.5, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "hinge",
+          "durationSeconds": 2.5,
+          "fps": 30
+        }
       ],
-      "muscles": ["hamstrings", "glutes", "back"],
+      "muscles": [
+        "hamstrings",
+        "glutes",
+        "back"
+      ],
       "difficulty": "intermediate",
-      "tags": ["deadlift", "hinge", "posterior-chain"],
+      "tags": [
+        "deadlift",
+        "hinge",
+        "posterior-chain"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["gym.deadlift"],
+      "prerequisites": [
+        "gym.deadlift"
+      ],
       "commonMistakes": [
-        { "description": "Bending the knees too much and converting the movement into a conventional deadlift, missing the hamstring stretch." },
-        { "description": "Rounding the upper back instead of maintaining a neutral spine throughout the hinge." }
+        {
+          "description": "Bending the knees too much and converting the movement into a conventional deadlift, missing the hamstring stretch."
+        },
+        {
+          "description": "Rounding the upper back instead of maintaining a neutral spine throughout the hinge."
+        }
       ]
     },
     {
@@ -162,17 +332,40 @@
       "modelPath": "content/gym/models/front-squat.glb",
       "defaultClip": "squat",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "squat", "durationSeconds": 2.5, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "squat",
+          "durationSeconds": 2.5,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "core", "back"],
+      "muscles": [
+        "quadriceps",
+        "core",
+        "back"
+      ],
       "difficulty": "advanced",
-      "tags": ["squat", "compound", "legs", "olympic"],
+      "tags": [
+        "squat",
+        "compound",
+        "legs",
+        "olympic"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["gym.squat"],
+      "prerequisites": [
+        "gym.squat"
+      ],
       "commonMistakes": [
-        { "description": "Allowing the elbows to drop during the descent, which tips the bar forward off the shoulders and forces the torso to follow, destroying the upright posture that front squats require." },
-        { "description": "Using a cross-arm grip instead of a clean grip when wrist flexibility allows, which provides less bar control and is more likely to unbalance the load." }
+        {
+          "description": "Allowing the elbows to drop during the descent, which tips the bar forward off the shoulders and forces the torso to follow, destroying the upright posture that front squats require."
+        },
+        {
+          "description": "Using a cross-arm grip instead of a clean grip when wrist flexibility allows, which provides less bar control and is more likely to unbalance the load."
+        }
       ]
     },
     {
@@ -181,17 +374,37 @@
       "modelPath": "content/gym/models/hip-thrust.glb",
       "defaultClip": "thrust",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "thrust", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "thrust",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["glutes", "hamstrings", "core"],
+      "muscles": [
+        "glutes",
+        "hamstrings",
+        "core"
+      ],
       "difficulty": "beginner",
-      "tags": ["glutes", "hinge", "posterior-chain"],
+      "tags": [
+        "glutes",
+        "hinge",
+        "posterior-chain"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Hyperextending the lumbar spine at the top to achieve greater range, loading the lower back instead of finishing with glute contraction at a neutral spine position." },
-        { "description": "Positioning the bench too low, which forces the shoulders onto the edge at an uncomfortable angle and prevents the hip from reaching full extension." }
+        {
+          "description": "Hyperextending the lumbar spine at the top to achieve greater range, loading the lower back instead of finishing with glute contraction at a neutral spine position."
+        },
+        {
+          "description": "Positioning the bench too low, which forces the shoulders onto the edge at an uncomfortable angle and prevents the hip from reaching full extension."
+        }
       ]
     },
     {
@@ -200,17 +413,37 @@
       "modelPath": "content/gym/models/cable-row.glb",
       "defaultClip": "row",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "row", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "row",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "shoulders", "core"],
+      "muscles": [
+        "back",
+        "shoulders",
+        "core"
+      ],
       "difficulty": "beginner",
-      "tags": ["pull", "upper-body", "cable"],
+      "tags": [
+        "pull",
+        "upper-body",
+        "cable"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Using excessive trunk lean-back to initiate the pull, which recruits the erector spinae to move the weight rather than the target muscles and risks low-back strain." },
-        { "description": "Not fully extending the arms before each rep, shortening the range of motion and reducing the lat stretch that maximizes the training stimulus." }
+        {
+          "description": "Using excessive trunk lean-back to initiate the pull, which recruits the erector spinae to move the weight rather than the target muscles and risks low-back strain."
+        },
+        {
+          "description": "Not fully extending the arms before each rep, shortening the range of motion and reducing the lat stretch that maximizes the training stimulus."
+        }
       ]
     },
     {
@@ -219,17 +452,37 @@
       "modelPath": "content/gym/models/face-pull.glb",
       "defaultClip": "pull",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "pull", "durationSeconds": 1.8, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "pull",
+          "durationSeconds": 1.8,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "back"],
+      "muscles": [
+        "shoulders",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["pull", "shoulders", "mobility", "upper-body"],
+      "tags": [
+        "pull",
+        "shoulders",
+        "mobility",
+        "upper-body"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Pulling the rope to the chin rather than the forehead, which reduces external rotation and defeats the primary purpose of the exercise as a rotator cuff and rear delt movement." },
-        { "description": "Using too much weight and compensating with trunk extension, turning the face pull into a partial row and losing the isolated external rotation component." }
+        {
+          "description": "Pulling the rope to the chin rather than the forehead, which reduces external rotation and defeats the primary purpose of the exercise as a rotator cuff and rear delt movement."
+        },
+        {
+          "description": "Using too much weight and compensating with trunk extension, turning the face pull into a partial row and losing the isolated external rotation component."
+        }
       ]
     }
   ]

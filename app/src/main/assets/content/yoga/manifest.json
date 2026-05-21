@@ -2,6 +2,7 @@
   "schemaVersion": "1.0",
   "disciplineId": "yoga",
   "disciplineName": "Yoga",
+  "description": "An ancient Indian practice uniting breath, movement, and mindfulness. Builds flexibility, functional strength, and body awareness through progressive postures.",
   "iconPath": null,
   "movements": [
     {
@@ -10,17 +11,37 @@
       "modelPath": "content/yoga/models/mountain_pose.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
-        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.0,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "back", "calves"],
+      "muscles": [
+        "core",
+        "back",
+        "calves"
+      ],
       "difficulty": "beginner",
-      "tags": ["standing", "fundamental", "balance"],
+      "tags": [
+        "standing",
+        "fundamental",
+        "balance"
+      ],
       "cameraPreset": "front",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Locking the knees rigidly rather than keeping a microbend, which compresses the joint." },
-        { "description": "Letting the chin jut forward instead of lengthening the back of the neck, disrupting spinal alignment." }
+        {
+          "description": "Locking the knees rigidly rather than keeping a microbend, which compresses the joint."
+        },
+        {
+          "description": "Letting the chin jut forward instead of lengthening the back of the neck, disrupting spinal alignment."
+        }
       ]
     },
     {
@@ -29,17 +50,39 @@
       "modelPath": "content/yoga/models/warrior_1.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "shoulders", "core"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "shoulders",
+        "core"
+      ],
       "difficulty": "beginner",
-      "tags": ["standing", "strength"],
+      "tags": [
+        "standing",
+        "strength"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["yoga.mountain-pose"],
+      "prerequisites": [
+        "yoga.mountain-pose"
+      ],
       "commonMistakes": [
-        { "description": "Allowing the front knee to collapse inward rather than tracking over the second toe." },
-        { "description": "Shrugging the shoulders up toward the ears when raising the arms, creating neck tension." }
+        {
+          "description": "Allowing the front knee to collapse inward rather than tracking over the second toe."
+        },
+        {
+          "description": "Shrugging the shoulders up toward the ears when raising the arms, creating neck tension."
+        }
       ]
     },
     {
@@ -48,17 +91,38 @@
       "modelPath": "content/yoga/models/warrior_2.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "shoulders"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "shoulders"
+      ],
       "difficulty": "beginner",
-      "tags": ["standing", "strength"],
+      "tags": [
+        "standing",
+        "strength"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["yoga.warrior-1"],
+      "prerequisites": [
+        "yoga.warrior-1"
+      ],
       "commonMistakes": [
-        { "description": "Leaning the torso forward over the front leg rather than keeping it stacked directly over the hips." },
-        { "description": "Allowing the back foot to angle inward too much, which reduces hip opening and stability." }
+        {
+          "description": "Leaning the torso forward over the front leg rather than keeping it stacked directly over the hips."
+        },
+        {
+          "description": "Allowing the back foot to angle inward too much, which reduces hip opening and stability."
+        }
       ]
     },
     {
@@ -67,17 +131,39 @@
       "modelPath": "content/yoga/models/downward_dog.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
-        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.0,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "hamstrings", "calves", "back"],
+      "muscles": [
+        "shoulders",
+        "hamstrings",
+        "calves",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["inversion", "fundamental"],
+      "tags": [
+        "inversion",
+        "fundamental"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["yoga.mountain-pose"],
+      "prerequisites": [
+        "yoga.mountain-pose"
+      ],
       "commonMistakes": [
-        { "description": "Rounding the upper back rather than externally rotating the shoulders to create a flat spine." },
-        { "description": "Forcing the heels to touch the floor by bending the knees, which removes the hamstring stretch." }
+        {
+          "description": "Rounding the upper back rather than externally rotating the shoulders to create a flat spine."
+        },
+        {
+          "description": "Forcing the heels to touch the floor by bending the knees, which removes the hamstring stretch."
+        }
       ]
     },
     {
@@ -86,17 +172,38 @@
       "modelPath": "content/yoga/models/tree_pose.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 4.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 4.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "calves", "glutes"],
+      "muscles": [
+        "core",
+        "calves",
+        "glutes"
+      ],
       "difficulty": "intermediate",
-      "tags": ["balance", "standing"],
+      "tags": [
+        "balance",
+        "standing"
+      ],
       "cameraPreset": "three_quarter",
-      "prerequisites": ["yoga.mountain-pose"],
+      "prerequisites": [
+        "yoga.mountain-pose"
+      ],
       "commonMistakes": [
-        { "description": "Placing the raised foot against the standing knee, putting lateral stress on the joint." },
-        { "description": "Fixing the gaze on something unstable or shifting it around, which disrupts the balance drishti." }
+        {
+          "description": "Placing the raised foot against the standing knee, putting lateral stress on the joint."
+        },
+        {
+          "description": "Fixing the gaze on something unstable or shifting it around, which disrupts the balance drishti."
+        }
       ]
     },
     {
@@ -105,17 +212,37 @@
       "modelPath": "content/yoga/models/cobra.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 1.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "core", "shoulders"],
+      "muscles": [
+        "back",
+        "core",
+        "shoulders"
+      ],
       "difficulty": "beginner",
-      "tags": ["backbend", "fundamental", "spine"],
+      "tags": [
+        "backbend",
+        "fundamental",
+        "spine"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Pushing up with the hands and engaging the arms rather than using back strength, compressing the lumbar spine." },
-        { "description": "Crunching the neck back instead of lengthening through the crown of the head." }
+        {
+          "description": "Pushing up with the hands and engaging the arms rather than using back strength, compressing the lumbar spine."
+        },
+        {
+          "description": "Crunching the neck back instead of lengthening through the crown of the head."
+        }
       ]
     },
     {
@@ -124,16 +251,34 @@
       "modelPath": "content/yoga/models/child.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 1.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "core", "glutes"],
+      "muscles": [
+        "back",
+        "core",
+        "glutes"
+      ],
       "difficulty": "beginner",
-      "tags": ["rest", "fundamental", "recovery"],
+      "tags": [
+        "rest",
+        "fundamental",
+        "recovery"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Holding tension in the shoulders instead of letting them melt toward the floor." }
+        {
+          "description": "Holding tension in the shoulders instead of letting them melt toward the floor."
+        }
       ]
     },
     {
@@ -142,17 +287,38 @@
       "modelPath": "content/yoga/models/bridge.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 1.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["glutes", "hamstrings", "core", "back"],
+      "muscles": [
+        "glutes",
+        "hamstrings",
+        "core",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["backbend", "strength", "hip-flexors"],
+      "tags": [
+        "backbend",
+        "strength",
+        "hip-flexors"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Allowing the knees to splay outward instead of staying hip-width and parallel." },
-        { "description": "Squeezing the glutes so hard that the lower back overextends and takes the load." }
+        {
+          "description": "Allowing the knees to splay outward instead of staying hip-width and parallel."
+        },
+        {
+          "description": "Squeezing the glutes so hard that the lower back overextends and takes the load."
+        }
       ]
     },
     {
@@ -161,17 +327,39 @@
       "modelPath": "content/yoga/models/triangle_pose.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
-        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.0,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["hamstrings", "core", "shoulders"],
+      "muscles": [
+        "hamstrings",
+        "core",
+        "shoulders"
+      ],
       "difficulty": "beginner",
-      "tags": ["standing", "flexibility", "fundamental"],
+      "tags": [
+        "standing",
+        "flexibility",
+        "fundamental"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["yoga.mountain-pose"],
+      "prerequisites": [
+        "yoga.mountain-pose"
+      ],
       "commonMistakes": [
-        { "description": "Collapsing the torso toward the floor rather than rotating it open toward the ceiling, losing the lateral spinal lengthening that defines the pose." },
-        { "description": "Placing the bottom hand on the shin and pushing into it to prop the torso, which compresses the side body instead of creating space." }
+        {
+          "description": "Collapsing the torso toward the floor rather than rotating it open toward the ceiling, losing the lateral spinal lengthening that defines the pose."
+        },
+        {
+          "description": "Placing the bottom hand on the shin and pushing into it to prop the torso, which compresses the side body instead of creating space."
+        }
       ]
     },
     {
@@ -180,17 +368,37 @@
       "modelPath": "content/yoga/models/seated_forward_fold.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
-        { "name": "hold", "durationSeconds": 4.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.0,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 4.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["hamstrings", "back", "calves"],
+      "muscles": [
+        "hamstrings",
+        "back",
+        "calves"
+      ],
       "difficulty": "beginner",
-      "tags": ["seated", "flexibility", "fundamental"],
+      "tags": [
+        "seated",
+        "flexibility",
+        "fundamental"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Rounding the lower back and tucking the pelvis to reach the feet, which stretches the lumbar fascia instead of the hamstrings." },
-        { "description": "Pulling aggressively on the feet to force depth, activating the stretch reflex and causing the hamstrings to contract protectively." }
+        {
+          "description": "Rounding the lower back and tucking the pelvis to reach the feet, which stretches the lumbar fascia instead of the hamstrings."
+        },
+        {
+          "description": "Pulling aggressively on the feet to force depth, activating the stretch reflex and causing the hamstrings to contract protectively."
+        }
       ]
     },
     {
@@ -199,17 +407,38 @@
       "modelPath": "content/yoga/models/pigeon_pose.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 5.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 5.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["glutes", "hip_flexors", "core"],
+      "muscles": [
+        "glutes",
+        "hip_flexors",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["hip-opening", "flexibility"],
+      "tags": [
+        "hip-opening",
+        "flexibility"
+      ],
       "cameraPreset": "three_quarter",
-      "prerequisites": ["yoga.downward-dog"],
+      "prerequisites": [
+        "yoga.downward-dog"
+      ],
       "commonMistakes": [
-        { "description": "Allowing the pelvis to tilt toward the bent-leg side, which compresses the sacroiliac joint rather than opening the external hip rotators." },
-        { "description": "Sinking the torso weight into the hip passively without any active engagement of the core, which can overstretch the capsular ligaments of the hip joint." }
+        {
+          "description": "Allowing the pelvis to tilt toward the bent-leg side, which compresses the sacroiliac joint rather than opening the external hip rotators."
+        },
+        {
+          "description": "Sinking the torso weight into the hip passively without any active engagement of the core, which can overstretch the capsular ligaments of the hip joint."
+        }
       ]
     },
     {
@@ -218,17 +447,39 @@
       "modelPath": "content/yoga/models/crow_pose.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
-        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.0,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "shoulders", "chest"],
+      "muscles": [
+        "core",
+        "shoulders",
+        "chest"
+      ],
       "difficulty": "advanced",
-      "tags": ["arm-balance", "strength", "balance"],
+      "tags": [
+        "arm-balance",
+        "strength",
+        "balance"
+      ],
       "cameraPreset": "three_quarter",
-      "prerequisites": ["yoga.downward-dog"],
+      "prerequisites": [
+        "yoga.downward-dog"
+      ],
       "commonMistakes": [
-        { "description": "Looking straight down at the floor rather than forward, causing the center of gravity to shift back and dropping the hips." },
-        { "description": "Keeping the arms straight instead of maintaining a slight bend, which removes the shelf that the knees need to rest on." }
+        {
+          "description": "Looking straight down at the floor rather than forward, causing the center of gravity to shift back and dropping the hips."
+        },
+        {
+          "description": "Keeping the arms straight instead of maintaining a slight bend, which removes the shelf that the knees need to rest on."
+        }
       ]
     }
   ]

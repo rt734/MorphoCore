@@ -105,6 +105,14 @@ class ContentManifestIntegrityTest {
 
     @ParameterizedTest
     @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `discipline has a non-blank description`(disciplineId: String) {
+        val result = readManifest(disciplineId) as ParseResult.Success
+        assertTrue(result.discipline.description.isNotBlank(),
+            "$disciplineId: discipline description is blank")
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
     fun `every movement has at least one tag`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->

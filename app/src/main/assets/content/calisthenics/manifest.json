@@ -2,6 +2,7 @@
   "schemaVersion": "1.0",
   "disciplineId": "calisthenics",
   "disciplineName": "Calisthenics",
+  "description": "Bodyweight skill training combining strength, balance, and body control. Progresses from foundational pushing and pulling patterns to advanced static holds and dynamic skills.",
   "iconPath": null,
   "movements": [
     {
@@ -10,17 +11,37 @@
       "modelPath": "content/calisthenics/models/push-up.glb",
       "defaultClip": "push",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "push", "durationSeconds": 1.8, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "push",
+          "durationSeconds": 1.8,
+          "fps": 30
+        }
       ],
-      "muscles": ["chest", "shoulders", "core"],
+      "muscles": [
+        "chest",
+        "shoulders",
+        "core"
+      ],
       "difficulty": "beginner",
-      "tags": ["push", "fundamental", "bodyweight"],
+      "tags": [
+        "push",
+        "fundamental",
+        "bodyweight"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Allowing the hips to sag toward the floor because the core is not engaged, placing compressive load on the lumbar spine throughout the movement." },
-        { "description": "Positioning the hands too far forward of the shoulders, which shifts load onto the anterior deltoids and away from the pectorals while overstressing the wrists." }
+        {
+          "description": "Allowing the hips to sag toward the floor because the core is not engaged, placing compressive load on the lumbar spine throughout the movement."
+        },
+        {
+          "description": "Positioning the hands too far forward of the shoulders, which shifts load onto the anterior deltoids and away from the pectorals while overstressing the wrists."
+        }
       ]
     },
     {
@@ -29,17 +50,37 @@
       "modelPath": "content/calisthenics/models/pull-up.glb",
       "defaultClip": "pull",
       "clips": [
-        { "name": "hang", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "pull", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "hang",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "pull",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "shoulders", "core"],
+      "muscles": [
+        "back",
+        "shoulders",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["pull", "bodyweight", "compound"],
+      "tags": [
+        "pull",
+        "bodyweight",
+        "compound"
+      ],
       "cameraPreset": "front",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Failing to initiate the pull with scapular depression and retraction, leading to a shoulder-dominant pull that bypasses the lats entirely." },
-        { "description": "Not reaching full elbow extension at the bottom of each rep, shortening the effective range of motion and reducing the stretch stimulus on the lats." }
+        {
+          "description": "Failing to initiate the pull with scapular depression and retraction, leading to a shoulder-dominant pull that bypasses the lats entirely."
+        },
+        {
+          "description": "Not reaching full elbow extension at the bottom of each rep, shortening the effective range of motion and reducing the stretch stimulus on the lats."
+        }
       ]
     },
     {
@@ -48,17 +89,39 @@
       "modelPath": "content/calisthenics/models/dip.glb",
       "defaultClip": "dip",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "dip", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "dip",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["chest", "shoulders", "back"],
+      "muscles": [
+        "chest",
+        "shoulders",
+        "back"
+      ],
       "difficulty": "intermediate",
-      "tags": ["push", "bodyweight", "upper-body"],
+      "tags": [
+        "push",
+        "bodyweight",
+        "upper-body"
+      ],
       "cameraPreset": "three_quarter",
-      "prerequisites": ["calisthenics.push-up"],
+      "prerequisites": [
+        "calisthenics.push-up"
+      ],
       "commonMistakes": [
-        { "description": "Descending too shallowly to avoid discomfort, stopping before the upper arms reach parallel, which drastically reduces the pectoral and tricep stimulus." },
-        { "description": "Allowing the torso to pitch excessively forward without intent, shifting stress from the triceps onto the anterior shoulder capsule at a compromised angle." }
+        {
+          "description": "Descending too shallowly to avoid discomfort, stopping before the upper arms reach parallel, which drastically reduces the pectoral and tricep stimulus."
+        },
+        {
+          "description": "Allowing the torso to pitch excessively forward without intent, shifting stress from the triceps onto the anterior shoulder capsule at a compromised angle."
+        }
       ]
     },
     {
@@ -67,17 +130,37 @@
       "modelPath": "content/calisthenics/models/l-sit.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 1.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "hip_flexors", "quadriceps"],
+      "muscles": [
+        "core",
+        "hip_flexors",
+        "quadriceps"
+      ],
       "difficulty": "intermediate",
-      "tags": ["hold", "strength", "core"],
+      "tags": [
+        "hold",
+        "strength",
+        "core"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Bending the knees to reduce hip flexor demand, which converts the skill into a tuck hold and removes the lever-length challenge central to L-sit progression." },
-        { "description": "Failing to achieve full shoulder depression, causing the body to hang low with bent arms rather than elevating the hips above bar or floor level." }
+        {
+          "description": "Bending the knees to reduce hip flexor demand, which converts the skill into a tuck hold and removes the lever-length challenge central to L-sit progression."
+        },
+        {
+          "description": "Failing to achieve full shoulder depression, causing the body to hang low with bent arms rather than elevating the hips above bar or floor level."
+        }
       ]
     },
     {
@@ -86,17 +169,41 @@
       "modelPath": "content/calisthenics/models/muscle-up.glb",
       "defaultClip": "muscle_up",
       "clips": [
-        { "name": "hang", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "muscle_up", "durationSeconds": 2.5, "fps": 30 }
+        {
+          "name": "hang",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "muscle_up",
+          "durationSeconds": 2.5,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "shoulders", "chest", "core"],
+      "muscles": [
+        "back",
+        "shoulders",
+        "chest",
+        "core"
+      ],
       "difficulty": "advanced",
-      "tags": ["compound", "advanced", "bodyweight"],
+      "tags": [
+        "compound",
+        "advanced",
+        "bodyweight"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["calisthenics.pull-up", "calisthenics.dip"],
+      "prerequisites": [
+        "calisthenics.pull-up",
+        "calisthenics.dip"
+      ],
       "commonMistakes": [
-        { "description": "Neglecting to use a false grip (wrapping the wrists over the bar) on ring or bar muscle-ups, making the transition phase nearly impossible because the wrist cannot rotate around the bar efficiently at the top of the pull." },
-        { "description": "Losing tension during the transition phase between pull and push by allowing the elbows to flare wide, which causes the chest to collide with the bar instead of clearing it and stalls forward momentum." }
+        {
+          "description": "Neglecting to use a false grip (wrapping the wrists over the bar) on ring or bar muscle-ups, making the transition phase nearly impossible because the wrist cannot rotate around the bar efficiently at the top of the pull."
+        },
+        {
+          "description": "Losing tension during the transition phase between pull and push by allowing the elbows to flare wide, which causes the chest to collide with the bar instead of clearing it and stalls forward momentum."
+        }
       ]
     },
     {
@@ -105,17 +212,40 @@
       "modelPath": "content/calisthenics/models/handstand-push-up.glb",
       "defaultClip": "press",
       "clips": [
-        { "name": "hold", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "press", "durationSeconds": 2.5, "fps": 30 }
+        {
+          "name": "hold",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "press",
+          "durationSeconds": 2.5,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "core", "back"],
+      "muscles": [
+        "shoulders",
+        "core",
+        "back"
+      ],
       "difficulty": "advanced",
-      "tags": ["push", "advanced", "overhead", "bodyweight"],
+      "tags": [
+        "push",
+        "advanced",
+        "overhead",
+        "bodyweight"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["calisthenics.push-up"],
+      "prerequisites": [
+        "calisthenics.push-up"
+      ],
       "commonMistakes": [
-        { "description": "Kicking up with momentum instead of pressing into a controlled handstand, masking instability." },
-        { "description": "Allowing the lower back to arch excessively in the handstand, compressing the lumbar spine." }
+        {
+          "description": "Kicking up with momentum instead of pressing into a controlled handstand, masking instability."
+        },
+        {
+          "description": "Allowing the lower back to arch excessively in the handstand, compressing the lumbar spine."
+        }
       ]
     },
     {
@@ -124,16 +254,36 @@
       "modelPath": "content/calisthenics/models/dragon-flag.glb",
       "defaultClip": "flag",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "flag", "durationSeconds": 3.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "flag",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "back", "shoulders"],
+      "muscles": [
+        "core",
+        "back",
+        "shoulders"
+      ],
       "difficulty": "advanced",
-      "tags": ["core", "advanced", "strength"],
+      "tags": [
+        "core",
+        "advanced",
+        "strength"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["calisthenics.l-sit"],
+      "prerequisites": [
+        "calisthenics.l-sit"
+      ],
       "commonMistakes": [
-        { "description": "Allowing the hips to break and the body to jackknife, removing the spinal alignment that makes the movement challenging." }
+        {
+          "description": "Allowing the hips to break and the body to jackknife, removing the spinal alignment that makes the movement challenging."
+        }
       ]
     },
     {
@@ -142,17 +292,40 @@
       "modelPath": "content/calisthenics/models/front-lever.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
-        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.0,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "core", "shoulders"],
+      "muscles": [
+        "back",
+        "core",
+        "shoulders"
+      ],
       "difficulty": "advanced",
-      "tags": ["hold", "advanced", "strength", "bodyweight"],
+      "tags": [
+        "hold",
+        "advanced",
+        "strength",
+        "bodyweight"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["calisthenics.pull-up"],
+      "prerequisites": [
+        "calisthenics.pull-up"
+      ],
       "commonMistakes": [
-        { "description": "Bending at the hips instead of maintaining full-body horizontal alignment, reducing lat engagement." },
-        { "description": "Internally rotating the shoulders which collapses the position and places stress on the rotator cuff." }
+        {
+          "description": "Bending at the hips instead of maintaining full-body horizontal alignment, reducing lat engagement."
+        },
+        {
+          "description": "Internally rotating the shoulders which collapses the position and places stress on the rotator cuff."
+        }
       ]
     },
     {
@@ -161,17 +334,37 @@
       "modelPath": "content/calisthenics/models/hollow-body.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
-        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 1.5,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "hip_flexors", "back"],
+      "muscles": [
+        "core",
+        "hip_flexors",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["core", "fundamental", "hold"],
+      "tags": [
+        "core",
+        "fundamental",
+        "hold"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Allowing the lower back to arch off the floor, which breaks the posterior pelvic tilt that is the foundation of the hollow position." },
-        { "description": "Holding the breath rather than breathing through the ribcage, which causes the thorax to rise and immediately loses the rib-down position essential to proper hollow body tension." }
+        {
+          "description": "Allowing the lower back to arch off the floor, which breaks the posterior pelvic tilt that is the foundation of the hollow position."
+        },
+        {
+          "description": "Holding the breath rather than breathing through the ribcage, which causes the thorax to rise and immediately loses the rib-down position essential to proper hollow body tension."
+        }
       ]
     },
     {
@@ -180,17 +373,39 @@
       "modelPath": "content/calisthenics/models/archer-push-up.glb",
       "defaultClip": "push",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "push", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "push",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["chest", "shoulders", "core"],
+      "muscles": [
+        "chest",
+        "shoulders",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["push", "bodyweight", "unilateral"],
+      "tags": [
+        "push",
+        "bodyweight",
+        "unilateral"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["calisthenics.push-up"],
+      "prerequisites": [
+        "calisthenics.push-up"
+      ],
       "commonMistakes": [
-        { "description": "Rotating the torso rather than keeping it square to the floor, converting the unilateral press into a diagonal push that misloads the shoulder capsule." },
-        { "description": "Bending the assisting arm rather than keeping it extended and providing only passive support, removing the one-arm loading effect that distinguishes the archer from a standard push-up." }
+        {
+          "description": "Rotating the torso rather than keeping it square to the floor, converting the unilateral press into a diagonal push that misloads the shoulder capsule."
+        },
+        {
+          "description": "Bending the assisting arm rather than keeping it extended and providing only passive support, removing the one-arm loading effect that distinguishes the archer from a standard push-up."
+        }
       ]
     },
     {
@@ -199,17 +414,37 @@
       "modelPath": "content/calisthenics/models/ring-row.glb",
       "defaultClip": "row",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "row", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "row",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["back", "shoulders", "core"],
+      "muscles": [
+        "back",
+        "shoulders",
+        "core"
+      ],
       "difficulty": "beginner",
-      "tags": ["pull", "bodyweight", "rings"],
+      "tags": [
+        "pull",
+        "bodyweight",
+        "rings"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Allowing the hips to sag during the pull, breaking the rigid plank position that forces full-body engagement throughout the movement." },
-        { "description": "Pulling to the stomach rather than the chest, which limits scapular retraction and reduces the stimulus on the mid-back musculature." }
+        {
+          "description": "Allowing the hips to sag during the pull, breaking the rigid plank position that forces full-body engagement throughout the movement."
+        },
+        {
+          "description": "Pulling to the stomach rather than the chest, which limits scapular retraction and reduces the stimulus on the mid-back musculature."
+        }
       ]
     },
     {
@@ -218,17 +453,42 @@
       "modelPath": "content/calisthenics/models/planche.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
-        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 2.0,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "core", "chest", "back"],
+      "muscles": [
+        "shoulders",
+        "core",
+        "chest",
+        "back"
+      ],
       "difficulty": "advanced",
-      "tags": ["hold", "advanced", "strength", "balance"],
+      "tags": [
+        "hold",
+        "advanced",
+        "strength",
+        "balance"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["calisthenics.push-up", "calisthenics.l-sit"],
+      "prerequisites": [
+        "calisthenics.push-up",
+        "calisthenics.l-sit"
+      ],
       "commonMistakes": [
-        { "description": "Achieving the position through lumbar hyperextension rather than true shoulder protraction and posterior pelvic tilt, which mimics the visual but places the load on the spine rather than the target musculature." },
-        { "description": "Skipping the tuck and straddle progressions and jumping to full planche prematurely, which overloads the wrists, elbows, and shoulder capsule before the connective tissue has adapted." }
+        {
+          "description": "Achieving the position through lumbar hyperextension rather than true shoulder protraction and posterior pelvic tilt, which mimics the visual but places the load on the spine rather than the target musculature."
+        },
+        {
+          "description": "Skipping the tuck and straddle progressions and jumping to full planche prematurely, which overloads the wrists, elbows, and shoulder capsule before the connective tissue has adapted."
+        }
       ]
     }
   ]
