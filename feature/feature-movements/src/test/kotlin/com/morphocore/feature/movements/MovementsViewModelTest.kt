@@ -254,6 +254,41 @@ class MovementsViewModelTest {
         assertEquals(emptySet(), state.selectedDifficulties)
     }
 
+    // ── totalCount ────────────────────────────────────────────────────────
+
+    @Test
+    fun `totalCount reflects all movements before filtering`() = runTest {
+        val beginner = movement("karate", "front_kick").copy(difficulty = Difficulty.BEGINNER)
+        val advanced = movement("karate", "spinning_heel").copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(beginner, advanced))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(2, state.totalCount)
+    }
+
+    @Test
+    fun `totalCount unchanged when filter reduces visible movements`() = runTest {
+        val beginner = movement("karate", "front_kick").copy(difficulty = Difficulty.BEGINNER)
+        val advanced = movement("karate", "spinning_heel").copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(beginner, advanced))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficulty(Difficulty.ADVANCED)
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(2, state.totalCount)
+    }
+
     // ── text search ───────────────────────────────────────────────────────
 
     @Test
