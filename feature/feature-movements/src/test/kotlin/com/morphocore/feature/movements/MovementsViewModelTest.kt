@@ -1,12 +1,18 @@
 package com.morphocore.feature.movements
 
 import androidx.lifecycle.SavedStateHandle
+import com.morphocore.content.api.ContentError
+import com.morphocore.content.api.ContentRegistry
+import com.morphocore.content.api.RegistryState
 import com.morphocore.content.testing.FakeContentRepository
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Discipline
 import com.morphocore.domain.Movement
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
@@ -55,11 +61,17 @@ class MovementsViewModelTest {
     private fun savedState(disciplineId: String) =
         SavedStateHandle(mapOf("disciplineId" to disciplineId))
 
+    private fun vm(
+        disciplineId: String = "karate",
+        repo: FakeContentRepository = FakeContentRepository(),
+        registry: FakeContentRegistry = FakeContentRegistry()
+    ) = MovementsViewModel(savedState(disciplineId), repo, registry)
+
     // ── baseline ──────────────────────────────────────────────────────────
 
     @Test
     fun `uiState is Ready with empty movements when repository has no movements`() = runTest {
-        val vm = MovementsViewModel(savedState("karate"), FakeContentRepository())
+        val vm = vm()
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
@@ -72,7 +84,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(movement("karate", "roundhouse_kick")))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         assertIs<MovementsUiState.Ready>(vm.uiState.value)
@@ -84,7 +96,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(movement("karate", "front_kick")))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = vm.uiState.value as MovementsUiState.Ready
@@ -96,7 +108,7 @@ class MovementsViewModelTest {
         val repo = FakeContentRepository(
             movementsByDiscipline = mapOf("karate" to listOf(movement("karate", "kick")))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = vm.uiState.value as MovementsUiState.Ready
@@ -106,7 +118,7 @@ class MovementsViewModelTest {
     @Test
     fun `uiState is Error when repository throws`() = runTest {
         val repo = FakeContentRepository(throwOnMovements = RuntimeException("db error"))
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         assertIs<MovementsUiState.Error>(vm.uiState.value)
@@ -122,7 +134,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(beginnerMovement, advancedMovement))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
 
@@ -146,7 +158,7 @@ class MovementsViewModelTest {
 
     @Test
     fun `default sort is BY_DIFFICULTY`() = runTest {
-        val vm = MovementsViewModel(savedState("karate"), FakeContentRepository())
+        val vm = vm()
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
@@ -155,7 +167,7 @@ class MovementsViewModelTest {
 
     @Test
     fun `toggleSort switches from BY_DIFFICULTY to BY_NAME`() = runTest {
-        val vm = MovementsViewModel(savedState("karate"), FakeContentRepository())
+        val vm = vm()
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         vm.toggleSort()
@@ -166,7 +178,7 @@ class MovementsViewModelTest {
 
     @Test
     fun `toggleSort called twice returns to BY_DIFFICULTY`() = runTest {
-        val vm = MovementsViewModel(savedState("karate"), FakeContentRepository())
+        val vm = vm()
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         vm.toggleSort()
@@ -185,7 +197,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(zulu, alpha))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         vm.toggleSort()
@@ -204,7 +216,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(advanced, intermediate, beginner))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
@@ -221,7 +233,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(beta, alpha))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
@@ -239,7 +251,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(beginner, advanced))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
 
@@ -265,7 +277,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(beginner1, beginner2, advanced))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
@@ -282,7 +294,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(beginner, advanced))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         vm.toggleDifficulty(Difficulty.ADVANCED)
@@ -305,7 +317,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(m1, m2, m3))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
@@ -325,7 +337,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(beginner, advanced))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
@@ -340,7 +352,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(beginner, advanced))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         vm.toggleDifficulty(Difficulty.ADVANCED)
@@ -360,7 +372,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(frontKick, armBlock))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         vm.setQuery("front")
@@ -378,7 +390,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(kickMovement, blockMovement))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         vm.setQuery("kick")
@@ -396,7 +408,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(m1, m2))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         vm.setQuery("front")
@@ -415,7 +427,7 @@ class MovementsViewModelTest {
             disciplines = listOf(discipline("karate", "Karate")),
             movementsByDiscipline = mapOf("karate" to listOf(taggedMovement, untagged))
         )
-        val vm = MovementsViewModel(savedState("karate"), repo)
+        val vm = vm(repo = repo)
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
 
@@ -429,4 +441,26 @@ class MovementsViewModelTest {
         assertEquals(2, state.movements.size)
         assertEquals(emptySet(), state.selectedTags)
     }
+
+    // ── registry error ────────────────────────────────────────────────────
+
+    @Test
+    fun `uiState is Error when registry emits error state`() = runTest {
+        val registry = FakeContentRegistry(initialState = RegistryState.Loading)
+        val vm = vm(registry = registry)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        registry.setState(RegistryState.Error(ContentError.NoContentFound))
+        advanceUntilIdle()
+        assertIs<MovementsUiState.Error>(vm.uiState.value)
+    }
+}
+
+private open class FakeContentRegistry(
+    initialState: RegistryState = RegistryState.Ready
+) : ContentRegistry {
+    private val _state = MutableStateFlow(initialState)
+    override val state: StateFlow<RegistryState> = _state.asStateFlow()
+    override suspend fun refresh() {}
+    fun setState(s: RegistryState) { _state.value = s }
 }
