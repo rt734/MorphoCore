@@ -254,6 +254,46 @@ class MovementsViewModelTest {
         assertEquals(emptySet(), state.selectedDifficulties)
     }
 
+    // ── difficultyBreakdown ───────────────────────────────────────────────
+
+    @Test
+    fun `difficultyBreakdown counts movements by difficulty`() = runTest {
+        val beginner1 = movement("karate", "front_kick").copy(difficulty = Difficulty.BEGINNER)
+        val beginner2 = movement("karate", "arm_block").copy(difficulty = Difficulty.BEGINNER)
+        val advanced = movement("karate", "spinning_heel").copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(beginner1, beginner2, advanced))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(2, state.difficultyBreakdown[Difficulty.BEGINNER])
+        assertEquals(null, state.difficultyBreakdown[Difficulty.INTERMEDIATE])
+        assertEquals(1, state.difficultyBreakdown[Difficulty.ADVANCED])
+    }
+
+    @Test
+    fun `difficultyBreakdown reflects unfiltered movements even when filter active`() = runTest {
+        val beginner = movement("karate", "front_kick").copy(difficulty = Difficulty.BEGINNER)
+        val advanced = movement("karate", "spinning_heel").copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(beginner, advanced))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficulty(Difficulty.ADVANCED)
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        // movements list is filtered (1), but breakdown still reflects full set (2)
+        assertEquals(1, state.movements.size)
+        assertEquals(1, state.difficultyBreakdown[Difficulty.BEGINNER])
+        assertEquals(1, state.difficultyBreakdown[Difficulty.ADVANCED])
+    }
+
     // ── totalCount ────────────────────────────────────────────────────────
 
     @Test
