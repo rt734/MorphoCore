@@ -142,6 +142,23 @@ class DetailViewModelTest {
         assertIs<DetailUiState.Error>(vm.uiState.value)
     }
 
+    // ── loop toggle ───────────────────────────────────────────────────────
+
+    @Test
+    fun `isLooping defaults to true`() = runTest {
+        val vm = vm("karate.mae-geri")
+        assertEquals(true, vm.playbackState.value.isLooping)
+    }
+
+    @Test
+    fun `toggleLoop flips isLooping`() = runTest {
+        val vm = vm("karate.mae-geri")
+        vm.toggleLoop()
+        assertEquals(false, vm.playbackState.value.isLooping)
+        vm.toggleLoop()
+        assertEquals(true, vm.playbackState.value.isLooping)
+    }
+
     // ── related movements ─────────────────────────────────────────────────
 
     @Test

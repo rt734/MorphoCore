@@ -17,6 +17,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Repeat
+import androidx.compose.material.icons.filled.RepeatOne
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -112,7 +114,7 @@ fun DetailScreen(
         if (clip.isNotEmpty()) {
             viewport.setPlaybackSpeed(playbackState.speedMultiplier)
             if (playbackState.isPlaying) {
-                viewport.play(clip)
+                viewport.play(clip, loop = playbackState.isLooping)
             } else {
                 viewport.pause()
             }
@@ -169,6 +171,7 @@ fun DetailScreen(
                         movement = state.movement,
                         playbackState = playbackState,
                         onTogglePlayPause = viewModel::togglePlayPause,
+                        onToggleLoop = viewModel::toggleLoop,
                         onClipSelected = viewModel::selectClip,
                         onSpeedSelected = viewModel::setSpeed,
                         onCameraSelected = viewModel::selectCamera
@@ -199,6 +202,7 @@ private fun PlaybackControls(
     movement: Movement,
     playbackState: PlaybackState,
     onTogglePlayPause: () -> Unit,
+    onToggleLoop: () -> Unit,
     onClipSelected: (String) -> Unit,
     onSpeedSelected: (Float) -> Unit,
     onCameraSelected: (String) -> Unit,
@@ -208,7 +212,7 @@ private fun PlaybackControls(
         modifier = modifier.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        // Play / pause
+        // Play / pause + loop toggle
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
@@ -218,6 +222,13 @@ private fun PlaybackControls(
                     Icon(Icons.Default.Pause, contentDescription = "Pause")
                 } else {
                     Icon(Icons.Default.PlayArrow, contentDescription = "Play")
+                }
+            }
+            IconButton(onClick = onToggleLoop) {
+                if (playbackState.isLooping) {
+                    Icon(Icons.Default.Repeat, contentDescription = "Loop on")
+                } else {
+                    Icon(Icons.Default.RepeatOne, contentDescription = "Loop off")
                 }
             }
         }

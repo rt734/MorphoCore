@@ -4,5 +4,6 @@ data class PlaybackState(
     val currentClip: String,
     val isPlaying: Boolean,
     val speedMultiplier: Float = 1f,
-    val cameraPreset: String? = null
+    val cameraPreset: String? = null,
+    val isLooping: Boolean = true
 )

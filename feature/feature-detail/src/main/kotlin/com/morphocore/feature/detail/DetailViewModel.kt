@@ -85,4 +85,8 @@ class DetailViewModel @Inject constructor(
         userPreferences.setDefaultCamera(presetName)
         _playbackState.update { it.copy(cameraPreset = presetName) }
     }
+
+    fun toggleLoop() {
+        _playbackState.update { it.copy(isLooping = !it.isLooping) }
+    }
 }
