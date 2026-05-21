@@ -254,6 +254,63 @@ class MovementsViewModelTest {
         assertEquals(emptySet(), state.selectedDifficulties)
     }
 
+    // ── text search ───────────────────────────────────────────────────────
+
+    @Test
+    fun `setQuery filters movements by name`() = runTest {
+        val frontKick = movement("karate", "front_kick")
+        val armBlock = movement("karate", "arm_block")
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(frontKick, armBlock))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("front")
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(frontKick.id, state.movements.first().id)
+    }
+
+    @Test
+    fun `setQuery filters movements by tag`() = runTest {
+        val kickMovement = movement("karate", "mae_geri").copy(tags = listOf("kick"))
+        val blockMovement = movement("karate", "jodan_uke").copy(tags = listOf("block"))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(kickMovement, blockMovement))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("kick")
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(kickMovement.id, state.movements.first().id)
+    }
+
+    @Test
+    fun `blank query shows all movements`() = runTest {
+        val m1 = movement("karate", "front_kick")
+        val m2 = movement("karate", "arm_block")
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(m1, m2))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("front")
+        advanceUntilIdle()
+        vm.setQuery("")
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(2, state.movements.size)
+    }
+
     @Test
     fun `clearFilters resets selectedTags`() = runTest {
         val taggedMovement = movement("karate", "front_kick").copy(tags = listOf("kick"))
