@@ -155,6 +155,82 @@
         { "description": "Bending the knees too much and converting the movement into a conventional deadlift, missing the hamstring stretch." },
         { "description": "Rounding the upper back instead of maintaining a neutral spine throughout the hinge." }
       ]
+    },
+    {
+      "id": "gym.front-squat",
+      "name": "Barbell Front Squat",
+      "modelPath": "content/gym/models/front-squat.glb",
+      "defaultClip": "squat",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "squat", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["squat", "compound", "legs", "olympic"],
+      "cameraPreset": "side",
+      "prerequisites": ["gym.squat"],
+      "commonMistakes": [
+        { "description": "Allowing the elbows to drop during the descent, which tips the bar forward off the shoulders and forces the torso to follow, destroying the upright posture that front squats require." },
+        { "description": "Using a cross-arm grip instead of a clean grip when wrist flexibility allows, which provides less bar control and is more likely to unbalance the load." }
+      ]
+    },
+    {
+      "id": "gym.hip-thrust",
+      "name": "Barbell Hip Thrust",
+      "modelPath": "content/gym/models/hip-thrust.glb",
+      "defaultClip": "thrust",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "thrust", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["glutes", "hamstrings", "core"],
+      "difficulty": "beginner",
+      "tags": ["glutes", "hinge", "posterior-chain"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Hyperextending the lumbar spine at the top to achieve greater range, loading the lower back instead of finishing with glute contraction at a neutral spine position." },
+        { "description": "Positioning the bench too low, which forces the shoulders onto the edge at an uncomfortable angle and prevents the hip from reaching full extension." }
+      ]
+    },
+    {
+      "id": "gym.cable-row",
+      "name": "Seated Cable Row",
+      "modelPath": "content/gym/models/cable-row.glb",
+      "defaultClip": "row",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "row", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["back", "shoulders", "core"],
+      "difficulty": "beginner",
+      "tags": ["pull", "upper-body", "cable"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Using excessive trunk lean-back to initiate the pull, which recruits the erector spinae to move the weight rather than the target muscles and risks low-back strain." },
+        { "description": "Not fully extending the arms before each rep, shortening the range of motion and reducing the lat stretch that maximizes the training stimulus." }
+      ]
+    },
+    {
+      "id": "gym.face-pull",
+      "name": "Cable Face Pull",
+      "modelPath": "content/gym/models/face-pull.glb",
+      "defaultClip": "pull",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "pull", "durationSeconds": 1.8, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "back"],
+      "difficulty": "beginner",
+      "tags": ["pull", "shoulders", "mobility", "upper-body"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Pulling the rope to the chin rather than the forehead, which reduces external rotation and defeats the primary purpose of the exercise as a rotator cuff and rear delt movement." },
+        { "description": "Using too much weight and compensating with trunk extension, turning the face pull into a partial row and losing the isolated external rotation component." }
+      ]
     }
   ]
 }

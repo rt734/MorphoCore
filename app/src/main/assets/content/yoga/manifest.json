@@ -154,6 +154,82 @@
         { "description": "Allowing the knees to splay outward instead of staying hip-width and parallel." },
         { "description": "Squeezing the glutes so hard that the lower back overextends and takes the load." }
       ]
+    },
+    {
+      "id": "yoga.triangle-pose",
+      "name": "Triangle Pose (Trikonasana)",
+      "modelPath": "content/yoga/models/triangle_pose.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "muscles": ["hamstrings", "core", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["standing", "flexibility", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": ["yoga.mountain-pose"],
+      "commonMistakes": [
+        { "description": "Collapsing the torso toward the floor rather than rotating it open toward the ceiling, losing the lateral spinal lengthening that defines the pose." },
+        { "description": "Placing the bottom hand on the shin and pushing into it to prop the torso, which compresses the side body instead of creating space." }
+      ]
+    },
+    {
+      "id": "yoga.seated-forward-fold",
+      "name": "Seated Forward Fold (Paschimottanasana)",
+      "modelPath": "content/yoga/models/seated_forward_fold.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "hold", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "muscles": ["hamstrings", "back", "calves"],
+      "difficulty": "beginner",
+      "tags": ["seated", "flexibility", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Rounding the lower back and tucking the pelvis to reach the feet, which stretches the lumbar fascia instead of the hamstrings." },
+        { "description": "Pulling aggressively on the feet to force depth, activating the stretch reflex and causing the hamstrings to contract protectively." }
+      ]
+    },
+    {
+      "id": "yoga.pigeon-pose",
+      "name": "Pigeon Pose (Eka Pada Rajakapotasana)",
+      "modelPath": "content/yoga/models/pigeon_pose.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 5.0, "fps": 30 }
+      ],
+      "muscles": ["glutes", "hip_flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["hip-opening", "flexibility"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["yoga.downward-dog"],
+      "commonMistakes": [
+        { "description": "Allowing the pelvis to tilt toward the bent-leg side, which compresses the sacroiliac joint rather than opening the external hip rotators." },
+        { "description": "Sinking the torso weight into the hip passively without any active engagement of the core, which can overstretch the capsular ligaments of the hip joint." }
+      ]
+    },
+    {
+      "id": "yoga.crow-pose",
+      "name": "Crow Pose (Bakasana)",
+      "modelPath": "content/yoga/models/crow_pose.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "muscles": ["core", "shoulders", "chest"],
+      "difficulty": "advanced",
+      "tags": ["arm-balance", "strength", "balance"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["yoga.downward-dog"],
+      "commonMistakes": [
+        { "description": "Looking straight down at the floor rather than forward, causing the center of gravity to shift back and dropping the hips." },
+        { "description": "Keeping the arms straight instead of maintaining a slight bend, which removes the shelf that the knees need to rest on." }
+      ]
     }
   ]
 }
