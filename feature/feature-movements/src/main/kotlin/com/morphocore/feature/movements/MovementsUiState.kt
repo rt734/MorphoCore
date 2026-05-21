@@ -7,6 +7,7 @@ sealed class MovementsUiState {
     object Loading : MovementsUiState()
     data class Ready(
         val disciplineName: String,
+        val disciplineDescription: String = "",
         val movements: List<Movement>,
         val totalCount: Int = 0,
         val difficultyBreakdown: Map<Difficulty, Int> = emptyMap(),

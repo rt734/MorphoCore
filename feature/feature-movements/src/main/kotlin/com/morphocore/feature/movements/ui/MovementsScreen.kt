@@ -123,6 +123,17 @@ fun MovementsScreen(
                         .fillMaxSize()
                         .padding(innerPadding)
                 ) {
+                    // Discipline description header
+                    if (state.disciplineDescription.isNotBlank()) {
+                        item {
+                            Text(
+                                text = state.disciplineDescription,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                            )
+                        }
+                    }
                     // Search field
                     item {
                         OutlinedTextField(
