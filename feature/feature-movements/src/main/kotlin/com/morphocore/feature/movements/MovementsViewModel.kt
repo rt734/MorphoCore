@@ -67,7 +67,7 @@ class MovementsViewModel @Inject constructor(
             BY_NAME       -> filtered.sortedBy { it.name }
         }
         MovementsUiState.Ready(
-            disciplineName, sorted, availableTags,
+            disciplineName, sorted, movements.size, availableTags,
             filter.tags, filter.difficulties, filter.sort, filter.query
         )
     }

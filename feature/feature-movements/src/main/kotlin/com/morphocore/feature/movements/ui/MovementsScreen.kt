@@ -159,6 +159,21 @@ fun MovementsScreen(
                             }
                         }
                     }
+                    // Movement count stat
+                    if (state.totalCount > 0) {
+                        item {
+                            val countText = if (state.movements.size < state.totalCount)
+                                "Showing ${state.movements.size} of ${state.totalCount} movements"
+                            else
+                                "${state.totalCount} movements"
+                            Text(
+                                text = countText,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp)
+                            )
+                        }
+                    }
                     // Active sort / filter summary
                     if (sortNonDefault || filtersActive) {
                         item {
