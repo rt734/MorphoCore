@@ -4,7 +4,9 @@ import com.morphocore.content.api.ContentError
 import com.morphocore.content.api.ContentRegistry
 import com.morphocore.content.api.RegistryState
 import com.morphocore.content.testing.FakeContentRepository
+import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Discipline
+import com.morphocore.domain.Movement
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,10 +41,28 @@ class BrowseViewModelTest {
     private fun discipline(id: String, name: String) =
         Discipline(id = id, name = name, iconPath = null, movementIds = emptyList())
 
+    private fun movement(disciplineId: String, slug: String) =
+        Movement(
+            id = "$disciplineId.$slug",
+            disciplineId = disciplineId,
+            name = slug.replace("_", " "),
+            modelPath = "models/$disciplineId/$slug.glb",
+            defaultClip = "idle",
+            clips = emptyList(),
+            muscles = emptyList(),
+            difficulty = Difficulty.BEGINNER,
+            tags = emptyList(),
+            cameraPreset = null,
+            prerequisites = emptyList(),
+            commonMistakes = emptyList()
+        )
+
     private fun vm(
         repo: FakeContentRepository = FakeContentRepository(),
         registry: FakeContentRegistry = FakeContentRegistry()
     ) = BrowseViewModel(repo, registry)
+
+    // ── baseline ──────────────────────────────────────────────────────────
 
     @Test
     fun `uiState is Ready with empty list when repository emits nothing`() = runTest {
@@ -119,6 +139,51 @@ class BrowseViewModelTest {
         vm.retry()
         advanceUntilIdle()
         assertEquals(true, refreshCalled)
+    }
+
+    // ── totalMovementCount ────────────────────────────────────────────────
+
+    @Test
+    fun `totalMovementCount is zero when repository has no movements`() = runTest {
+        val vm = vm()
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(0, state.totalMovementCount)
+    }
+
+    @Test
+    fun `totalMovementCount reflects all movements in repository`() = runTest {
+        val repo = FakeContentRepository(
+            movementsById = mapOf(
+                "karate.front_kick" to movement("karate", "front_kick"),
+                "yoga.downward_dog" to movement("yoga", "downward_dog"),
+                "gym.squat" to movement("gym", "squat")
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(3, state.totalMovementCount)
+    }
+
+    @Test
+    fun `totalMovementCount is preserved in search mode`() = runTest {
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsById = mapOf(
+                "karate.front_kick" to movement("karate", "front_kick"),
+                "karate.roundhouse" to movement("karate", "roundhouse")
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("yoga")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(2, state.totalMovementCount)
     }
 }
 
