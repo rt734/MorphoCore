@@ -250,12 +250,18 @@ private fun PlaybackControls(
 
         // Clip selector (only when more than one clip)
         if (movement.clips.size > 1) {
+            Text(
+                text = "Clips",
+                style = MaterialTheme.typography.labelSmall
+            )
             LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 items(movement.clips) { clip ->
                     FilterChip(
                         selected = clip.name == playbackState.currentClip,
                         onClick = { onClipSelected(clip.name) },
-                        label = { Text(clip.name) }
+                        label = {
+                            Text(clip.name.replace('_', ' ').replaceFirstChar { it.uppercaseChar() })
+                        }
                     )
                 }
             }
@@ -293,6 +299,24 @@ private fun MovementInfoPanel(
                     color = color,
                     style = MaterialTheme.typography.labelMedium
                 )
+            }
+        }
+
+        // Tags section
+        if (movement.tags.isNotEmpty()) {
+            Text("Tags", style = MaterialTheme.typography.labelSmall)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                movement.tags.forEach { tag ->
+                    SuggestionChip(
+                        onClick = {},
+                        label = { Text(tag) }
+                    )
+                }
             }
         }
 
