@@ -1,5 +1,6 @@
 package com.morphocore.feature.browse
 
+import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Discipline
 import com.morphocore.domain.Movement
 
@@ -9,7 +10,8 @@ sealed class BrowseUiState {
         val disciplines: List<Discipline>,
         val movementResults: List<Movement> = emptyList(),
         val query: String = "",
-        val totalMovementCount: Int = 0
+        val totalMovementCount: Int = 0,
+        val difficultyBreakdown: Map<Difficulty, Int> = emptyMap()
     ) : BrowseUiState()
     data class Error(val message: String) : BrowseUiState()
 }
