@@ -132,7 +132,29 @@ fun DetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text((uiState as? DetailUiState.Ready)?.movement?.name ?: movementId) },
+                title = {
+                    val movement = (uiState as? DetailUiState.Ready)?.movement
+                    if (movement != null) {
+                        Column {
+                            Text(movement.name, style = MaterialTheme.typography.titleLarge)
+                            val disciplineLabel = movement.disciplineId
+                                .split('-')
+                                .joinToString(" ") { it.replaceFirstChar { c -> c.uppercaseChar() } }
+                            val difficultyLabel = when (movement.difficulty) {
+                                com.morphocore.domain.Difficulty.BEGINNER     -> "Beginner"
+                                com.morphocore.domain.Difficulty.INTERMEDIATE -> "Intermediate"
+                                com.morphocore.domain.Difficulty.ADVANCED     -> "Advanced"
+                            }
+                            Text(
+                                "$disciplineLabel · $difficultyLabel",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    } else {
+                        Text(movementId)
+                    }
+                },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
