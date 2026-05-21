@@ -319,6 +319,16 @@ private fun MovementInfoPanel(
             }
         }
 
+        // Clip summary (only when multiple clips)
+        if (movement.clips.size > 1) {
+            val totalSeconds = movement.clips.sumOf { it.durationSeconds.toDouble() }.toFloat()
+            Text(
+                text = "${"%.1f".format(totalSeconds)}s total · ${movement.clips.size} clips",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+
         // Tags section
         if (movement.tags.isNotEmpty()) {
             Text("Tags", style = MaterialTheme.typography.labelSmall)

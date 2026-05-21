@@ -180,6 +180,28 @@ fun MovementsScreen(
                             )
                         }
                     }
+                    // Difficulty breakdown (pre-filter, always reflects full discipline)
+                    if (state.difficultyBreakdown.isNotEmpty()) {
+                        item {
+                            val parts = listOf(Difficulty.BEGINNER, Difficulty.INTERMEDIATE, Difficulty.ADVANCED)
+                                .mapNotNull { d ->
+                                    state.difficultyBreakdown[d]?.let { count ->
+                                        val label = when (d) {
+                                            Difficulty.BEGINNER -> "Beginner"
+                                            Difficulty.INTERMEDIATE -> "Intermediate"
+                                            Difficulty.ADVANCED -> "Advanced"
+                                        }
+                                        "$count $label"
+                                    }
+                                }
+                            Text(
+                                text = parts.joinToString(" · "),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 0.dp)
+                            )
+                        }
+                    }
                     // Active sort / filter summary
                     if (sortNonDefault || filtersActive) {
                         item {

@@ -9,6 +9,7 @@ sealed class MovementsUiState {
         val disciplineName: String,
         val movements: List<Movement>,
         val totalCount: Int = 0,
+        val difficultyBreakdown: Map<Difficulty, Int> = emptyMap(),
         val availableTags: List<String> = emptyList(),
         val selectedTags: Set<String> = emptySet(),
         val selectedDifficulties: Set<Difficulty> = emptySet(),

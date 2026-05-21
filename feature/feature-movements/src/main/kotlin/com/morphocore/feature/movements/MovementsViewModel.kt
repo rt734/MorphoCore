@@ -66,8 +66,9 @@ class MovementsViewModel @Inject constructor(
             BY_DIFFICULTY -> filtered.sortedWith(compareBy({ it.difficulty.ordinal }, { it.name }))
             BY_NAME       -> filtered.sortedBy { it.name }
         }
+        val breakdown = movements.groupingBy { it.difficulty }.eachCount()
         MovementsUiState.Ready(
-            disciplineName, sorted, movements.size, availableTags,
+            disciplineName, sorted, movements.size, breakdown, availableTags,
             filter.tags, filter.difficulties, filter.sort, filter.query
         )
     }
