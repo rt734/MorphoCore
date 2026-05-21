@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +23,11 @@ import com.morphocore.domain.MuscleGroup
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun MovementRow(movement: Movement, onClick: () -> Unit) {
+fun MovementRow(
+    movement: Movement,
+    onClick: () -> Unit,
+    onTagClick: ((String) -> Unit)? = null
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -60,12 +65,17 @@ fun MovementRow(movement: Movement, onClick: () -> Unit) {
             }
         }
         if (movement.tags.isNotEmpty()) {
-            Text(
-                text = movement.tags.take(2).joinToString(" · "),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(top = 4.dp)
-            )
+            FlowRow(
+                modifier = Modifier.padding(top = 4.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                movement.tags.take(2).forEach { tag ->
+                    SuggestionChip(
+                        onClick = { onTagClick?.invoke(tag) },
+                        label = { Text(tag, style = MaterialTheme.typography.labelSmall) }
+                    )
+                }
+            }
         }
     }
     HorizontalDivider()
