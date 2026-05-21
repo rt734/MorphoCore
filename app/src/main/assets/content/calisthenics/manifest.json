@@ -154,6 +154,82 @@
         { "description": "Bending at the hips instead of maintaining full-body horizontal alignment, reducing lat engagement." },
         { "description": "Internally rotating the shoulders which collapses the position and places stress on the rotator cuff." }
       ]
+    },
+    {
+      "id": "calisthenics.hollow-body",
+      "name": "Hollow Body Hold",
+      "modelPath": "content/calisthenics/models/hollow-body.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "hold", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "muscles": ["core", "hip_flexors", "back"],
+      "difficulty": "beginner",
+      "tags": ["core", "fundamental", "hold"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Allowing the lower back to arch off the floor, which breaks the posterior pelvic tilt that is the foundation of the hollow position." },
+        { "description": "Holding the breath rather than breathing through the ribcage, which causes the thorax to rise and immediately loses the rib-down position essential to proper hollow body tension." }
+      ]
+    },
+    {
+      "id": "calisthenics.archer-push-up",
+      "name": "Archer Push-Up",
+      "modelPath": "content/calisthenics/models/archer-push-up.glb",
+      "defaultClip": "push",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "push", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["chest", "shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["push", "bodyweight", "unilateral"],
+      "cameraPreset": "front",
+      "prerequisites": ["calisthenics.push-up"],
+      "commonMistakes": [
+        { "description": "Rotating the torso rather than keeping it square to the floor, converting the unilateral press into a diagonal push that misloads the shoulder capsule." },
+        { "description": "Bending the assisting arm rather than keeping it extended and providing only passive support, removing the one-arm loading effect that distinguishes the archer from a standard push-up." }
+      ]
+    },
+    {
+      "id": "calisthenics.ring-row",
+      "name": "Ring Row",
+      "modelPath": "content/calisthenics/models/ring-row.glb",
+      "defaultClip": "row",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "row", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["back", "shoulders", "core"],
+      "difficulty": "beginner",
+      "tags": ["pull", "bodyweight", "rings"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Allowing the hips to sag during the pull, breaking the rigid plank position that forces full-body engagement throughout the movement." },
+        { "description": "Pulling to the stomach rather than the chest, which limits scapular retraction and reduces the stimulus on the mid-back musculature." }
+      ]
+    },
+    {
+      "id": "calisthenics.planche",
+      "name": "Planche Hold",
+      "modelPath": "content/calisthenics/models/planche.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "core", "chest", "back"],
+      "difficulty": "advanced",
+      "tags": ["hold", "advanced", "strength", "balance"],
+      "cameraPreset": "side",
+      "prerequisites": ["calisthenics.push-up", "calisthenics.l-sit"],
+      "commonMistakes": [
+        { "description": "Achieving the position through lumbar hyperextension rather than true shoulder protraction and posterior pelvic tilt, which mimics the visual but places the load on the spine rather than the target musculature." },
+        { "description": "Skipping the tuck and straddle progressions and jumping to full planche prematurely, which overloads the wrists, elbows, and shoulder capsule before the connective tissue has adapted." }
+      ]
     }
   ]
 }

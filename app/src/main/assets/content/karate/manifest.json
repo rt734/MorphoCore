@@ -154,6 +154,82 @@
         { "description": "Failing to rotate the hips into the block, making it arm-only and easily overwhelmed." },
         { "description": "Placing the augmenting fist too high on the blocking arm, reducing leverage." }
       ]
+    },
+    {
+      "id": "karate.gedan-barai",
+      "name": "Gedan Barai (Downward Block)",
+      "modelPath": "content/karate/models/gedan_barai.glb",
+      "defaultClip": "block",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "block", "durationSeconds": 1.1, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "beginner",
+      "tags": ["block", "defense", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Sweeping the blocking arm too far across the centerline, leaving the opposite side of the body unprotected." },
+        { "description": "Dropping the elbow below the hip on completion, weakening the block's structural endpoint." }
+      ]
+    },
+    {
+      "id": "karate.yoko-geri-keage",
+      "name": "Yoko Geri Keage (Side Snap Kick)",
+      "modelPath": "content/karate/models/yoko_geri_keage.glb",
+      "defaultClip": "kick",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 1.4, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "hip_flexors"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "side"],
+      "cameraPreset": "front",
+      "prerequisites": ["karate.mae-geri"],
+      "commonMistakes": [
+        { "description": "Failing to raise the knee to full chamber height before snapping, which reduces range and makes the kick easy to predict." },
+        { "description": "Allowing the support hip to drop during execution, shifting the kicking arc downward and reducing target height." }
+      ]
+    },
+    {
+      "id": "karate.uchi-uke",
+      "name": "Uchi Uke (Inside Block)",
+      "modelPath": "content/karate/models/uchi_uke.glb",
+      "defaultClip": "block",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "block", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "beginner",
+      "tags": ["block", "defense", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Pulling the blocking arm too far across the body's centerline, creating a gap in the guard on the opposite side." },
+        { "description": "Not pivoting the hips to add power to the block, leaving it as an arm-only deflection." }
+      ]
+    },
+    {
+      "id": "karate.kizami-zuki",
+      "name": "Kizami Zuki (Jab Punch)",
+      "modelPath": "content/karate/models/kizami_zuki.glb",
+      "defaultClip": "punch",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "punch", "durationSeconds": 0.9, "fps": 30 }
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "beginner",
+      "tags": ["punch", "fundamental", "speed"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Reaching forward with the shoulder to gain extra range, telegraphing the attack and compromising the shoulder joint." },
+        { "description": "Failing to snap the fist back to guard immediately after impact, leaving the arm extended and exposed to a grab or counter." }
+      ]
     }
   ]
 }

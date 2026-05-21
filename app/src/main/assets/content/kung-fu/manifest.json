@@ -153,6 +153,82 @@
       "commonMistakes": [
         { "description": "Using full fist contact instead of the second knuckle row, losing the concentrated impact of the technique." }
       ]
+    },
+    {
+      "id": "kung-fu.bow-stance",
+      "name": "Gong Bu (Bow Stance)",
+      "modelPath": "content/kung-fu/models/bow-stance.glb",
+      "defaultClip": "hold",
+      "clips": [
+        { "name": "transition", "durationSeconds": 1.2, "fps": 30 },
+        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        { "description": "Positioning the front foot at an angle rather than pointing directly forward, misaligning the knee and hip and limiting power transfer." },
+        { "description": "Bending the back knee instead of fully extending it, losing the pushing leverage of the rear leg." }
+      ]
+    },
+    {
+      "id": "kung-fu.crescent-kick",
+      "name": "Ce Ti Tui (Crescent Kick)",
+      "modelPath": "content/kung-fu/models/crescent-kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 1.6, "fps": 30 }
+      ],
+      "muscles": ["quadriceps", "core", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "flexibility"],
+      "cameraPreset": "front",
+      "prerequisites": ["kung-fu.front-kick"],
+      "commonMistakes": [
+        { "description": "Swinging the leg with a bent knee, converting the sweeping arc into a knee-dominant kick that loses the full leg extension and reach." },
+        { "description": "Allowing the torso to lean away from the arc to compensate for limited hip mobility, disrupting balance and reducing striking height." }
+      ]
+    },
+    {
+      "id": "kung-fu.elbow-strike",
+      "name": "Zhou Ji (Elbow Strike)",
+      "modelPath": "content/kung-fu/models/elbow-strike.glb",
+      "defaultClip": "strike",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.9, "fps": 30 }
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "close-range"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kung-fu.straight-punch"],
+      "commonMistakes": [
+        { "description": "Striking with only arm movement rather than driving from the hip rotation, removing the bodyweight from the strike." },
+        { "description": "Pulling the opposite hand back without purpose, wasting the counter-rotation that could amplify the striking side's power." }
+      ]
+    },
+    {
+      "id": "kung-fu.double-punch",
+      "name": "Shuang Chui (Double Punch)",
+      "modelPath": "content/kung-fu/models/double-punch.glb",
+      "defaultClip": "punch",
+      "clips": [
+        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "punch", "durationSeconds": 1.3, "fps": 30 }
+      ],
+      "muscles": ["core", "shoulders", "chest", "back"],
+      "difficulty": "beginner",
+      "tags": ["punch", "combination"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kung-fu.straight-punch"],
+      "commonMistakes": [
+        { "description": "Throwing both punches simultaneously rather than in rapid sequence, eliminating the rotational power from each individual strike." },
+        { "description": "Dropping the guard completely to deliver the second punch, leaving the head unprotected during the transition." }
+      ]
     }
   ]
 }
