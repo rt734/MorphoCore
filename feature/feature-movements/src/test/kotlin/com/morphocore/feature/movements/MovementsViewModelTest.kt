@@ -266,6 +266,38 @@ class MovementsViewModelTest {
         assertEquals(emptySet(), state.selectedDifficulties)
     }
 
+    // ── disciplineDescription ─────────────────────────────────────────────
+
+    @Test
+    fun `disciplineDescription is populated from discipline`() = runTest {
+        val disciplineWithDesc = Discipline(
+            id = "karate", name = "Karate",
+            description = "Traditional Japanese martial art",
+            iconPath = null, movementIds = emptyList()
+        )
+        val repo = FakeContentRepository(
+            disciplines = listOf(disciplineWithDesc),
+            movementsByDiscipline = mapOf("karate" to listOf(movement("karate", "front_kick")))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals("Traditional Japanese martial art", state.disciplineDescription)
+    }
+
+    @Test
+    fun `disciplineDescription is empty string when discipline not found`() = runTest {
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf("karate" to listOf(movement("karate", "kick")))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals("", state.disciplineDescription)
+    }
+
     // ── difficultyBreakdown ───────────────────────────────────────────────
 
     @Test
