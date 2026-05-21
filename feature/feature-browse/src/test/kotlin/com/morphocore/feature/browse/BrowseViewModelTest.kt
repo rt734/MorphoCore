@@ -187,6 +187,75 @@ class BrowseViewModelTest {
         assertEquals(2, state.totalMovementCount)
     }
 
+    // ── difficultyBreakdown ───────────────────────────────────────────────
+
+    @Test
+    fun `difficultyBreakdown counts movements by difficulty`() = runTest {
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf(
+                "karate" to listOf(
+                    movement("karate", "front_kick").copy(difficulty = Difficulty.BEGINNER),
+                    movement("karate", "roundhouse").copy(difficulty = Difficulty.INTERMEDIATE),
+                    movement("karate", "spinning").copy(difficulty = Difficulty.ADVANCED),
+                    movement("karate", "jab").copy(difficulty = Difficulty.BEGINNER)
+                )
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(2, state.difficultyBreakdown[Difficulty.BEGINNER])
+        assertEquals(1, state.difficultyBreakdown[Difficulty.INTERMEDIATE])
+        assertEquals(1, state.difficultyBreakdown[Difficulty.ADVANCED])
+    }
+
+    @Test
+    fun `difficultyBreakdown is empty when no movements`() = runTest {
+        val vm = vm()
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(emptyMap<Difficulty, Int>(), state.difficultyBreakdown)
+    }
+
+    @Test
+    fun `difficultyBreakdown not included in search mode`() = runTest {
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf(
+                "karate" to listOf(movement("karate", "front_kick"))
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("kick")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(emptyMap<Difficulty, Int>(), state.difficultyBreakdown)
+    }
+
+    // ── FakeContentRepository observeAllMovements fallback ────────────────
+
+    @Test
+    fun `totalMovementCount uses movementsByDiscipline when movementsById is empty`() = runTest {
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf(
+                "karate" to listOf(
+                    movement("karate", "front_kick"),
+                    movement("karate", "roundhouse")
+                ),
+                "yoga" to listOf(movement("yoga", "downward_dog"))
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(3, state.totalMovementCount)
+    }
+
     // ── muscle group search ───────────────────────────────────────────────
 
     @Test
