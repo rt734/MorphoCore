@@ -101,12 +101,13 @@ fun DetailScreen(
         viewport.applySceneEnvironment(theme.scene.toSceneEnvironment())
     }
 
-    LaunchedEffect(uiState) {
-        val state = uiState
-        if (state is DetailUiState.Ready) {
-            viewport.loadModel(state.movement.modelPath)
-            viewModel.onModelLoaded(state.movement.defaultClip, state.movement.cameraPreset)
-        }
+    // Key on movement ID only — not on full uiState — so reactive updates to
+    // relatedMovements / unlockedMovements do not trigger a model reload.
+    val loadedMovementId = (uiState as? DetailUiState.Ready)?.movement?.id
+    LaunchedEffect(loadedMovementId) {
+        val state = uiState as? DetailUiState.Ready ?: return@LaunchedEffect
+        viewport.loadModel(state.movement.modelPath)
+        viewModel.onModelLoaded(state.movement.defaultClip, state.movement.cameraPreset)
     }
 
     LaunchedEffect(playbackState) {

@@ -3,7 +3,9 @@ package com.morphocore.feature.movements
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.morphocore.content.api.ContentRegistry
 import com.morphocore.content.api.ContentRepository
+import com.morphocore.content.api.RegistryState
 import com.morphocore.domain.Difficulty
 import com.morphocore.feature.movements.MovementsSort.BY_DIFFICULTY
 import com.morphocore.feature.movements.MovementsSort.BY_NAME
@@ -18,13 +20,15 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @OptIn(FlowPreview::class)
 @HiltViewModel
 class MovementsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val contentRepository: ContentRepository
+    private val contentRepository: ContentRepository,
+    private val contentRegistry: ContentRegistry
 ) : ViewModel() {
 
     private val disciplineId: String = checkNotNull(savedStateHandle["disciplineId"])
@@ -35,7 +39,6 @@ class MovementsViewModel @Inject constructor(
     private val _query = MutableStateFlow("")
     val query: StateFlow<String> = _query.asStateFlow()
 
-    // Combine the four filter inputs into one intermediate to stay within the 5-flow limit.
     private val filterState = combine(
         _selectedTags,
         _selectedDifficulties,
@@ -48,8 +51,12 @@ class MovementsViewModel @Inject constructor(
     val uiState: StateFlow<MovementsUiState> = combine(
         contentRepository.observeMovements(disciplineId),
         contentRepository.observeDisciplines(),
+        contentRegistry.state,
         filterState
-    ) { movements, disciplines, filter ->
+    ) { movements, disciplines, registryState, filter ->
+        if (registryState is RegistryState.Error) {
+            return@combine MovementsUiState.Error("Content failed to load. Tap retry to try again.")
+        }
         val disciplineName = disciplines.find { it.id == disciplineId }?.name ?: disciplineId
         val availableTags = movements.flatMap { it.tags }.distinct().sorted()
         val tagCounts = movements.flatMap { it.tags }.groupingBy { it }.eachCount()
@@ -97,6 +104,10 @@ class MovementsViewModel @Inject constructor(
     fun clearFilters() {
         _selectedTags.value = emptySet()
         _selectedDifficulties.value = emptySet()
+    }
+
+    fun retry() {
+        viewModelScope.launch { contentRegistry.refresh() }
     }
 
     private data class FilterState(
