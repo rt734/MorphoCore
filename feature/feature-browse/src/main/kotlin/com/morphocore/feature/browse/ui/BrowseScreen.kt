@@ -31,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Movement
 import com.morphocore.feature.browse.BrowseUiState
 import com.morphocore.feature.browse.BrowseViewModel
@@ -200,6 +201,14 @@ private fun MovementSearchResultRow(
                     .replaceFirstChar { it.uppercaseChar() }
                     .replace('-', ' ')
             )
+        },
+        trailingContent = {
+            val (label, color) = when (movement.difficulty) {
+                Difficulty.BEGINNER     -> "Beginner"     to MaterialTheme.colorScheme.secondary
+                Difficulty.INTERMEDIATE -> "Intermediate" to MaterialTheme.colorScheme.tertiary
+                Difficulty.ADVANCED     -> "Advanced"     to MaterialTheme.colorScheme.error
+            }
+            Text(text = label, style = MaterialTheme.typography.labelSmall, color = color)
         },
         modifier = modifier.clickable(onClick = onClick)
     )

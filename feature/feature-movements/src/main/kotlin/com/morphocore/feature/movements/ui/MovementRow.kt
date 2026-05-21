@@ -59,6 +59,14 @@ fun MovementRow(movement: Movement, onClick: () -> Unit) {
                 }
             }
         }
+        if (movement.tags.isNotEmpty()) {
+            Text(
+                text = movement.tags.take(2).joinToString(" · "),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp)
+            )
+        }
     }
     HorizontalDivider()
 }

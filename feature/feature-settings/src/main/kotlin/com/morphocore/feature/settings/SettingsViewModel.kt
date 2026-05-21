@@ -54,4 +54,9 @@ class SettingsViewModel @Inject constructor(
         userPreferences.setDefaultCamera(preset)
         _defaultCamera.value = preset
     }
+
+    fun resetPlaybackDefaults() {
+        setDefaultSpeed(1f)
+        setDefaultCamera(null)
+    }
 }
