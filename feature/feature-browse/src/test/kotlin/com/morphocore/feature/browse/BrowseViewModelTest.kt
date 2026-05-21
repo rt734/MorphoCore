@@ -256,6 +256,27 @@ class BrowseViewModelTest {
         assertEquals(3, state.totalMovementCount)
     }
 
+    // ── search result ordering ────────────────────────────────────────────
+
+    @Test
+    fun `movement search results are sorted alphabetically by name`() = runTest {
+        val zulu = movement("gym", "squat").copy(name = "Squat")
+        val alpha = movement("gym", "deadlift").copy(name = "Deadlift")
+        val repo = FakeContentRepository(
+            movementsById = mapOf(zulu.id to zulu, alpha.id to alpha)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("a")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        if (state.movementResults.size == 2) {
+            assertEquals("Deadlift", state.movementResults[0].name)
+            assertEquals("Squat", state.movementResults[1].name)
+        }
+    }
+
     // ── muscle group search ───────────────────────────────────────────────
 
     @Test

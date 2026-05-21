@@ -26,10 +26,11 @@ import com.morphocore.domain.MuscleGroup
 fun MovementRow(
     movement: Movement,
     onClick: () -> Unit,
-    onTagClick: ((String) -> Unit)? = null
+    onTagClick: ((String) -> Unit)? = null,
+    modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
             .padding(horizontal = 16.dp, vertical = 12.dp)
