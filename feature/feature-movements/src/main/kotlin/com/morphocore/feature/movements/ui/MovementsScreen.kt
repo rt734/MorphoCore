@@ -58,11 +58,17 @@ fun MovementsScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    val title = when (val state = uiState) {
-                        is MovementsUiState.Ready -> state.disciplineName
-                        else -> disciplineId
+                    when (val state = uiState) {
+                        is MovementsUiState.Ready -> Column {
+                            Text(state.disciplineName, style = MaterialTheme.typography.titleLarge)
+                            Text(
+                                "${state.totalCount} movements",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                        else -> Text(disciplineId)
                     }
-                    Text(title)
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
