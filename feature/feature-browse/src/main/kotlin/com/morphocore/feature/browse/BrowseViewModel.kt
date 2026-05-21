@@ -40,14 +40,14 @@ class BrowseViewModel @Inject constructor(
             registryState is RegistryState.Loading ->
                 BrowseUiState.Loading
             query.isBlank() ->
-                BrowseUiState.Ready(disciplines = disciplines)
+                BrowseUiState.Ready(disciplines = disciplines, totalMovementCount = movements.size)
             else -> {
                 val q = query.trim().lowercase()
                 val matchingDisciplines = disciplines.filter { it.name.lowercase().contains(q) }
                 val matchingMovements = movements.filter { m ->
                     m.name.lowercase().contains(q) || m.tags.any { it.lowercase().contains(q) }
                 }
-                BrowseUiState.Ready(matchingDisciplines, matchingMovements, query)
+                BrowseUiState.Ready(matchingDisciplines, matchingMovements, query, movements.size)
             }
         }
     }

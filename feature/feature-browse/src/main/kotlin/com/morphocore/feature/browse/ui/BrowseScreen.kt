@@ -91,6 +91,16 @@ fun BrowseScreen(
                     }
 
                     if (state.query.isBlank()) {
+                        // Stats line: shown only when count is known
+                        if (state.totalMovementCount > 0) {
+                            item {
+                                Text(
+                                    text = "${state.disciplines.size} disciplines · ${state.totalMovementCount} movements",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp)
+                                )
+                            }
+                        }
                         // Normal mode: show discipline cards with spacing
                         items(state.disciplines, key = { it.id }) { discipline ->
                             Box(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
@@ -145,7 +155,7 @@ fun BrowseScreen(
                                         .padding(32.dp),
                                     contentAlignment = Alignment.Center
                                 ) {
-                                    Text("No results for “${state.query}”")
+                                    Text("No results for "${state.query}"")
                                 }
                             }
                         }

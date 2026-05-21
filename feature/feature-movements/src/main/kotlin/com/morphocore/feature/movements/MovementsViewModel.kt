@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.morphocore.content.api.ContentRepository
 import com.morphocore.domain.Difficulty
+import com.morphocore.feature.movements.MovementsSort.BY_DIFFICULTY
+import com.morphocore.feature.movements.MovementsSort.BY_NAME
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -25,19 +27,25 @@ class MovementsViewModel @Inject constructor(
 
     private val _selectedTags = MutableStateFlow<Set<String>>(emptySet())
     private val _selectedDifficulties = MutableStateFlow<Set<Difficulty>>(emptySet())
+    private val _sort = MutableStateFlow(MovementsSort.BY_DIFFICULTY)
 
     val uiState: StateFlow<MovementsUiState> = combine(
         contentRepository.observeMovements(disciplineId),
         contentRepository.observeDisciplines(),
         _selectedTags,
-        _selectedDifficulties
-    ) { movements, disciplines, selectedTags, selectedDifficulties ->
+        _selectedDifficulties,
+        _sort
+    ) { movements, disciplines, selectedTags, selectedDifficulties, sort ->
         val disciplineName = disciplines.find { it.id == disciplineId }?.name ?: disciplineId
         val availableTags = movements.flatMap { it.tags }.distinct().sorted()
         val filtered = movements
             .filter { m -> selectedTags.isEmpty() || m.tags.any { it in selectedTags } }
             .filter { m -> selectedDifficulties.isEmpty() || m.difficulty in selectedDifficulties }
-        MovementsUiState.Ready(disciplineName, filtered, availableTags, selectedTags, selectedDifficulties)
+        val sorted = when (sort) {
+            BY_DIFFICULTY -> filtered.sortedWith(compareBy({ it.difficulty.ordinal }, { it.name }))
+            BY_NAME -> filtered.sortedBy { it.name }
+        }
+        MovementsUiState.Ready(disciplineName, sorted, availableTags, selectedTags, selectedDifficulties, sort)
     }
         .catch { e -> emit(MovementsUiState.Error(e.message ?: "Failed to load movements")) }
         .stateIn(
@@ -52,5 +60,14 @@ class MovementsViewModel @Inject constructor(
 
     fun toggleDifficulty(difficulty: Difficulty) {
         _selectedDifficulties.update { d -> if (difficulty in d) d - difficulty else d + difficulty }
+    }
+
+    fun toggleSort() {
+        _sort.update { if (it == BY_DIFFICULTY) BY_NAME else BY_DIFFICULTY }
+    }
+
+    fun clearFilters() {
+        _selectedTags.value = emptySet()
+        _selectedDifficulties.value = emptySet()
     }
 }

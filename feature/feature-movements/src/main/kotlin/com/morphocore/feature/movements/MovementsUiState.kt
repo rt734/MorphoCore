@@ -10,7 +10,8 @@ sealed class MovementsUiState {
         val movements: List<Movement>,
         val availableTags: List<String> = emptyList(),
         val selectedTags: Set<String> = emptySet(),
-        val selectedDifficulties: Set<Difficulty> = emptySet()
+        val selectedDifficulties: Set<Difficulty> = emptySet(),
+        val sort: MovementsSort = MovementsSort.BY_DIFFICULTY
     ) : MovementsUiState()
     data class Error(val message: String) : MovementsUiState()
 }
