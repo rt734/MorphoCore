@@ -270,7 +270,8 @@ fun MovementsScreen(
                             MovementRow(
                                 movement = movement,
                                 onClick = { onMovementSelected(movement.id) },
-                                onTagClick = viewModel::toggleTag
+                                onTagClick = viewModel::toggleTag,
+                                modifier = Modifier.animateItem()
                             )
                         }
                     }

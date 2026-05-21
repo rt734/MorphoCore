@@ -55,7 +55,7 @@ class BrowseViewModel @Inject constructor(
                     m.name.lowercase().contains(q) ||
                     m.tags.any { it.lowercase().contains(q) } ||
                     m.muscles.any { it.searchToken().contains(q) }
-                }
+                }.sortedBy { it.name }
                 BrowseUiState.Ready(matchingDisciplines, matchingMovements, query, movements.size)
             }
         }
