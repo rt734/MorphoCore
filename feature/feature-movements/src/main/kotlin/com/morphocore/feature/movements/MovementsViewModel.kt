@@ -52,6 +52,7 @@ class MovementsViewModel @Inject constructor(
     ) { movements, disciplines, filter ->
         val disciplineName = disciplines.find { it.id == disciplineId }?.name ?: disciplineId
         val availableTags = movements.flatMap { it.tags }.distinct().sorted()
+        val tagCounts = movements.flatMap { it.tags }.groupingBy { it }.eachCount()
         val afterQuery = if (filter.query.isBlank()) movements
             else {
                 val q = filter.query.trim().lowercase()
@@ -68,7 +69,7 @@ class MovementsViewModel @Inject constructor(
         }
         val breakdown = movements.groupingBy { it.difficulty }.eachCount()
         MovementsUiState.Ready(
-            disciplineName, sorted, movements.size, breakdown, availableTags,
+            disciplineName, sorted, movements.size, breakdown, availableTags, tagCounts,
             filter.tags, filter.difficulties, filter.sort, filter.query
         )
     }
