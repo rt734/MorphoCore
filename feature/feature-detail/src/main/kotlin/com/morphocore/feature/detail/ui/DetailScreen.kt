@@ -173,7 +173,11 @@ fun DetailScreen(
                         onSpeedSelected = viewModel::setSpeed,
                         onCameraSelected = viewModel::selectCamera
                     )
-                    MovementInfoPanel(movement = state.movement, onNavigateToMovement = onNavigateToMovement)
+                    MovementInfoPanel(
+                        movement = state.movement,
+                        relatedMovements = state.relatedMovements,
+                        onNavigateToMovement = onNavigateToMovement
+                    )
                 }
             }
             is DetailUiState.Error -> {
@@ -272,6 +276,7 @@ private fun PlaybackControls(
 @Composable
 private fun MovementInfoPanel(
     movement: Movement,
+    relatedMovements: List<com.morphocore.domain.Movement>,
     onNavigateToMovement: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -364,6 +369,24 @@ private fun MovementInfoPanel(
                     SuggestionChip(
                         onClick = { onNavigateToMovement(prereqId) },
                         label = { Text(prereqId.movementIdToDisplayName()) }
+                    )
+                }
+            }
+        }
+
+        // Related movements
+        if (relatedMovements.isNotEmpty()) {
+            Text("Related", style = MaterialTheme.typography.labelSmall)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                relatedMovements.forEach { related ->
+                    SuggestionChip(
+                        onClick = { onNavigateToMovement(related.id) },
+                        label = { Text(related.name) }
                     )
                 }
             }
