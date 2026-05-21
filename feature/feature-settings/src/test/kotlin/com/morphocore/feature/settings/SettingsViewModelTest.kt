@@ -210,6 +210,26 @@ class SettingsViewModelTest {
         assertEquals(null, vm.defaultCamera.value)
         assertEquals(null, prefs.getDefaultCamera())
     }
+
+    // ── resetPlaybackDefaults ─────────────────────────────────────────────
+
+    @Test
+    fun `resetPlaybackDefaults resets speed to 1f`() = runTest {
+        val prefs = FakeUserPreferences(speed = 2f)
+        val vm = vm(prefs = prefs)
+        vm.resetPlaybackDefaults()
+        assertEquals(1f, vm.defaultSpeed.value)
+        assertEquals(1f, prefs.getDefaultSpeed())
+    }
+
+    @Test
+    fun `resetPlaybackDefaults clears camera to null`() = runTest {
+        val prefs = FakeUserPreferences(camera = "side")
+        val vm = vm(prefs = prefs)
+        vm.resetPlaybackDefaults()
+        assertEquals(null, vm.defaultCamera.value)
+        assertEquals(null, prefs.getDefaultCamera())
+    }
 }
 
 private class FakeThemeProvider(theme: Theme) : ThemeProvider {
