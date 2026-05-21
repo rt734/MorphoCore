@@ -23,8 +23,14 @@ class FakeContentRepository(
         if (throwOnMovements != null) flow { throw throwOnMovements }
         else flowOf(movementsByDiscipline[disciplineId] ?: emptyList())
 
-    override fun observeAllMovements(): Flow<List<Movement>> =
-        flowOf(movementsById.values.toList())
+    // When movementsById is not set, aggregate from movementsByDiscipline so tests
+    // only need to populate one map for both observeMovements and observeAllMovements.
+    override fun observeAllMovements(): Flow<List<Movement>> {
+        val all = if (movementsById.isNotEmpty()) movementsById.values.toList()
+                  else movementsByDiscipline.values.flatten()
+        return flowOf(all)
+    }
 
-    override suspend fun getMovement(movementId: String): Movement? = movementsById[movementId]
+    override suspend fun getMovement(movementId: String): Movement? =
+        movementsById[movementId]
 }

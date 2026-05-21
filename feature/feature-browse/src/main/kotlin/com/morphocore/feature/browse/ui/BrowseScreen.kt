@@ -102,6 +102,28 @@ fun BrowseScreen(
                                 )
                             }
                         }
+                        // Difficulty breakdown
+                        if (state.difficultyBreakdown.isNotEmpty()) {
+                            item {
+                                val parts = listOf(Difficulty.BEGINNER, Difficulty.INTERMEDIATE, Difficulty.ADVANCED)
+                                    .mapNotNull { d ->
+                                        state.difficultyBreakdown[d]?.let { count ->
+                                            val label = when (d) {
+                                                Difficulty.BEGINNER -> "Beginner"
+                                                Difficulty.INTERMEDIATE -> "Intermediate"
+                                                Difficulty.ADVANCED -> "Advanced"
+                                            }
+                                            "$count $label"
+                                        }
+                                    }
+                                Text(
+                                    text = parts.joinToString(" · "),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 0.dp)
+                                )
+                            }
+                        }
                         // Normal mode: show discipline cards with spacing
                         items(state.disciplines, key = { it.id }) { discipline ->
                             Box(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {

@@ -40,8 +40,14 @@ class BrowseViewModel @Inject constructor(
                 BrowseUiState.Error("Content failed to load. Tap retry to try again.")
             registryState is RegistryState.Loading ->
                 BrowseUiState.Loading
-            query.isBlank() ->
-                BrowseUiState.Ready(disciplines = disciplines, totalMovementCount = movements.size)
+            query.isBlank() -> {
+                val breakdown = movements.groupingBy { it.difficulty }.eachCount()
+                BrowseUiState.Ready(
+                    disciplines = disciplines,
+                    totalMovementCount = movements.size,
+                    difficultyBreakdown = breakdown
+                )
+            }
             else -> {
                 val q = query.trim().lowercase()
                 val matchingDisciplines = disciplines.filter { it.name.lowercase().contains(q) }
