@@ -2,6 +2,7 @@
   "schemaVersion": "1.0",
   "disciplineId": "kung-fu",
   "disciplineName": "Kung Fu",
+  "description": "A Chinese martial system spanning hundreds of styles. Trains circular power, fluid footwork, and deceptive strikes through stances, forms, and application drills.",
   "iconPath": null,
   "movements": [
     {
@@ -10,17 +11,36 @@
       "modelPath": "content/kung-fu/models/straight-punch.glb",
       "defaultClip": "punch",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "punch", "durationSeconds": 1.1, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "punch",
+          "durationSeconds": 1.1,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "shoulders", "back"],
+      "muscles": [
+        "core",
+        "shoulders",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["punch", "fundamental"],
+      "tags": [
+        "punch",
+        "fundamental"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Raising the punching shoulder and tensing the trapezius throughout the strike, which slows arm extension and reduces power transfer from the core." },
-        { "description": "Failing to rotate the fist to a vertical-then-horizontal position at extension, leaving the wrist misaligned and reducing structural integrity on impact." }
+        {
+          "description": "Raising the punching shoulder and tensing the trapezius throughout the strike, which slows arm extension and reduces power transfer from the core."
+        },
+        {
+          "description": "Failing to rotate the fist to a vertical-then-horizontal position at extension, leaving the wrist misaligned and reducing structural integrity on impact."
+        }
       ]
     },
     {
@@ -29,17 +49,36 @@
       "modelPath": "content/kung-fu/models/front-kick.glb",
       "defaultClip": "kick",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "kick", "durationSeconds": 1.4, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 1.4,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "core", "hip_flexors"],
+      "muscles": [
+        "quadriceps",
+        "core",
+        "hip_flexors"
+      ],
       "difficulty": "beginner",
-      "tags": ["kick", "fundamental"],
+      "tags": [
+        "kick",
+        "fundamental"
+      ],
       "cameraPreset": "front",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Leaning the torso backward to compensate for limited hip flexor mobility, reducing power and exposing the centerline." },
-        { "description": "Extending the leg fully before the hip reaches full flexion, causing a pushing action rather than a snapping strike." }
+        {
+          "description": "Leaning the torso backward to compensate for limited hip flexor mobility, reducing power and exposing the centerline."
+        },
+        {
+          "description": "Extending the leg fully before the hip reaches full flexion, causing a pushing action rather than a snapping strike."
+        }
       ]
     },
     {
@@ -48,17 +87,38 @@
       "modelPath": "content/kung-fu/models/hook-kick.glb",
       "defaultClip": "kick",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "kick", "durationSeconds": 1.7, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 1.7,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "core"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["kick", "advanced-kick"],
+      "tags": [
+        "kick",
+        "advanced-kick"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["kung-fu.front-kick"],
+      "prerequisites": [
+        "kung-fu.front-kick"
+      ],
       "commonMistakes": [
-        { "description": "Initiating the hooking arc from the knee rather than the hip, shortening the strike arc and losing the centrifugal momentum of the leg." },
-        { "description": "Pivoting the support foot insufficiently, which limits hip rotation and forces the body to compensate with lateral trunk lean." }
+        {
+          "description": "Initiating the hooking arc from the knee rather than the hip, shortening the strike arc and losing the centrifugal momentum of the leg."
+        },
+        {
+          "description": "Pivoting the support foot insufficiently, which limits hip rotation and forces the body to compensate with lateral trunk lean."
+        }
       ]
     },
     {
@@ -67,17 +127,37 @@
       "modelPath": "content/kung-fu/models/horse-stance.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 1.2, "fps": 30 },
-        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 1.2,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "core"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "core"
+      ],
       "difficulty": "beginner",
-      "tags": ["stance", "fundamental", "strength"],
+      "tags": [
+        "stance",
+        "fundamental",
+        "strength"
+      ],
       "cameraPreset": "front",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Allowing the knees to cave inward (valgus collapse) rather than tracking over the toes, placing excessive stress on the medial knee ligaments." },
-        { "description": "Anteriorly tilting the pelvis and arching the lower back instead of maintaining a neutral spine with engaged abdominals." }
+        {
+          "description": "Allowing the knees to cave inward (valgus collapse) rather than tracking over the toes, placing excessive stress on the medial knee ligaments."
+        },
+        {
+          "description": "Anteriorly tilting the pelvis and arching the lower back instead of maintaining a neutral spine with engaged abdominals."
+        }
       ]
     },
     {
@@ -86,17 +166,36 @@
       "modelPath": "content/kung-fu/models/palm-strike.glb",
       "defaultClip": "strike",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "strike", "durationSeconds": 1.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "strike",
+          "durationSeconds": 1.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "shoulders", "chest"],
+      "muscles": [
+        "core",
+        "shoulders",
+        "chest"
+      ],
       "difficulty": "beginner",
-      "tags": ["strike", "fundamental"],
+      "tags": [
+        "strike",
+        "fundamental"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Hyperextending the wrist backward at the moment of contact instead of maintaining a neutral wrist, which risks wrist sprain and diminishes force transmission." },
-        { "description": "Pushing the strike from the arm alone without engaging the pectorals and core rotation, producing a weak, arm-only strike with no whole-body power." }
+        {
+          "description": "Hyperextending the wrist backward at the moment of contact instead of maintaining a neutral wrist, which risks wrist sprain and diminishes force transmission."
+        },
+        {
+          "description": "Pushing the strike from the arm alone without engaging the pectorals and core rotation, producing a weak, arm-only strike with no whole-body power."
+        }
       ]
     },
     {
@@ -105,17 +204,39 @@
       "modelPath": "content/kung-fu/models/spinning-kick.glb",
       "defaultClip": "kick",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "kick", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "core"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "core"
+      ],
       "difficulty": "advanced",
-      "tags": ["kick", "spinning", "advanced-kick"],
+      "tags": [
+        "kick",
+        "spinning",
+        "advanced-kick"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["kung-fu.hook-kick"],
+      "prerequisites": [
+        "kung-fu.hook-kick"
+      ],
       "commonMistakes": [
-        { "description": "Initiating the spin with the arm rather than driving from the supporting hip, causing a slow and uncontrolled rotation." },
-        { "description": "Looking away from the target before contact, reducing accuracy and leaving the fighter blind." }
+        {
+          "description": "Initiating the spin with the arm rather than driving from the supporting hip, causing a slow and uncontrolled rotation."
+        },
+        {
+          "description": "Looking away from the target before contact, reducing accuracy and leaving the fighter blind."
+        }
       ]
     },
     {
@@ -124,16 +245,36 @@
       "modelPath": "content/kung-fu/models/low-sweep.glb",
       "defaultClip": "sweep",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "sweep", "durationSeconds": 1.8, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "sweep",
+          "durationSeconds": 1.8,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "glutes", "hamstrings"],
+      "muscles": [
+        "core",
+        "glutes",
+        "hamstrings"
+      ],
       "difficulty": "intermediate",
-      "tags": ["sweep", "takedown", "ground"],
+      "tags": [
+        "sweep",
+        "takedown",
+        "ground"
+      ],
       "cameraPreset": "side",
-      "prerequisites": ["kung-fu.horse-stance"],
+      "prerequisites": [
+        "kung-fu.horse-stance"
+      ],
       "commonMistakes": [
-        { "description": "Sweeping with a bent leg instead of extending fully, reducing reach and power." }
+        {
+          "description": "Sweeping with a bent leg instead of extending fully, reducing reach and power."
+        }
       ]
     },
     {
@@ -142,16 +283,34 @@
       "modelPath": "content/kung-fu/models/leopard-punch.glb",
       "defaultClip": "punch",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "punch", "durationSeconds": 1.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "punch",
+          "durationSeconds": 1.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "shoulders", "chest"],
+      "muscles": [
+        "core",
+        "shoulders",
+        "chest"
+      ],
       "difficulty": "intermediate",
-      "tags": ["strike", "punch", "close-range"],
+      "tags": [
+        "strike",
+        "punch",
+        "close-range"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Using full fist contact instead of the second knuckle row, losing the concentrated impact of the technique." }
+        {
+          "description": "Using full fist contact instead of the second knuckle row, losing the concentrated impact of the technique."
+        }
       ]
     },
     {
@@ -160,17 +319,37 @@
       "modelPath": "content/kung-fu/models/bow-stance.glb",
       "defaultClip": "hold",
       "clips": [
-        { "name": "transition", "durationSeconds": 1.2, "fps": 30 },
-        { "name": "hold", "durationSeconds": 2.0, "fps": 30 }
+        {
+          "name": "transition",
+          "durationSeconds": 1.2,
+          "fps": 30
+        },
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "core", "calves"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "core",
+        "calves"
+      ],
       "difficulty": "beginner",
-      "tags": ["stance", "fundamental"],
+      "tags": [
+        "stance",
+        "fundamental"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Positioning the front foot at an angle rather than pointing directly forward, misaligning the knee and hip and limiting power transfer." },
-        { "description": "Bending the back knee instead of fully extending it, losing the pushing leverage of the rear leg." }
+        {
+          "description": "Positioning the front foot at an angle rather than pointing directly forward, misaligning the knee and hip and limiting power transfer."
+        },
+        {
+          "description": "Bending the back knee instead of fully extending it, losing the pushing leverage of the rear leg."
+        }
       ]
     },
     {
@@ -179,17 +358,38 @@
       "modelPath": "content/kung-fu/models/crescent-kick.glb",
       "defaultClip": "kick",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "kick", "durationSeconds": 1.6, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 1.6,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "core", "glutes"],
+      "muscles": [
+        "quadriceps",
+        "core",
+        "glutes"
+      ],
       "difficulty": "intermediate",
-      "tags": ["kick", "flexibility"],
+      "tags": [
+        "kick",
+        "flexibility"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["kung-fu.front-kick"],
+      "prerequisites": [
+        "kung-fu.front-kick"
+      ],
       "commonMistakes": [
-        { "description": "Swinging the leg with a bent knee, converting the sweeping arc into a knee-dominant kick that loses the full leg extension and reach." },
-        { "description": "Allowing the torso to lean away from the arc to compensate for limited hip mobility, disrupting balance and reducing striking height." }
+        {
+          "description": "Swinging the leg with a bent knee, converting the sweeping arc into a knee-dominant kick that loses the full leg extension and reach."
+        },
+        {
+          "description": "Allowing the torso to lean away from the arc to compensate for limited hip mobility, disrupting balance and reducing striking height."
+        }
       ]
     },
     {
@@ -198,17 +398,38 @@
       "modelPath": "content/kung-fu/models/elbow-strike.glb",
       "defaultClip": "strike",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "strike", "durationSeconds": 0.9, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "strike",
+          "durationSeconds": 0.9,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "shoulders", "back"],
+      "muscles": [
+        "core",
+        "shoulders",
+        "back"
+      ],
       "difficulty": "intermediate",
-      "tags": ["strike", "close-range"],
+      "tags": [
+        "strike",
+        "close-range"
+      ],
       "cameraPreset": "three_quarter",
-      "prerequisites": ["kung-fu.straight-punch"],
+      "prerequisites": [
+        "kung-fu.straight-punch"
+      ],
       "commonMistakes": [
-        { "description": "Striking with only arm movement rather than driving from the hip rotation, removing the bodyweight from the strike." },
-        { "description": "Pulling the opposite hand back without purpose, wasting the counter-rotation that could amplify the striking side's power." }
+        {
+          "description": "Striking with only arm movement rather than driving from the hip rotation, removing the bodyweight from the strike."
+        },
+        {
+          "description": "Pulling the opposite hand back without purpose, wasting the counter-rotation that could amplify the striking side's power."
+        }
       ]
     },
     {
@@ -217,17 +438,39 @@
       "modelPath": "content/kung-fu/models/double-punch.glb",
       "defaultClip": "punch",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "punch", "durationSeconds": 1.3, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "punch",
+          "durationSeconds": 1.3,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "shoulders", "chest", "back"],
+      "muscles": [
+        "core",
+        "shoulders",
+        "chest",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["punch", "combination"],
+      "tags": [
+        "punch",
+        "combination"
+      ],
       "cameraPreset": "three_quarter",
-      "prerequisites": ["kung-fu.straight-punch"],
+      "prerequisites": [
+        "kung-fu.straight-punch"
+      ],
       "commonMistakes": [
-        { "description": "Throwing both punches simultaneously rather than in rapid sequence, eliminating the rotational power from each individual strike." },
-        { "description": "Dropping the guard completely to deliver the second punch, leaving the head unprotected during the transition." }
+        {
+          "description": "Throwing both punches simultaneously rather than in rapid sequence, eliminating the rotational power from each individual strike."
+        },
+        {
+          "description": "Dropping the guard completely to deliver the second punch, leaving the head unprotected during the transition."
+        }
       ]
     }
   ]

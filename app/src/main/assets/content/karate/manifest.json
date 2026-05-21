@@ -2,6 +2,7 @@
   "schemaVersion": "1.0",
   "disciplineId": "karate",
   "disciplineName": "Karate",
+  "description": "A Japanese martial art emphasizing powerful strikes, precise blocks, and disciplined kata. Develops explosive speed, balance, and mental focus through traditional techniques.",
   "iconPath": null,
   "movements": [
     {
@@ -10,17 +11,36 @@
       "modelPath": "content/karate/models/mae_geri.glb",
       "defaultClip": "kick",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "kick", "durationSeconds": 1.5, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 1.5,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "core", "hip_flexors"],
+      "muscles": [
+        "quadriceps",
+        "core",
+        "hip_flexors"
+      ],
       "difficulty": "beginner",
-      "tags": ["kick", "fundamental"],
+      "tags": [
+        "kick",
+        "fundamental"
+      ],
       "cameraPreset": "front",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Leaning backward during the kick, reducing power and exposing the body." },
-        { "description": "Not retracting the kicking leg quickly after extension, leaving it vulnerable." }
+        {
+          "description": "Leaning backward during the kick, reducing power and exposing the body."
+        },
+        {
+          "description": "Not retracting the kicking leg quickly after extension, leaving it vulnerable."
+        }
       ]
     },
     {
@@ -29,17 +49,38 @@
       "modelPath": "content/karate/models/mawashi_geri.glb",
       "defaultClip": "kick",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "kick", "durationSeconds": 1.8, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 1.8,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "core"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["kick", "advanced-kick"],
+      "tags": [
+        "kick",
+        "advanced-kick"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["karate.mae-geri"],
+      "prerequisites": [
+        "karate.mae-geri"
+      ],
       "commonMistakes": [
-        { "description": "Dropping the guard hand on the kicking side, leaving the head open to counterattack." },
-        { "description": "Insufficient hip rotation, reducing reach and impact power of the kick." }
+        {
+          "description": "Dropping the guard hand on the kicking side, leaving the head open to counterattack."
+        },
+        {
+          "description": "Insufficient hip rotation, reducing reach and impact power of the kick."
+        }
       ]
     },
     {
@@ -48,17 +89,36 @@
       "modelPath": "content/karate/models/gyaku_zuki.glb",
       "defaultClip": "punch",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "punch", "durationSeconds": 1.2, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "punch",
+          "durationSeconds": 1.2,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "shoulders", "back"],
+      "muscles": [
+        "core",
+        "shoulders",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["punch", "fundamental"],
+      "tags": [
+        "punch",
+        "fundamental"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Punching with the arm only and not engaging hip rotation, resulting in weak technique." },
-        { "description": "Raising the shoulder during the punch instead of keeping it relaxed and down." }
+        {
+          "description": "Punching with the arm only and not engaging hip rotation, resulting in weak technique."
+        },
+        {
+          "description": "Raising the shoulder during the punch instead of keeping it relaxed and down."
+        }
       ]
     },
     {
@@ -67,17 +127,37 @@
       "modelPath": "content/karate/models/oi_zuki.glb",
       "defaultClip": "punch",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "punch", "durationSeconds": 1.6, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "punch",
+          "durationSeconds": 1.6,
+          "fps": 30
+        }
       ],
-      "muscles": ["core", "shoulders", "back", "quadriceps"],
+      "muscles": [
+        "core",
+        "shoulders",
+        "back",
+        "quadriceps"
+      ],
       "difficulty": "beginner",
-      "tags": ["punch", "stepping"],
+      "tags": [
+        "punch",
+        "stepping"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Bobbing the head up and down during the stepping motion, telegraphing the attack." },
-        { "description": "Landing with the front foot before the punch arrives, breaking the kime and losing power." }
+        {
+          "description": "Bobbing the head up and down during the stepping motion, telegraphing the attack."
+        },
+        {
+          "description": "Landing with the front foot before the punch arrives, breaking the kime and losing power."
+        }
       ]
     },
     {
@@ -86,17 +166,38 @@
       "modelPath": "content/karate/models/shuto_uke.glb",
       "defaultClip": "block",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "block", "durationSeconds": 1.3, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "block",
+          "durationSeconds": 1.3,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "back", "core"],
+      "muscles": [
+        "shoulders",
+        "back",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["block", "defense"],
+      "tags": [
+        "block",
+        "defense"
+      ],
       "cameraPreset": "three_quarter",
-      "prerequisites": ["karate.gyaku-zuki"],
+      "prerequisites": [
+        "karate.gyaku-zuki"
+      ],
       "commonMistakes": [
-        { "description": "Bending the elbow too much on the blocking arm, reducing the effective blocking area." },
-        { "description": "Neglecting to pull the opposite hand back to the hip, losing the body's counter-balance and power." }
+        {
+          "description": "Bending the elbow too much on the blocking arm, reducing the effective blocking area."
+        },
+        {
+          "description": "Neglecting to pull the opposite hand back to the hip, losing the body's counter-balance and power."
+        }
       ]
     },
     {
@@ -105,17 +206,36 @@
       "modelPath": "content/karate/models/ushiro_geri.glb",
       "defaultClip": "kick",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "kick", "durationSeconds": 1.6, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 1.6,
+          "fps": 30
+        }
       ],
-      "muscles": ["glutes", "hamstrings", "core"],
+      "muscles": [
+        "glutes",
+        "hamstrings",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["kick", "power"],
+      "tags": [
+        "kick",
+        "power"
+      ],
       "cameraPreset": "side",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Not looking over the shoulder to aim before firing the kick, resulting in poor accuracy." },
-        { "description": "Leaning too far forward to compensate for balance, which telegraphs the kick and reduces power." }
+        {
+          "description": "Not looking over the shoulder to aim before firing the kick, resulting in poor accuracy."
+        },
+        {
+          "description": "Leaning too far forward to compensate for balance, which telegraphs the kick and reduces power."
+        }
       ]
     },
     {
@@ -124,16 +244,34 @@
       "modelPath": "content/karate/models/jodan_uke.glb",
       "defaultClip": "block",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "block", "durationSeconds": 1.1, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "block",
+          "durationSeconds": 1.1,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "back", "core"],
+      "muscles": [
+        "shoulders",
+        "back",
+        "core"
+      ],
       "difficulty": "beginner",
-      "tags": ["block", "defense", "fundamental"],
+      "tags": [
+        "block",
+        "defense",
+        "fundamental"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Blocking too far out from the head, reducing protection and losing structural integrity." }
+        {
+          "description": "Blocking too far out from the head, reducing protection and losing structural integrity."
+        }
       ]
     },
     {
@@ -142,17 +280,39 @@
       "modelPath": "content/karate/models/morote_uke.glb",
       "defaultClip": "block",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "block", "durationSeconds": 1.2, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "block",
+          "durationSeconds": 1.2,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "back", "core"],
+      "muscles": [
+        "shoulders",
+        "back",
+        "core"
+      ],
       "difficulty": "intermediate",
-      "tags": ["block", "defense", "power"],
+      "tags": [
+        "block",
+        "defense",
+        "power"
+      ],
       "cameraPreset": "three_quarter",
-      "prerequisites": ["karate.jodan-uke"],
+      "prerequisites": [
+        "karate.jodan-uke"
+      ],
       "commonMistakes": [
-        { "description": "Failing to rotate the hips into the block, making it arm-only and easily overwhelmed." },
-        { "description": "Placing the augmenting fist too high on the blocking arm, reducing leverage." }
+        {
+          "description": "Failing to rotate the hips into the block, making it arm-only and easily overwhelmed."
+        },
+        {
+          "description": "Placing the augmenting fist too high on the blocking arm, reducing leverage."
+        }
       ]
     },
     {
@@ -161,17 +321,37 @@
       "modelPath": "content/karate/models/gedan_barai.glb",
       "defaultClip": "block",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "block", "durationSeconds": 1.1, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "block",
+          "durationSeconds": 1.1,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "core", "back"],
+      "muscles": [
+        "shoulders",
+        "core",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["block", "defense", "fundamental"],
+      "tags": [
+        "block",
+        "defense",
+        "fundamental"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Sweeping the blocking arm too far across the centerline, leaving the opposite side of the body unprotected." },
-        { "description": "Dropping the elbow below the hip on completion, weakening the block's structural endpoint." }
+        {
+          "description": "Sweeping the blocking arm too far across the centerline, leaving the opposite side of the body unprotected."
+        },
+        {
+          "description": "Dropping the elbow below the hip on completion, weakening the block's structural endpoint."
+        }
       ]
     },
     {
@@ -180,17 +360,38 @@
       "modelPath": "content/karate/models/yoko_geri_keage.glb",
       "defaultClip": "kick",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "kick", "durationSeconds": 1.4, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 1.4,
+          "fps": 30
+        }
       ],
-      "muscles": ["quadriceps", "glutes", "hip_flexors"],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "hip_flexors"
+      ],
       "difficulty": "intermediate",
-      "tags": ["kick", "side"],
+      "tags": [
+        "kick",
+        "side"
+      ],
       "cameraPreset": "front",
-      "prerequisites": ["karate.mae-geri"],
+      "prerequisites": [
+        "karate.mae-geri"
+      ],
       "commonMistakes": [
-        { "description": "Failing to raise the knee to full chamber height before snapping, which reduces range and makes the kick easy to predict." },
-        { "description": "Allowing the support hip to drop during execution, shifting the kicking arc downward and reducing target height." }
+        {
+          "description": "Failing to raise the knee to full chamber height before snapping, which reduces range and makes the kick easy to predict."
+        },
+        {
+          "description": "Allowing the support hip to drop during execution, shifting the kicking arc downward and reducing target height."
+        }
       ]
     },
     {
@@ -199,17 +400,37 @@
       "modelPath": "content/karate/models/uchi_uke.glb",
       "defaultClip": "block",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "block", "durationSeconds": 1.0, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "block",
+          "durationSeconds": 1.0,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "back", "core"],
+      "muscles": [
+        "shoulders",
+        "back",
+        "core"
+      ],
       "difficulty": "beginner",
-      "tags": ["block", "defense", "fundamental"],
+      "tags": [
+        "block",
+        "defense",
+        "fundamental"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Pulling the blocking arm too far across the body's centerline, creating a gap in the guard on the opposite side." },
-        { "description": "Not pivoting the hips to add power to the block, leaving it as an arm-only deflection." }
+        {
+          "description": "Pulling the blocking arm too far across the body's centerline, creating a gap in the guard on the opposite side."
+        },
+        {
+          "description": "Not pivoting the hips to add power to the block, leaving it as an arm-only deflection."
+        }
       ]
     },
     {
@@ -218,17 +439,37 @@
       "modelPath": "content/karate/models/kizami_zuki.glb",
       "defaultClip": "punch",
       "clips": [
-        { "name": "ready", "durationSeconds": 1.0, "fps": 30 },
-        { "name": "punch", "durationSeconds": 0.9, "fps": 30 }
+        {
+          "name": "ready",
+          "durationSeconds": 1.0,
+          "fps": 30
+        },
+        {
+          "name": "punch",
+          "durationSeconds": 0.9,
+          "fps": 30
+        }
       ],
-      "muscles": ["shoulders", "core", "back"],
+      "muscles": [
+        "shoulders",
+        "core",
+        "back"
+      ],
       "difficulty": "beginner",
-      "tags": ["punch", "fundamental", "speed"],
+      "tags": [
+        "punch",
+        "fundamental",
+        "speed"
+      ],
       "cameraPreset": "three_quarter",
       "prerequisites": [],
       "commonMistakes": [
-        { "description": "Reaching forward with the shoulder to gain extra range, telegraphing the attack and compromising the shoulder joint." },
-        { "description": "Failing to snap the fist back to guard immediately after impact, leaving the arm extended and exposed to a grab or counter." }
+        {
+          "description": "Reaching forward with the shoulder to gain extra range, telegraphing the attack and compromising the shoulder joint."
+        },
+        {
+          "description": "Failing to snap the fist back to guard immediately after impact, leaving the arm extended and exposed to a grab or counter."
+        }
       ]
     }
   ]
