@@ -35,6 +35,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
+import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class DetailViewModelTest {
@@ -139,6 +140,58 @@ class DetailViewModelTest {
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         assertIs<DetailUiState.Error>(vm.uiState.value)
+    }
+
+    // ── related movements ─────────────────────────────────────────────────
+
+    @Test
+    fun `relatedMovements contains movements sharing a tag but not the movement itself`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
+        val related = fakeMovement("karate.mawashi-geri").copy(tags = listOf("kick"))
+        val unrelated = fakeMovement("karate.jodan-uke").copy(tags = listOf("block"))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement, related, unrelated))
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.relatedMovements.size)
+        assertEquals(related.id, state.relatedMovements.first().id)
+    }
+
+    @Test
+    fun `relatedMovements excludes prerequisites`() = runTest {
+        val prereq = fakeMovement("karate.front-stance").copy(tags = listOf("stance"))
+        val mainMovement = fakeMovement("karate.mae-geri")
+            .copy(tags = listOf("kick", "stance"), prerequisites = listOf(prereq.id))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement, prereq))
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.relatedMovements.none { it.id == prereq.id })
+    }
+
+    @Test
+    fun `relatedMovements capped at three`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
+        val others = (1..5).map { i ->
+            fakeMovement("karate.kick-$i").copy(tags = listOf("kick"))
+        }
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement) + others)
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.relatedMovements.size <= 3)
     }
 
     @Test

@@ -13,7 +13,9 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
@@ -29,12 +31,21 @@ class DetailViewModel @Inject constructor(
     private val movementId: String = checkNotNull(savedStateHandle["movementId"])
 
     val uiState: StateFlow<DetailUiState> = flow {
-        val m = contentRepository.getMovement(movementId)
-        if (m != null) {
-            emit(DetailUiState.Ready(m))
-        } else {
+        val movement = contentRepository.getMovement(movementId)
+        if (movement == null) {
             emit(DetailUiState.Error("Movement not found: $movementId"))
+            return@flow
         }
+        val excludedIds = (movement.prerequisites + movement.id).toSet()
+        emitAll(
+            contentRepository.observeMovements(movement.disciplineId).map { disciplineMovements ->
+                val related = disciplineMovements
+                    .filter { it.id !in excludedIds }
+                    .filter { candidate -> candidate.tags.any { it in movement.tags } }
+                    .take(3)
+                DetailUiState.Ready(movement, related)
+            }
+        )
     }
         .catch { e -> emit(DetailUiState.Error(e.message ?: "Failed to load movement")) }
         .stateIn(
