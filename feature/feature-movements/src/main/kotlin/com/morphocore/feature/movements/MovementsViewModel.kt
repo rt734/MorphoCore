@@ -57,7 +57,9 @@ class MovementsViewModel @Inject constructor(
         if (registryState is RegistryState.Error) {
             return@combine MovementsUiState.Error("Content failed to load. Tap retry to try again.")
         }
-        val disciplineName = disciplines.find { it.id == disciplineId }?.name ?: disciplineId
+        val discipline = disciplines.find { it.id == disciplineId }
+        val disciplineName = discipline?.name ?: disciplineId
+        val disciplineDescription = discipline?.description ?: ""
         val availableTags = movements.flatMap { it.tags }.distinct().sorted()
         val tagCounts = movements.flatMap { it.tags }.groupingBy { it }.eachCount()
         val afterQuery = if (filter.query.isBlank()) movements
@@ -76,8 +78,8 @@ class MovementsViewModel @Inject constructor(
         }
         val breakdown = movements.groupingBy { it.difficulty }.eachCount()
         MovementsUiState.Ready(
-            disciplineName, sorted, movements.size, breakdown, availableTags, tagCounts,
-            filter.tags, filter.difficulties, filter.sort, filter.query
+            disciplineName, disciplineDescription, sorted, movements.size, breakdown,
+            availableTags, tagCounts, filter.tags, filter.difficulties, filter.sort, filter.query
         )
     }
         .catch { e -> emit(MovementsUiState.Error(e.message ?: "Failed to load movements")) }
