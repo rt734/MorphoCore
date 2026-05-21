@@ -371,10 +371,10 @@ private fun MovementInfoPanel(
         // Common mistakes section
         if (movement.commonMistakes.isNotEmpty()) {
             Text("Common Mistakes", style = MaterialTheme.typography.labelSmall)
-            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                movement.commonMistakes.forEach { mistake ->
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                movement.commonMistakes.forEachIndexed { index, mistake ->
                     Text(
-                        text = "• $mistake",
+                        text = "${index + 1}. $mistake",
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
