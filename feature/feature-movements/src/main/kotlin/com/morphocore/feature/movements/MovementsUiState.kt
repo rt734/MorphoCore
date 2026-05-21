@@ -11,7 +11,8 @@ sealed class MovementsUiState {
         val availableTags: List<String> = emptyList(),
         val selectedTags: Set<String> = emptySet(),
         val selectedDifficulties: Set<Difficulty> = emptySet(),
-        val sort: MovementsSort = MovementsSort.BY_DIFFICULTY
+        val sort: MovementsSort = MovementsSort.BY_DIFFICULTY,
+        val query: String = ""
     ) : MovementsUiState()
     data class Error(val message: String) : MovementsUiState()
 }

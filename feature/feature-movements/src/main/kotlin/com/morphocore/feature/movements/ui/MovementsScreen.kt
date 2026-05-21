@@ -20,6 +20,7 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -51,6 +52,7 @@ fun MovementsScreen(
     viewModel: MovementsViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val query by viewModel.query.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -107,6 +109,19 @@ fun MovementsScreen(
                         .fillMaxSize()
                         .padding(innerPadding)
                 ) {
+                    // Search field
+                    item {
+                        OutlinedTextField(
+                            value = query,
+                            onValueChange = viewModel::setQuery,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 8.dp),
+                            placeholder = { Text("Search ${state.disciplineName} movements…") },
+                            singleLine = true
+                        )
+                    }
+                    // Difficulty chips
                     item {
                         Row(
                             modifier = Modifier
@@ -124,6 +139,7 @@ fun MovementsScreen(
                             }
                         }
                     }
+                    // Tag chips
                     if (state.availableTags.isNotEmpty()) {
                         item {
                             Row(
@@ -174,7 +190,8 @@ fun MovementsScreen(
                             }
                         }
                     }
-                    if (state.movements.isEmpty() && filtersActive) {
+                    // Empty state
+                    if (state.movements.isEmpty() && (filtersActive || query.isNotBlank())) {
                         item {
                             Column(
                                 modifier = Modifier
@@ -184,11 +201,14 @@ fun MovementsScreen(
                                 verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
                                 Text(
-                                    text = "No movements match your filters",
+                                    text = if (query.isNotBlank()) "No movements match \"$query\""
+                                           else "No movements match your filters",
                                     style = MaterialTheme.typography.bodyMedium
                                 )
-                                TextButton(onClick = viewModel::clearFilters) {
-                                    Text("Clear Filters")
+                                if (filtersActive) {
+                                    TextButton(onClick = viewModel::clearFilters) {
+                                        Text("Clear Filters")
+                                    }
                                 }
                             }
                         }
