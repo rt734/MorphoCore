@@ -61,11 +61,13 @@ fun MovementsScreen(
                     when (val state = uiState) {
                         is MovementsUiState.Ready -> Column {
                             Text(state.disciplineName, style = MaterialTheme.typography.titleLarge)
-                            Text(
-                                "${state.totalCount} movements",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
+                            if (state.totalCount > 0) {
+                                Text(
+                                    "${state.totalCount} movements",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
                         else -> Text(disciplineId)
                     }
