@@ -158,10 +158,13 @@ fun MovementsScreen(
                                 horizontalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
                                 state.availableTags.forEach { tag ->
+                                    val count = state.tagCounts[tag]
                                     FilterChip(
                                         selected = tag in state.selectedTags,
                                         onClick = { viewModel.toggleTag(tag) },
-                                        label = { Text(tag) }
+                                        label = {
+                                            Text(if (count != null) "$tag ($count)" else tag)
+                                        }
                                     )
                                 }
                             }

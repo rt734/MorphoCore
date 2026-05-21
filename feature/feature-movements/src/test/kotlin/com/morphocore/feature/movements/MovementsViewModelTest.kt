@@ -294,6 +294,27 @@ class MovementsViewModelTest {
         assertEquals(1, state.difficultyBreakdown[Difficulty.ADVANCED])
     }
 
+    // ── tagCounts ─────────────────────────────────────────────────────────
+
+    @Test
+    fun `tagCounts reflects tag frequency across all unfiltered movements`() = runTest {
+        val m1 = movement("karate", "front_kick").copy(tags = listOf("kick", "fundamental"))
+        val m2 = movement("karate", "roundhouse").copy(tags = listOf("kick", "advanced-kick"))
+        val m3 = movement("karate", "arm_block").copy(tags = listOf("block", "fundamental"))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(m1, m2, m3))
+        )
+        val vm = MovementsViewModel(savedState("karate"), repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(2, state.tagCounts["kick"])
+        assertEquals(2, state.tagCounts["fundamental"])
+        assertEquals(1, state.tagCounts["advanced-kick"])
+        assertEquals(1, state.tagCounts["block"])
+    }
+
     // ── totalCount ────────────────────────────────────────────────────────
 
     @Test
