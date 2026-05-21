@@ -95,23 +95,23 @@ class SettingsViewModelTest {
         )
     )
 
+    private fun vm(
+        provider: FakeThemeProvider = FakeThemeProvider(fakeTheme("light")),
+        registry: FakeThemeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"))),
+        prefs: FakeUserPreferences = FakeUserPreferences()
+    ) = SettingsViewModel(provider, registry, prefs)
+
+    // ── uiState ───────────────────────────────────────────────────────────
+
     @Test
     fun `uiState is Loading initially`() = runTest {
-        val vm = SettingsViewModel(
-            themeProvider = FakeThemeProvider(fakeTheme("light")),
-            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"))),
-            userPreferences = FakeUserPreferences()
-        )
+        val vm = vm()
         assertIs<SettingsUiState.Loading>(vm.uiState.value)
     }
 
     @Test
     fun `uiState is Ready with active theme`() = runTest {
-        val vm = SettingsViewModel(
-            themeProvider = FakeThemeProvider(fakeTheme("light")),
-            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"))),
-            userPreferences = FakeUserPreferences()
-        )
+        val vm = vm()
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         assertIs<SettingsUiState.Ready>(vm.uiState.value)
@@ -120,11 +120,7 @@ class SettingsViewModelTest {
     @Test
     fun `Ready contains all themes from registry`() = runTest {
         val themes = listOf(fakeTheme("light"), fakeTheme("dark"))
-        val vm = SettingsViewModel(
-            themeProvider = FakeThemeProvider(fakeTheme("light")),
-            themeRegistry = FakeThemeRegistry(themes),
-            userPreferences = FakeUserPreferences()
-        )
+        val vm = vm(registry = FakeThemeRegistry(themes))
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
         val state = assertIs<SettingsUiState.Ready>(vm.uiState.value)
@@ -134,10 +130,9 @@ class SettingsViewModelTest {
     @Test
     fun `selectTheme updates active theme in provider`() = runTest {
         val provider = FakeThemeProvider(fakeTheme("light"))
-        val vm = SettingsViewModel(
-            themeProvider = provider,
-            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark"))),
-            userPreferences = FakeUserPreferences()
+        val vm = vm(
+            provider = provider,
+            registry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark")))
         )
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
@@ -149,11 +144,9 @@ class SettingsViewModelTest {
 
     @Test
     fun `activeThemeId reflects current active theme`() = runTest {
-        val activeTheme = fakeTheme("light")
-        val vm = SettingsViewModel(
-            themeProvider = FakeThemeProvider(activeTheme),
-            themeRegistry = FakeThemeRegistry(listOf(activeTheme, fakeTheme("dark"))),
-            userPreferences = FakeUserPreferences()
+        val vm = vm(
+            provider = FakeThemeProvider(fakeTheme("light")),
+            registry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark")))
         )
         backgroundScope.launch { vm.uiState.collect {} }
         advanceUntilIdle()
@@ -161,17 +154,61 @@ class SettingsViewModelTest {
         assertEquals("light", state.activeThemeId)
     }
 
+    // ── defaultSpeed ──────────────────────────────────────────────────────
+
     @Test
-    fun `setDefaultSpeed persists value`() = runTest {
-        val prefs = FakeUserPreferences()
-        val vm = SettingsViewModel(
-            themeProvider = FakeThemeProvider(fakeTheme("light")),
-            themeRegistry = FakeThemeRegistry(listOf(fakeTheme("light"))),
-            userPreferences = prefs
-        )
+    fun `defaultSpeed initial value comes from UserPreferences`() = runTest {
+        val prefs = FakeUserPreferences(speed = 0.5f)
+        val vm = vm(prefs = prefs)
+        assertEquals(0.5f, vm.defaultSpeed.value)
+    }
+
+    @Test
+    fun `setDefaultSpeed updates defaultSpeed state`() = runTest {
+        val vm = vm()
         vm.setDefaultSpeed(1.5f)
         assertEquals(1.5f, vm.defaultSpeed.value)
+    }
+
+    @Test
+    fun `setDefaultSpeed persists value to UserPreferences`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = vm(prefs = prefs)
+        vm.setDefaultSpeed(1.5f)
         assertEquals(1.5f, prefs.getDefaultSpeed())
+    }
+
+    // ── defaultCamera ─────────────────────────────────────────────────────
+
+    @Test
+    fun `defaultCamera initial value comes from UserPreferences`() = runTest {
+        val prefs = FakeUserPreferences(camera = "side")
+        val vm = vm(prefs = prefs)
+        assertEquals("side", vm.defaultCamera.value)
+    }
+
+    @Test
+    fun `setDefaultCamera updates defaultCamera state`() = runTest {
+        val vm = vm()
+        vm.setDefaultCamera("top")
+        assertEquals("top", vm.defaultCamera.value)
+    }
+
+    @Test
+    fun `setDefaultCamera persists value to UserPreferences`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = vm(prefs = prefs)
+        vm.setDefaultCamera("front")
+        assertEquals("front", prefs.getDefaultCamera())
+    }
+
+    @Test
+    fun `setDefaultCamera accepts null to clear preference`() = runTest {
+        val prefs = FakeUserPreferences(camera = "side")
+        val vm = vm(prefs = prefs)
+        vm.setDefaultCamera(null)
+        assertEquals(null, vm.defaultCamera.value)
+        assertEquals(null, prefs.getDefaultCamera())
     }
 }
 
@@ -189,9 +226,10 @@ private class FakeThemeRegistry(themes: List<Theme> = emptyList()) : ThemeRegist
     override suspend fun refresh() {}
 }
 
-private class FakeUserPreferences : UserPreferences {
-    private var speed: Float = 1f
+private class FakeUserPreferences(
+    private var speed: Float = 1f,
     private var camera: String? = null
+) : UserPreferences {
     override fun getDefaultSpeed(): Float = speed
     override fun setDefaultSpeed(s: Float) { speed = s }
     override fun getDefaultCamera(): String? = camera

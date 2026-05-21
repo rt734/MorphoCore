@@ -51,11 +51,18 @@ class DetailViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private class FakeUserPreferences : UserPreferences {
-        override fun getDefaultSpeed(): Float = 1f
-        override fun setDefaultSpeed(speed: Float) {}
-        override fun getDefaultCamera(): String? = null
-        override fun setDefaultCamera(preset: String?) {}
+    private class FakeUserPreferences(
+        private var speed: Float = 1f,
+        private var camera: String? = null
+    ) : UserPreferences {
+        var savedSpeed: Float = speed
+            private set
+        var savedCamera: String? = camera
+            private set
+        override fun getDefaultSpeed(): Float = speed
+        override fun setDefaultSpeed(s: Float) { speed = s; savedSpeed = s }
+        override fun getDefaultCamera(): String? = camera
+        override fun setDefaultCamera(p: String?) { camera = p; savedCamera = p }
     }
 
     private class FakeThemeProvider(theme: Theme) : ThemeProvider {
@@ -85,21 +92,29 @@ class DetailViewModelTest {
         )
     )
 
-    private fun fakeMovement(id: String = "karate.mae-geri") = Movement(
+    private fun fakeMovement(
+        id: String = "karate.mae-geri",
+        cameraPreset: String? = null
+    ) = Movement(
         id = id, disciplineId = "karate", name = "Mae Geri",
         modelPath = "models/mae_geri.glb", defaultClip = "idle",
         clips = listOf(AnimationClip("idle", 1.0f, 30)),
         muscles = emptyList(), difficulty = Difficulty.BEGINNER,
-        tags = emptyList(), cameraPreset = null, prerequisites = emptyList(), commonMistakes = emptyList()
+        tags = emptyList(), cameraPreset = cameraPreset, prerequisites = emptyList(), commonMistakes = emptyList()
     )
 
-    private fun vm(movementId: String, repo: ContentRepository = FakeContentRepository()) =
-        DetailViewModel(
-            SavedStateHandle(mapOf("movementId" to movementId)),
-            repo,
-            FakeThemeProvider(fakeTheme()),
-            FakeUserPreferences()
-        )
+    private fun vm(
+        movementId: String,
+        repo: ContentRepository = FakeContentRepository(),
+        prefs: UserPreferences = FakeUserPreferences()
+    ) = DetailViewModel(
+        SavedStateHandle(mapOf("movementId" to movementId)),
+        repo,
+        FakeThemeProvider(fakeTheme()),
+        prefs
+    )
+
+    // ── uiState ───────────────────────────────────────────────────────────
 
     @Test
     fun `uiState is Loading initially`() = runTest {
@@ -141,6 +156,67 @@ class DetailViewModelTest {
         assertEquals("network error", state.message)
     }
 
+    // ── onModelLoaded ─────────────────────────────────────────────────────
+
+    @Test
+    fun `onModelLoaded sets isPlaying to true`() = runTest {
+        val movement = fakeMovement()
+        val repo = FakeContentRepository(movementsById = mapOf(movement.id to movement))
+        val vm = vm(movement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.onModelLoaded("idle")
+        assertEquals(true, vm.playbackState.value.isPlaying)
+    }
+
+    @Test
+    fun `onModelLoaded sets currentClip to the given clip name`() = runTest {
+        val movement = fakeMovement()
+        val repo = FakeContentRepository(movementsById = mapOf(movement.id to movement))
+        val vm = vm(movement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.onModelLoaded("kick")
+        assertEquals("kick", vm.playbackState.value.currentClip)
+    }
+
+    @Test
+    fun `onModelLoaded reads speedMultiplier from UserPreferences`() = runTest {
+        val prefs = FakeUserPreferences(speed = 1.5f)
+        val movement = fakeMovement()
+        val repo = FakeContentRepository(movementsById = mapOf(movement.id to movement))
+        val vm = vm(movement.id, repo, prefs)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.onModelLoaded("idle")
+        assertEquals(1.5f, vm.playbackState.value.speedMultiplier)
+    }
+
+    @Test
+    fun `onModelLoaded uses provided camera preset when not null`() = runTest {
+        val movement = fakeMovement()
+        val repo = FakeContentRepository(movementsById = mapOf(movement.id to movement))
+        val vm = vm(movement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.onModelLoaded("idle", "side")
+        assertEquals("side", vm.playbackState.value.cameraPreset)
+    }
+
+    @Test
+    fun `onModelLoaded falls back to UserPreferences camera when defaultCamera is null`() = runTest {
+        val prefs = FakeUserPreferences(camera = "top")
+        val movement = fakeMovement()
+        val repo = FakeContentRepository(movementsById = mapOf(movement.id to movement))
+        val vm = vm(movement.id, repo, prefs)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.onModelLoaded("idle", null)
+        assertEquals("top", vm.playbackState.value.cameraPreset)
+    }
+
+    // ── playback controls ─────────────────────────────────────────────────
+
     @Test
     fun `togglePlayPause flips isPlaying`() = runTest {
         val movement = fakeMovement()
@@ -152,5 +228,50 @@ class DetailViewModelTest {
         assertEquals(true, vm.playbackState.value.isPlaying)
         vm.togglePlayPause()
         assertEquals(false, vm.playbackState.value.isPlaying)
+    }
+
+    @Test
+    fun `selectClip updates currentClip and sets isPlaying to true`() = runTest {
+        val movement = fakeMovement()
+        val repo = FakeContentRepository(movementsById = mapOf(movement.id to movement))
+        val vm = vm(movement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.onModelLoaded("idle")
+        vm.togglePlayPause()
+        assertEquals(false, vm.playbackState.value.isPlaying)
+        vm.selectClip("kick")
+        assertEquals("kick", vm.playbackState.value.currentClip)
+        assertEquals(true, vm.playbackState.value.isPlaying)
+    }
+
+    @Test
+    fun `setSpeed updates speedMultiplier`() = runTest {
+        val vm = vm("karate.mae-geri")
+        vm.setSpeed(0.5f)
+        assertEquals(0.5f, vm.playbackState.value.speedMultiplier)
+    }
+
+    @Test
+    fun `setSpeed persists to UserPreferences`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = vm("karate.mae-geri", prefs = prefs)
+        vm.setSpeed(2f)
+        assertEquals(2f, prefs.savedSpeed)
+    }
+
+    @Test
+    fun `selectCamera updates cameraPreset`() = runTest {
+        val vm = vm("karate.mae-geri")
+        vm.selectCamera("three_quarter")
+        assertEquals("three_quarter", vm.playbackState.value.cameraPreset)
+    }
+
+    @Test
+    fun `selectCamera persists to UserPreferences`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = vm("karate.mae-geri", prefs = prefs)
+        vm.selectCamera("side")
+        assertEquals("side", prefs.savedCamera)
     }
 }
