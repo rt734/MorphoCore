@@ -134,6 +134,21 @@ fun BrowseScreen(
                             }
                         }
                     } else {
+                        // Search mode result summary
+                        val resultParts = buildList {
+                            if (state.disciplines.isNotEmpty()) add("${state.disciplines.size} discipline${if (state.disciplines.size > 1) "s" else ""}")
+                            if (state.movementResults.isNotEmpty()) add("${state.movementResults.size} movement${if (state.movementResults.size > 1) "s" else ""}")
+                        }
+                        if (resultParts.isNotEmpty()) {
+                            item {
+                                Text(
+                                    text = resultParts.joinToString(" · "),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
+                                )
+                            }
+                        }
                         // Search mode: matching disciplines, then matching movements
                         if (state.disciplines.isNotEmpty()) {
                             item {
