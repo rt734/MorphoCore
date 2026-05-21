@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.morphocore.content.api.ContentRegistry
 import com.morphocore.content.api.ContentRepository
 import com.morphocore.content.api.RegistryState
+import com.morphocore.domain.MuscleGroup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -45,7 +46,9 @@ class BrowseViewModel @Inject constructor(
                 val q = query.trim().lowercase()
                 val matchingDisciplines = disciplines.filter { it.name.lowercase().contains(q) }
                 val matchingMovements = movements.filter { m ->
-                    m.name.lowercase().contains(q) || m.tags.any { it.lowercase().contains(q) }
+                    m.name.lowercase().contains(q) ||
+                    m.tags.any { it.lowercase().contains(q) } ||
+                    m.muscles.any { it.searchToken().contains(q) }
                 }
                 BrowseUiState.Ready(matchingDisciplines, matchingMovements, query, movements.size)
             }
@@ -65,4 +68,17 @@ class BrowseViewModel @Inject constructor(
     fun retry() {
         viewModelScope.launch { contentRegistry.refresh() }
     }
+}
+
+private fun MuscleGroup.searchToken(): String = when (this) {
+    MuscleGroup.Quadriceps -> "quadriceps"
+    MuscleGroup.Hamstrings -> "hamstrings"
+    MuscleGroup.Glutes     -> "glutes"
+    MuscleGroup.Core       -> "core"
+    MuscleGroup.Shoulders  -> "shoulders"
+    MuscleGroup.Back       -> "back"
+    MuscleGroup.Chest      -> "chest"
+    MuscleGroup.Calves     -> "calves"
+    MuscleGroup.HipFlexors -> "hip flexors"
+    is MuscleGroup.Unknown -> this.raw.replace('_', ' ')
 }

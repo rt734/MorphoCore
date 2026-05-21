@@ -7,6 +7,7 @@ import com.morphocore.content.testing.FakeContentRepository
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Discipline
 import com.morphocore.domain.Movement
+import com.morphocore.domain.MuscleGroup
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -184,6 +185,47 @@ class BrowseViewModelTest {
         advanceUntilIdle()
         val state = vm.uiState.value as BrowseUiState.Ready
         assertEquals(2, state.totalMovementCount)
+    }
+
+    // ── muscle group search ───────────────────────────────────────────────
+
+    @Test
+    fun `search matches movements by muscle group name`() = runTest {
+        val shouldersMovement = movement("gym", "overhead_press")
+            .copy(muscles = listOf(MuscleGroup.Shoulders))
+        val legsMovement = movement("gym", "squat")
+            .copy(muscles = listOf(MuscleGroup.Quadriceps))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsById = mapOf(
+                shouldersMovement.id to shouldersMovement,
+                legsMovement.id to legsMovement
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("shoulders")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.movementResults.size)
+        assertEquals(shouldersMovement.id, state.movementResults.first().id)
+    }
+
+    @Test
+    fun `search matches hip flexors using spaced token`() = runTest {
+        val hipMovement = movement("karate", "mae_geri")
+            .copy(muscles = listOf(MuscleGroup.HipFlexors))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(hipMovement.id to hipMovement)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("hip")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.movementResults.size)
     }
 }
 

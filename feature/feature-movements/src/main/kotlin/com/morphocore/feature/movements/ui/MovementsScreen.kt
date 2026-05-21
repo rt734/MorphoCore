@@ -100,6 +100,7 @@ fun MovementsScreen(
             }
             is MovementsUiState.Ready -> {
                 val filtersActive = state.selectedTags.isNotEmpty() || state.selectedDifficulties.isNotEmpty()
+                val sortNonDefault = state.sort == MovementsSort.BY_NAME
 
                 LazyColumn(
                     modifier = Modifier
@@ -138,6 +139,37 @@ fun MovementsScreen(
                                         onClick = { viewModel.toggleTag(tag) },
                                         label = { Text(tag) }
                                     )
+                                }
+                            }
+                        }
+                    }
+                    // Active sort / filter summary
+                    if (sortNonDefault || filtersActive) {
+                        item {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp, vertical = 2.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                val parts = buildList {
+                                    if (sortNonDefault) add("Sorted by name")
+                                    val filterCount = state.selectedTags.size + state.selectedDifficulties.size
+                                    if (filterCount > 0) add("$filterCount filter${if (filterCount > 1) "s" else ""} active")
+                                }
+                                Text(
+                                    text = parts.joinToString(" · "),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                                if (filtersActive) {
+                                    TextButton(
+                                        onClick = viewModel::clearFilters,
+                                        modifier = Modifier.padding(start = 4.dp)
+                                    ) {
+                                        Text("Clear")
+                                    }
                                 }
                             }
                         }
