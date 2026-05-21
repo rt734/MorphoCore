@@ -6,7 +6,8 @@ sealed class DetailUiState {
     object Loading : DetailUiState()
     data class Ready(
         val movement: Movement,
-        val relatedMovements: List<Movement> = emptyList()
+        val relatedMovements: List<Movement> = emptyList(),
+        val unlockedMovements: List<Movement> = emptyList()
     ) : DetailUiState()
     data class Error(val message: String) : DetailUiState()
 }
