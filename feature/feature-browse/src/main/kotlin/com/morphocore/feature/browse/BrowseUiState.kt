@@ -8,7 +8,8 @@ sealed class BrowseUiState {
     data class Ready(
         val disciplines: List<Discipline>,
         val movementResults: List<Movement> = emptyList(),
-        val query: String = ""
+        val query: String = "",
+        val totalMovementCount: Int = 0
     ) : BrowseUiState()
     data class Error(val message: String) : BrowseUiState()
 }
