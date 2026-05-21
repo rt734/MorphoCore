@@ -43,7 +43,10 @@ class DetailViewModel @Inject constructor(
                     .filter { it.id !in excludedIds }
                     .filter { candidate -> candidate.tags.any { it in movement.tags } }
                     .take(3)
-                DetailUiState.Ready(movement, related)
+                val unlocked = disciplineMovements
+                    .filter { movement.id in it.prerequisites }
+                    .take(3)
+                DetailUiState.Ready(movement, related, unlocked)
             }
         )
     }

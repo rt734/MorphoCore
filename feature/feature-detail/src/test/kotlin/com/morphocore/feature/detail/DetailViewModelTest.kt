@@ -162,6 +162,38 @@ class DetailViewModelTest {
     // ── related movements ─────────────────────────────────────────────────
 
     @Test
+    fun `unlockedMovements contains movements that list current as prerequisite`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri")
+        val advanced = fakeMovement("karate.mawashi-geri")
+            .copy(prerequisites = listOf(mainMovement.id))
+        val unrelated = fakeMovement("karate.arm-block").copy(prerequisites = emptyList())
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement, advanced, unrelated))
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.unlockedMovements.size)
+        assertEquals(advanced.id, state.unlockedMovements.first().id)
+    }
+
+    @Test
+    fun `unlockedMovements is empty when no movements reference current as prerequisite`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri")
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement))
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertEquals(emptyList(), state.unlockedMovements)
+    }
+
+    @Test
     fun `relatedMovements contains movements sharing a tag but not the movement itself`() = runTest {
         val mainMovement = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
         val related = fakeMovement("karate.mawashi-geri").copy(tags = listOf("kick"))

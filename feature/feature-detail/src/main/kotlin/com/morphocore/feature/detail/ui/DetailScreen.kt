@@ -179,6 +179,7 @@ fun DetailScreen(
                     MovementInfoPanel(
                         movement = state.movement,
                         relatedMovements = state.relatedMovements,
+                        unlockedMovements = state.unlockedMovements,
                         onNavigateToMovement = onNavigateToMovement
                     )
                 }
@@ -289,6 +290,7 @@ private fun PlaybackControls(
 private fun MovementInfoPanel(
     movement: Movement,
     relatedMovements: List<com.morphocore.domain.Movement>,
+    unlockedMovements: List<com.morphocore.domain.Movement>,
     onNavigateToMovement: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -391,6 +393,24 @@ private fun MovementInfoPanel(
                     SuggestionChip(
                         onClick = { onNavigateToMovement(prereqId) },
                         label = { Text(prereqId.movementIdToDisplayName()) }
+                    )
+                }
+            }
+        }
+
+        // Unlocks section — movements that require this one as a prerequisite
+        if (unlockedMovements.isNotEmpty()) {
+            Text("Unlocks", style = MaterialTheme.typography.labelSmall)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                unlockedMovements.forEach { unlocked ->
+                    SuggestionChip(
+                        onClick = { onNavigateToMovement(unlocked.id) },
+                        label = { Text(unlocked.name) }
                     )
                 }
             }
