@@ -11,7 +11,8 @@ sealed class BrowseUiState {
         val movementResults: List<Movement> = emptyList(),
         val query: String = "",
         val totalMovementCount: Int = 0,
-        val difficultyBreakdown: Map<Difficulty, Int> = emptyMap()
+        val difficultyBreakdown: Map<Difficulty, Int> = emptyMap(),
+        val selectedDifficulty: Difficulty? = null
     ) : BrowseUiState()
     data class Error(val message: String) : BrowseUiState()
 }

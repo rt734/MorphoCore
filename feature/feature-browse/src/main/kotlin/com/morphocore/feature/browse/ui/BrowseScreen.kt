@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -102,26 +104,30 @@ fun BrowseScreen(
                                 )
                             }
                         }
-                        // Difficulty breakdown
+                        // Difficulty filter chips
                         if (state.difficultyBreakdown.isNotEmpty()) {
                             item {
-                                val parts = listOf(Difficulty.BEGINNER, Difficulty.INTERMEDIATE, Difficulty.ADVANCED)
-                                    .mapNotNull { d ->
-                                        state.difficultyBreakdown[d]?.let { count ->
-                                            val label = when (d) {
-                                                Difficulty.BEGINNER -> "Beginner"
-                                                Difficulty.INTERMEDIATE -> "Intermediate"
-                                                Difficulty.ADVANCED -> "Advanced"
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp),
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    listOf(Difficulty.BEGINNER, Difficulty.INTERMEDIATE, Difficulty.ADVANCED)
+                                        .forEach { diff ->
+                                            val count = state.difficultyBreakdown[diff] ?: 0
+                                            if (count > 0) {
+                                                val label = when (diff) {
+                                                    Difficulty.BEGINNER     -> "Beginner"
+                                                    Difficulty.INTERMEDIATE -> "Intermediate"
+                                                    Difficulty.ADVANCED     -> "Advanced"
+                                                }
+                                                FilterChip(
+                                                    selected = state.selectedDifficulty == diff,
+                                                    onClick = { viewModel.toggleDifficultyFilter(diff) },
+                                                    label = { Text("$count $label") }
+                                                )
                                             }
-                                            "$count $label"
                                         }
-                                    }
-                                Text(
-                                    text = parts.joinToString(" · "),
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 0.dp)
-                                )
+                                }
                             }
                         }
                         // Normal mode: show discipline cards with spacing
