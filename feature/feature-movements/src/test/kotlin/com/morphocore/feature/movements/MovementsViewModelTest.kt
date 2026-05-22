@@ -8,6 +8,7 @@ import com.morphocore.content.testing.FakeContentRepository
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Discipline
 import com.morphocore.domain.Movement
+import com.morphocore.domain.MuscleGroup
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -430,6 +431,46 @@ class MovementsViewModelTest {
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
         assertEquals(1, state.movements.size)
         assertEquals(kickMovement.id, state.movements.first().id)
+    }
+
+    @Test
+    fun `setQuery filters movements by description`() = runTest {
+        val kickWithDesc = movement("karate", "mae_geri")
+            .copy(description = "A front kick using the ball of the foot")
+        val punchWithDesc = movement("karate", "gyaku_zuki")
+            .copy(description = "A reverse punch with hip rotation")
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsByDiscipline = mapOf("karate" to listOf(kickWithDesc, punchWithDesc))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("hip rotation")
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(punchWithDesc.id, state.movements.first().id)
+    }
+
+    @Test
+    fun `setQuery filters movements by muscle group`() = runTest {
+        val shouldersMovement = movement("gym", "overhead_press")
+            .copy(muscles = listOf(MuscleGroup.Shoulders))
+        val legsMovement = movement("gym", "squat")
+            .copy(muscles = listOf(MuscleGroup.Quadriceps))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsByDiscipline = mapOf("gym" to listOf(shouldersMovement, legsMovement))
+        )
+        val vm = vm(disciplineId = "gym", repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("shoulders")
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(shouldersMovement.id, state.movements.first().id)
     }
 
     @Test

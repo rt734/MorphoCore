@@ -7,6 +7,7 @@ import com.morphocore.content.api.ContentRegistry
 import com.morphocore.content.api.ContentRepository
 import com.morphocore.content.api.RegistryState
 import com.morphocore.domain.Difficulty
+import com.morphocore.domain.MuscleGroup
 import com.morphocore.feature.movements.MovementsSort.BY_DIFFICULTY
 import com.morphocore.feature.movements.MovementsSort.BY_NAME
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -66,7 +67,10 @@ class MovementsViewModel @Inject constructor(
             else {
                 val q = filter.query.trim().lowercase()
                 movements.filter { m ->
-                    m.name.lowercase().contains(q) || m.tags.any { it.lowercase().contains(q) }
+                    m.name.lowercase().contains(q) ||
+                    m.description.lowercase().contains(q) ||
+                    m.tags.any { it.lowercase().contains(q) } ||
+                    m.muscles.any { it.searchToken().contains(q) }
                 }
             }
         val filtered = afterQuery
@@ -118,4 +122,17 @@ class MovementsViewModel @Inject constructor(
         val sort: MovementsSort,
         val query: String
     )
+}
+
+private fun MuscleGroup.searchToken(): String = when (this) {
+    MuscleGroup.Quadriceps -> "quadriceps"
+    MuscleGroup.Hamstrings -> "hamstrings"
+    MuscleGroup.Glutes     -> "glutes"
+    MuscleGroup.Core       -> "core"
+    MuscleGroup.Shoulders  -> "shoulders"
+    MuscleGroup.Back       -> "back"
+    MuscleGroup.Chest      -> "chest"
+    MuscleGroup.Calves     -> "calves"
+    MuscleGroup.HipFlexors -> "hip flexors"
+    is MuscleGroup.Unknown -> this.raw.replace('_', ' ')
 }
