@@ -47,20 +47,24 @@ class BrowseViewModel @Inject constructor(
                 BrowseUiState.Loading
             query.isBlank() -> {
                 val breakdown = movements.groupingBy { it.difficulty }.eachCount()
+                val byDiscipline = movements.groupBy { it.disciplineId }
+                val disciplineBreakdowns = byDiscipline.mapValues { (_, ms) ->
+                    ms.groupingBy { it.difficulty }.eachCount()
+                }
                 val filteredDisciplines = if (selectedDifficulty == null) {
                     disciplines
                 } else {
-                    val idsWithDifficulty = movements
-                        .filter { it.difficulty == selectedDifficulty }
-                        .map { it.disciplineId }
-                        .toSet()
+                    val idsWithDifficulty = byDiscipline
+                        .filterValues { ms -> ms.any { it.difficulty == selectedDifficulty } }
+                        .keys
                     disciplines.filter { it.id in idsWithDifficulty }
                 }
                 BrowseUiState.Ready(
                     disciplines = filteredDisciplines,
                     totalMovementCount = movements.size,
                     difficultyBreakdown = breakdown,
-                    selectedDifficulty = selectedDifficulty
+                    selectedDifficulty = selectedDifficulty,
+                    disciplineBreakdowns = disciplineBreakdowns
                 )
             }
             else -> {
