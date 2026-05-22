@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.SwapVert
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -143,7 +144,14 @@ fun MovementsScreen(
                                 .fillMaxWidth()
                                 .padding(horizontal = 16.dp, vertical = 8.dp),
                             placeholder = { Text("Search ${state.disciplineName} movements…") },
-                            singleLine = true
+                            singleLine = true,
+                            trailingIcon = {
+                                if (query.isNotBlank()) {
+                                    IconButton(onClick = { viewModel.setQuery("") }) {
+                                        Icon(Icons.Default.Clear, contentDescription = "Clear search")
+                                    }
+                                }
+                            }
                         )
                     }
                     // Difficulty chips
@@ -284,6 +292,7 @@ fun MovementsScreen(
                                 movement = movement,
                                 onClick = { onMovementSelected(movement.id) },
                                 onTagClick = viewModel::toggleTag,
+                                query = query,
                                 modifier = Modifier.animateItem()
                             )
                         }
