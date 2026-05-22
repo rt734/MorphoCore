@@ -277,6 +277,70 @@ class BrowseViewModelTest {
         }
     }
 
+    // ── difficulty filter ─────────────────────────────────────────────────
+
+    @Test
+    fun `toggleDifficultyFilter filters disciplines to those with matching difficulty`() = runTest {
+        val beginnerMovement = movement("karate", "jab").copy(difficulty = Difficulty.BEGINNER)
+        val advancedMovement = movement("gym", "planche").copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate"), discipline("gym", "Gym")),
+            movementsById = mapOf(beginnerMovement.id to beginnerMovement, advancedMovement.id to advancedMovement)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.BEGINNER)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.disciplines.size)
+        assertEquals("karate", state.disciplines.first().id)
+        assertEquals(Difficulty.BEGINNER, state.selectedDifficulty)
+    }
+
+    @Test
+    fun `toggleDifficultyFilter selecting same difficulty clears the filter`() = runTest {
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsById = mapOf("karate.jab" to movement("karate", "jab").copy(difficulty = Difficulty.BEGINNER))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.BEGINNER)
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.BEGINNER)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.disciplines.size)
+        assertEquals(null, state.selectedDifficulty)
+    }
+
+    @Test
+    fun `selectedDifficulty is null by default`() = runTest {
+        val vm = vm()
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(null, state.selectedDifficulty)
+    }
+
+    @Test
+    fun `toggleDifficultyFilter shows all disciplines when no movement has matching difficulty`() = runTest {
+        val beginnerMovement = movement("karate", "jab").copy(difficulty = Difficulty.BEGINNER)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate"), discipline("yoga", "Yoga")),
+            movementsById = mapOf(beginnerMovement.id to beginnerMovement)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.ADVANCED)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(0, state.disciplines.size)
+    }
+
     // ── muscle group search ───────────────────────────────────────────────
 
     @Test

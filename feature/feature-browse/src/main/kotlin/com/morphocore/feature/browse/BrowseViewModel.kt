@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.morphocore.content.api.ContentRegistry
 import com.morphocore.content.api.ContentRepository
 import com.morphocore.content.api.RegistryState
+import com.morphocore.domain.Difficulty
 import com.morphocore.domain.MuscleGroup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
@@ -16,6 +17,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,12 +31,15 @@ class BrowseViewModel @Inject constructor(
     private val _query = MutableStateFlow("")
     val query: StateFlow<String> = _query.asStateFlow()
 
+    private val _selectedDifficulty = MutableStateFlow<Difficulty?>(null)
+
     val uiState: StateFlow<BrowseUiState> = combine(
         contentRepository.observeDisciplines(),
         contentRepository.observeAllMovements(),
         contentRegistry.state,
-        _query.debounce(300)
-    ) { disciplines, movements, registryState, query ->
+        _query.debounce(300),
+        _selectedDifficulty
+    ) { disciplines, movements, registryState, query, selectedDifficulty ->
         when {
             registryState is RegistryState.Error ->
                 BrowseUiState.Error("Content failed to load. Tap retry to try again.")
@@ -42,10 +47,20 @@ class BrowseViewModel @Inject constructor(
                 BrowseUiState.Loading
             query.isBlank() -> {
                 val breakdown = movements.groupingBy { it.difficulty }.eachCount()
+                val filteredDisciplines = if (selectedDifficulty == null) {
+                    disciplines
+                } else {
+                    val idsWithDifficulty = movements
+                        .filter { it.difficulty == selectedDifficulty }
+                        .map { it.disciplineId }
+                        .toSet()
+                    disciplines.filter { it.id in idsWithDifficulty }
+                }
                 BrowseUiState.Ready(
-                    disciplines = disciplines,
+                    disciplines = filteredDisciplines,
                     totalMovementCount = movements.size,
-                    difficultyBreakdown = breakdown
+                    difficultyBreakdown = breakdown,
+                    selectedDifficulty = selectedDifficulty
                 )
             }
             else -> {
@@ -69,6 +84,10 @@ class BrowseViewModel @Inject constructor(
 
     fun setQuery(query: String) {
         _query.value = query
+    }
+
+    fun toggleDifficultyFilter(difficulty: Difficulty) {
+        _selectedDifficulty.update { if (it == difficulty) null else difficulty }
     }
 
     fun retry() {
