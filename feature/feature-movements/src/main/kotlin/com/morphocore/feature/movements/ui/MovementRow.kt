@@ -16,10 +16,32 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Movement
 import com.morphocore.domain.MuscleGroup
+
+private fun findHighlightRange(text: String, query: String): IntRange? {
+    val q = query.trim().lowercase()
+    if (q.isBlank()) return null
+    val idx = text.lowercase().indexOf(q)
+    if (idx == -1) return null
+    return idx until idx + q.length
+}
+
+@Composable
+private fun highlightedName(name: String, query: String) =
+    findHighlightRange(name, query)?.let { range ->
+        buildAnnotatedString {
+            append(name.substring(0, range.first))
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(name.substring(range)) }
+            append(name.substring(range.last + 1))
+        }
+    } ?: buildAnnotatedString { append(name) }
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -27,6 +49,7 @@ fun MovementRow(
     movement: Movement,
     onClick: () -> Unit,
     onTagClick: ((String) -> Unit)? = null,
+    query: String = "",
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -41,7 +64,7 @@ fun MovementRow(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = movement.name,
+                text = highlightedName(movement.name, query),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.weight(1f)
             )
