@@ -26,6 +26,10 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -187,6 +191,7 @@ fun BrowseScreen(
                             items(state.movementResults, key = { "m-${it.id}" }) { movement ->
                                 MovementSearchResultRow(
                                     movement = movement,
+                                    query = state.query,
                                     onClick = { onMovementSelected(movement.id) }
                                 )
                             }
@@ -230,14 +235,33 @@ fun BrowseScreen(
     }
 }
 
+internal fun findHighlightRange(text: String, query: String): IntRange? {
+    val q = query.trim().lowercase()
+    if (q.isBlank()) return null
+    val idx = text.lowercase().indexOf(q)
+    if (idx == -1) return null
+    return idx until idx + q.length
+}
+
+@Composable
+private fun highlightedAnnotatedString(text: String, query: String) =
+    findHighlightRange(text, query)?.let { range ->
+        buildAnnotatedString {
+            append(text.substring(0, range.first))
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(text.substring(range)) }
+            append(text.substring(range.last + 1))
+        }
+    } ?: buildAnnotatedString { append(text) }
+
 @Composable
 private fun MovementSearchResultRow(
     movement: Movement,
+    query: String = "",
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     ListItem(
-        headlineContent = { Text(movement.name) },
+        headlineContent = { Text(highlightedAnnotatedString(movement.name, query)) },
         supportingContent = {
             Text(
                 movement.disciplineId
