@@ -139,6 +139,7 @@ fun BrowseScreen(
                             Box(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
                                 DisciplineCard(
                                     discipline = discipline,
+                                    difficultyBreakdown = state.disciplineBreakdowns[discipline.id] ?: emptyMap(),
                                     onClick = { onDisciplineSelected(discipline.id) }
                                 )
                             }

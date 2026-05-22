@@ -277,6 +277,42 @@ class BrowseViewModelTest {
         }
     }
 
+    // ── disciplineBreakdowns ──────────────────────────────────────────────
+
+    @Test
+    fun `disciplineBreakdowns maps discipline ids to their difficulty counts`() = runTest {
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate"), discipline("gym", "Gym")),
+            movementsById = mapOf(
+                "karate.jab" to movement("karate", "jab").copy(difficulty = Difficulty.BEGINNER),
+                "karate.roundhouse" to movement("karate", "roundhouse").copy(difficulty = Difficulty.INTERMEDIATE),
+                "gym.squat" to movement("gym", "squat").copy(difficulty = Difficulty.ADVANCED)
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.disciplineBreakdowns["karate"]?.get(Difficulty.BEGINNER))
+        assertEquals(1, state.disciplineBreakdowns["karate"]?.get(Difficulty.INTERMEDIATE))
+        assertEquals(1, state.disciplineBreakdowns["gym"]?.get(Difficulty.ADVANCED))
+    }
+
+    @Test
+    fun `disciplineBreakdowns is empty in search mode`() = runTest {
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsById = mapOf("karate.jab" to movement("karate", "jab"))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("jab")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(emptyMap<String, Map<Difficulty, Int>>(), state.disciplineBreakdowns)
+    }
+
     // ── difficulty filter ─────────────────────────────────────────────────
 
     @Test
