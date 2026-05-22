@@ -42,7 +42,8 @@
         {
           "description": "Positioning the hands too far forward of the shoulders, which shifts load onto the anterior deltoids and away from the pectorals while overstressing the wrists."
         }
-      ]
+      ],
+      "description": "The foundational horizontal pressing exercise using bodyweight to develop the chest, triceps, and core. Teaches the rigid hollow-body plank position essential for all advanced calisthenics skills."
     },
     {
       "id": "calisthenics.pull-up",
@@ -81,7 +82,8 @@
         {
           "description": "Not reaching full elbow extension at the bottom of each rep, shortening the effective range of motion and reducing the stretch stimulus on the lats."
         }
-      ]
+      ],
+      "description": "A vertical pull on a horizontal bar that develops the lats, biceps, and rear deltoids. The gateway pulling movement toward the front lever, muscle-up, and other advanced bar skills."
     },
     {
       "id": "calisthenics.dip",
@@ -122,7 +124,8 @@
         {
           "description": "Allowing the torso to pitch excessively forward without intent, shifting stress from the triceps onto the anterior shoulder capsule at a compromised angle."
         }
-      ]
+      ],
+      "description": "A pushing exercise on parallel bars or rings targeting the chest, triceps, and anterior deltoid. On rings the inherent instability significantly increases the demand on stabilizing musculature."
     },
     {
       "id": "calisthenics.l-sit",
@@ -161,7 +164,8 @@
         {
           "description": "Failing to achieve full shoulder depression, causing the body to hang low with bent arms rather than elevating the hips above bar or floor level."
         }
-      ]
+      ],
+      "description": "An isometric hold with legs extended parallel to the ground while the arms support the entire body. Demands exceptional hip flexor strength and locked-arm scapular depression simultaneously."
     },
     {
       "id": "calisthenics.muscle-up",
@@ -204,7 +208,8 @@
         {
           "description": "Losing tension during the transition phase between pull and push by allowing the elbows to flare wide, which causes the chest to collide with the bar instead of clearing it and stalls forward momentum."
         }
-      ]
+      ],
+      "description": "A compound bar movement transitioning from a pull-up into a dip above the bar in one explosive motion. The transition phase requires precise timing and a false grip to clear the bar efficiently."
     },
     {
       "id": "calisthenics.handstand-push-up",
@@ -246,7 +251,8 @@
         {
           "description": "Allowing the lower back to arch excessively in the handstand, compressing the lumbar spine."
         }
-      ]
+      ],
+      "description": "An inverted vertical pressing movement that fully loads the shoulders and triceps overhead. The balance challenge and psychological component make this far more demanding than a standard overhead press."
     },
     {
       "id": "calisthenics.dragon-flag",
@@ -284,7 +290,8 @@
         {
           "description": "Allowing the hips to break and the body to jackknife, removing the spinal alignment that makes the movement challenging."
         }
-      ]
+      ],
+      "description": "A full-body isometric and eccentric challenge where the body is held rigid at a declining angle from a fixed anchor. An extreme core and hip flexor exercise popularized by Bruce Lee."
     },
     {
       "id": "calisthenics.front-lever",
@@ -326,7 +333,8 @@
         {
           "description": "Internally rotating the shoulders which collapses the position and places stress on the rotator cuff."
         }
-      ]
+      ],
+      "description": "A static hold with the body suspended horizontally face-up from a bar. Requires tremendous lat and core strength to counteract the torque gravity applies to the fully extended body."
     },
     {
       "id": "calisthenics.hollow-body",
@@ -365,7 +373,8 @@
         {
           "description": "Holding the breath rather than breathing through the ribcage, which causes the thorax to rise and immediately loses the rib-down position essential to proper hollow body tension."
         }
-      ]
+      ],
+      "description": "A fundamental gymnastics position pressing the lower back flat while the body forms a dish shape. The anterior core tension pattern is the structural foundation of nearly every advanced calisthenics skill."
     },
     {
       "id": "calisthenics.archer-push-up",
@@ -406,7 +415,8 @@
         {
           "description": "Bending the assisting arm rather than keeping it extended and providing only passive support, removing the one-arm loading effect that distinguishes the archer from a standard push-up."
         }
-      ]
+      ],
+      "description": "A push-up where one arm extends laterally straight while the other performs the pressing motion. Acts as a progressive transitional skill on the path toward the one-arm push-up."
     },
     {
       "id": "calisthenics.ring-row",
@@ -445,7 +455,8 @@
         {
           "description": "Pulling to the stomach rather than the chest, which limits scapular retraction and reduces the stimulus on the mid-back musculature."
         }
-      ]
+      ],
+      "description": "A horizontal pull on gymnastic rings with feet elevated to adjust difficulty. The ring instability increases shoulder stabilizer demand, making this both an entry-level and an advanced pulling drill."
     },
     {
       "id": "calisthenics.planche",
@@ -489,7 +500,8 @@
         {
           "description": "Skipping the tuck and straddle progressions and jumping to full planche prematurely, which overloads the wrists, elbows, and shoulder capsule before the connective tissue has adapted."
         }
-      ]
+      ],
+      "description": "A static hold with the body horizontal and parallel to the ground supported only by straight arms. One of the most demanding calisthenics skills, requiring years of systematic progressive training."
     }
   ]
 }

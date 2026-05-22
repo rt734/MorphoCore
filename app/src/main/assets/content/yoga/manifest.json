@@ -42,7 +42,8 @@
         {
           "description": "Letting the chin jut forward instead of lengthening the back of the neck, disrupting spinal alignment."
         }
-      ]
+      ],
+      "description": "The foundational standing posture from which all other poses originate. Develops postural awareness, even weight distribution, and the mental focus required for yoga practice."
     },
     {
       "id": "yoga.warrior-1",
@@ -83,7 +84,8 @@
         {
           "description": "Shrugging the shoulders up toward the ears when raising the arms, creating neck tension."
         }
-      ]
+      ],
+      "description": "A powerful standing lunge that opens the hips and chest while building leg strength and stamina. The raised arms and lifted gaze cultivate focus and a sense of expansiveness."
     },
     {
       "id": "yoga.warrior-2",
@@ -123,7 +125,8 @@
         {
           "description": "Allowing the back foot to angle inward too much, which reduces hip opening and stability."
         }
-      ]
+      ],
+      "description": "A wide-legged standing pose with strong isometric leg engagement that develops hip and groin flexibility. The steady gaze over the front hand cultivates stillness and concentration."
     },
     {
       "id": "yoga.downward-dog",
@@ -164,7 +167,8 @@
         {
           "description": "Forcing the heels to touch the floor by bending the knees, which removes the hamstring stretch."
         }
-      ]
+      ],
+      "description": "A full-body stretch that simultaneously strengthens the arms and decompresses the spine. One of yoga's most practiced poses, used both as a transition and a resting position."
     },
     {
       "id": "yoga.tree-pose",
@@ -204,7 +208,8 @@
         {
           "description": "Fixing the gaze on something unstable or shifting it around, which disrupts the balance drishti."
         }
-      ]
+      ],
+      "description": "A single-leg balance pose that cultivates concentration and rooted stability. The grounded foot provides the foundation while the raised leg and arms form the canopy above."
     },
     {
       "id": "yoga.cobra",
@@ -243,7 +248,8 @@
         {
           "description": "Crunching the neck back instead of lengthening through the crown of the head."
         }
-      ]
+      ],
+      "description": "A gentle backbend that opens the chest and strengthens the spinal extensors. Commonly practiced in sun salutation sequences as a counter to the forward-folding movements."
     },
     {
       "id": "yoga.child",
@@ -279,7 +285,8 @@
         {
           "description": "Holding tension in the shoulders instead of letting them melt toward the floor."
         }
-      ]
+      ],
+      "description": "A restorative resting posture that gently stretches the hips, thighs, and lower back. Used as a recovery pose between demanding postures to allow the nervous system to settle."
     },
     {
       "id": "yoga.bridge",
@@ -319,7 +326,8 @@
         {
           "description": "Squeezing the glutes so hard that the lower back overextends and takes the load."
         }
-      ]
+      ],
+      "description": "A supine backbend that strengthens the glutes and hamstrings while opening the chest. Can be held statically or used dynamically as a gentle spinal mobilization warm-up."
     },
     {
       "id": "yoga.triangle-pose",
@@ -360,7 +368,8 @@
         {
           "description": "Placing the bottom hand on the shin and pushing into it to prop the torso, which compresses the side body instead of creating space."
         }
-      ]
+      ],
+      "description": "A lateral stretching posture that lengthens the side body and opens the hip and shoulder simultaneously. Creates a clear triangular line from the grounded feet through the extended arms."
     },
     {
       "id": "yoga.seated-forward-fold",
@@ -399,7 +408,8 @@
         {
           "description": "Pulling aggressively on the feet to force depth, activating the stretch reflex and causing the hamstrings to contract protectively."
         }
-      ]
+      ],
+      "description": "A calming pose that stretches the entire posterior chain from heels to neck. Regular practice progressively lengthens the hamstrings and releases chronic tension in the lower back."
     },
     {
       "id": "yoga.pigeon-pose",
@@ -439,7 +449,8 @@
         {
           "description": "Sinking the torso weight into the hip passively without any active engagement of the core, which can overstretch the capsular ligaments of the hip joint."
         }
-      ]
+      ],
+      "description": "A deep hip opener targeting the piriformis and hip rotators with intensity. The grounded leg's external rotation creates a profound stretch for those who hold tension in the hips."
     },
     {
       "id": "yoga.crow-pose",
@@ -480,7 +491,8 @@
         {
           "description": "Keeping the arms straight instead of maintaining a slight bend, which removes the shelf that the knees need to rest on."
         }
-      ]
+      ],
+      "description": "An arm balance requiring core engagement and the confidence to shift weight past the tipping point. Develops wrist strength and spatial awareness as the entry point to advanced arm balances."
     }
   ]
 }

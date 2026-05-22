@@ -23,6 +23,7 @@ internal data class ManifestDto(
 internal data class MovementDto(
     val id: String,
     val name: String,
+    val description: String = "",
     val modelPath: String,
     val defaultClip: String,
     val clips: List<AnimationClipDto>,
@@ -68,6 +69,7 @@ internal fun parseManifest(path: String, jsonString: String): ParseResult =
                 id = m.id,
                 disciplineId = dto.disciplineId,
                 name = m.name,
+                description = m.description,
                 modelPath = m.modelPath,
                 defaultClip = m.defaultClip,
                 clips = m.clips.map { c -> AnimationClip(c.name, c.durationSeconds, c.fps) },

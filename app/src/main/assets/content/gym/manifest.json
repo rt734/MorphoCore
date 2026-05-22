@@ -43,7 +43,8 @@
         {
           "description": "Performing a butt-wink by allowing the pelvis to posteriorly tilt at the bottom of the squat, which flexes the lumbar spine under load and increases disc injury risk."
         }
-      ]
+      ],
+      "description": "The foundational lower body exercise loading the quadriceps, glutes, and hamstrings through a full range of motion. Proper form demands a braced core and knees tracking over the toes throughout."
     },
     {
       "id": "gym.deadlift",
@@ -85,7 +86,8 @@
         {
           "description": "Allowing the bar to drift away from the body during the pull, increasing the moment arm on the lumbar spine and dramatically raising injury risk."
         }
-      ]
+      ],
+      "description": "A full-body pulling movement that develops posterior chain strength from the traps to the calves. Among the most effective exercises for building overall strength and muscle mass."
     },
     {
       "id": "gym.bench-press",
@@ -124,7 +126,8 @@
         {
           "description": "Bouncing the bar off the chest to overcome the sticking point, reducing time under tension and risking rib or sternum injury."
         }
-      ]
+      ],
+      "description": "The primary horizontal pressing exercise for developing the chest, anterior deltoid, and triceps. The standard benchmark of upper body pressing strength across gyms worldwide."
     },
     {
       "id": "gym.pull-up",
@@ -164,7 +167,8 @@
         {
           "description": "Not achieving full scapular depression and retraction before pulling, causing the upper trapezius to dominate and reducing lat engagement."
         }
-      ]
+      ],
+      "description": "A bodyweight vertical pulling exercise that builds the latissimus dorsi and biceps through a full overhead range. A reliable measure of upper body pulling strength relative to bodyweight."
     },
     {
       "id": "gym.overhead-press",
@@ -203,7 +207,8 @@
         {
           "description": "Pressing the bar in a straight vertical path rather than slightly back behind the head, preventing the bar from traveling over the body's center of gravity and making the lift mechanically inefficient."
         }
-      ]
+      ],
+      "description": "A vertical pressing movement that develops the deltoids, triceps, and upper trapezius. Requires active core engagement to prevent the lower back from hyperextending under load."
     },
     {
       "id": "gym.barbell-row",
@@ -243,7 +248,8 @@
         {
           "description": "Allowing the torso to rise above 45 degrees during the pull, converting it into a partial deadlift."
         }
-      ]
+      ],
+      "description": "A horizontal pulling movement that builds thickness across the upper and mid back. The hinge setup mirrors the deadlift position, reinforcing posterior chain engagement patterns."
     },
     {
       "id": "gym.dip",
@@ -283,7 +289,8 @@
         {
           "description": "Not reaching full lockout at the top, reducing the stimulus to the triceps."
         }
-      ]
+      ],
+      "description": "A compound pushing exercise using parallel bars to target the triceps, chest, and anterior deltoid. Forward lean increases chest involvement while an upright torso focuses effort on the triceps."
     },
     {
       "id": "gym.romanian-deadlift",
@@ -324,7 +331,8 @@
         {
           "description": "Rounding the upper back instead of maintaining a neutral spine throughout the hinge."
         }
-      ]
+      ],
+      "description": "A hip-hinge movement that places maximum eccentric tension on the hamstrings throughout the lowering phase. The bar stays above the knee, distinguishing it from a conventional deadlift."
     },
     {
       "id": "gym.front-squat",
@@ -366,7 +374,8 @@
         {
           "description": "Using a cross-arm grip instead of a clean grip when wrist flexibility allows, which provides less bar control and is more likely to unbalance the load."
         }
-      ]
+      ],
+      "description": "A squat variation with the bar resting on the front deltoids, demanding greater quad dominance and thoracic extension than the back squat. The upright torso position is more spine-friendly under load."
     },
     {
       "id": "gym.hip-thrust",
@@ -405,7 +414,8 @@
         {
           "description": "Positioning the bench too low, which forces the shoulders onto the edge at an uncomfortable angle and prevents the hip from reaching full extension."
         }
-      ]
+      ],
+      "description": "A glute-isolation exercise loading the gluteus maximus at the peak of hip extension. The horizontal force vector at full contraction makes this uniquely effective for posterior development."
     },
     {
       "id": "gym.cable-row",
@@ -444,7 +454,8 @@
         {
           "description": "Not fully extending the arms before each rep, shortening the range of motion and reducing the lat stretch that maximizes the training stimulus."
         }
-      ]
+      ],
+      "description": "A seated horizontal pull with consistent tension throughout the full range of motion, unlike free weights. The cable ensures the muscles are loaded both at full stretch and at peak contraction."
     },
     {
       "id": "gym.face-pull",
@@ -483,7 +494,8 @@
         {
           "description": "Using too much weight and compensating with trunk extension, turning the face pull into a partial row and losing the isolated external rotation component."
         }
-      ]
+      ],
+      "description": "A rear deltoid and external rotator exercise using a rope attachment pulled toward the face. Corrects the internal rotation pattern caused by heavy pressing and maintains long-term shoulder health."
     }
   ]
 }
