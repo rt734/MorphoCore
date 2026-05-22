@@ -256,6 +256,45 @@ class BrowseViewModelTest {
         assertEquals(3, state.totalMovementCount)
     }
 
+    // ── description-based search ──────────────────────────────────────────
+
+    @Test
+    fun `search matches disciplines by description`() = runTest {
+        val repo = FakeContentRepository(
+            disciplines = listOf(
+                discipline("karate", "Karate").copy(description = "Japanese striking art"),
+                discipline("yoga", "Yoga").copy(description = "Indian flexibility practice")
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("striking")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.disciplines.size)
+        assertEquals("karate", state.disciplines.first().id)
+    }
+
+    @Test
+    fun `search matches movements by description`() = runTest {
+        val kickWithDesc = movement("karate", "mae_geri")
+            .copy(description = "A powerful front kick using the ball of the foot")
+        val punchWithDesc = movement("karate", "gyaku_zuki")
+            .copy(description = "A strong reverse punch with hip rotation")
+        val repo = FakeContentRepository(
+            movementsById = mapOf(kickWithDesc.id to kickWithDesc, punchWithDesc.id to punchWithDesc)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("hip rotation")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.movementResults.size)
+        assertEquals(punchWithDesc.id, state.movementResults.first().id)
+    }
+
     // ── search result ordering ────────────────────────────────────────────
 
     @Test

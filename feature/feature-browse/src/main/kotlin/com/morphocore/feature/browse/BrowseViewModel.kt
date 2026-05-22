@@ -69,9 +69,12 @@ class BrowseViewModel @Inject constructor(
             }
             else -> {
                 val q = query.trim().lowercase()
-                val matchingDisciplines = disciplines.filter { it.name.lowercase().contains(q) }
+                val matchingDisciplines = disciplines.filter { d ->
+                    d.name.lowercase().contains(q) || d.description.lowercase().contains(q)
+                }
                 val matchingMovements = movements.filter { m ->
                     m.name.lowercase().contains(q) ||
+                    m.description.lowercase().contains(q) ||
                     m.tags.any { it.lowercase().contains(q) } ||
                     m.muscles.any { it.searchToken().contains(q) }
                 }.sortedBy { it.name }
