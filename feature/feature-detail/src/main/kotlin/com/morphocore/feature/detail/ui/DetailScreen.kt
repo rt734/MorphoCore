@@ -323,6 +323,15 @@ private fun MovementInfoPanel(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
+        // Movement description
+        if (movement.description.isNotBlank()) {
+            Text(
+                text = movement.description,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+
         // Difficulty row
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Text("Difficulty", style = MaterialTheme.typography.labelSmall)

@@ -41,7 +41,8 @@
         {
           "description": "Failing to rotate the fist to a vertical-then-horizontal position at extension, leaving the wrist misaligned and reducing structural integrity on impact."
         }
-      ]
+      ],
+      "description": "A direct punch targeting the centerline of the opponent, driving forward through the entire kinetic chain. A fundamental offensive technique shared across many kung fu styles."
     },
     {
       "id": "kung-fu.front-kick",
@@ -79,7 +80,8 @@
         {
           "description": "Extending the leg fully before the hip reaches full flexion, causing a pushing action rather than a snapping strike."
         }
-      ]
+      ],
+      "description": "A thrusting front kick that uses the heel or ball of the foot to drive powerfully into the target. Effective in both offensive and defensive roles due to its directness."
     },
     {
       "id": "kung-fu.hook-kick",
@@ -119,7 +121,8 @@
         {
           "description": "Pivoting the support foot insufficiently, which limits hip rotation and forces the body to compensate with lateral trunk lean."
         }
-      ]
+      ],
+      "description": "A kick that reaches past the target and hooks back to strike with the heel. The unusual hooking trajectory bypasses defenses that are angled squarely toward the attacker."
     },
     {
       "id": "kung-fu.horse-stance",
@@ -158,7 +161,8 @@
         {
           "description": "Anteriorly tilting the pelvis and arching the lower back instead of maintaining a neutral spine with engaged abdominals."
         }
-      ]
+      ],
+      "description": "The foundational low wide stance that develops leg strength, stability, and a rooted connection to the ground. Training in horse stance is a fundamental rite of passage in most kung fu systems."
     },
     {
       "id": "kung-fu.palm-strike",
@@ -196,7 +200,8 @@
         {
           "description": "Pushing the strike from the arm alone without engaging the pectorals and core rotation, producing a weak, arm-only strike with no whole-body power."
         }
-      ]
+      ],
+      "description": "An open-hand strike using the heel of the palm to transmit force without the fragility risks of a closed fist. Common in styles that emphasize internal power and structural alignment."
     },
     {
       "id": "kung-fu.spinning-kick",
@@ -237,7 +242,8 @@
         {
           "description": "Looking away from the target before contact, reducing accuracy and leaving the fighter blind."
         }
-      ]
+      ],
+      "description": "A 360-degree spinning kick that harnesses rotational momentum for a powerful circular strike. Requires precise coordination, balance, and timing for safe and effective execution."
     },
     {
       "id": "kung-fu.low-sweep",
@@ -275,7 +281,8 @@
         {
           "description": "Sweeping with a bent leg instead of extending fully, reducing reach and power."
         }
-      ]
+      ],
+      "description": "A ground-level sweeping technique targeting the opponent's legs and ankles to disrupt their foundation. Creates takedown opportunities and teaches awareness of the lower gate."
     },
     {
       "id": "kung-fu.leopard-punch",
@@ -311,7 +318,8 @@
         {
           "description": "Using full fist contact instead of the second knuckle row, losing the concentrated impact of the technique."
         }
-      ]
+      ],
+      "description": "A compact punch using the second knuckles of a half-closed fist to concentrate force. The smaller striking surface targets pressure points and sensitive areas with greater precision."
     },
     {
       "id": "kung-fu.bow-stance",
@@ -350,7 +358,8 @@
         {
           "description": "Bending the back knee instead of fully extending it, losing the pushing leverage of the rear leg."
         }
-      ]
+      ],
+      "description": "A forward-weighted stance resembling a drawn bow, providing a stable base for powerful linear techniques. One of the five fundamental stances that underpin kung fu movement."
     },
     {
       "id": "kung-fu.crescent-kick",
@@ -390,7 +399,8 @@
         {
           "description": "Allowing the torso to lean away from the arc to compensate for limited hip mobility, disrupting balance and reducing striking height."
         }
-      ]
+      ],
+      "description": "A sweeping kick that traces a wide arc across the body with an extended leg. Used to knock away guarding limbs or strike the side of the head with the sole or instep."
     },
     {
       "id": "kung-fu.elbow-strike",
@@ -430,7 +440,8 @@
         {
           "description": "Pulling the opposite hand back without purpose, wasting the counter-rotation that could amplify the striking side's power."
         }
-      ]
+      ],
+      "description": "A short-range devastating strike using the point of the elbow against close targets. Delivers tremendous force over a small contact area, highly effective at grappling distance."
     },
     {
       "id": "kung-fu.double-punch",
@@ -471,7 +482,8 @@
         {
           "description": "Dropping the guard completely to deliver the second punch, leaving the head unprotected during the transition."
         }
-      ]
+      ],
+      "description": "A simultaneous two-handed strike that overwhelms a single guard or attacks two targets at once. The coordinated bilateral motion trains symmetrical power generation and timing."
     }
   ]
 }

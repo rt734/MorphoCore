@@ -4,6 +4,7 @@ data class Movement(
     val id: String,
     val disciplineId: String,
     val name: String,
+    val description: String = "",
     val modelPath: String,
     val defaultClip: String,
     val clips: List<AnimationClip>,

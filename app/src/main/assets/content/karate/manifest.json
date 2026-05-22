@@ -41,7 +41,8 @@
         {
           "description": "Not retracting the kicking leg quickly after extension, leaving it vulnerable."
         }
-      ]
+      ],
+      "description": "A straight front kick using the ball of the foot to target the midsection or face. The chambering and snapping motion develops hip flexibility and explosive leg speed."
     },
     {
       "id": "karate.mawashi-geri",
@@ -81,7 +82,8 @@
         {
           "description": "Insufficient hip rotation, reducing reach and impact power of the kick."
         }
-      ]
+      ],
+      "description": "A circular kick sweeping horizontally to strike with the instep or ball of the foot. Full hip rotation drives the power behind this versatile and widely-used technique."
     },
     {
       "id": "karate.gyaku-zuki",
@@ -119,7 +121,8 @@
         {
           "description": "Raising the shoulder during the punch instead of keeping it relaxed and down."
         }
-      ]
+      ],
+      "description": "A powerful straight punch from the rear hand using full hip rotation. Considered the cornerstone of karate striking, generating force from the entire body's kinetic chain."
     },
     {
       "id": "karate.oi-zuki",
@@ -158,7 +161,8 @@
         {
           "description": "Landing with the front foot before the punch arrives, breaking the kime and losing power."
         }
-      ]
+      ],
+      "description": "A stepping punch where the strike lands simultaneously with the forward foot. Combines forward momentum with punching power for a committed, aggressive attack."
     },
     {
       "id": "karate.shuto-uke",
@@ -198,7 +202,8 @@
         {
           "description": "Neglecting to pull the opposite hand back to the hip, losing the body's counter-balance and power."
         }
-      ]
+      ],
+      "description": "A sweeping block using the edge of the open hand to deflect attacks. The technique simultaneously redirects the strike while positioning the other hand to counter."
     },
     {
       "id": "karate.ushiro-geri",
@@ -236,7 +241,8 @@
         {
           "description": "Leaning too far forward to compensate for balance, which telegraphs the kick and reduces power."
         }
-      ]
+      ],
+      "description": "A rear-directed kick using the heel with devastating penetrating power. Requires a look-back pivot to aim, developing exceptional balance and spatial awareness."
     },
     {
       "id": "karate.jodan-uke",
@@ -272,7 +278,8 @@
         {
           "description": "Blocking too far out from the head, reducing protection and losing structural integrity."
         }
-      ]
+      ],
+      "description": "A rising forearm block that deflects high attacks away from the head. One of the first defensive techniques taught, forming the bedrock of karate's blocking system."
     },
     {
       "id": "karate.morote-uke",
@@ -313,7 +320,8 @@
         {
           "description": "Placing the augmenting fist too high on the blocking arm, reducing leverage."
         }
-      ]
+      ],
+      "description": "A reinforced block where the second arm braces the primary blocking arm for maximum power. Used against heavy attacks where a single-arm block would be overwhelmed."
     },
     {
       "id": "karate.gedan-barai",
@@ -352,7 +360,8 @@
         {
           "description": "Dropping the elbow below the hip on completion, weakening the block's structural endpoint."
         }
-      ]
+      ],
+      "description": "A sweeping downward block that deflects low kicks and punches from the lower gates. Often used as the opening technique in kata sequences to clear an attacking limb."
     },
     {
       "id": "karate.yoko-geri-keage",
@@ -392,7 +401,8 @@
         {
           "description": "Allowing the support hip to drop during execution, shifting the kicking arc downward and reducing target height."
         }
-      ]
+      ],
+      "description": "A sharp snapping side kick using the blade of the foot at close range. The quick chamber-and-snap motion targets the ribs, solar plexus, or groin with precision."
     },
     {
       "id": "karate.uchi-uke",
@@ -431,7 +441,8 @@
         {
           "description": "Not pivoting the hips to add power to the block, leaving it as an arm-only deflection."
         }
-      ]
+      ],
+      "description": "An inward sweeping forearm block that deflects mid-level attacks across the body. The forearm rotates at contact to add a redirecting quality to the deflection."
     },
     {
       "id": "karate.kizami-zuki",
@@ -470,7 +481,8 @@
         {
           "description": "Failing to snap the fist back to guard immediately after impact, leaving the arm extended and exposed to a grab or counter."
         }
-      ]
+      ],
+      "description": "A quick lead-hand jab that closes distance and sets up combinations. Speed and timing are prioritized over power, making it a critical distancing and disruption tool."
     }
   ]
 }
