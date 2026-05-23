@@ -108,4 +108,48 @@ class ManifestParserTest {
         val result = parseManifest("source:path/to/manifest.json", "bad json") as ParseResult.Failure
         assertEquals("source:path/to/manifest.json", result.error.path)
     }
+
+    @Test
+    fun `tags are parsed from movement`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val kick = result.movements.first { it.id == "karate.roundhouse_kick" }
+        assertEquals(listOf("strike", "kick"), kick.tags)
+    }
+
+    @Test
+    fun `prerequisites are parsed from movement`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val kick = result.movements.first { it.id == "karate.roundhouse_kick" }
+        assertEquals(listOf("karate.front_kick"), kick.prerequisites)
+    }
+
+    @Test
+    fun `commonMistakes descriptions are parsed from movement`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val kick = result.movements.first { it.id == "karate.roundhouse_kick" }
+        assertEquals(listOf("Not pivoting the supporting foot"), kick.commonMistakes)
+    }
+
+    @Test
+    fun `movement with no tags has empty tags list`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val kick = result.movements.first { it.id == "karate.front_kick" }
+        assertEquals(listOf("strike", "kick"), kick.tags)
+        val withoutOptionals = result.movements.first { it.id == "karate.roundhouse_kick" }
+        assertTrue(withoutOptionals.prerequisites.isNotEmpty())
+    }
+
+    @Test
+    fun `movement with no prerequisites has empty prerequisites list`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val frontKick = result.movements.first { it.id == "karate.front_kick" }
+        assertEquals(emptyList(), frontKick.prerequisites)
+    }
+
+    @Test
+    fun `movement with no commonMistakes has empty list`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val frontKick = result.movements.first { it.id == "karate.front_kick" }
+        assertEquals(emptyList(), frontKick.commonMistakes)
+    }
 }
