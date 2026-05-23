@@ -150,4 +150,51 @@ class ContentManifestIntegrityTest {
             assertTrue(m.commonMistakes.isNotEmpty(), "${m.id} has no common mistakes")
         }
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `every movement has at least one muscle group`(disciplineId: String) {
+        val result = readManifest(disciplineId) as ParseResult.Success
+        result.movements.forEach { m ->
+            assertTrue(m.muscles.isNotEmpty(), "${m.id} has no muscle groups")
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `cameraPreset is null or one of the four known values`(disciplineId: String) {
+        val knownPresets = setOf("front", "side", "top", "three_quarter")
+        val result = readManifest(disciplineId) as ParseResult.Success
+        result.movements.forEach { m ->
+            val preset = m.cameraPreset
+            if (preset != null) {
+                assertTrue(preset in knownPresets,
+                    "${m.id}: cameraPreset '$preset' is not in $knownPresets")
+            }
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `prerequisite chains contain no cycles`(disciplineId: String) {
+        val result = readManifest(disciplineId) as ParseResult.Success
+        val adjMap = result.movements.associate { m -> m.id to m.prerequisites.toSet() }
+
+        val visited = mutableSetOf<String>()
+        val inStack = mutableSetOf<String>()
+
+        fun hasCycle(node: String): Boolean {
+            if (node in inStack) return true
+            if (node in visited) return false
+            visited += node
+            inStack += node
+            val hasCycle = adjMap[node].orEmpty().any { hasCycle(it) }
+            inStack -= node
+            return hasCycle
+        }
+
+        adjMap.keys.forEach { id ->
+            assertTrue(!hasCycle(id), "$disciplineId: prerequisite cycle detected starting from $id")
+        }
+    }
 }
