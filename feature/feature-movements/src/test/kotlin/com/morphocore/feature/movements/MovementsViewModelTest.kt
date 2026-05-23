@@ -515,6 +515,89 @@ class MovementsViewModelTest {
         assertEquals(emptySet(), state.selectedTags)
     }
 
+    // ── muscle filter ────────────────────────────────────────────────────
+
+    @Test
+    fun `toggleMuscle filters movements to those targeting that muscle`() = runTest {
+        val shouldersMovement = movement("gym", "overhead_press")
+            .copy(muscles = listOf(MuscleGroup.Shoulders))
+        val legsMovement = movement("gym", "squat")
+            .copy(muscles = listOf(MuscleGroup.Quadriceps))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsByDiscipline = mapOf("gym" to listOf(shouldersMovement, legsMovement))
+        )
+        val vm = vm(disciplineId = "gym", repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+
+        vm.toggleMuscle(MuscleGroup.Shoulders)
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(shouldersMovement.id, state.movements.first().id)
+        assertEquals(setOf(MuscleGroup.Shoulders), state.selectedMuscles)
+    }
+
+    @Test
+    fun `toggleMuscle twice removes the muscle filter`() = runTest {
+        val m1 = movement("gym", "overhead_press").copy(muscles = listOf(MuscleGroup.Shoulders))
+        val m2 = movement("gym", "squat").copy(muscles = listOf(MuscleGroup.Quadriceps))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsByDiscipline = mapOf("gym" to listOf(m1, m2))
+        )
+        val vm = vm(disciplineId = "gym", repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+
+        vm.toggleMuscle(MuscleGroup.Shoulders)
+        advanceUntilIdle()
+        vm.toggleMuscle(MuscleGroup.Shoulders)
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(2, state.movements.size)
+        assertEquals(emptySet<MuscleGroup>(), state.selectedMuscles)
+    }
+
+    @Test
+    fun `clearFilters also resets selectedMuscles`() = runTest {
+        val m = movement("gym", "overhead_press").copy(muscles = listOf(MuscleGroup.Shoulders))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsByDiscipline = mapOf("gym" to listOf(m))
+        )
+        val vm = vm(disciplineId = "gym", repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+
+        vm.toggleMuscle(MuscleGroup.Shoulders)
+        advanceUntilIdle()
+        assertEquals(setOf(MuscleGroup.Shoulders), (vm.uiState.value as MovementsUiState.Ready).selectedMuscles)
+
+        vm.clearFilters()
+        advanceUntilIdle()
+        assertEquals(emptySet<MuscleGroup>(), (vm.uiState.value as MovementsUiState.Ready).selectedMuscles)
+    }
+
+    @Test
+    fun `availableMuscles lists all distinct muscle groups in the discipline`() = runTest {
+        val m1 = movement("gym", "overhead_press").copy(muscles = listOf(MuscleGroup.Shoulders, MuscleGroup.Core))
+        val m2 = movement("gym", "squat").copy(muscles = listOf(MuscleGroup.Quadriceps, MuscleGroup.Core))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsByDiscipline = mapOf("gym" to listOf(m1, m2))
+        )
+        val vm = vm(disciplineId = "gym", repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(3, state.availableMuscles.size)
+        assert(MuscleGroup.Shoulders in state.availableMuscles)
+        assert(MuscleGroup.Core in state.availableMuscles)
+        assert(MuscleGroup.Quadriceps in state.availableMuscles)
+    }
+
     // ── registry error ────────────────────────────────────────────────────
 
     @Test

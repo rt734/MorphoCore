@@ -2,6 +2,7 @@ package com.morphocore.feature.movements
 
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Movement
+import com.morphocore.domain.MuscleGroup
 
 sealed class MovementsUiState {
     object Loading : MovementsUiState()
@@ -15,6 +16,8 @@ sealed class MovementsUiState {
         val tagCounts: Map<String, Int> = emptyMap(),
         val selectedTags: Set<String> = emptySet(),
         val selectedDifficulties: Set<Difficulty> = emptySet(),
+        val availableMuscles: List<MuscleGroup> = emptyList(),
+        val selectedMuscles: Set<MuscleGroup> = emptySet(),
         val sort: MovementsSort = MovementsSort.BY_DIFFICULTY,
         val query: String = ""
     ) : MovementsUiState()

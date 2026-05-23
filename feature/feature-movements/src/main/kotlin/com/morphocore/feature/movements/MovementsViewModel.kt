@@ -36,6 +36,7 @@ class MovementsViewModel @Inject constructor(
 
     private val _selectedTags = MutableStateFlow<Set<String>>(emptySet())
     private val _selectedDifficulties = MutableStateFlow<Set<Difficulty>>(emptySet())
+    private val _selectedMuscles = MutableStateFlow<Set<MuscleGroup>>(emptySet())
     private val _sort = MutableStateFlow(MovementsSort.BY_DIFFICULTY)
     private val _query = MutableStateFlow("")
     val query: StateFlow<String> = _query.asStateFlow()
@@ -43,10 +44,11 @@ class MovementsViewModel @Inject constructor(
     private val filterState = combine(
         _selectedTags,
         _selectedDifficulties,
+        _selectedMuscles,
         _sort,
         _query.debounce(300)
-    ) { tags, difficulties, sort, query ->
-        FilterState(tags, difficulties, sort, query)
+    ) { tags, difficulties, muscles, sort, query ->
+        FilterState(tags, difficulties, muscles, sort, query)
     }
 
     val uiState: StateFlow<MovementsUiState> = combine(
@@ -63,6 +65,8 @@ class MovementsViewModel @Inject constructor(
         val disciplineDescription = discipline?.description ?: ""
         val availableTags = movements.flatMap { it.tags }.distinct().sorted()
         val tagCounts = movements.flatMap { it.tags }.groupingBy { it }.eachCount()
+        val availableMuscles = movements.flatMap { it.muscles }.distinct()
+            .sortedBy { it.searchToken() }
         val afterQuery = if (filter.query.isBlank()) movements
             else {
                 val q = filter.query.trim().lowercase()
@@ -76,6 +80,7 @@ class MovementsViewModel @Inject constructor(
         val filtered = afterQuery
             .filter { m -> filter.tags.isEmpty() || m.tags.any { it in filter.tags } }
             .filter { m -> filter.difficulties.isEmpty() || m.difficulty in filter.difficulties }
+            .filter { m -> filter.muscles.isEmpty() || m.muscles.any { it in filter.muscles } }
         val sorted = when (filter.sort) {
             BY_DIFFICULTY -> filtered.sortedWith(compareBy({ it.difficulty.ordinal }, { it.name }))
             BY_NAME       -> filtered.sortedBy { it.name }
@@ -83,7 +88,8 @@ class MovementsViewModel @Inject constructor(
         val breakdown = movements.groupingBy { it.difficulty }.eachCount()
         MovementsUiState.Ready(
             disciplineName, disciplineDescription, sorted, movements.size, breakdown,
-            availableTags, tagCounts, filter.tags, filter.difficulties, filter.sort, filter.query
+            availableTags, tagCounts, filter.tags, filter.difficulties,
+            availableMuscles, filter.muscles, filter.sort, filter.query
         )
     }
         .catch { e -> emit(MovementsUiState.Error(e.message ?: "Failed to load movements")) }
@@ -103,6 +109,10 @@ class MovementsViewModel @Inject constructor(
         _selectedDifficulties.update { d -> if (difficulty in d) d - difficulty else d + difficulty }
     }
 
+    fun toggleMuscle(muscle: MuscleGroup) {
+        _selectedMuscles.update { m -> if (muscle in m) m - muscle else m + muscle }
+    }
+
     fun toggleSort() {
         _sort.update { if (it == BY_DIFFICULTY) BY_NAME else BY_DIFFICULTY }
     }
@@ -110,6 +120,7 @@ class MovementsViewModel @Inject constructor(
     fun clearFilters() {
         _selectedTags.value = emptySet()
         _selectedDifficulties.value = emptySet()
+        _selectedMuscles.value = emptySet()
     }
 
     fun retry() {
@@ -119,6 +130,7 @@ class MovementsViewModel @Inject constructor(
     private data class FilterState(
         val tags: Set<String>,
         val difficulties: Set<Difficulty>,
+        val muscles: Set<MuscleGroup>,
         val sort: MovementsSort,
         val query: String
     )
