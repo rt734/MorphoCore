@@ -92,8 +92,12 @@ fun MovementsScreen(
                         is MovementsUiState.Ready -> Column {
                             Text(state.disciplineName, style = MaterialTheme.typography.titleLarge)
                             if (state.totalCount > 0) {
+                                val subtitle = if (state.movements.size < state.totalCount)
+                                    "${state.movements.size} of ${state.totalCount} movements"
+                                else
+                                    "${state.totalCount} movements"
                                 Text(
-                                    "${state.totalCount} movements",
+                                    subtitle,
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )

@@ -176,6 +176,15 @@ class ContentManifestIntegrityTest {
 
     @ParameterizedTest
     @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `every movement has at least one clip`(disciplineId: String) {
+        val result = readManifest(disciplineId) as ParseResult.Success
+        result.movements.forEach { m ->
+            assertTrue(m.clips.isNotEmpty(), "${m.id} has no animation clips")
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
     fun `prerequisite chains contain no cycles`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         val adjMap = result.movements.associate { m -> m.id to m.prerequisites.toSet() }
