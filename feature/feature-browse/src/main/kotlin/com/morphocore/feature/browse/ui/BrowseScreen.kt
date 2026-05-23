@@ -22,6 +22,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
@@ -172,6 +173,34 @@ fun BrowseScreen(
                                             onClick = { viewModel.toggleMuscleFilter(muscle) },
                                             label = { Text(muscle.displayLabel()) }
                                         )
+                                    }
+                                }
+                            }
+                        }
+                        // Active filter summary row
+                        val activeFilterCount = listOfNotNull(
+                            state.selectedDifficulty, state.selectedMuscle
+                        ).size
+                        if (activeFilterCount > 0) {
+                            item {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 16.dp, vertical = 2.dp),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    val filterLabel = "$activeFilterCount filter${if (activeFilterCount > 1) "s" else ""} active · ${state.disciplines.size} discipline${if (state.disciplines.size != 1) "s" else ""}"
+                                    Text(
+                                        text = filterLabel,
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                    TextButton(
+                                        onClick = viewModel::clearFilters,
+                                        modifier = Modifier.padding(start = 4.dp)
+                                    ) {
+                                        Text("Clear")
                                     }
                                 }
                             }
