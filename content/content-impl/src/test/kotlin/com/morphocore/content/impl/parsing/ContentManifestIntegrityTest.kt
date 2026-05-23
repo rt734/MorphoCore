@@ -206,4 +206,27 @@ class ContentManifestIntegrityTest {
             assertTrue(!hasCycle(id), "$disciplineId: prerequisite cycle detected starting from $id")
         }
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `every movement modelPath resolves to an existing glb file`(disciplineId: String) {
+        val result = readManifest(disciplineId) as ParseResult.Success
+        val assetsDir = assetsRoot.parentFile
+        result.movements.forEach { m ->
+            val glbFile = assetsDir.resolve(m.modelPath)
+            assertTrue(glbFile.exists(),
+                "${m.id}: modelPath '${m.modelPath}' not found at ${glbFile.absolutePath}")
+            assertTrue(m.modelPath.endsWith(".glb"),
+                "${m.id}: modelPath '${m.modelPath}' does not end with .glb")
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `modelPaths are unique within each discipline`(disciplineId: String) {
+        val result = readManifest(disciplineId) as ParseResult.Success
+        val paths = result.movements.map { it.modelPath }
+        assertEquals(paths.size, paths.distinct().size,
+            "$disciplineId has duplicate modelPaths: ${paths.groupBy { it }.filter { it.value.size > 1 }.keys}")
+    }
 }
