@@ -453,4 +453,104 @@ class DetailViewModelTest {
         vm.selectCamera("side")
         assertEquals("side", prefs.savedCamera)
     }
+
+    // ── activeTheme ───────────────────────────────────────────────────────
+
+    @Test
+    fun `activeTheme reflects theme provider`() = runTest {
+        val vm = vm("karate.mae-geri")
+        assertEquals("default", vm.activeTheme.value.id)
+    }
+
+    // ── playbackState initial state ───────────────────────────────────────
+
+    @Test
+    fun `playbackState isPlaying is false before model is loaded`() = runTest {
+        val vm = vm("karate.mae-geri")
+        assertEquals(false, vm.playbackState.value.isPlaying)
+    }
+
+    @Test
+    fun `playbackState currentClip is empty before model is loaded`() = runTest {
+        val vm = vm("karate.mae-geri")
+        assertEquals("", vm.playbackState.value.currentClip)
+    }
+
+    // ── onModelLoaded null camera ─────────────────────────────────────────
+
+    @Test
+    fun `onModelLoaded with null camera and null user pref leaves cameraPreset null`() = runTest {
+        val prefs = FakeUserPreferences(camera = null)
+        val movement = fakeMovement()
+        val repo = FakeContentRepository(movementsById = mapOf(movement.id to movement))
+        val vm = vm(movement.id, repo, prefs)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.onModelLoaded("idle", null)
+        assertEquals(null, vm.playbackState.value.cameraPreset)
+    }
+
+    // ── unlockedMovements cap ─────────────────────────────────────────────
+
+    @Test
+    fun `unlockedMovements is capped at three`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri")
+        val unlockables = (1..5).map { i ->
+            fakeMovement("karate.advanced-$i").copy(prerequisites = listOf(mainMovement.id))
+        }
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement) + unlockables)
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.unlockedMovements.size <= 3)
+    }
+
+    // ── crossDisciplineRelated cap ────────────────────────────────────────
+
+    @Test
+    fun `crossDisciplineRelated is capped at three`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
+        val gymKicks = (1..5).map { i ->
+            Movement(
+                id = "gym.kick-$i", disciplineId = "gym", name = "Kick $i",
+                modelPath = "m.glb", defaultClip = "idle",
+                clips = listOf(AnimationClip("idle", 1f, 30)),
+                muscles = emptyList(), difficulty = Difficulty.BEGINNER,
+                tags = listOf("kick"), cameraPreset = null,
+                prerequisites = emptyList(), commonMistakes = emptyList()
+            )
+        }
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf(
+                "karate" to listOf(mainMovement),
+                "gym" to gymKicks
+            )
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.crossDisciplineRelated.size <= 3)
+    }
+
+    // ── relatedMovements self-exclusion ───────────────────────────────────
+
+    @Test
+    fun `relatedMovements does not include the current movement itself`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement))
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.relatedMovements.none { it.id == mainMovement.id })
+    }
 }
