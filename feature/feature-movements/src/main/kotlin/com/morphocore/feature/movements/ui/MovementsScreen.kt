@@ -139,7 +139,7 @@ fun MovementsScreen(
                 }
             }
             is MovementsUiState.Ready -> {
-                val filtersActive = state.selectedTags.isNotEmpty() || state.selectedDifficulties.isNotEmpty()
+                val filtersActive = state.selectedTags.isNotEmpty() || state.selectedDifficulties.isNotEmpty() || state.selectedMuscles.isNotEmpty()
                 val sortNonDefault = state.sort == MovementsSort.BY_NAME
 
                 LazyColumn(
