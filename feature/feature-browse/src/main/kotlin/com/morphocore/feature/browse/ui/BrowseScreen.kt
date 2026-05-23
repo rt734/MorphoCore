@@ -203,7 +203,11 @@ fun BrowseScreen(
                                     horizontalArrangement = Arrangement.SpaceBetween,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    val filterLabel = "$activeFilterCount filter${if (activeFilterCount > 1) "s" else ""} active · ${state.disciplines.size} discipline${if (state.disciplines.size != 1) "s" else ""}"
+                                    val filterLabel = if (state.disciplines.isEmpty()) {
+                                        "$activeFilterCount filter${if (activeFilterCount > 1) "s" else ""} active"
+                                    } else {
+                                        "$activeFilterCount filter${if (activeFilterCount > 1) "s" else ""} active · ${state.disciplines.size} discipline${if (state.disciplines.size != 1) "s" else ""}"
+                                    }
                                     Text(
                                         text = filterLabel,
                                         style = MaterialTheme.typography.bodySmall,
