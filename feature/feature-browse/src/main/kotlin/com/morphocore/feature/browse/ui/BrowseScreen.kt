@@ -208,12 +208,7 @@ fun BrowseScreen(
                         // Normal mode: show discipline cards with spacing
                         items(state.disciplines, key = { it.id }) { discipline ->
                             val breakdown = state.disciplineBreakdowns[discipline.id] ?: emptyMap()
-                            val muscleBreakdown = state.disciplineMuscleBreakdowns[discipline.id] ?: emptyMap()
-                            val filteredCount = when {
-                                state.selectedDifficulty != null -> breakdown[state.selectedDifficulty]
-                                state.selectedMuscle != null -> muscleBreakdown[state.selectedMuscle]
-                                else -> null
-                            }
+                            val filteredCount = state.disciplineFilteredCounts[discipline.id]
                             Box(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
                                 DisciplineCard(
                                     discipline = discipline,
