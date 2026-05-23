@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "judo",
+  "disciplineName": "Judo",
+  "description": "A dynamic Japanese martial art and Olympic sport founded by Jigoro Kano in 1882, Judo transforms an opponent's force and balance into throwing and grappling techniques. Practitioners learn to read momentum, break balance through kuzushi, and apply precisely timed throws to bring opponents to the mat with maximum efficiency and minimum effort.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "judo.jigotai-no-kamae",
+      "name": "Jigotai No Kamae",
+      "description": "Jigotai no kamae is the defensive posture of judo — a wide, low stance with knees deeply bent, feet spread beyond shoulder width, and the centre of gravity dropped close to the ground. Mastering this guard teaches practitioners how stability and base are achieved, and why a wider stance that lowers the hips makes it dramatically harder for an opponent to break your balance and execute a throw.",
+      "modelPath": "content/judo/models/jigotai_no_kamae.glb",
+      "defaultClip": "stance",
+      "clips": [
+        {"name": "stance", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Letting the knees cave inward rather than tracking over the toes, reducing structural stability"},
+        {"description": "Placing too much weight on the heels instead of distributing evenly across the entire foot"}
+      ]
+    },
+    {
+      "id": "judo.shizentai",
+      "name": "Shizentai",
+      "description": "Shizentai is the natural upright posture from which all judo throwing techniques originate. Feet are shoulder-width apart, weight evenly distributed, and the body relaxed yet alert. Unlike the defensive jigotai stance, shizentai is mobile and offensive — it allows the judoka to move fluidly in any direction, grip the opponent's judogi, and transition instantly into any throw in the classical repertoire.",
+      "modelPath": "content/judo/models/shizentai.glb",
+      "defaultClip": "stand",
+      "clips": [
+        {"name": "stand", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Holding tension in the shoulders and arms rather than remaining loose and responsive through the upper body"},
+        {"description": "Standing too upright with legs locked straight, making the judoka rigid and slow to react to off-balance opportunities"}
+      ]
+    },
+    {
+      "id": "judo.ukemi-ushiro",
+      "name": "Ushiro Ukemi",
+      "description": "Ushiro ukemi is the backward breakfall — the foundational safety skill that allows a judoka to be thrown without injury. As the body falls backward, the chin tucks to the chest to protect the head, the arms slap the mat at 45 degrees at the moment of impact, and the legs stay bent to prevent the feet from crashing down. Every subsequent judo technique depends on the confidence that comes from being able to fall safely.",
+      "modelPath": "content/judo/models/ukemi_ushiro.glb",
+      "defaultClip": "fall",
+      "clips": [
+        {"name": "fall", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["safety", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Failing to tuck the chin and allowing the back of the head to strike the mat on impact"},
+        {"description": "Slapping too late or too weakly, so the arms do not absorb the impact before the spine takes the full force"}
+      ]
+    },
+    {
+      "id": "judo.tai-sabaki",
+      "name": "Tai Sabaki",
+      "description": "Tai sabaki is the art of body rotation — the pivoting footwork that positions the judoka to execute a throw. Rather than moving the opponent, tai sabaki moves the thrower's body underneath and around the opponent so the hips align for projection. The technique is the mechanical foundation of virtually every standing judo throw: without efficient body rotation, full hip engagement and kuzushi cannot be combined in a single motion.",
+      "modelPath": "content/judo/models/tai_sabaki.glb",
+      "defaultClip": "pivot",
+      "clips": [
+        {"name": "pivot", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "calves"],
+      "difficulty": "intermediate",
+      "tags": ["footwork", "fundamental"],
+      "cameraPreset": "top",
+      "prerequisites": ["judo.shizentai"],
+      "commonMistakes": [
+        {"description": "Rotating only from the feet while the hips lag behind, breaking the single-unit body rotation that generates power"},
+        {"description": "Stepping too wide during the entry, preventing the hips from loading fully beneath the opponent's centre of gravity"}
+      ]
+    },
+    {
+      "id": "judo.o-goshi",
+      "name": "O Goshi",
+      "description": "O goshi — major hip throw — is typically the first classical throw taught in judo. The judoka wraps an arm around the opponent's back, loads the opponent's hips onto their own, then uses a forward hip drive combined with a pulling arm to project the opponent over in a large arc. The technique introduces the core principle that power comes from the legs and hips, not the arms.",
+      "modelPath": "content/judo/models/o_goshi.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "hip"],
+      "cameraPreset": "side",
+      "prerequisites": ["judo.shizentai"],
+      "commonMistakes": [
+        {"description": "Bending at the waist instead of bending the knees to get underneath the opponent's hips"},
+        {"description": "Pulling only with the arm rather than driving the hip backward into the opponent to load their weight"}
+      ]
+    },
+    {
+      "id": "judo.uki-otoshi",
+      "name": "Uki Otoshi",
+      "description": "Uki otoshi — floating drop — teaches the purest expression of kuzushi, the principle of off-balancing. Rather than using body contact or a hip load, the judoka steps diagonally and pulls the opponent in a large spiral arc, causing them to float and topple forward. It is almost entirely a technique of timing and direction of force rather than muscular effort.",
+      "modelPath": "content/judo/models/uki_otoshi.glb",
+      "defaultClip": "drop",
+      "clips": [
+        {"name": "drop", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "kuzushi"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["judo.tai-sabaki"],
+      "commonMistakes": [
+        {"description": "Trying to muscle the throw rather than stepping deeply and using the diagonal pull to float the opponent"},
+        {"description": "Breaking contact with the opponent's sleeve during the spiral, causing the pull vector to collapse"}
+      ]
+    },
+    {
+      "id": "judo.seoi-nage",
+      "name": "Seoi Nage",
+      "description": "Seoi nage — shoulder throw — drives the opponent onto the judoka's back, levering them over the shoulder and down to the mat. The entry is explosive: a deep penetration step, a sharp elbow lift that traps the opponent's arm, and then a powerful hip extension that scoops them airborne. It is one of the most powerful and visually dramatic throws in judo and frequently scores ippon at the highest competition levels.",
+      "modelPath": "content/judo/models/seoi_nage.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "quadriceps", "core"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "shoulder"],
+      "cameraPreset": "side",
+      "prerequisites": ["judo.o-goshi"],
+      "commonMistakes": [
+        {"description": "Turning the shoulders but not the hips fully, leaving the entry shallow and reducing the projection arc"},
+        {"description": "Lifting with the arms rather than driving upward with both legs to generate the shoulder-lift force"}
+      ]
+    },
+    {
+      "id": "judo.tai-otoshi",
+      "name": "Tai Otoshi",
+      "description": "Tai otoshi — body drop — is a hand technique that uses leg placement rather than a hip load to create the throw. The judoka steps across and plants a leg as a pivot point in front of the opponent, then rotates sharply so the opponent trips over the blocking leg while the arms direct the fall. It bypasses the hip-loading required by o goshi and is highly effective against opponents who crouch low.",
+      "modelPath": "content/judo/models/tai_otoshi.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "hand"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["judo.tai-sabaki"],
+      "commonMistakes": [
+        {"description": "Placing the blocking leg too far inside rather than directly across the opponent's lead foot"},
+        {"description": "Rotating the torso without coordinating the arm pull, so the sweep and the arm direction are out of phase"}
+      ]
+    },
+    {
+      "id": "judo.ko-uchi-gari",
+      "name": "Ko Uchi Gari",
+      "description": "Ko uchi gari — minor inner reap — uses a small hook of the inner foot to reap the opponent's ankle backward as the judoka pushes their upper body forward. The technique exploits the moment when the opponent's weight transfers onto the rear foot, sweeping that foot from under them. Despite its subtle appearance, it scores frequently at elite level because the small entry movement is difficult to read before it lands.",
+      "modelPath": "content/judo/models/ko_uchi_gari.glb",
+      "defaultClip": "reap",
+      "clips": [
+        {"name": "reap", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["hip_flexors", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "foot"],
+      "cameraPreset": "side",
+      "prerequisites": ["judo.shizentai"],
+      "commonMistakes": [
+        {"description": "Reaping before the opponent's weight is committed to the target foot, so the sweep meets resistance instead of air"},
+        {"description": "Using only the hooking leg without driving the upper body forward to complete the combined push-and-sweep action"}
+      ]
+    },
+    {
+      "id": "judo.de-ashi-barai",
+      "name": "De Ashi Barai",
+      "description": "De ashi barai — advancing foot sweep — intercepts the opponent's foot at the exact instant it lifts to take a step forward, sweeping it laterally across the mat surface. The timing must be precise to the fraction of a second: sweep a moment too early and the foot is still grounded, too late and the weight has transferred and the foot anchors. When timed perfectly, almost no force is required and the opponent falls cleanly from a single effortless sweep.",
+      "modelPath": "content/judo/models/de_ashi_barai.glb",
+      "defaultClip": "sweep",
+      "clips": [
+        {"name": "sweep", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["hip_flexors", "calves", "core"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "sweep"],
+      "cameraPreset": "side",
+      "prerequisites": ["judo.ko-uchi-gari"],
+      "commonMistakes": [
+        {"description": "Sweeping with the heel rather than the sole of the foot, which pushes the foot down instead of sweeping it sideways"},
+        {"description": "Neglecting the coordinated arm pull-push that loads the opponent's weight onto the foot being swept"}
+      ]
+    },
+    {
+      "id": "judo.kesa-gatame",
+      "name": "Kesa Gatame",
+      "description": "Kesa gatame — scarf hold — is the first and most fundamental ground control position in judo. The judoka sits beside the opponent at 45 degrees, trapping the opponent's near arm under their own armpit, wrapping the other arm around the opponent's neck, and using their own body weight and base to pin the opponent's upper body to the mat. Holding kesa gatame for 20 seconds scores a full ippon under international competition rules.",
+      "modelPath": "content/judo/models/kesa_gatame.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["groundwork", "pin"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["judo.ukemi-ushiro"],
+      "commonMistakes": [
+        {"description": "Sitting with the hips too close to the opponent, allowing them to roll toward the judoka and escape underneath"},
+        {"description": "Leaning forward over the opponent rather than dropping the hips low and wide to anchor the base laterally"}
+      ]
+    },
+    {
+      "id": "judo.uchi-mata",
+      "name": "Uchi Mata",
+      "description": "Uchi mata — inner thigh throw — sweeps the opponent's inner thigh upward while the judoka drives through with the hips and rotates their upper body. It requires precise alignment of the entry, a deep hip rotation, and the explosive leg lift all coordinated in one moment. Uchi mata is the single most scored throw in international judo competitions and is considered the signature technique of the sport's highest competitive level.",
+      "modelPath": "content/judo/models/uchi_mata.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["throw", "leg"],
+      "cameraPreset": "side",
+      "prerequisites": ["judo.seoi-nage", "judo.o-goshi"],
+      "commonMistakes": [
+        {"description": "Sweeping the back of the knee rather than the inner thigh, losing the high arc and mechanical advantage of the technique"},
+        {"description": "Entering without full hip rotation so the sweeping leg swings across rather than lifting through the opponent's centre"}
+      ]
+    },
+    {
+      "id": "judo.harai-goshi",
+      "name": "Harai Goshi",
+      "description": "Harai goshi — sweeping hip throw — combines the hip load of o goshi with a powerful outward leg sweep that reaps both the opponent's legs off the mat simultaneously. The judoka enters on the hip, plants a pivoting foot, then sweeps the rear leg outward in a high arc that scoops the opponent's thighs and projects them over in a long, dramatic trajectory. The momentum generated by the sweeping leg distinguishes it from a pure hip throw.",
+      "modelPath": "content/judo/models/harai_goshi.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["throw", "hip"],
+      "cameraPreset": "side",
+      "prerequisites": ["judo.o-goshi", "judo.tai-sabaki"],
+      "commonMistakes": [
+        {"description": "Beginning the leg sweep too early before the hips have fully loaded the opponent's weight, causing the sweep to meet resistance"},
+        {"description": "Bending the sweeping knee so the leg strikes below the thigh, dramatically reducing the projection force"}
+      ]
+    },
+    {
+      "id": "judo.tani-otoshi",
+      "name": "Tani Otoshi",
+      "description": "Tani otoshi — valley drop — is a sacrifice throw in which the judoka drops their own body behind the opponent's legs as they pull them backward, using their falling weight as the projecting force. The opponent is toppled like a tree cut at the base. It is most effective as a counter-throw against an opponent who is pulling backward, turning the opponent's own rearward momentum into the source of their fall.",
+      "modelPath": "content/judo/models/tani_otoshi.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "back"],
+      "difficulty": "advanced",
+      "tags": ["throw", "sacrifice"],
+      "cameraPreset": "side",
+      "prerequisites": ["judo.tai-otoshi", "judo.de-ashi-barai"],
+      "commonMistakes": [
+        {"description": "Dropping straight down instead of slightly behind and between the opponent's feet, losing the directional pull"},
+        {"description": "Releasing the grip during the drop so the arm direction and the body fall are not coordinated into a single vector"}
+      ]
+    },
+    {
+      "id": "judo.juji-gatame",
+      "name": "Juji Gatame",
+      "description": "Juji gatame — cross armlock — is the fundamental joint-locking technique of judo, applied to the elbow by hyperextending the opponent's arm across the judoka's hips while both legs clamp the opponent's arm and shoulder to prevent rotation or escape. Pressure is applied gradually upward until the opponent submits. It demands the integration of positioning, leg control, hip thrust, and the sensitivity to stop exactly before the joint's limit.",
+      "modelPath": "content/judo/models/juji_gatame.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "back", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["groundwork", "armlock"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["judo.kesa-gatame"],
+      "commonMistakes": [
+        {"description": "Leaving a gap between the thighs so the opponent can slide their arm free before the lock is applied"},
+        {"description": "Lifting the hips before securing the arm fully, so the hyperextension force is applied in the wrong direction and fails to stress the elbow joint"}
+      ]
+    }
+  ]
+}
