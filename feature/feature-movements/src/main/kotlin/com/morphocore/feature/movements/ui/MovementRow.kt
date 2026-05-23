@@ -132,7 +132,12 @@ fun MovementRow(
                 movement.tags.take(2).forEach { tag ->
                     SuggestionChip(
                         onClick = { onTagClick?.invoke(tag) },
-                        label = { Text(tag, style = MaterialTheme.typography.labelSmall) }
+                        label = {
+                            Text(
+                                text = highlightedAnnotatedString(tag, query),
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
                     )
                 }
             }
