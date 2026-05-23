@@ -230,6 +230,169 @@ class SettingsViewModelTest {
         assertEquals(null, vm.defaultCamera.value)
         assertEquals(null, prefs.getDefaultCamera())
     }
+
+    // ── uiState reactive ──────────────────────────────────────────────────
+
+    @Test
+    fun `uiState updates when active theme changes in provider`() = runTest {
+        val provider = FakeThemeProvider(fakeTheme("light"))
+        val registry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark")))
+        val vm = vm(provider = provider, registry = registry)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        provider._activeTheme.value = fakeTheme("dark")
+        advanceUntilIdle()
+        val state = assertIs<SettingsUiState.Ready>(vm.uiState.value)
+        assertEquals("dark", state.activeThemeId)
+    }
+
+    @Test
+    fun `uiState updates when registry themes list changes`() = runTest {
+        val registry = FakeThemeRegistry(listOf(fakeTheme("light")))
+        val vm = vm(registry = registry)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        registry._themes.value = listOf(fakeTheme("light"), fakeTheme("dark"), fakeTheme("sepia"))
+        advanceUntilIdle()
+        val state = assertIs<SettingsUiState.Ready>(vm.uiState.value)
+        assertEquals(3, state.themes.size)
+    }
+
+    @Test
+    fun `uiState Ready themes preserves registry order`() = runTest {
+        val ordered = listOf(fakeTheme("a"), fakeTheme("b"), fakeTheme("c"))
+        val vm = vm(registry = FakeThemeRegistry(ordered))
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<SettingsUiState.Ready>(vm.uiState.value)
+        assertEquals(listOf("a", "b", "c"), state.themes.map { it.id })
+    }
+
+    @Test
+    fun `uiState Ready with empty themes list`() = runTest {
+        val vm = vm(registry = FakeThemeRegistry(emptyList()))
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<SettingsUiState.Ready>(vm.uiState.value)
+        assertEquals(0, state.themes.size)
+    }
+
+    // ── selectTheme edge cases ────────────────────────────────────────────
+
+    @Test
+    fun `selectTheme triggers uiState Ready update`() = runTest {
+        val provider = FakeThemeProvider(fakeTheme("light"))
+        val registry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark")))
+        val vm = vm(provider = provider, registry = registry)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.selectTheme("dark")
+        advanceUntilIdle()
+        assertIs<SettingsUiState.Ready>(vm.uiState.value)
+    }
+
+    @Test
+    fun `multiple consecutive selectTheme calls reflect latest selection`() = runTest {
+        val provider = FakeThemeProvider(fakeTheme("light"))
+        val registry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark"), fakeTheme("sepia")))
+        val vm = vm(provider = provider, registry = registry)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.selectTheme("dark")
+        vm.selectTheme("sepia")
+        advanceUntilIdle()
+        val state = assertIs<SettingsUiState.Ready>(vm.uiState.value)
+        assertEquals("sepia", state.activeThemeId)
+    }
+
+    // ── defaultSpeed boundary ─────────────────────────────────────────────
+
+    @Test
+    fun `setDefaultSpeed to zero is accepted`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = vm(prefs = prefs)
+        vm.setDefaultSpeed(0f)
+        assertEquals(0f, vm.defaultSpeed.value)
+        assertEquals(0f, prefs.getDefaultSpeed())
+    }
+
+    @Test
+    fun `setDefaultSpeed below 1 is accepted`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = vm(prefs = prefs)
+        vm.setDefaultSpeed(0.25f)
+        assertEquals(0.25f, vm.defaultSpeed.value)
+        assertEquals(0.25f, prefs.getDefaultSpeed())
+    }
+
+    @Test
+    fun `setDefaultSpeed multiple times reflects last value`() = runTest {
+        val vm = vm()
+        vm.setDefaultSpeed(0.5f)
+        vm.setDefaultSpeed(1.5f)
+        vm.setDefaultSpeed(2f)
+        assertEquals(2f, vm.defaultSpeed.value)
+    }
+
+    // ── defaultCamera extended ────────────────────────────────────────────
+
+    @Test
+    fun `defaultCamera is null when prefs has no camera set`() = runTest {
+        val vm = vm(prefs = FakeUserPreferences(camera = null))
+        assertEquals(null, vm.defaultCamera.value)
+    }
+
+    @Test
+    fun `setDefaultCamera multiple times reflects last value`() = runTest {
+        val vm = vm()
+        vm.setDefaultCamera("front")
+        vm.setDefaultCamera("side")
+        vm.setDefaultCamera("top")
+        assertEquals("top", vm.defaultCamera.value)
+    }
+
+    @Test
+    fun `setDefaultCamera with three_quarter preset`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = vm(prefs = prefs)
+        vm.setDefaultCamera("three_quarter")
+        assertEquals("three_quarter", vm.defaultCamera.value)
+        assertEquals("three_quarter", prefs.getDefaultCamera())
+    }
+
+    @Test
+    fun `setDefaultCamera with front preset`() = runTest {
+        val prefs = FakeUserPreferences()
+        val vm = vm(prefs = prefs)
+        vm.setDefaultCamera("front")
+        assertEquals("front", vm.defaultCamera.value)
+        assertEquals("front", prefs.getDefaultCamera())
+    }
+
+    // ── resetPlaybackDefaults edge cases ──────────────────────────────────
+
+    @Test
+    fun `resetPlaybackDefaults when already at defaults is idempotent`() = runTest {
+        val prefs = FakeUserPreferences(speed = 1f, camera = null)
+        val vm = vm(prefs = prefs)
+        vm.resetPlaybackDefaults()
+        assertEquals(1f, vm.defaultSpeed.value)
+        assertEquals(null, vm.defaultCamera.value)
+    }
+
+    @Test
+    fun `resetPlaybackDefaults does not affect theme selection`() = runTest {
+        val provider = FakeThemeProvider(fakeTheme("dark"))
+        val registry = FakeThemeRegistry(listOf(fakeTheme("light"), fakeTheme("dark")))
+        val prefs = FakeUserPreferences(speed = 2f, camera = "side")
+        val vm = vm(provider = provider, registry = registry, prefs = prefs)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.resetPlaybackDefaults()
+        advanceUntilIdle()
+        val state = assertIs<SettingsUiState.Ready>(vm.uiState.value)
+        assertEquals("dark", state.activeThemeId)
+    }
 }
 
 private class FakeThemeProvider(theme: Theme) : ThemeProvider {
