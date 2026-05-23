@@ -478,6 +478,47 @@ class BrowseViewModelTest {
         assertEquals(1, state.disciplineMuscleBreakdowns["karate"]?.get(MuscleGroup.Core))
     }
 
+    // ── disciplineFilteredCounts ──────────────────────────────────────────
+
+    @Test
+    fun `disciplineFilteredCounts reflects intersection when both difficulty and muscle active`() = runTest {
+        val beginnerChest = movement("gym", "bench_press")
+            .copy(difficulty = Difficulty.BEGINNER, muscles = listOf(MuscleGroup.Chest))
+        val advancedChest = movement("gym", "weighted_dip")
+            .copy(difficulty = Difficulty.ADVANCED, muscles = listOf(MuscleGroup.Chest))
+        val beginnerLegs = movement("gym", "squat")
+            .copy(difficulty = Difficulty.BEGINNER, muscles = listOf(MuscleGroup.Quadriceps))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsById = mapOf(
+                beginnerChest.id to beginnerChest,
+                advancedChest.id to advancedChest,
+                beginnerLegs.id to beginnerLegs
+            )
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.BEGINNER)
+        vm.toggleMuscleFilter(MuscleGroup.Chest)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.disciplineFilteredCounts["gym"])
+    }
+
+    @Test
+    fun `disciplineFilteredCounts is empty when no filter active`() = runTest {
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsById = mapOf("gym.squat" to movement("gym", "squat"))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(emptyMap<String, Int>(), state.disciplineFilteredCounts)
+    }
+
     // ── muscle filter ─────────────────────────────────────────────────────
 
     @Test

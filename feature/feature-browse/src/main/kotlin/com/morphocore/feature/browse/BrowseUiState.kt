@@ -17,7 +17,8 @@ sealed class BrowseUiState {
         val disciplineBreakdowns: Map<String, Map<Difficulty, Int>> = emptyMap(),
         val availableMuscles: List<MuscleGroup> = emptyList(),
         val selectedMuscle: MuscleGroup? = null,
-        val disciplineMuscleBreakdowns: Map<String, Map<MuscleGroup, Int>> = emptyMap()
+        val disciplineMuscleBreakdowns: Map<String, Map<MuscleGroup, Int>> = emptyMap(),
+        val disciplineFilteredCounts: Map<String, Int> = emptyMap()
     ) : BrowseUiState()
     data class Error(val message: String) : BrowseUiState()
 }

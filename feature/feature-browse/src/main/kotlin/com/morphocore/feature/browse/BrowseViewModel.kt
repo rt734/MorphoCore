@@ -77,6 +77,19 @@ class BrowseViewModel @Inject constructor(
                         .keys
                     filteredDisciplines = filteredDisciplines.filter { it.id in idsWithMuscle }
                 }
+                val disciplineFilteredCounts: Map<String, Int> = when {
+                    filter.difficulty != null && filter.muscle != null ->
+                        byDiscipline.mapValues { (_, ms) ->
+                            ms.count { m ->
+                                m.difficulty == filter.difficulty && filter.muscle in m.muscles
+                            }
+                        }
+                    filter.difficulty != null ->
+                        disciplineBreakdowns.mapValues { (_, d) -> d[filter.difficulty] ?: 0 }
+                    filter.muscle != null ->
+                        disciplineMuscleBreakdowns.mapValues { (_, m) -> m[filter.muscle] ?: 0 }
+                    else -> emptyMap()
+                }
                 BrowseUiState.Ready(
                     disciplines = filteredDisciplines,
                     totalMovementCount = movements.size,
@@ -85,7 +98,8 @@ class BrowseViewModel @Inject constructor(
                     disciplineBreakdowns = disciplineBreakdowns,
                     availableMuscles = availableMuscles,
                     selectedMuscle = filter.muscle,
-                    disciplineMuscleBreakdowns = disciplineMuscleBreakdowns
+                    disciplineMuscleBreakdowns = disciplineMuscleBreakdowns,
+                    disciplineFilteredCounts = disciplineFilteredCounts
                 )
             }
             else -> {
