@@ -34,7 +34,12 @@ class MovementsViewModel @Inject constructor(
 
     private val disciplineId: String = checkNotNull(savedStateHandle["disciplineId"])
 
-    private val _selectedTags = MutableStateFlow<Set<String>>(emptySet())
+    private val _selectedTags = MutableStateFlow<Set<String>>(
+        savedStateHandle.get<String>("initialTag")
+            ?.takeIf { it.isNotBlank() }
+            ?.let { setOf(it) }
+            ?: emptySet()
+    )
     private val _selectedDifficulties = MutableStateFlow<Set<Difficulty>>(emptySet())
     private val _selectedMuscles = MutableStateFlow<Set<MuscleGroup>>(emptySet())
     private val _sort = MutableStateFlow(MovementsSort.BY_DIFFICULTY)

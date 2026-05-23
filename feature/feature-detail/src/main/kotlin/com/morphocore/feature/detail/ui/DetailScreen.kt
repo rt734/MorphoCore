@@ -89,6 +89,7 @@ fun DetailScreen(
     movementId: String,
     onBack: () -> Unit,
     onNavigateToMovement: (String) -> Unit = {},
+    onNavigateToMovements: (disciplineId: String, tag: String) -> Unit = { _, _ -> },
     viewModel: DetailViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -205,7 +206,8 @@ fun DetailScreen(
                         unlockedMovements = state.unlockedMovements,
                         prerequisiteMovements = state.prerequisiteMovements,
                         crossDisciplineRelated = state.crossDisciplineRelated,
-                        onNavigateToMovement = onNavigateToMovement
+                        onNavigateToMovement = onNavigateToMovement,
+                        onTagClick = { tag -> onNavigateToMovements(state.movement.disciplineId, tag) }
                     )
                 }
             }
@@ -319,6 +321,7 @@ private fun MovementInfoPanel(
     prerequisiteMovements: List<com.morphocore.domain.Movement>,
     crossDisciplineRelated: List<com.morphocore.domain.Movement>,
     onNavigateToMovement: (String) -> Unit,
+    onTagClick: ((String) -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -378,7 +381,7 @@ private fun MovementInfoPanel(
             ) {
                 movement.tags.forEach { tag ->
                     SuggestionChip(
-                        onClick = {},
+                        onClick = { onTagClick?.invoke(tag) },
                         label = { Text(tag) }
                     )
                 }

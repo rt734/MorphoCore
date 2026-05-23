@@ -41,7 +41,10 @@ fun MorphoNavHost(
             DetailScreen(
                 movementId = dest.movementId,
                 onBack = { navController.popBackStack() },
-                onNavigateToMovement = { id -> navController.navigate(Detail(id)) }
+                onNavigateToMovement = { id -> navController.navigate(Detail(id)) },
+                onNavigateToMovements = { disciplineId, tag ->
+                    navController.navigate(Movements(disciplineId, tag))
+                }
             )
         }
         composable<Settings> {
