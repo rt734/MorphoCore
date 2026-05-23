@@ -1,0 +1,295 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "wrestling",
+  "disciplineName": "Wrestling",
+  "description": "One of humanity's oldest combat sports, wrestling uses takedowns, trips, and body control to bring an opponent to the mat and hold them there. Practitioners develop explosive lower-body power, sensitivity to weight shifts, and the ability to transition fluidly between standing and ground positions. Freestyle wrestling's open ruleset rewards creativity, while the universal principles of level changes and motion apply across all wrestling styles.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "wrestling.athletic-stance",
+      "name": "Athletic Stance",
+      "description": "The athletic wrestling stance places the feet staggered slightly beyond shoulder width with knees bent, hips low, and weight balanced on the balls of the feet. The hands are held forward at hip height, ready to engage. Maintaining a low, balanced position is the foundation from which every takedown, sprawl, and scramble originates — a high or upright stance is the most common mistake that costs wrestlers takedowns and allows opponents to score.",
+      "modelPath": "content/wrestling/models/athletic_stance.glb",
+      "defaultClip": "stance",
+      "clips": [
+        {"name": "stance", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Standing too upright with straight knees, making it easy for an opponent to reach the hips for a takedown"},
+        {"description": "Crossing the feet when moving rather than maintaining the staggered base at all times"}
+      ]
+    },
+    {
+      "id": "wrestling.penetration-step",
+      "name": "Penetration Step",
+      "description": "The penetration step is the explosive entry movement that begins every level-change takedown in wrestling. The lead knee drops toward the mat while the trail leg drives forward, simultaneously lowering the level and projecting the body toward the opponent's hips in a single coordinated burst. Without a sharp, deep penetration step, the level change is too slow and the opponent can sprawl before contact is made.",
+      "modelPath": "content/wrestling/models/penetration_step.glb",
+      "defaultClip": "step",
+      "clips": [
+        {"name": "step", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hip_flexors"],
+      "difficulty": "beginner",
+      "tags": ["footwork", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Bending at the waist instead of the knees during the level change, telegraphing the shot and removing power"},
+        {"description": "Stepping to the outside of the opponent's body instead of between the legs, making it impossible to finish the takedown"}
+      ]
+    },
+    {
+      "id": "wrestling.front-headlock",
+      "name": "Front Headlock",
+      "description": "The front headlock is a fundamental control position achieved when the opponent's head and one arm are trapped under the wrestler's armpit and choking arm. From this position an entire family of throws, chokes, and mat returns become available. It is also the dominant position after a failed double-leg attempt and one of the most common transition points between standing and ground wrestling.",
+      "modelPath": "content/wrestling/models/front_headlock.glb",
+      "defaultClip": "control",
+      "clips": [
+        {"name": "control", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "beginner",
+      "tags": ["control", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Allowing the arm to slip above the ear rather than locking tightly under the jaw, giving the opponent space to pull free"},
+        {"description": "Standing upright in the front headlock instead of staying low, allowing the opponent to lift and drive out of the position"}
+      ]
+    },
+    {
+      "id": "wrestling.single-leg-takedown",
+      "name": "Single Leg Takedown",
+      "description": "The single-leg takedown attacks one leg of the opponent, using the penetration step to shoot inside and secure the ankle and knee before driving upward and across to off-balance and finish the takedown. It is the most versatile entry in wrestling — accessible from a wider variety of angles than the double-leg and offering numerous finishes depending on how the opponent reacts. Elite wrestlers develop five or six different finishes from the same single-leg entry.",
+      "modelPath": "content/wrestling/models/single_leg_takedown.glb",
+      "defaultClip": "shoot",
+      "clips": [
+        {"name": "shoot", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["takedown", "leg"],
+      "cameraPreset": "side",
+      "prerequisites": ["wrestling.penetration-step"],
+      "commonMistakes": [
+        {"description": "Reaching for the leg with the arms before completing the penetration step, causing the opponent to sprawl before contact"},
+        {"description": "Allowing the head to drop to the inside of the opponent's hip, losing the leverage needed to finish the takedown"}
+      ]
+    },
+    {
+      "id": "wrestling.double-leg-takedown",
+      "name": "Double Leg Takedown",
+      "description": "The double-leg takedown simultaneously attacks both legs, driving through the opponent's base with the shoulder in the hip while both arms wrap behind the knees. The finish drives the opponent backward while the hips follow through. It is the highest-percentage scoring move in freestyle wrestling and the foundational shot that every other takedown complements or creates openings for.",
+      "modelPath": "content/wrestling/models/double_leg_takedown.glb",
+      "defaultClip": "shoot",
+      "clips": [
+        {"name": "shoot", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["takedown", "leg"],
+      "cameraPreset": "side",
+      "prerequisites": ["wrestling.penetration-step"],
+      "commonMistakes": [
+        {"description": "Shooting with the head down rather than the head up and driving through with the shoulder in the thigh"},
+        {"description": "Stopping the hips on contact instead of continuing the drive so the opponent's base is fully displaced"}
+      ]
+    },
+    {
+      "id": "wrestling.sprawl",
+      "name": "Sprawl",
+      "description": "The sprawl is the primary defensive move against a leg-attack takedown. When an opponent shoots for the legs, the defender violently drives the hips backward and down, simultaneously shooting both legs back to remove them from reach, while the hands push down on the attacker's back or neck. An effective sprawl neutralises the shot and puts the sprawling wrestler in a dominant position on top of the attacker.",
+      "modelPath": "content/wrestling/models/sprawl.glb",
+      "defaultClip": "defend",
+      "clips": [
+        {"name": "defend", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["hip_flexors", "core", "glutes", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "sprawl"],
+      "cameraPreset": "side",
+      "prerequisites": ["wrestling.athletic-stance"],
+      "commonMistakes": [
+        {"description": "Jumping straight back instead of driving the hips down into the attacker's back, which allows them to keep driving forward"},
+        {"description": "Sprawling too late after the opponent has already locked both hands behind the knees, making defence much harder"}
+      ]
+    },
+    {
+      "id": "wrestling.arm-drag",
+      "name": "Arm Drag",
+      "description": "The arm drag is a clinch technique in which the wrestler grabs the opponent's wrist and tricep and sharply pulls the arm across and down, simultaneously stepping behind the opponent to reach the back. It is a high-percentage entry to the back where a body lock or mat return can be secured. The key is the redirect of the opponent's arm — the drag creates rotation in the opponent's body that the wrestler follows behind.",
+      "modelPath": "content/wrestling/models/arm_drag.glb",
+      "defaultClip": "drag",
+      "clips": [
+        {"name": "drag", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["control", "clinch"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wrestling.athletic-stance"],
+      "commonMistakes": [
+        {"description": "Pulling the arm without moving the feet, so the body doesn't follow behind the drag and no positional advantage is gained"},
+        {"description": "Grabbing too high on the bicep rather than the tricep and wrist, giving the opponent leverage to pull their arm back"}
+      ]
+    },
+    {
+      "id": "wrestling.ankle-pick",
+      "name": "Ankle Pick",
+      "description": "The ankle pick attacks a single ankle from a standing tie-up, picking the foot from the floor while the free hand pushes the opponent's shoulder to create a rotational fall. Unlike a shot, the ankle pick is executed while largely upright — it requires the opponent's weight to be on the target foot and a precise timing of the simultaneous pick and push to drive them to the mat in a tight controlled spiral.",
+      "modelPath": "content/wrestling/models/ankle_pick.glb",
+      "defaultClip": "pick",
+      "clips": [
+        {"name": "pick", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["takedown", "foot"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wrestling.single-leg-takedown"],
+      "commonMistakes": [
+        {"description": "Picking the ankle before confirming the opponent's weight is committed to it, allowing them to lift the foot easily"},
+        {"description": "Failing to push the shoulder simultaneously with the pick, so no rotational force is applied and the opponent can hop to recovery"}
+      ]
+    },
+    {
+      "id": "wrestling.hip-heist",
+      "name": "Hip Heist",
+      "description": "The hip heist is a ground movement used to reverse position — rolling from a bottom turtle position by shooting one leg through and under while swinging the hips in a windshield-wiper arc to come up to the feet or gain top position. It is the foundational scramble movement of wrestling and underlies dozens of escapes, reversals, and offensive transitions from the bottom position.",
+      "modelPath": "content/wrestling/models/hip_heist.glb",
+      "defaultClip": "roll",
+      "clips": [
+        {"name": "roll", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["groundwork", "escape"],
+      "cameraPreset": "side",
+      "prerequisites": ["wrestling.front-headlock"],
+      "commonMistakes": [
+        {"description": "Swinging the leg without first driving the hips upward, so the leg cannot clear the opponent's body"},
+        {"description": "Stopping the movement at 90 degrees rather than continuing the full rotation to reach a neutral or dominant position"}
+      ]
+    },
+    {
+      "id": "wrestling.body-lock",
+      "name": "Body Lock",
+      "description": "The body lock is a dominant control position achieved from behind the opponent, both arms wrapped around the waist with hands clasped, the wrestler's chest pressed against the opponent's back. From the body lock an entire game of throws, lifts, and mat returns becomes available. The clinched grip controls the opponent's hips — wrestling's centre of gravity — and prevents them from facing their attacker or creating offensive actions.",
+      "modelPath": "content/wrestling/models/body_lock.glb",
+      "defaultClip": "control",
+      "clips": [
+        {"name": "control", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["back", "core", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["control", "clinch"],
+      "cameraPreset": "side",
+      "prerequisites": ["wrestling.arm-drag"],
+      "commonMistakes": [
+        {"description": "Clasping the hands above the opponent's hips rather than at the waist, giving them space to sit out or reverse"},
+        {"description": "Standing square behind the opponent rather than offset to the side, which allows them to step back through into the front"}
+      ]
+    },
+    {
+      "id": "wrestling.granby-roll",
+      "name": "Granby Roll",
+      "description": "The granby roll is an advanced mat-movement escape in which the bottom wrestler, from referee's position, dives shoulder-first into a tight shoulder roll, threading the legs through to reverse position or gain a stand-up. The trajectory is a sharp diagonal — not a straight barrel roll — and the timing must exploit the exact moment the top wrestler's weight shifts. It is one of the most disorienting escapes for a top wrestler to defend.",
+      "modelPath": "content/wrestling/models/granby_roll.glb",
+      "defaultClip": "roll",
+      "clips": [
+        {"name": "roll", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "hip_flexors"],
+      "difficulty": "advanced",
+      "tags": ["groundwork", "escape"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wrestling.hip-heist", "wrestling.sprawl"],
+      "commonMistakes": [
+        {"description": "Rolling straight over the top rather than diagonally through the shoulder, causing the opponent to follow rather than be confused"},
+        {"description": "Starting the roll without first getting to the wrist on the inside to prevent the opponent from blocking the shoulder dip"}
+      ]
+    },
+    {
+      "id": "wrestling.suplex",
+      "name": "Suplex",
+      "description": "The suplex is a high-amplitude throw executed from a body lock behind the opponent, arching backward to project the opponent over and behind the wrestler in a large arc. Points are scored based on how much of the opponent's back touches the mat. The throw demands an explosive hip extension, an arch through the spine, and the strength to lift the opponent's centre of gravity above the wrestler's own head at the apex of the movement.",
+      "modelPath": "content/wrestling/models/suplex.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["back", "glutes", "core", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["throw", "lift"],
+      "cameraPreset": "side",
+      "prerequisites": ["wrestling.body-lock", "wrestling.double-leg-takedown"],
+      "commonMistakes": [
+        {"description": "Pulling the arms instead of driving the hips forward and up to generate the lifting arc"},
+        {"description": "Bridging too late so the arch peaks after the opponent has already landed flat rather than at the moment of projection"}
+      ]
+    },
+    {
+      "id": "wrestling.switch",
+      "name": "Switch",
+      "description": "The switch is a fast bottom reversal executed from referee's position by spinning toward the top wrestler, trapping their wrist with one hand and driving the near elbow backward past the hip to end up behind the opponent. The rotation is driven by the hips rather than the arms — a strong hip rotation allows the wrestler to spin past the top opponent and reach back control before they can react. Elite wrestlers execute the switch in under a second.",
+      "modelPath": "content/wrestling/models/switch.glb",
+      "defaultClip": "reverse",
+      "clips": [
+        {"name": "reverse", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["groundwork", "reversal"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wrestling.hip-heist", "wrestling.arm-drag"],
+      "commonMistakes": [
+        {"description": "Rotating with the upper body alone without swinging the hips through, giving the top wrestler time to block the elbow"},
+        {"description": "Sitting into the switch instead of staying posted on the outside hand, which allows the top wrestler to flatten the bottom one"}
+      ]
+    },
+    {
+      "id": "wrestling.turk",
+      "name": "Turk",
+      "description": "The turk is a high-control breakdown from a referee's position in which the top wrestler threads one arm through the opponent's inner thigh from the side, coupling it with a cross-face or arm control on the other side to pry the opponent off their base and expose their back for a pin or tilt. Unlike simple ride holds, the turk creates mechanical leverage that makes it extraordinarily difficult to stand or sit through.",
+      "modelPath": "content/wrestling/models/turk.glb",
+      "defaultClip": "control",
+      "clips": [
+        {"name": "control", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["groundwork", "control"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wrestling.body-lock", "wrestling.single-leg-takedown"],
+      "commonMistakes": [
+        {"description": "Inserting the arm above the knee rather than deep into the crotch, losing the mechanical advantage that makes the turk effective"},
+        {"description": "Riding directly on top rather than staying offset to the side, allowing the opponent to sit out or hip-heist free"}
+      ]
+    },
+    {
+      "id": "wrestling.high-crotch",
+      "name": "High Crotch",
+      "description": "The high crotch is a takedown entry that attacks one leg from an inside position, placing one shoulder inside the opponent's thigh while both hands grip high behind the knee and seat. From the high crotch a wrestler can finish with a lift, a trip, or a run to the back depending on how the opponent reacts. It is a hybrid between the single-leg and the double-leg that neutralises the most common defences to each.",
+      "modelPath": "content/wrestling/models/high_crotch.glb",
+      "defaultClip": "shoot",
+      "clips": [
+        {"name": "shoot", "durationSeconds": 1.8, "fps": 30},
+        {"name": "finish", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "shoulders", "core"],
+      "difficulty": "advanced",
+      "tags": ["takedown", "leg"],
+      "cameraPreset": "side",
+      "prerequisites": ["wrestling.single-leg-takedown", "wrestling.double-leg-takedown"],
+      "commonMistakes": [
+        {"description": "Entering with the head outside rather than inside the opponent's hip, which exposes the back of the neck to sprawl pressure"},
+        {"description": "Staying stationary after securing the high crotch rather than immediately transitioning to a finish or run to the back"}
+      ]
+    }
+  ]
+}
