@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import com.morphocore.domain.AnimationClip
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Movement
 import com.morphocore.domain.MuscleGroup
@@ -96,6 +97,15 @@ fun MovementRow(
             )
             DifficultyBadge(movement.difficulty)
         }
+        val clipMeta = clipMetaLabel(movement.clips)
+        if (clipMeta != null) {
+            Text(
+                text = clipMeta,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 2.dp)
+            )
+        }
         if (snippet != null) {
             Text(
                 text = highlightedAnnotatedString(snippet, query),
@@ -155,6 +165,13 @@ private fun DifficultyBadge(difficulty: Difficulty) {
         Difficulty.ADVANCED     -> "Advanced"     to MaterialTheme.colorScheme.error
     }
     Text(text = label, style = MaterialTheme.typography.labelSmall, color = color)
+}
+
+internal fun clipMetaLabel(clips: List<AnimationClip>): String? {
+    if (clips.isEmpty()) return null
+    val count = clips.size
+    val totalSeconds = clips.sumOf { it.durationSeconds.toDouble() }
+    return "$count clip${if (count > 1) "s" else ""} · ${"%.1f".format(totalSeconds)}s"
 }
 
 private fun muscleLabel(muscle: MuscleGroup): String = when (muscle) {
