@@ -68,8 +68,10 @@ fun DisciplineCard(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = discipline.name,
-                    style = MaterialTheme.typography.titleLarge
+                    text = highlightedAnnotatedString(discipline.name, query),
+                    style = MaterialTheme.typography.titleLarge,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
                 if (discipline.description.isNotBlank()) {
                     Text(
