@@ -32,43 +32,58 @@ class BrowseViewModel @Inject constructor(
     val query: StateFlow<String> = _query.asStateFlow()
 
     private val _selectedDifficulty = MutableStateFlow<Difficulty?>(null)
+    private val _selectedMuscle = MutableStateFlow<MuscleGroup?>(null)
+
+    private val filterState = combine(
+        _query.debounce(300),
+        _selectedDifficulty,
+        _selectedMuscle
+    ) { query, difficulty, muscle -> BrowseFilterState(query, difficulty, muscle) }
 
     val uiState: StateFlow<BrowseUiState> = combine(
         contentRepository.observeDisciplines(),
         contentRepository.observeAllMovements(),
         contentRegistry.state,
-        _query.debounce(300),
-        _selectedDifficulty
-    ) { disciplines, movements, registryState, query, selectedDifficulty ->
+        filterState
+    ) { disciplines, movements, registryState, filter ->
         when {
             registryState is RegistryState.Error ->
                 BrowseUiState.Error("Content failed to load. Tap retry to try again.")
             registryState is RegistryState.Loading ->
                 BrowseUiState.Loading
-            query.isBlank() -> {
+            filter.query.isBlank() -> {
                 val breakdown = movements.groupingBy { it.difficulty }.eachCount()
                 val byDiscipline = movements.groupBy { it.disciplineId }
                 val disciplineBreakdowns = byDiscipline.mapValues { (_, ms) ->
                     ms.groupingBy { it.difficulty }.eachCount()
                 }
-                val filteredDisciplines = if (selectedDifficulty == null) {
-                    disciplines
-                } else {
-                    val idsWithDifficulty = byDiscipline
-                        .filterValues { ms -> ms.any { it.difficulty == selectedDifficulty } }
+                val availableMuscles = movements.flatMap { it.muscles }.distinct()
+                    .sortedBy { it.searchToken() }
+                var filteredDisciplines = if (filter.difficulty == null) disciplines
+                    else {
+                        val idsWithDifficulty = byDiscipline
+                            .filterValues { ms -> ms.any { it.difficulty == filter.difficulty } }
+                            .keys
+                        disciplines.filter { it.id in idsWithDifficulty }
+                    }
+                if (filter.muscle != null) {
+                    val idsWithMuscle = byDiscipline
+                        .filterValues { ms -> ms.any { filter.muscle in it.muscles } }
                         .keys
-                    disciplines.filter { it.id in idsWithDifficulty }
+                    filteredDisciplines = filteredDisciplines.filter { it.id in idsWithMuscle }
                 }
                 BrowseUiState.Ready(
                     disciplines = filteredDisciplines,
                     totalMovementCount = movements.size,
                     difficultyBreakdown = breakdown,
-                    selectedDifficulty = selectedDifficulty,
-                    disciplineBreakdowns = disciplineBreakdowns
+                    selectedDifficulty = filter.difficulty,
+                    disciplineBreakdowns = disciplineBreakdowns,
+                    availableMuscles = availableMuscles,
+                    selectedMuscle = filter.muscle
                 )
             }
             else -> {
-                val q = query.trim().lowercase()
+                val q = filter.query.trim().lowercase()
                 val matchingDisciplines = disciplines.filter { d ->
                     d.name.lowercase().contains(q) || d.description.lowercase().contains(q)
                 }
@@ -78,7 +93,7 @@ class BrowseViewModel @Inject constructor(
                     m.tags.any { it.lowercase().contains(q) } ||
                     m.muscles.any { it.searchToken().contains(q) }
                 }.sortedBy { it.name }
-                BrowseUiState.Ready(matchingDisciplines, matchingMovements, query, movements.size)
+                BrowseUiState.Ready(matchingDisciplines, matchingMovements, filter.query, movements.size)
             }
         }
     }
@@ -101,9 +116,24 @@ class BrowseViewModel @Inject constructor(
         _selectedDifficulty.value = null
     }
 
+    fun toggleMuscleFilter(muscle: MuscleGroup) {
+        _selectedMuscle.update { if (it == muscle) null else muscle }
+    }
+
+    fun clearFilters() {
+        _selectedDifficulty.value = null
+        _selectedMuscle.value = null
+    }
+
     fun retry() {
         viewModelScope.launch { contentRegistry.refresh() }
     }
+
+    private data class BrowseFilterState(
+        val query: String,
+        val difficulty: Difficulty?,
+        val muscle: MuscleGroup?
+    )
 }
 
 private fun MuscleGroup.searchToken(): String = when (this) {
