@@ -206,4 +206,100 @@ class ManifestParserTest {
         val result = parseManifest("test:yoga", yogaJson) as ParseResult.Success
         assertTrue(result.discipline.description.isNotBlank())
     }
+
+    @Test
+    fun `iconPath defaults to null when absent from JSON`() {
+        val result = parseManifest("test:yoga", yogaJson) as ParseResult.Success
+        assertEquals(null, result.discipline.iconPath)
+    }
+
+    @Test
+    fun `difficulty is parsed case-insensitively from lowercase string`() {
+        val json = """
+        {
+          "schemaVersion": "1.0", "disciplineId": "x", "disciplineName": "X",
+          "movements": [{
+            "id": "x.move", "name": "Move", "modelPath": "x.glb",
+            "defaultClip": "idle",
+            "clips": [{"name":"idle","durationSeconds":1.0,"fps":30}],
+            "muscles": ["core"],
+            "difficulty": "advanced"
+          }]
+        }
+        """.trimIndent()
+        val result = parseManifest("test:x", json) as ParseResult.Success
+        assertEquals(Difficulty.ADVANCED, result.movements.first().difficulty)
+    }
+
+    @Test
+    fun `animation clip name, duration and fps are parsed correctly`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val clip = result.movements.first { it.id == "karate.roundhouse_kick" }.clips.first()
+        assertEquals("kick_loop", clip.name)
+        assertEquals(2.0f, clip.durationSeconds)
+        assertEquals(30, clip.fps)
+    }
+
+    @Test
+    fun `cameraPreset is null when absent from movement`() {
+        val json = """
+        {
+          "schemaVersion": "1.0", "disciplineId": "x", "disciplineName": "X",
+          "movements": [{
+            "id": "x.move", "name": "Move", "modelPath": "x.glb",
+            "defaultClip": "idle",
+            "clips": [{"name":"idle","durationSeconds":1.0,"fps":30}],
+            "muscles": ["core"], "difficulty": "BEGINNER"
+          }]
+        }
+        """.trimIndent()
+        val result = parseManifest("test:x", json) as ParseResult.Success
+        assertEquals(null, result.movements.first().cameraPreset)
+    }
+
+    @Test
+    fun `cameraPreset is parsed when present`() {
+        val json = """
+        {
+          "schemaVersion": "1.0", "disciplineId": "x", "disciplineName": "X",
+          "movements": [{
+            "id": "x.move", "name": "Move", "modelPath": "x.glb",
+            "defaultClip": "idle",
+            "clips": [{"name":"idle","durationSeconds":1.0,"fps":30}],
+            "muscles": ["core"], "difficulty": "BEGINNER",
+            "cameraPreset": "three_quarter"
+          }]
+        }
+        """.trimIndent()
+        val result = parseManifest("test:x", json) as ParseResult.Success
+        assertEquals("three_quarter", result.movements.first().cameraPreset)
+    }
+
+    @Test
+    fun `multiple commonMistakes are all parsed`() {
+        val json = """
+        {
+          "schemaVersion": "1.0", "disciplineId": "x", "disciplineName": "X",
+          "movements": [{
+            "id": "x.move", "name": "Move", "modelPath": "x.glb",
+            "defaultClip": "idle",
+            "clips": [{"name":"idle","durationSeconds":1.0,"fps":30}],
+            "muscles": ["core"], "difficulty": "BEGINNER",
+            "commonMistakes": [
+              {"description": "First mistake"},
+              {"description": "Second mistake"}
+            ]
+          }]
+        }
+        """.trimIndent()
+        val result = parseManifest("test:x", json) as ParseResult.Success
+        assertEquals(listOf("First mistake", "Second mistake"), result.movements.first().commonMistakes)
+    }
+
+    @Test
+    fun `defaultClip is parsed correctly`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val kick = result.movements.first { it.id == "karate.roundhouse_kick" }
+        assertEquals("kick_loop", kick.defaultClip)
+    }
 }
