@@ -53,6 +53,7 @@ private val difficultyColors = mapOf(
 fun DisciplineCard(
     discipline: Discipline,
     difficultyBreakdown: Map<Difficulty, Int> = emptyMap(),
+    filteredMovementCount: Int? = null,
     query: String = "",
     onClick: () -> Unit
 ) {
@@ -83,8 +84,13 @@ fun DisciplineCard(
                         modifier = Modifier.padding(top = 2.dp)
                     )
                 }
+                val total = discipline.movementIds.size
+                val countText = if (filteredMovementCount != null && filteredMovementCount != total)
+                    "$filteredMovementCount of $total movements"
+                else
+                    "$total movements"
                 Text(
-                    text = "${discipline.movementIds.size} movements",
+                    text = countText,
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(top = 4.dp)
