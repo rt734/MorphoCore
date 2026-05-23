@@ -1,5 +1,6 @@
 package com.morphocore.feature.browse.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -29,6 +31,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -52,6 +55,10 @@ fun BrowseScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val query by viewModel.query.collectAsStateWithLifecycle()
+
+    BackHandler(enabled = query.isNotBlank()) {
+        viewModel.setQuery("")
+    }
 
     Scaffold(
         topBar = {
@@ -93,7 +100,14 @@ fun BrowseScreen(
                                 .fillMaxWidth()
                                 .padding(horizontal = 16.dp, vertical = 8.dp),
                             placeholder = { Text("Search disciplines and movements…") },
-                            singleLine = true
+                            singleLine = true,
+                            trailingIcon = {
+                                if (query.isNotBlank()) {
+                                    IconButton(onClick = { viewModel.setQuery("") }) {
+                                        Icon(Icons.Default.Clear, contentDescription = "Clear search")
+                                    }
+                                }
+                            }
                         )
                     }
 
@@ -244,6 +258,18 @@ internal fun findHighlightRange(text: String, query: String): IntRange? {
     return idx until idx + q.length
 }
 
+internal fun browseDescriptionMatchSnippet(description: String, query: String): String? {
+    val q = query.trim().lowercase()
+    if (q.isBlank()) return null
+    val idx = description.lowercase().indexOf(q)
+    if (idx == -1) return null
+    val start = maxOf(0, idx - 25)
+    val end = minOf(description.length, idx + q.length + 25)
+    val prefix = if (start > 0) "…" else ""
+    val suffix = if (end < description.length) "…" else ""
+    return "$prefix${description.substring(start, end)}$suffix"
+}
+
 @Composable
 private fun highlightedAnnotatedString(text: String, query: String) =
     findHighlightRange(text, query)?.let { range ->
@@ -261,14 +287,29 @@ private fun MovementSearchResultRow(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val disciplineLabel = movement.disciplineId
+        .replaceFirstChar { it.uppercaseChar() }
+        .replace('-', ' ')
+    val nameMatches = query.isNotBlank() && findHighlightRange(movement.name, query) != null
+    val snippet = if (!nameMatches) browseDescriptionMatchSnippet(movement.description, query) else null
+
     ListItem(
         headlineContent = { Text(highlightedAnnotatedString(movement.name, query)) },
         supportingContent = {
-            Text(
-                movement.disciplineId
-                    .replaceFirstChar { it.uppercaseChar() }
-                    .replace('-', ' ')
-            )
+            if (snippet != null) {
+                Column {
+                    Text(disciplineLabel)
+                    Text(
+                        text = highlightedAnnotatedString(snippet, query),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+            } else {
+                Text(disciplineLabel)
+            }
         },
         trailingContent = {
             val (label, color) = when (movement.difficulty) {
