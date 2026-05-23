@@ -26,14 +26,14 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `manifest parses without error`(disciplineId: String) {
         val result = readManifest(disciplineId)
         assertIs<ParseResult.Success>(result, "Parse failed for $disciplineId")
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `each discipline has exactly 15 movements`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         assertEquals(15, result.movements.size,
@@ -41,7 +41,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `all movement ids are prefixed with disciplineId`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
@@ -51,7 +51,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `defaultClip names a clip declared in clips list`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
@@ -62,7 +62,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `all clips have positive duration and valid fps`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
@@ -76,7 +76,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `prerequisite ids exist within the same discipline`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         val allIds = result.movements.map { it.id }.toSet()
@@ -89,7 +89,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `movement ids are unique within each discipline`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         val ids = result.movements.map { it.id }
@@ -98,14 +98,14 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `discipline movementIds matches parsed movement order`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         assertEquals(result.movements.map { it.id }, result.discipline.movementIds)
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `discipline has a non-blank description`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         assertTrue(result.discipline.description.isNotBlank(),
@@ -113,7 +113,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `every movement has a non-blank description`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
@@ -122,7 +122,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `every movement has at least one tag`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
@@ -131,7 +131,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `every non-beginner movement has at least one prerequisite`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements
@@ -143,7 +143,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `every movement has at least one common mistake`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
@@ -152,7 +152,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `every movement has at least one muscle group`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
@@ -161,7 +161,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `cameraPreset is null or one of the four known values`(disciplineId: String) {
         val knownPresets = setOf("front", "side", "top", "three_quarter")
         val result = readManifest(disciplineId) as ParseResult.Success
@@ -175,7 +175,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `every movement has at least one clip`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
@@ -184,7 +184,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `prerequisite chains contain no cycles`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         val adjMap = result.movements.associate { m -> m.id to m.prerequisites.toSet() }
@@ -208,7 +208,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `every movement modelPath resolves to an existing glb file`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         val assetsDir = assetsRoot.parentFile
@@ -222,7 +222,7 @@ class ContentManifestIntegrityTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai"])
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics", "boxing", "muay-thai", "pilates"])
     fun `modelPaths are unique within each discipline`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
         val paths = result.movements.map { it.modelPath }
