@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "taekwondo",
+  "disciplineName": "Taekwondo",
+  "description": "Taekwondo is a Korean martial art and Olympic sport distinguished by its emphasis on high, fast, and spinning kicks. More than 60 percent of scoring in competition comes from kicks, requiring exceptional hip flexibility, balance, and explosive leg strength. The art combines the precision of a combat sport with the discipline of a traditional practice, developing both physical athleticism and mental focus through its structured belt progression.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "taekwondo.juchum-seogi",
+      "name": "Juchum Seogi",
+      "description": "Juchum seogi — the horse-riding stance — plants the feet twice shoulder width apart with knees bent at 90 degrees and thighs parallel to the floor. It is the fundamental training stance of taekwondo, used to build leg strength, refine posture, and establish the hip-low position that generates power in all kicks. Every beginner learns to hold this stance as their first physical lesson in the art.",
+      "modelPath": "content/taekwondo/models/juchum_seogi.glb",
+      "defaultClip": "stance",
+      "clips": [
+        {"name": "stance", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Allowing the knees to collapse inward rather than tracking directly over the second toe"},
+        {"description": "Leaning the torso forward or backward instead of maintaining a perfectly upright spine throughout the hold"}
+      ]
+    },
+    {
+      "id": "taekwondo.ap-seogi",
+      "name": "Ap Seogi",
+      "description": "Ap seogi — the walking stance — positions one foot one step forward with both feet pointing straight ahead and weight distributed 50/50. It is the mobile offensive stance from which most linear kicks are thrown in taekwondo training. Lighter and more mobile than juchum seogi, it allows rapid weight shifts that generate the hip rotation behind front kicks and axe kicks.",
+      "modelPath": "content/taekwondo/models/ap_seogi.glb",
+      "defaultClip": "stance",
+      "clips": [
+        {"name": "stance", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "core", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Placing the feet too far apart laterally so the stance is wide rather than narrow — ap seogi should feel like walking, not splaying"},
+        {"description": "Locking the rear knee fully straight, which prevents the hip from rotating into linear kicks"}
+      ]
+    },
+    {
+      "id": "taekwondo.ap-chagi",
+      "name": "Ap Chagi",
+      "description": "Ap chagi — the front kick — is the foundational kick of taekwondo. The knee lifts to chamber height, then the leg snaps forward striking with the ball of the foot. The kick targets the solar plexus, face, or jaw in competition and is valued as much for its speed and deception as for its power. A strong ap chagi requires hip flexibility, a tight chamber, and a snapping retraction that brings the foot back as fast as it went out.",
+      "modelPath": "content/taekwondo/models/ap_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip_flexors", "core"],
+      "difficulty": "beginner",
+      "tags": ["kick", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Pushing the foot forward rather than snapping it — the kick must be a whip, not a thrust"},
+        {"description": "Allowing the supporting leg to bend too much at the moment of impact, collapsing the base and reducing force"}
+      ]
+    },
+    {
+      "id": "taekwondo.dollyo-chagi",
+      "name": "Dollyo Chagi",
+      "description": "Dollyo chagi — the roundhouse kick — is the highest-scoring and most frequently thrown kick in competitive taekwondo. The hip rotates outward while the knee chambers sideways, then the leg whips around in an arc to strike with the instep or ball of the foot. The kick's power comes from the complete rotation of the hip through the target rather than just reaching the surface — elite practitioners score knockouts with full hip follow-through.",
+      "modelPath": "content/taekwondo/models/dollyo_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "quadriceps", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "power"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["taekwondo.ap-chagi"],
+      "commonMistakes": [
+        {"description": "Failing to pivot the supporting foot completely onto the ball, which prevents full hip rotation and cuts the kick short"},
+        {"description": "Lifting the knee into a front-kick chamber rather than rotating it out sideways before swinging, losing the arc and power of a true roundhouse"}
+      ]
+    },
+    {
+      "id": "taekwondo.yop-chagi",
+      "name": "Yop Chagi",
+      "description": "Yop chagi — the side kick — drives the heel or blade of the foot directly sideways into the opponent, powered by a hip extension that thrusts the entire body weight through the target. The chamber brings the knee up to the hip, then the hip drives out while the foot snaps to horizontal. It is the most powerful kick in taekwondo and the hardest to defend because it is delivered from a profile stance that minimises the attacker's target area.",
+      "modelPath": "content/taekwondo/models/yop_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "power"],
+      "cameraPreset": "side",
+      "prerequisites": ["taekwondo.juchum-seogi"],
+      "commonMistakes": [
+        {"description": "Driving with the toes instead of the heel, absorbing the force in the ankle rather than transferring it through the rigid blade"},
+        {"description": "Not turning the hip fully over so the kick ends at a 45-degree angle rather than horizontal, losing 40 percent of the force"}
+      ]
+    },
+    {
+      "id": "taekwondo.dwi-chagi",
+      "name": "Dwi Chagi",
+      "description": "Dwi chagi — the back kick — spins the body 180 degrees and drives the heel directly behind into the opponent's body. The practitioner looks over the shoulder to sight the target during the rotation, then executes a hip-extension identical to yop chagi but directed rearward. Its power from the hip extension combined with the body's rotational momentum makes it one of the highest-impact kicks in the art.",
+      "modelPath": "content/taekwondo/models/dwi_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "spinning"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["taekwondo.yop-chagi"],
+      "commonMistakes": [
+        {"description": "Failing to look over the shoulder before executing the kick, so the heel passes the target without contact due to misdirection"},
+        {"description": "Spinning with the knee bent rather than first chambering the knee high and then extending, losing the snapping power of the hip-extension phase"}
+      ]
+    },
+    {
+      "id": "taekwondo.naeryo-chagi",
+      "name": "Naeryo Chagi",
+      "description": "Naeryo chagi — the axe kick — raises the leg straight and high in front of the body, then brings it straight down like an axe onto the opponent's collarbone, face, or shoulder. The descending arc exploits the weight of the leg itself along with an abdominal contraction to increase the downward force. It is highly effective against an opponent with a low guard or a raised blocking arm that can be driven down into them.",
+      "modelPath": "content/taekwondo/models/naeryo_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["hamstrings", "hip_flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "control"],
+      "cameraPreset": "front",
+      "prerequisites": ["taekwondo.ap-chagi"],
+      "commonMistakes": [
+        {"description": "Bending the knee during the descent rather than keeping the leg straight, which reduces the length and force of the downward arc"},
+        {"description": "Raising the leg only to hip height rather than full extension overhead, limiting the potential strike zone"}
+      ]
+    },
+    {
+      "id": "taekwondo.bandal-chagi",
+      "name": "Bandal Chagi",
+      "description": "Bandal chagi — the hook kick — swings the leg outward past the target on the way out, then hooks the heel back inward to strike the side of the head or body. The kick passes through the opponent's guard and hooks behind it, making it effective against practitioners who have a tight high guard. Its deceptive trajectory — appearing to miss, then curving back — makes it one of the most surprising kicks in taekwondo.",
+      "modelPath": "content/taekwondo/models/bandal_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "deceptive"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["taekwondo.dollyo-chagi"],
+      "commonMistakes": [
+        {"description": "Stopping the leg at the point of maximum outward swing rather than actively contracting the hamstring to hook the heel back inward"},
+        {"description": "Failing to pivot the supporting foot fully, causing the hip to not clear far enough outward for the hook to reach target height"}
+      ]
+    },
+    {
+      "id": "taekwondo.twio-dollyo-chagi",
+      "name": "Twio Dollyo Chagi",
+      "description": "Twio dollyo chagi — the jump roundhouse kick — launches the practitioner off the ground and delivers a dollyo chagi at the peak of the jump. The jump adds height to attack the head and a brief moment of weightlessness that allows the hip to rotate more completely than from the floor. It is a primary scoring technique against taller opponents and one of the most athletic movements in competition taekwondo.",
+      "modelPath": "content/taekwondo/models/twio_dollyo_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "hip_flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "jump"],
+      "cameraPreset": "side",
+      "prerequisites": ["taekwondo.dollyo-chagi"],
+      "commonMistakes": [
+        {"description": "Jumping vertically rather than slightly forward into the target, so the kick reaches maximum height behind rather than at the opponent's head level"},
+        {"description": "Beginning the hip rotation before peak jump height so the kick starts to descend before it arrives"}
+      ]
+    },
+    {
+      "id": "taekwondo.twio-yop-chagi",
+      "name": "Twio Yop Chagi",
+      "description": "Twio yop chagi — the jump side kick — combines the full hip-extension mechanics of yop chagi with a jump that covers distance and adds vertical force. The practitioner steps, hops off one foot, tucks the knees briefly to gain height, then drives the kicking leg outward while the body is still rising. The kick is most effective at medium to long range, covering the distance to the opponent's body simultaneously with the strike.",
+      "modelPath": "content/taekwondo/models/twio_yop_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core"],
+      "difficulty": "advanced",
+      "tags": ["kick", "jump", "power"],
+      "cameraPreset": "side",
+      "prerequisites": ["taekwondo.yop-chagi", "taekwondo.twio-dollyo-chagi"],
+      "commonMistakes": [
+        {"description": "Extending the kicking leg before the jump reaches its peak, which causes the foot to arrive below the intended height"},
+        {"description": "Allowing the body to rotate sideways during the jump rather than maintaining a profile alignment that maximises the thrusting vector"}
+      ]
+    },
+    {
+      "id": "taekwondo.dwi-huryeo-chagi",
+      "name": "Dwi Huryeo Chagi",
+      "description": "Dwi huryeo chagi — the spinning hook kick — spins 360 degrees and hooks the heel into the side of the opponent's head at the end of the rotation. It is the most spectacular and high-scoring kick in competition taekwondo, earning bonus points for head-height contact. The rotation generates tremendous momentum and the hook conceals the trajectory until the last instant. Mastering it requires precise timing of the spot-focus, the rotation stop, and the hook contraction.",
+      "modelPath": "content/taekwondo/models/dwi_huryeo_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "core"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning", "power"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["taekwondo.dwi-chagi", "taekwondo.bandal-chagi"],
+      "commonMistakes": [
+        {"description": "Losing the spot-focus during the spin and arriving at the target without a visual lock, causing the hook to miss its angle"},
+        {"description": "Completing the spin with both feet off the ground simultaneously, which removes the grounded axis needed to generate the hooking power"}
+      ]
+    },
+    {
+      "id": "taekwondo.neryo-huryeo-chagi",
+      "name": "Neryo Huryeo Chagi",
+      "description": "Neryo huryeo chagi — the spinning axe kick — combines a 360-degree spin with the descending axe-kick motion, bringing the heel down onto the top of the opponent's head or shoulder from behind the spin. The rotation adds centrifugal momentum to the already formidable weight and gravity of the axe kick, making it extremely powerful. Unlike the standard axe kick, the spin prevents the opponent from reading the trajectory until the leg is already descending.",
+      "modelPath": "content/taekwondo/models/neryo_huryeo_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 2.2, "fps": 30}
+      ],
+      "muscles": ["hamstrings", "glutes", "core"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["taekwondo.naeryo-chagi", "taekwondo.dwi-chagi"],
+      "commonMistakes": [
+        {"description": "Beginning the axe-kick descent during the spin rather than at its completion, so the foot arrives while still rotating and glances off rather than striking cleanly"},
+        {"description": "Raising the leg only to shoulder height during the spin rather than fully vertical, reducing the descending arc and impact force"}
+      ]
+    },
+    {
+      "id": "taekwondo.twio-dwi-huryeo-chagi",
+      "name": "Twio Dwi Huryeo Chagi",
+      "description": "Twio dwi huryeo chagi — the jump spinning hook kick — is the most demanding kick in taekwondo, combining a jump with a full 360-degree spin and a hooking heel delivery at the apex. The practitioner leaves the ground, spins in the air, sights the target, and hooks the heel into the opponent's head before landing. It is the ultimate expression of taekwondo's acrobatic philosophy and, when it lands, reliably produces knockouts at the elite competition level.",
+      "modelPath": "content/taekwondo/models/twio_dwi_huryeo_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "core", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["kick", "jump", "spinning"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["taekwondo.dwi-huryeo-chagi", "taekwondo.twio-dollyo-chagi"],
+      "commonMistakes": [
+        {"description": "Jumping off the wrong foot — the jump must leave from the non-kicking leg so the kicking leg can build maximum rotational radius"},
+        {"description": "Rushing the spin in the air so the heel arrives before the rotation is complete, removing the whipping acceleration of the full turn"}
+      ]
+    },
+    {
+      "id": "taekwondo.momdollyo-chagi",
+      "name": "Momdollyo Chagi",
+      "description": "Momdollyo chagi — the reverse turning kick — is a spinning roundhouse executed from a reverse stance, spinning outward 180 degrees and delivering the instep in an arc to the head. Unlike dwi huryeo chagi which uses a 360-degree spin, momdollyo chagi uses a tighter 180-degree rotation that allows it to be thrown much faster. It is one of the most reliable spinning kicks in competition because its tight arc reduces the window for the opponent to evade.",
+      "modelPath": "content/taekwondo/models/momdollyo_chagi.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "core"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning", "speed"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["taekwondo.dwi-chagi", "taekwondo.twio-dollyo-chagi"],
+      "commonMistakes": [
+        {"description": "Over-rotating past 180 degrees so the kick becomes a full spinning kick with less hip snap than the tighter momdollyo arc delivers"},
+        {"description": "Not keeping the kicking knee tucked tightly during the 180-degree turn, causing the leg to swing wide and arrive from the wrong angle"}
+      ]
+    },
+    {
+      "id": "taekwondo.poomsae-taegeuk-1",
+      "name": "Poomsae Taegeuk Il Jang",
+      "description": "Taegeuk Il Jang is the first official form of the World Taekwondo Federation syllabus, representing the principle of heaven and light. It contains 18 movements performed in an H-shaped pattern, combining walking stance with front kicks and middle punches. Practicing the form teaches the fundamental rhythm of taekwondo — stance, technique, breath — and develops the muscle memory for transitions between defence and attack in a continuous flowing sequence.",
+      "modelPath": "content/taekwondo/models/poomsae_taegeuk_1.glb",
+      "defaultClip": "form",
+      "clips": [
+        {"name": "form", "durationSeconds": 30.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["form", "poomsae"],
+      "cameraPreset": "top",
+      "prerequisites": ["taekwondo.ap-seogi", "taekwondo.ap-chagi"],
+      "commonMistakes": [
+        {"description": "Breaking rhythm between the techniques so each movement feels isolated rather than flowing from the previous one"},
+        {"description": "Performing the turns with the foot first rather than the hip, losing the body-mechanics integrity that makes the form effective as a training tool"}
+      ]
+    }
+  ]
+}
