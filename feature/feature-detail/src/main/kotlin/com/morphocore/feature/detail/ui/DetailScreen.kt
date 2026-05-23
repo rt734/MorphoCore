@@ -204,6 +204,7 @@ fun DetailScreen(
                         relatedMovements = state.relatedMovements,
                         unlockedMovements = state.unlockedMovements,
                         prerequisiteMovements = state.prerequisiteMovements,
+                        crossDisciplineRelated = state.crossDisciplineRelated,
                         onNavigateToMovement = onNavigateToMovement
                     )
                 }
@@ -316,6 +317,7 @@ private fun MovementInfoPanel(
     relatedMovements: List<com.morphocore.domain.Movement>,
     unlockedMovements: List<com.morphocore.domain.Movement>,
     prerequisiteMovements: List<com.morphocore.domain.Movement>,
+    crossDisciplineRelated: List<com.morphocore.domain.Movement>,
     onNavigateToMovement: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -463,6 +465,39 @@ private fun MovementInfoPanel(
                     SuggestionChip(
                         onClick = { onNavigateToMovement(related.id) },
                         label = { MovementChipLabel(related.name, related.difficulty) }
+                    )
+                }
+            }
+        }
+
+        // Cross-discipline related movements
+        if (crossDisciplineRelated.isNotEmpty()) {
+            Text("From other disciplines", style = MaterialTheme.typography.labelSmall)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                crossDisciplineRelated.forEach { related ->
+                    val disciplineLabel = related.disciplineId
+                        .split('-')
+                        .joinToString(" ") { it.replaceFirstChar { c -> c.uppercaseChar() } }
+                    SuggestionChip(
+                        onClick = { onNavigateToMovement(related.id) },
+                        label = {
+                            Row(
+                                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(related.name)
+                                Text(
+                                    text = disciplineLabel,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
                     )
                 }
             }
