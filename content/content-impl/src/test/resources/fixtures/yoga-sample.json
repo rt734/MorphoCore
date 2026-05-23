@@ -2,10 +2,12 @@
   "schemaVersion": "1.0",
   "disciplineId": "yoga",
   "disciplineName": "Yoga",
+  "description": "An ancient Indian practice uniting breath, movement, and mindfulness. Builds flexibility, balance, and body awareness through a progressive sequence of postures held with conscious breathing.",
   "movements": [
     {
       "id": "yoga.warrior_one",
       "name": "Warrior I",
+      "description": "A standing lunge that builds strength, balance, and hip flexibility simultaneously. The back foot is angled at 45 degrees while the front knee tracks over the ankle; arms reach overhead with the ribcage lifted.",
       "modelPath": "content/yoga/warrior_one.glb",
       "defaultClip": "hold",
       "clips": [
@@ -14,11 +16,15 @@
       ],
       "muscles": ["quadriceps", "glutes", "shoulders"],
       "difficulty": "BEGINNER",
-      "tags": ["standing", "strength"]
+      "tags": ["standing", "strength"],
+      "commonMistakes": [
+        { "description": "Allowing the front knee to collapse inward" }
+      ]
     },
     {
       "id": "yoga.downward_dog",
       "name": "Downward Dog",
+      "description": "An inverted V-shape that lengthens the entire posterior chain. Weight distributes between hands and feet; the sit-bones press toward the ceiling while the heels reach toward the floor.",
       "modelPath": "content/yoga/downward_dog.glb",
       "defaultClip": "hold",
       "clips": [
@@ -26,7 +32,10 @@
       ],
       "muscles": ["hamstrings", "calves", "back", "shoulders"],
       "difficulty": "BEGINNER",
-      "tags": ["inversion", "stretch"]
+      "tags": ["inversion", "stretch"],
+      "commonMistakes": [
+        { "description": "Rounding the lower back instead of hinging at the hips" }
+      ]
     }
   ]
 }
