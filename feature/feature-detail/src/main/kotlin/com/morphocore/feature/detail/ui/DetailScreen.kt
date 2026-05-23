@@ -424,26 +424,9 @@ private fun MovementInfoPanel(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 prerequisiteMovements.forEach { prereq ->
-                    val (diffLabel, diffColor) = when (prereq.difficulty) {
-                        Difficulty.BEGINNER     -> "Beginner"     to Color(0xFF4CAF50)
-                        Difficulty.INTERMEDIATE -> "Intermediate" to Color(0xFFFF9800)
-                        Difficulty.ADVANCED     -> "Advanced"     to Color(0xFFF44336)
-                    }
                     SuggestionChip(
                         onClick = { onNavigateToMovement(prereq.id) },
-                        label = {
-                            Row(
-                                horizontalArrangement = Arrangement.spacedBy(4.dp),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Text(prereq.name)
-                                Text(
-                                    text = diffLabel,
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = diffColor
-                                )
-                            }
-                        }
+                        label = { MovementChipLabel(prereq.name, prereq.difficulty) }
                     )
                 }
             }
@@ -461,7 +444,7 @@ private fun MovementInfoPanel(
                 unlockedMovements.forEach { unlocked ->
                     SuggestionChip(
                         onClick = { onNavigateToMovement(unlocked.id) },
-                        label = { Text(unlocked.name) }
+                        label = { MovementChipLabel(unlocked.name, unlocked.difficulty) }
                     )
                 }
             }
@@ -479,10 +462,26 @@ private fun MovementInfoPanel(
                 relatedMovements.forEach { related ->
                     SuggestionChip(
                         onClick = { onNavigateToMovement(related.id) },
-                        label = { Text(related.name) }
+                        label = { MovementChipLabel(related.name, related.difficulty) }
                     )
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun MovementChipLabel(name: String, difficulty: Difficulty) {
+    val (label, color) = when (difficulty) {
+        Difficulty.BEGINNER     -> "Beginner"     to Color(0xFF4CAF50)
+        Difficulty.INTERMEDIATE -> "Intermediate" to Color(0xFFFF9800)
+        Difficulty.ADVANCED     -> "Advanced"     to Color(0xFFF44336)
+    }
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(name)
+        Text(text = label, style = MaterialTheme.typography.labelSmall, color = color)
     }
 }
