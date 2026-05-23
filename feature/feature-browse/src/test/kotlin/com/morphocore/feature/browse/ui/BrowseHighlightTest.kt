@@ -96,4 +96,47 @@ class BrowseHighlightTest {
         assertTrue(!result!!.startsWith("…"))
         assertTrue(!result.endsWith("…"))
     }
+
+    // ── findHighlightRange edge cases ────────────────────────────────────
+
+    @Test
+    fun `multi-word query is found in text`() {
+        val range = findHighlightRange("Front Kick Technique", "kick tech")
+        assertNotNull(range)
+        assertEquals(6, range!!.first)
+    }
+
+    @Test
+    fun `empty text with non-empty query returns null`() {
+        assertNull(findHighlightRange("", "kick"))
+    }
+
+    @Test
+    fun `query longer than text returns null`() {
+        assertNull(findHighlightRange("Short", "This is much longer than the text"))
+    }
+
+    // ── browseDescriptionMatchSnippet edge cases ─────────────────────────
+
+    @Test
+    fun `empty description returns null`() {
+        assertNull(browseDescriptionMatchSnippet("", "kick"))
+    }
+
+    @Test
+    fun `snippet preserves original casing of matched text`() {
+        val result = browseDescriptionMatchSnippet("A ROUNDHOUSE Kick", "roundhouse")
+        assertNotNull(result)
+        assertTrue(result!!.contains("ROUNDHOUSE"))
+    }
+
+    @Test
+    fun `match in middle of long description produces both ellipses`() {
+        val padding = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z "
+        val desc = "$padding target word $padding"
+        val result = browseDescriptionMatchSnippet(desc, "target word")
+        assertNotNull(result)
+        assertTrue(result!!.startsWith("…"))
+        assertTrue(result.endsWith("…"))
+    }
 }
