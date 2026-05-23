@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "boxing",
+  "disciplineName": "Boxing",
+  "description": "A combat sport emphasizing precise, powerful punches combined with strategic footwork and defensive movement. Training builds cardiovascular endurance, upper-body strength, and rapid decision-making under pressure.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "boxing.jab",
+      "name": "Jab",
+      "description": "The jab is the cornerstone of boxing, a quick straight punch thrown with the lead hand. It establishes range, sets up power shots, and disrupts an opponent's rhythm without exposing the boxer to a counter. The shoulder rises to protect the chin as the fist travels in a direct line toward the target.",
+      "modelPath": "content/boxing/models/jab.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "beginner",
+      "tags": ["punch", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Dropping the rear hand off the chin during extension"},
+        {"description": "Not pulling the hand back quickly enough after contact"}
+      ]
+    },
+    {
+      "id": "boxing.cross",
+      "name": "Cross",
+      "description": "The cross is a powerful straight punch thrown with the rear hand. It rotates the hips and shoulders fully to deliver maximum force, driving power from the back foot through the hip and shoulder into the extended fist. It is the primary power punch in Orthodox stance.",
+      "modelPath": "content/boxing/models/cross.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "beginner",
+      "tags": ["punch", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Failing to pivot the back foot, leaving hip rotation out of the punch"},
+        {"description": "Dropping the lead hand guard while the cross extends"}
+      ]
+    },
+    {
+      "id": "boxing.left-hook",
+      "name": "Left Hook",
+      "description": "The left hook is a curved punch delivered with the lead hand traveling horizontally at head or body level. The elbow bends to approximately 90 degrees as the torso rotates sharply, generating power from hip and shoulder rotation rather than arm extension alone.",
+      "modelPath": "content/boxing/models/left_hook.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "beginner",
+      "tags": ["punch", "hook"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Throwing with a wide, looping arc instead of a tight 90-degree elbow angle"},
+        {"description": "Failing to rotate the torso and relying only on the arm"}
+      ]
+    },
+    {
+      "id": "boxing.uppercut",
+      "name": "Uppercut",
+      "description": "The uppercut travels in a vertical arc, rising from below to strike the chin or solar plexus. The knees bend slightly before extending as the fist drives upward with the palm facing inward. Close-range power comes from leg drive transferred through the core and shoulder.",
+      "modelPath": "content/boxing/models/uppercut.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["shoulders", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "close-range"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.cross"],
+      "commonMistakes": [
+        {"description": "Rocking the body backward before the punch, telegraphing the shot"},
+        {"description": "Extending the arm fully rather than keeping the elbow at 90 degrees through contact"}
+      ]
+    },
+    {
+      "id": "boxing.right-hook",
+      "name": "Right Hook",
+      "description": "The rear-hand hook carries significant stopping power because the hips and shoulders have fully rotated into the punch by the time of impact. The trajectory curves horizontally toward the temple or body, complementing the linear cross. Footwork and commitment to hip rotation are essential.",
+      "modelPath": "content/boxing/models/right_hook.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "hook"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.left-hook"],
+      "commonMistakes": [
+        {"description": "Overcommitting to the rotation and losing balance"},
+        {"description": "Dropping the lead hand guard while throwing the right hook"}
+      ]
+    },
+    {
+      "id": "boxing.jab-cross",
+      "name": "Jab-Cross Combination",
+      "description": "The one-two is boxing's fundamental combination: a quick jab creates an opening, immediately followed by the more powerful cross. Mastering the transition develops timing, weight transfer, and guard discipline that underpin all more complex combinations.",
+      "modelPath": "content/boxing/models/jab_cross.glb",
+      "defaultClip": "combo",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "combo", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "intermediate",
+      "tags": ["combination", "punch"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.jab", "boxing.cross"],
+      "commonMistakes": [
+        {"description": "Pausing between the jab and cross instead of flowing directly into the second punch"},
+        {"description": "Failing to reset the guard after both punches are thrown"}
+      ]
+    },
+    {
+      "id": "boxing.slip",
+      "name": "Slip",
+      "description": "The slip is a head-movement defense in which the boxer bends at the knees and rotates the torso to move the head just outside an incoming straight punch. The movement is compact and explosive, leaving the hands free to counter immediately as the opponent's arm extends past.",
+      "modelPath": "content/boxing/models/slip.glb",
+      "defaultClip": "move",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.4, "fps": 30},
+        {"name": "move", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "head-movement"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.jab"],
+      "commonMistakes": [
+        {"description": "Moving laterally instead of rotating and compressing downward"},
+        {"description": "Slipping too early or too late rather than at the last possible moment"}
+      ]
+    },
+    {
+      "id": "boxing.bob-weave",
+      "name": "Bob and Weave",
+      "description": "A defensive technique in which the boxer bends at the knees to duck below a hook, then moves laterally under it before rising on the outside. The U-shaped path takes the boxer beneath the arc of a hook and positions them to counter from an angle the opponent cannot immediately guard.",
+      "modelPath": "content/boxing/models/bob_weave.glb",
+      "defaultClip": "move",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.4, "fps": 30},
+        {"name": "move", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "footwork"],
+      "cameraPreset": "side",
+      "prerequisites": ["boxing.slip"],
+      "commonMistakes": [
+        {"description": "Bending at the waist rather than at the knees, raising the head into the punch"},
+        {"description": "Moving too slowly through the weave phase and stalling on the inside"}
+      ]
+    },
+    {
+      "id": "boxing.roll",
+      "name": "Roll",
+      "description": "The roll is a circular head movement used against hooks, in which the boxer rolls the shoulder and head over the punch in a tight arc. It absorbs or avoids the blow while keeping the boxer close enough for an immediate counter, requiring precise timing and core stability.",
+      "modelPath": "content/boxing/models/roll.glb",
+      "defaultClip": "move",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.4, "fps": 30},
+        {"name": "move", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "head-movement"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.bob-weave"],
+      "commonMistakes": [
+        {"description": "Rolling too wide and exposing the chin on the way back up"},
+        {"description": "Leaning away instead of rolling over the top of the punch"}
+      ]
+    },
+    {
+      "id": "boxing.left-body-hook",
+      "name": "Left Body Hook",
+      "description": "The lead-hand body hook targets the liver on the right side of an orthodox opponent. The boxer bends the knees slightly, dips the lead shoulder, and drives the hook into the mid-section at a downward angle. Well-timed body shots slow an opponent and force them to drop their guard.",
+      "modelPath": "content/boxing/models/left_body_hook.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "body-shot"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.left-hook"],
+      "commonMistakes": [
+        {"description": "Aiming too high and striking the forearm rather than the body"},
+        {"description": "Telegraphing by dropping the shoulder dramatically before the punch travels"}
+      ]
+    },
+    {
+      "id": "boxing.peek-a-boo",
+      "name": "Peek-a-Boo Guard",
+      "description": "The peek-a-boo is a defensive shell in which both gloves are held at cheek height with elbows tucked close to the body. The stance compresses the target zone dramatically while keeping the hands positioned to roll over punches and transition immediately to offensive combinations from an inside fighting position.",
+      "modelPath": "content/boxing/models/peek_a_boo.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "guard"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.jab", "boxing.cross"],
+      "commonMistakes": [
+        {"description": "Holding the gloves too far from the face, allowing punches to push through to the chin"},
+        {"description": "Standing too upright rather than maintaining a compact, defensive crouch"}
+      ]
+    },
+    {
+      "id": "boxing.jab-cross-left-hook",
+      "name": "Three-Punch Combination",
+      "description": "The classic jab-cross-left-hook builds on the one-two by adding a left hook to the head or body. Each punch sets up the next: the jab disrupts vision, the cross attacks center, and the hook exploits the gap created when the opponent reacts to the cross.",
+      "modelPath": "content/boxing/models/jab_cross_left_hook.glb",
+      "defaultClip": "combo",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "combo", "durationSeconds": 1.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["combination", "punch"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.jab-cross", "boxing.left-hook"],
+      "commonMistakes": [
+        {"description": "Speeding up the combination to the point where individual punches lose accuracy"},
+        {"description": "Dropping the guard hand after the cross before the hook lands"}
+      ]
+    },
+    {
+      "id": "boxing.counter-right",
+      "name": "Counter Right",
+      "description": "The counter right follows immediately after slipping an opponent's jab to the outside. As the opponent's arm extends past, the rear shoulder drives forward and the cross fires directly at the exposed jaw. Timing is critical: the counter must land while the opponent is still extended and off-balance.",
+      "modelPath": "content/boxing/models/counter_right.glb",
+      "defaultClip": "combo",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "combo", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "advanced",
+      "tags": ["counter", "combination"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.cross", "boxing.slip"],
+      "commonMistakes": [
+        {"description": "Countering before completing the slip and taking the incoming jab in the process"},
+        {"description": "Failing to exit laterally after the counter, remaining on the centreline"}
+      ]
+    },
+    {
+      "id": "boxing.right-hand-lead",
+      "name": "Right Hand Lead",
+      "description": "An advanced technique in which the typically-defensive rear hand throws the first punch of an exchange. It catches opponents who expect only the lead hand to initiate and carries maximum power because the full body rotation is initiated from rest. It requires excellent timing and commitment.",
+      "modelPath": "content/boxing/models/right_hand_lead.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "advanced",
+      "tags": ["punch", "counter"],
+      "cameraPreset": "front",
+      "prerequisites": ["boxing.cross"],
+      "commonMistakes": [
+        {"description": "Committing too obviously through weight shift before the punch, losing the element of surprise"},
+        {"description": "Using the technique from outside effective punching range, reducing power on impact"}
+      ]
+    },
+    {
+      "id": "boxing.overhand-right",
+      "name": "Overhand Right",
+      "description": "The overhand right travels in a looping arc over the opponent's guard, arriving at an angle that is difficult to see coming. Used effectively at close-to-medium range, particularly against shorter opponents or when the opponent drops their lead hand. Hip rotation and a slight forward lean amplify power.",
+      "modelPath": "content/boxing/models/overhand_right.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "punch", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "advanced",
+      "tags": ["punch", "hook"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["boxing.right-hook"],
+      "commonMistakes": [
+        {"description": "Throwing the overhand from outside effective range, reducing power on impact"},
+        {"description": "Over-rotating the torso and leaving the chin exposed during the follow-through"}
+      ]
+    }
+  ]
+}
