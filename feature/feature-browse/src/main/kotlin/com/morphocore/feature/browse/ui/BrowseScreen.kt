@@ -191,6 +191,7 @@ fun BrowseScreen(
                                 Box(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
                                     DisciplineCard(
                                         discipline = discipline,
+                                        query = query,
                                         onClick = { onDisciplineSelected(discipline.id) }
                                     )
                                 }
@@ -292,8 +293,8 @@ private fun MovementSearchResultRow(
     modifier: Modifier = Modifier
 ) {
     val disciplineLabel = movement.disciplineId
-        .replaceFirstChar { it.uppercaseChar() }
-        .replace('-', ' ')
+        .split('-')
+        .joinToString(" ") { it.replaceFirstChar { c -> c.uppercaseChar() } }
     val nameMatches = query.isNotBlank() && findHighlightRange(movement.name, query) != null
     val snippet = if (!nameMatches) browseDescriptionMatchSnippet(movement.description, query) else null
 
