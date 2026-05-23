@@ -203,6 +203,7 @@ fun DetailScreen(
                         movement = state.movement,
                         relatedMovements = state.relatedMovements,
                         unlockedMovements = state.unlockedMovements,
+                        prerequisiteMovements = state.prerequisiteMovements,
                         onNavigateToMovement = onNavigateToMovement
                     )
                 }
@@ -314,6 +315,7 @@ private fun MovementInfoPanel(
     movement: Movement,
     relatedMovements: List<com.morphocore.domain.Movement>,
     unlockedMovements: List<com.morphocore.domain.Movement>,
+    prerequisiteMovements: List<com.morphocore.domain.Movement>,
     onNavigateToMovement: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -413,7 +415,7 @@ private fun MovementInfoPanel(
         }
 
         // Prerequisites section
-        if (movement.prerequisites.isNotEmpty()) {
+        if (prerequisiteMovements.isNotEmpty()) {
             Text("Prerequisites", style = MaterialTheme.typography.labelSmall)
             Row(
                 modifier = Modifier
@@ -421,10 +423,27 @@ private fun MovementInfoPanel(
                     .horizontalScroll(rememberScrollState()),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                movement.prerequisites.forEach { prereqId ->
+                prerequisiteMovements.forEach { prereq ->
+                    val (diffLabel, diffColor) = when (prereq.difficulty) {
+                        Difficulty.BEGINNER     -> "Beginner"     to Color(0xFF4CAF50)
+                        Difficulty.INTERMEDIATE -> "Intermediate" to Color(0xFFFF9800)
+                        Difficulty.ADVANCED     -> "Advanced"     to Color(0xFFF44336)
+                    }
                     SuggestionChip(
-                        onClick = { onNavigateToMovement(prereqId) },
-                        label = { Text(prereqId.movementIdToDisplayName()) }
+                        onClick = { onNavigateToMovement(prereq.id) },
+                        label = {
+                            Row(
+                                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(prereq.name)
+                                Text(
+                                    text = diffLabel,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = diffColor
+                                )
+                            }
+                        }
                     )
                 }
             }

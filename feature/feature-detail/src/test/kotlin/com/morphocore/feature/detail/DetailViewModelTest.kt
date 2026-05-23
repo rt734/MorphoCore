@@ -244,6 +244,38 @@ class DetailViewModelTest {
     }
 
     @Test
+    fun `prerequisiteMovements resolves prerequisite ids to full Movement objects`() = runTest {
+        val prereq = fakeMovement("karate.front-stance").copy(difficulty = Difficulty.BEGINNER)
+        val mainMovement = fakeMovement("karate.mae-geri")
+            .copy(prerequisites = listOf(prereq.id))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement, prereq))
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.prerequisiteMovements.size)
+        assertEquals(prereq.id, state.prerequisiteMovements.first().id)
+        assertEquals(Difficulty.BEGINNER, state.prerequisiteMovements.first().difficulty)
+    }
+
+    @Test
+    fun `prerequisiteMovements is empty when movement has no prerequisites`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri").copy(prerequisites = emptyList())
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement))
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertEquals(emptyList(), state.prerequisiteMovements)
+    }
+
+    @Test
     fun `uiState is Error when repository throws`() = runTest {
         val throwingRepo = object : ContentRepository {
             override fun observeDisciplines(): Flow<List<Discipline>> = flowOf(emptyList())

@@ -46,7 +46,9 @@ class DetailViewModel @Inject constructor(
                 val unlocked = disciplineMovements
                     .filter { movement.id in it.prerequisites }
                     .take(3)
-                DetailUiState.Ready(movement, related, unlocked)
+                val prerequisites = movement.prerequisites
+                    .mapNotNull { prereqId -> disciplineMovements.find { it.id == prereqId } }
+                DetailUiState.Ready(movement, related, unlocked, prerequisites)
             }
         )
     }
