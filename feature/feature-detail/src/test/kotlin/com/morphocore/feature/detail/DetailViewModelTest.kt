@@ -553,4 +553,81 @@ class DetailViewModelTest {
         val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
         assertTrue(state.relatedMovements.none { it.id == mainMovement.id })
     }
+
+    // ── relatedMovements empty cases ─────────────────────────────────────
+
+    @Test
+    fun `relatedMovements is empty when no other discipline movement shares a tag`() = runTest {
+        val main = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
+        val other = fakeMovement("karate.jodan-uke").copy(tags = listOf("block"))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(main.id to main),
+            movementsByDiscipline = mapOf("karate" to listOf(main, other))
+        )
+        val vm = vm(main.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.relatedMovements.isEmpty())
+    }
+
+    @Test
+    fun `relatedMovements is empty when movement has no tags`() = runTest {
+        val main = fakeMovement("karate.mae-geri").copy(tags = emptyList())
+        val other = fakeMovement("karate.jodan-uke").copy(tags = listOf("kick"))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(main.id to main),
+            movementsByDiscipline = mapOf("karate" to listOf(main, other))
+        )
+        val vm = vm(main.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.relatedMovements.isEmpty())
+    }
+
+    // ── prerequisiteMovements orphan handling ─────────────────────────────
+
+    @Test
+    fun `prerequisiteMovements silently drops orphan prerequisite ids not in discipline`() = runTest {
+        val main = fakeMovement("karate.mae-geri").copy(
+            prerequisites = listOf("karate.ghost-move", "karate.another-ghost")
+        )
+        val repo = FakeContentRepository(
+            movementsById = mapOf(main.id to main),
+            movementsByDiscipline = mapOf("karate" to listOf(main))
+        )
+        val vm = vm(main.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.prerequisites.isEmpty())
+    }
+
+    // ── crossDisciplineRelated empty case ─────────────────────────────────
+
+    @Test
+    fun `crossDisciplineRelated is empty when no cross-discipline movement shares a tag`() = runTest {
+        val main = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
+        val gymMovement = Movement(
+            id = "gym.squat", disciplineId = "gym", name = "Squat",
+            modelPath = "m.glb", defaultClip = "idle",
+            clips = listOf(AnimationClip("idle", 1f, 30)),
+            muscles = emptyList(), difficulty = Difficulty.BEGINNER,
+            tags = listOf("strength"), cameraPreset = null,
+            prerequisites = emptyList(), commonMistakes = emptyList()
+        )
+        val repo = FakeContentRepository(
+            movementsById = mapOf(main.id to main),
+            movementsByDiscipline = mapOf(
+                "karate" to listOf(main),
+                "gym" to listOf(gymMovement)
+            )
+        )
+        val vm = vm(main.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertTrue(state.crossDisciplineRelated.isEmpty())
+    }
 }
