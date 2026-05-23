@@ -1,0 +1,295 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "pilates",
+  "disciplineName": "Pilates",
+  "description": "A controlled movement practice developed by Joseph Pilates emphasising core strength, spinal alignment, and the mind-body connection. Every exercise originates from a stable centre, building deep postural muscles while improving flexibility and breath coordination.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "pilates.hundred",
+      "name": "The Hundred",
+      "description": "The Hundred is the classic Pilates warm-up exercise that pumps the arms in small percussive beats while holding the legs at tabletop or an extended position. The 100 beats — five inhale, five exhale — build heat, activate the deep abdominals, and establish the breath-movement connection that underlies every subsequent exercise.",
+      "modelPath": "content/pilates/models/hundred.glb",
+      "defaultClip": "pump",
+      "clips": [
+        {"name": "pump", "durationSeconds": 5.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["warmup", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Allowing the lower back to arch off the mat as the legs lower, losing lumbar stability"},
+        {"description": "Pumping from the elbows rather than from the shoulder blades, reducing core engagement"}
+      ]
+    },
+    {
+      "id": "pilates.roll-up",
+      "name": "Roll Up",
+      "description": "The Roll Up articulates the spine one vertebra at a time from a supine position to a full seated forward bend and back again. The deliberate segmental movement massages the spine, stretches the hamstrings, and develops the eccentric abdominal control needed to resist gravity on the way down.",
+      "modelPath": "content/pilates/models/roll_up.glb",
+      "defaultClip": "roll",
+      "clips": [
+        {"name": "roll", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "hamstrings"],
+      "difficulty": "beginner",
+      "tags": ["articulation", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Using momentum to jerk up instead of peeling each vertebra off the mat sequentially"},
+        {"description": "Allowing the feet to lift off the mat rather than anchoring them throughout the movement"}
+      ]
+    },
+    {
+      "id": "pilates.single-leg-circles",
+      "name": "Single Leg Circles",
+      "description": "One leg traces a circle in the air while the pelvis remains completely stable on the mat. The challenge is to dissociate hip movement from pelvic movement, training the hip flexors and rotators independently while the core holds the rest of the body absolutely still.",
+      "modelPath": "content/pilates/models/single_leg_circles.glb",
+      "defaultClip": "circle",
+      "clips": [
+        {"name": "circle", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "glutes"],
+      "difficulty": "beginner",
+      "tags": ["mobility", "fundamental"],
+      "cameraPreset": "top",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Allowing the hip of the working leg to hike or rock with each circle"},
+        {"description": "Making circles too large before the pelvis can remain still throughout"}
+      ]
+    },
+    {
+      "id": "pilates.rolling-like-a-ball",
+      "name": "Rolling Like a Ball",
+      "description": "Balanced on the tailbone in a tight tuck, the body rolls back to the shoulder blades and returns to balance without touching the mat. The movement massages the spine, develops balance, and teaches the body to use abdominal support rather than momentum to control the rolling arc.",
+      "modelPath": "content/pilates/models/rolling_like_a_ball.glb",
+      "defaultClip": "roll",
+      "clips": [
+        {"name": "roll", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["massage", "balance"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.hundred"],
+      "commonMistakes": [
+        {"description": "Rolling onto the neck or head instead of stopping at the shoulder blades"},
+        {"description": "Using leg momentum to throw the body back rather than curling with abdominal control"}
+      ]
+    },
+    {
+      "id": "pilates.single-leg-stretch",
+      "name": "Single Leg Stretch",
+      "description": "Alternating legs extend straight while the opposite knee pulls toward the chest, with the head and shoulders held in a curl. The rhythm creates a cycling motion that challenges the deep abdominals to stabilise the pelvis while the legs move through a large range, building both strength and coordination.",
+      "modelPath": "content/pilates/models/single_leg_stretch.glb",
+      "defaultClip": "stretch",
+      "clips": [
+        {"name": "stretch", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["strength", "coordination"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.hundred"],
+      "commonMistakes": [
+        {"description": "Pulling the knee sideways rather than straight toward the chest, rotating the pelvis"},
+        {"description": "Dropping the head back between repetitions, losing the upper-abdominal curl"}
+      ]
+    },
+    {
+      "id": "pilates.double-leg-stretch",
+      "name": "Double Leg Stretch",
+      "description": "From a curl-up position both legs extend simultaneously while both arms sweep overhead, then circle back as the knees return to the chest. The exercise intensifies the demand on the abdominals by maximising the lever arm of both legs and arms extended away from the centre at the same time.",
+      "modelPath": "content/pilates/models/double_leg_stretch.glb",
+      "defaultClip": "stretch",
+      "clips": [
+        {"name": "stretch", "durationSeconds": 3.5, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "hip_flexors"],
+      "difficulty": "intermediate",
+      "tags": ["strength", "coordination"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.single-leg-stretch"],
+      "commonMistakes": [
+        {"description": "Lowering the legs further than the abdominals can control, causing the lower back to arch"},
+        {"description": "Pulling on the neck with the hands rather than letting the abdominals hold the curl"}
+      ]
+    },
+    {
+      "id": "pilates.spine-stretch",
+      "name": "Spine Stretch Forward",
+      "description": "Seated tall with legs extended, the body flexes forward from the hips as if scooping the abdominals away from the thighs. Each exhale deepens the stretch, articulating from the crown of the head through each thoracic vertebra. The hamstrings and erector spinae lengthen simultaneously.",
+      "modelPath": "content/pilates/models/spine_stretch.glb",
+      "defaultClip": "stretch",
+      "clips": [
+        {"name": "stretch", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["back", "hamstrings", "core"],
+      "difficulty": "intermediate",
+      "tags": ["stretch", "articulation"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.roll-up"],
+      "commonMistakes": [
+        {"description": "Rounding only in the thoracic spine and skipping the lumbar articulation"},
+        {"description": "Collapsing the trunk rather than actively lengthening through the top of the head"}
+      ]
+    },
+    {
+      "id": "pilates.saw",
+      "name": "Saw",
+      "description": "Seated with legs wide and arms extended to the sides, the torso rotates and reaches the opposite hand toward the outside of the opposite foot in a sawing motion. The rotation wrings out the spine and lungs while the wide-leg base challenges pelvic stability in the rotated position.",
+      "modelPath": "content/pilates/models/saw.glb",
+      "defaultClip": "twist",
+      "clips": [
+        {"name": "twist", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["back", "core", "hamstrings"],
+      "difficulty": "intermediate",
+      "tags": ["rotation", "stretch"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["pilates.spine-stretch"],
+      "commonMistakes": [
+        {"description": "Allowing the opposite hip to lift off the mat during the rotation"},
+        {"description": "Rotating only at the shoulder without involving the thoracic spine in the twist"}
+      ]
+    },
+    {
+      "id": "pilates.swan",
+      "name": "Swan",
+      "description": "Lying prone, the hands press into the mat as the spine extends into a gentle back bend that lifts the head and chest. The lift comes from the erector spinae actively lengthening rather than compressing, and the abdominals remain lightly engaged to protect the lumbar spine throughout the extension.",
+      "modelPath": "content/pilates/models/swan.glb",
+      "defaultClip": "extend",
+      "clips": [
+        {"name": "extend", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["back", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["extension", "backbend"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.hundred"],
+      "commonMistakes": [
+        {"description": "Pushing up with the arms and letting the spine collapse passively into the extension"},
+        {"description": "Squeezing the glutes too hard and compressing the lumbar instead of lengthening it"}
+      ]
+    },
+    {
+      "id": "pilates.side-kick",
+      "name": "Side Kick",
+      "description": "Lying on the side with body in one long line, the top leg swings forward and back in a controlled arc while the waist lifts away from the mat. The movement tests hip flexor and extensor strength while the obliques stabilise the pelvis and prevent it from rocking with each kick.",
+      "modelPath": "content/pilates/models/side_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["strength", "stability"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.single-leg-circles"],
+      "commonMistakes": [
+        {"description": "Allowing the hip to rock backward as the leg swings forward, losing pelvic neutral"},
+        {"description": "Kicking from the knee rather than from the hip joint, reducing the stabilisation challenge"}
+      ]
+    },
+    {
+      "id": "pilates.criss-cross",
+      "name": "Criss-Cross",
+      "description": "A rotational abdominal exercise performed in a curl-up position in which alternating elbows reach toward the opposite knee as the legs cycle. The rotation targets the obliques specifically, while the coordination of the simultaneous leg and torso movements demands exceptional core control.",
+      "modelPath": "content/pilates/models/criss_cross.glb",
+      "defaultClip": "twist",
+      "clips": [
+        {"name": "twist", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors"],
+      "difficulty": "intermediate",
+      "tags": ["rotation", "strength"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["pilates.single-leg-stretch"],
+      "commonMistakes": [
+        {"description": "Pulling the elbow across rather than rotating the entire thoracic spine toward the knee"},
+        {"description": "Rushing the rotation and using momentum instead of controlled muscular effort"}
+      ]
+    },
+    {
+      "id": "pilates.corkscrew",
+      "name": "Corkscrew",
+      "description": "Both legs together trace a large oval in the air while the pelvis tilts and the waist lifts off the mat to accommodate the circle. It demands the coordination of hip, pelvis, and lumbar movement in three dimensions simultaneously, making it one of the most demanding leg-circle exercises in the classical repertoire.",
+      "modelPath": "content/pilates/models/corkscrew.glb",
+      "defaultClip": "circle",
+      "clips": [
+        {"name": "circle", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "hip_flexors"],
+      "difficulty": "advanced",
+      "tags": ["mobility", "control"],
+      "cameraPreset": "top",
+      "prerequisites": ["pilates.single-leg-circles", "pilates.saw"],
+      "commonMistakes": [
+        {"description": "Allowing the lower back to push into the mat on the downswing, losing control of the pelvis"},
+        {"description": "Making the circle asymmetric or stopping at one side because of a hip flexibility imbalance"}
+      ]
+    },
+    {
+      "id": "pilates.teaser",
+      "name": "Teaser",
+      "description": "The Teaser balances the entire body on the sit bones with legs extended at a 45-degree angle and arms reaching parallel to the legs, forming a V-shape. Every muscle from the deep abdominals to the hip flexors must fire simultaneously to hold the position, making it the ultimate test of Pilates core control.",
+      "modelPath": "content/pilates/models/teaser.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 3.0, "fps": 30},
+        {"name": "roll", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "back"],
+      "difficulty": "advanced",
+      "tags": ["balance", "strength"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.roll-up", "pilates.double-leg-stretch"],
+      "commonMistakes": [
+        {"description": "Allowing the spine to round into a C-curve instead of lifting tall through the crown of the head"},
+        {"description": "Gripping the hip flexors without co-activating the deep abdominals, causing the lower back to arch"}
+      ]
+    },
+    {
+      "id": "pilates.control-balance",
+      "name": "Control Balance",
+      "description": "From a shoulder stand, one leg extends to the ceiling while the other sweeps down to just above the mat. The alternating leg movement challenges the balance on the shoulders while the deep abdominals and spinal extensors work together to maintain a stable base in the inverted position.",
+      "modelPath": "content/pilates/models/control_balance.glb",
+      "defaultClip": "balance",
+      "clips": [
+        {"name": "balance", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["core", "hamstrings", "glutes", "back"],
+      "difficulty": "advanced",
+      "tags": ["inversion", "control"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.teaser", "pilates.rolling-like-a-ball"],
+      "commonMistakes": [
+        {"description": "Allowing the pelvis to drop to one side as each leg sweeps, losing the midline alignment"},
+        {"description": "Collapsing into the neck rather than actively pushing away from the floor through the shoulders"}
+      ]
+    },
+    {
+      "id": "pilates.boomerang",
+      "name": "Boomerang",
+      "description": "A flowing advanced exercise that combines rolling, balance, and inversion in a single seamless sequence. The legs roll overhead, switch crossing, roll back up to the Teaser position, sweep behind the back with the arms clasped, then circle forward into a stretch. It epitomises the Pilates principle of continuous, fluid movement.",
+      "modelPath": "content/pilates/models/boomerang.glb",
+      "defaultClip": "flow",
+      "clips": [
+        {"name": "flow", "durationSeconds": 5.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "hamstrings", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["flow", "inversion"],
+      "cameraPreset": "side",
+      "prerequisites": ["pilates.rolling-like-a-ball", "pilates.saw"],
+      "commonMistakes": [
+        {"description": "Pausing between phases of the sequence instead of maintaining continuous flowing movement"},
+        {"description": "Rolling too fast onto the neck in the overhead phase and losing spinal control"}
+      ]
+    }
+  ]
+}
