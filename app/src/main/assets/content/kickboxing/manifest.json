@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "kickboxing",
+  "disciplineName": "Kickboxing",
+  "description": "Kickboxing is a stand-up striking sport that combines the punching techniques of Western boxing with kicks delivered above the waist, developing well-rounded striking practitioners who can attack and defend with both hands and feet. Unlike Muay Thai, kickboxing prohibits knee strikes and clinch work, placing a premium on combination speed, footwork, and the fluid integration of kicks into boxing rhythms.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "kickboxing.orthodox-stance",
+      "name": "Orthodox Stance",
+      "description": "The kickboxing orthodox stance positions the left foot forward and the right foot back at roughly 45 degrees, with the weight balanced 60/40 front-to-back and both hands held high to protect the face. Unlike the boxing stance it guards against, the kickboxing stance is slightly wider and the rear leg sits further out to allow the hip to chamber kicks without telegraphing them through the weight transfer. The stance is the platform from which every combination originates.",
+      "modelPath": "content/kickboxing/models/orthodox_stance.glb",
+      "defaultClip": "stance",
+      "clips": [
+        {"name": "stance", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Standing too square-on rather than bladed, presenting a larger target and reducing the hip rotation available for rear kicks"},
+        {"description": "Dropping the rear hand when throwing the jab, leaving the face exposed to a counter right hand"}
+      ]
+    },
+    {
+      "id": "kickboxing.jab",
+      "name": "Jab",
+      "description": "The kickboxing jab is a fast, straight left punch thrown from the orthodox stance that sets up combinations, measures distance, and disrupts an opponent's timing. The jab extends fully from the shoulder with a slight rotation of the hips and snaps back immediately to guard position. Its value is not in power but in frequency and unpredictability — a good jab thrown five times per round controls the entire fight even if it never wobbles the opponent.",
+      "modelPath": "content/kickboxing/models/jab.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "punch", "durationSeconds": 0.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core"],
+      "difficulty": "beginner",
+      "tags": ["punch", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Telegraphing the jab by dipping the shoulder or cocking the elbow before extending, giving the opponent time to slip or parry"},
+        {"description": "Leaving the punching hand extended after contact rather than retracting it, leaving the face open to a counter"}
+      ]
+    },
+    {
+      "id": "kickboxing.rear-kick",
+      "name": "Rear Kick",
+      "description": "The rear kick is the power kick of kickboxing — a roundhouse delivered with the rear leg whose hip has fully loaded through the stance. The rear leg swings from the back of the stance through a rising arc, with the hip rotating completely through the target at the moment of contact. Unlike the front-leg roundhouse, the rear kick travels a longer distance but hits with the combined mass of the body rotation and a heavier leg at full swing velocity.",
+      "modelPath": "content/kickboxing/models/rear_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "quadriceps", "core"],
+      "difficulty": "beginner",
+      "tags": ["kick", "power", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Not pivoting the supporting foot onto the ball, which prevents the hip from rotating fully through the kick"},
+        {"description": "Leaning the upper body backward as the kick extends, which reduces the follow-through force and disrupts balance on landing"}
+      ]
+    },
+    {
+      "id": "kickboxing.cross",
+      "name": "Cross",
+      "description": "The cross is a straight rear-hand punch that travels through the centre line to the opponent's face or body, powered by the rotation of the hips and shoulders simultaneously. It is the power punch of kickboxing — slower than the jab but far heavier due to the full body weight rotating behind it. The cross is almost never thrown alone; it follows the jab in the signature jab-cross combination that forms the backbone of every kickboxer's offence.",
+      "modelPath": "content/kickboxing/models/cross.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "punch", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "power"],
+      "cameraPreset": "side",
+      "prerequisites": ["kickboxing.jab"],
+      "commonMistakes": [
+        {"description": "Starting the shoulder rotation before the hips, so the punch is arm-only and loses most of the power generated by the larger muscle groups"},
+        {"description": "Dropping the chin during the cross, presenting the jaw to a counter left hook at the exact moment the head is moving forward"}
+      ]
+    },
+    {
+      "id": "kickboxing.front-kick",
+      "name": "Front Kick",
+      "description": "The kickboxing front kick drives the ball of the lead foot straight into the opponent's midsection or face. It is most effective as a range tool — pushing the opponent back onto a longer combination — and as a counter against opponents who attack in a straight line. The hip thrusts forward through the kick rather than pushing backward, generating force from hip extension rather than a backward lean.",
+      "modelPath": "content/kickboxing/models/front_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["hip_flexors", "quadriceps", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "range"],
+      "cameraPreset": "side",
+      "prerequisites": ["kickboxing.orthodox-stance"],
+      "commonMistakes": [
+        {"description": "Leaning back away from the kick rather than driving the hips forward, which converts it from a pushing force to a glancing one"},
+        {"description": "Striking with the toes rather than the ball of the foot, causing ankle injury and reducing the striking surface that conveys force"}
+      ]
+    },
+    {
+      "id": "kickboxing.left-hook",
+      "name": "Left Hook",
+      "description": "The left hook swings the lead fist in a horizontal arc into the side of the opponent's jaw or temple, powered by a sharp rotation of the hips and a pivot on the lead foot. Unlike the linear jab and cross, the hook travels around an opponent's guard and lands from a direction they are not defending. It is the most common knockout punch in kickboxing when thrown as the third strike in a jab-cross-hook combination after the cross has moved the opponent's head.",
+      "modelPath": "content/kickboxing/models/left_hook.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "punch", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "power"],
+      "cameraPreset": "front",
+      "prerequisites": ["kickboxing.cross"],
+      "commonMistakes": [
+        {"description": "Swinging the arm in a wide looping arc rather than keeping the elbow at 90 degrees and letting the body rotation do the work"},
+        {"description": "Allowing the rear hand to drop away from the face during the hook, leaving the right temple completely unguarded"}
+      ]
+    },
+    {
+      "id": "kickboxing.lead-kick",
+      "name": "Lead Kick",
+      "description": "The lead kick is a front-leg roundhouse thrown with the lead leg, reaching the opponent faster than the rear kick because of the shorter distance it travels. It sacrifices some power for speed and surprise — the hip loads almost simultaneously with the delivery, leaving little telegraphing movement. Used to the thigh or body to accumulate damage and as a low-line distraction, the lead kick forces opponents to divide their defensive attention between the hands and the feet.",
+      "modelPath": "content/kickboxing/models/lead_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "speed"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kickboxing.rear-kick"],
+      "commonMistakes": [
+        {"description": "Not pivoting the rear foot at all, generating a push kick rather than a true hip-rotating roundhouse with instep contact"},
+        {"description": "Swinging the upper body to the opposite side as a counterbalance, telegraphing the kick before the leg leaves the floor"}
+      ]
+    },
+    {
+      "id": "kickboxing.body-kick",
+      "name": "Body Kick",
+      "description": "The body kick is a rear-leg roundhouse delivered to the opponent's floating ribs, liver, or solar plexus rather than the head. Attacking the body rather than the head forces the opponent to lower their guard to protect themselves, opening the head for follow-up strikes. A well-placed liver kick ends fights instantly; accumulated body damage slows an opponent's movement and breathing throughout the rounds.",
+      "modelPath": "content/kickboxing/models/body_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "power"],
+      "cameraPreset": "side",
+      "prerequisites": ["kickboxing.rear-kick"],
+      "commonMistakes": [
+        {"description": "Aiming the kick too high out of habit so it lands on the elbow rather than below the ribs where there is no bony protection"},
+        {"description": "Delivering the body kick as a separate attack rather than integrating it into a combination that has already drawn the opponent's arms upward"}
+      ]
+    },
+    {
+      "id": "kickboxing.uppercut",
+      "name": "Uppercut",
+      "description": "The uppercut is an upward-travelling punch that drives the fist vertically into the chin from below. It is thrown with either the lead or rear hand by bending the knees slightly to dip the shoulder, then exploding upward while the hip and shoulder rotate together. The uppercut is most effective at close range where longer punches cannot fully extend, and particularly dangerous against an opponent who is bending forward or has a low guard.",
+      "modelPath": "content/kickboxing/models/uppercut.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "punch", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "power"],
+      "cameraPreset": "front",
+      "prerequisites": ["kickboxing.left-hook"],
+      "commonMistakes": [
+        {"description": "Winding the fist backward before throwing rather than dipping the knees to generate the upward movement from the legs"},
+        {"description": "Throwing the uppercut with a fully extended arm from a long range where it converts from an uppercut into a looping inside hook"}
+      ]
+    },
+    {
+      "id": "kickboxing.jab-cross-kick",
+      "name": "Jab-Cross-Kick",
+      "description": "The jab-cross-kick is the signature three-strike combination of kickboxing, blending the entry of boxing with the finishing power of the kick. The jab creates the entry, the cross lands in the gap opened by the jab and shifts the opponent's weight backward, then the rear kick follows immediately, using the weight shift and the opponent's defensive hesitation to land cleanly. The timing between the cross and kick must be precise — too fast and the hip hasn't reset; too slow and the opponent has recovered their guard.",
+      "modelPath": "content/kickboxing/models/jab_cross_kick.glb",
+      "defaultClip": "combo",
+      "clips": [
+        {"name": "combo", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "glutes", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["combination", "punch", "kick"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kickboxing.cross", "kickboxing.rear-kick"],
+      "commonMistakes": [
+        {"description": "Pausing between the cross and the kick rather than immediately pivoting the rear foot as the cross lands to begin the hip load for the kick"},
+        {"description": "Throwing all three strikes at the same height rather than varying between high-low-high to bypass the defensive adaptation"}
+      ]
+    },
+    {
+      "id": "kickboxing.spinning-back-kick",
+      "name": "Spinning Back Kick",
+      "description": "The spinning back kick pivots 180 degrees and drives the heel backward into the opponent's solar plexus or face. The spin generates rotational momentum that adds to the force of the hip extension, making it one of the most powerful single strikes in kickboxing. The key is the look: the practitioner spots the target over the shoulder during the spin to ensure the kick fires in the correct direction and at the correct height.",
+      "modelPath": "content/kickboxing/models/spinning_back_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["glutes", "core", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning", "power"],
+      "cameraPreset": "side",
+      "prerequisites": ["kickboxing.body-kick", "kickboxing.lead-kick"],
+      "commonMistakes": [
+        {"description": "Spinning all the way around before looking at the target, arriving at the kick blind and unable to adjust the height or angle"},
+        {"description": "Extending the kicking leg before completing the 180-degree spin, so the kick travels sideways instead of directly backward"}
+      ]
+    },
+    {
+      "id": "kickboxing.spinning-heel-kick",
+      "name": "Spinning Heel Kick",
+      "description": "The spinning heel kick swings the heel in a 360-degree arc through the opponent's temple or jaw at the end of the spin. The technique combines the rotational momentum of the spin with the long lever arm of the straight leg whipping around, creating enormous force at the heel upon impact. It is one of the most spectacular and difficult-to-defend techniques in kickboxing, but requires exceptional flexibility and timing to land consistently.",
+      "modelPath": "content/kickboxing/models/spinning_heel_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "core"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kickboxing.spinning-back-kick", "kickboxing.body-kick"],
+      "commonMistakes": [
+        {"description": "Bending the kicking knee during the swing, which shortens the lever arm and removes most of the momentum the long straight leg would deliver"},
+        {"description": "Aiming behind the opponent rather than at the head, so the heel passes through empty space without contact at the end of the arc"}
+      ]
+    },
+    {
+      "id": "kickboxing.clinch-break-kick",
+      "name": "Clinch Break and Kick",
+      "description": "The clinch break and kick is a transition technique that escapes a close-range grapple and immediately delivers a rear kick in the same motion. The kickboxer pushes or frames off the opponent, creating the space needed, then immediately steps and chambers the rear kick before the opponent can re-establish range. Unlike Muay Thai where clinching is a weapon, kickboxing rules incentivise breaking the clinch and returning to striking range quickly.",
+      "modelPath": "content/kickboxing/models/clinch_break_kick.glb",
+      "defaultClip": "break",
+      "clips": [
+        {"name": "break", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "glutes", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["combination", "kick", "defense"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kickboxing.jab-cross-kick", "kickboxing.front-kick"],
+      "commonMistakes": [
+        {"description": "Stepping back to break the clinch rather than stepping to the side, which moves into range rather than creating the lateral angle needed to deliver an unobstructed kick"},
+        {"description": "Failing to frame firmly with both forearms before pushing, allowing the opponent to close again before the space has been created for the kick"}
+      ]
+    },
+    {
+      "id": "kickboxing.jump-spinning-kick",
+      "name": "Jump Spinning Kick",
+      "description": "The jump spinning kick launches the practitioner airborne, adds a 360-degree spin, and delivers either a round kick or back kick at the peak of the jump. The combination of height, rotation, and the leg's momentum at the end of the spin produces one of the highest-force strikes in all of kickboxing. At elite level this technique scores knockouts from distances where no walking strike could reach and from angles that no defensive system completely closes.",
+      "modelPath": "content/kickboxing/models/jump_spinning_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core", "hip_flexors"],
+      "difficulty": "advanced",
+      "tags": ["kick", "jump", "spinning"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kickboxing.spinning-back-kick", "kickboxing.spinning-heel-kick"],
+      "commonMistakes": [
+        {"description": "Jumping straight up rather than into the opponent, so the kick reaches maximum extension before arriving at the target"},
+        {"description": "Beginning the spin too early on the ground so it finishes before the jump peaks, delivering the kick while already descending"}
+      ]
+    },
+    {
+      "id": "kickboxing.jab-hook-body-head",
+      "name": "Jab-Hook-Body-Head",
+      "description": "The jab-hook-body-head is an advanced four-strike combination that attacks the head then the body then the head again in a flowing sequence that bypasses guard adaptation. The jab opens the opponent, the hook turns their head, then the body shot drops the guard, and the final head shot lands on the exposed jaw. Executing four strikes with proper mechanics, guard retention, and footwork simultaneously represents a high level of technical integration.",
+      "modelPath": "content/kickboxing/models/jab_hook_body_head.glb",
+      "defaultClip": "combo",
+      "clips": [
+        {"name": "combo", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "advanced",
+      "tags": ["combination", "punch"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kickboxing.uppercut", "kickboxing.jab-cross-kick"],
+      "commonMistakes": [
+        {"description": "Losing the rhythm between the body and head punches so the combination becomes two separate two-strike combos rather than one four-strike flow"},
+        {"description": "Not level-changing for the body shot — the upper body must dip to attack the body correctly, which is also the defensive movement that slips a counter"}
+      ]
+    }
+  ]
+}
