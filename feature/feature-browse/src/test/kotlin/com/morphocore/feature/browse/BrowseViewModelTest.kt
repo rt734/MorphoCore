@@ -416,6 +416,23 @@ class BrowseViewModelTest {
         assertEquals(0, state.disciplines.size)
     }
 
+    @Test
+    fun `clearDifficultyFilter resets selectedDifficulty to null`() = runTest {
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsById = mapOf("karate.jab" to movement("karate", "jab").copy(difficulty = Difficulty.BEGINNER))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.BEGINNER)
+        advanceUntilIdle()
+        assertEquals(Difficulty.BEGINNER, (vm.uiState.value as BrowseUiState.Ready).selectedDifficulty)
+        vm.clearDifficultyFilter()
+        advanceUntilIdle()
+        assertEquals(null, (vm.uiState.value as BrowseUiState.Ready).selectedDifficulty)
+    }
+
     // ── muscle group search ───────────────────────────────────────────────
 
     @Test

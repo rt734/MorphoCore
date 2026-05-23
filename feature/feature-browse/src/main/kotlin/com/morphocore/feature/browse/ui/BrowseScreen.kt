@@ -55,9 +55,13 @@ fun BrowseScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val query by viewModel.query.collectAsStateWithLifecycle()
+    val difficultyFilterActive = (uiState as? BrowseUiState.Ready)?.selectedDifficulty != null
 
     BackHandler(enabled = query.isNotBlank()) {
         viewModel.setQuery("")
+    }
+    BackHandler(enabled = difficultyFilterActive && query.isBlank()) {
+        viewModel.clearDifficultyFilter()
     }
 
     Scaffold(
