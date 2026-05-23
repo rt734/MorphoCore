@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "hapkido",
+  "disciplineName": "Hapkido",
+  "description": "Hapkido is a Korean martial art that combines joint locks, throws, and kicks in a self-defence-focused system developed by Choi Yong-Sul. Unlike Taekwondo's emphasis on sport kicks or Aikido's non-competitive philosophy, Hapkido integrates circular joint manipulation with practical striking and throwing to create a complete stand-up self-defence system. Its three principles — water, circular motion, and harmony — guide the practitioner to redirect force rather than oppose it while remaining capable of decisive counterattacking.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "hapkido.juchum-seogi",
+      "name": "Kibon Seogi",
+      "description": "Kibon seogi is the basic fighting stance of hapkido — a mobile, slightly bent-knee position with weight balanced for rapid footwork in any direction. Unlike purely striking art stances, hapkido's basic stance must accommodate both kicking and grabbing scenarios simultaneously, so the hands are held in a neutral position rather than a guard that commits heavily to either striking or grappling. The stance reflects hapkido's self-defence orientation: ready for anything rather than optimised for one scenario.",
+      "modelPath": "content/hapkido/models/kibon_seogi.glb",
+      "defaultClip": "stance",
+      "clips": [
+        {"name": "stance", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Weighting the front foot too heavily in preparation for a kick, telegraphing the kick before it begins and losing the defensive neutrality of the stance"},
+        {"description": "Holding the hands too low or too forward in a boxing-like guard, which slows the response to grab attacks that approach from angles rather than in straight lines"}
+      ]
+    },
+    {
+      "id": "hapkido.nakbup",
+      "name": "Nakbup",
+      "description": "Nakbup is hapkido's falling and rolling system — the foundational safety practice that allows a practitioner to receive throws, be taken down, and return to their feet safely. Hapkido's nakbup is practically oriented, covering falls to the side, rear, and forward direction with an emphasis on quickly recovering to the fighting stance. Confident falling allows the hapkidoka to train joint lock and throwing techniques with full commitment from both partners.",
+      "modelPath": "content/hapkido/models/nakbup.glb",
+      "defaultClip": "fall",
+      "clips": [
+        {"name": "fall", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["safety", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Extending the arms straight to stop the fall rather than using the slapping palm technique to distribute impact across the entire forearm and upper arm"},
+        {"description": "Remaining in the completed fall position rather than immediately rolling back to the feet, as hapkido nakbup is oriented toward recovery and continuation of defence"}
+      ]
+    },
+    {
+      "id": "hapkido.wrist-release",
+      "name": "Wrist Release",
+      "description": "The wrist release is the most fundamental hapkido technique — escaping a grabbing attack on the wrist before the attacker can apply a lock or control. The release moves the hand in the direction where the thumb and forefinger are the weakest point of the grip, simultaneously rotating the arm to escape the most common grab directions. Mastering wrist releases in all four directions is the gateway to all subsequent hapkido techniques because most techniques begin when a grab has been escaped.",
+      "modelPath": "content/hapkido/models/wrist_release.glb",
+      "defaultClip": "escape",
+      "clips": [
+        {"name": "escape", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core"],
+      "difficulty": "beginner",
+      "tags": ["escape", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Pulling the hand backward in a straight line rather than rotating it in a circle through the weakest point of the grip"},
+        {"description": "Using muscular strength to fight the grip rather than the geometric rotation that exploits the mechanical weakness where the attacker's thumb and fingers meet"}
+      ]
+    },
+    {
+      "id": "hapkido.wrist-lock-outward",
+      "name": "Outward Wrist Lock",
+      "description": "The outward wrist lock is hapkido's primary control technique applied after catching or retaining the attacker's wrist. The lock folds the wrist outward — away from the body — and downward while simultaneously rotating the forearm, creating a combined pressure on the wrist and elbow that produces immediate compliance. Unlike similar techniques in other arts, hapkido's version emphasises the simultaneous elbow elevation that locks the shoulder joint as a consequence of the wrist position.",
+      "modelPath": "content/hapkido/models/wrist_lock_outward.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["joint-control", "wrist"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["hapkido.wrist-release"],
+      "commonMistakes": [
+        {"description": "Folding the wrist inward rather than outward, which is a different lock that does not create the upward elbow elevation needed for full joint control"},
+        {"description": "Applying the wrist fold without raising the elbow simultaneously, leaving the shoulder joint free to rotate and escape the lock's structural constraint"}
+      ]
+    },
+    {
+      "id": "hapkido.elbow-lock",
+      "name": "Elbow Lock",
+      "description": "The hapkido elbow lock straightens and hyperextends the elbow against its natural axis by trapping the arm in an extended position and applying downward pressure through the joint. The technique is applied after catching an incoming strike or by transitioning from a wrist control. Because the elbow has no significant natural mobility against the locking direction, the compliance response is immediate and does not require significant force to apply effectively.",
+      "modelPath": "content/hapkido/models/elbow_lock.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["joint-control", "arm"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["hapkido.wrist-lock-outward"],
+      "commonMistakes": [
+        {"description": "Applying the pressure at the upper arm rather than directly at the elbow joint, reducing mechanical advantage and allowing the arm to flex away from the lock"},
+        {"description": "Not securing the wrist before applying elbow pressure, allowing the attacker to rotate the arm and bend the elbow to escape the hyperextension force"}
+      ]
+    },
+    {
+      "id": "hapkido.roundhouse-kick",
+      "name": "Dolligi Chagi",
+      "description": "Hapkido's roundhouse kick — dolligi chagi — follows the same fundamental mechanics as other Korean martial arts roundhouses but is delivered from a self-defence stance rather than a sportive chambered position. The hip rotates through the target and the kick is thrown at thigh, body, or head height depending on the situation. Hapkido emphasises the kick being immediately followed by either a second strike or a transition to a grab or control rather than being thrown as a standalone technique.",
+      "modelPath": "content/hapkido/models/roundhouse_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "quadriceps", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "power"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["hapkido.juchum-seogi"],
+      "commonMistakes": [
+        {"description": "Pausing after the kick rather than immediately transitioning to a follow-up technique — hapkido's self-defence context assumes an attacker will counter"},
+        {"description": "Planting the kicking foot far away from the attacker on landing, creating distance instead of the close range needed to transition to a joint control"}
+      ]
+    },
+    {
+      "id": "hapkido.crescent-kick",
+      "name": "Bandal Chagi",
+      "description": "Hapkido's crescent kick — bandal chagi — swings the leg in a large inward or outward arc to deflect an attacking limb or strike from the inside or outside. Unlike the hook kick of other arts, the hapkido crescent kick is used primarily to redirect and clear — sweeping a grabbing or striking arm out of the way to create the opening for a joint control or counter. Its circular trajectory gives it its name and its self-defence function.",
+      "modelPath": "content/hapkido/models/crescent_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip_flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "defense"],
+      "cameraPreset": "front",
+      "prerequisites": ["hapkido.roundhouse-kick"],
+      "commonMistakes": [
+        {"description": "Using the crescent kick as a primary strike rather than as a deflection — the technique's circular arc is too slow to close the distance before an alert opponent can counter"},
+        {"description": "Swinging the leg without first chambering the knee, which reduces control over the arc and makes the kick easy to read and step inside of"}
+      ]
+    },
+    {
+      "id": "hapkido.wrist-throw",
+      "name": "Wrist Throw",
+      "description": "The hapkido wrist throw converts a wrist lock into a projection by continuing the lock's rotational momentum past the point of compliance into a throw. As the attacker's wrist folds outward and their elbow elevates, the practitioner adds a downward circular direction to the lock that sweeps the attacker off balance and projects them to the mat. The throw demonstrates hapkido's circular principle — no action stops at a control; every control contains a potential throw.",
+      "modelPath": "content/hapkido/models/wrist_throw.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "wrist"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["hapkido.wrist-lock-outward"],
+      "commonMistakes": [
+        {"description": "Stopping the technique when compliance is achieved rather than continuing the circular direction into the throw while the attacker is still off-balance"},
+        {"description": "Releasing the wrist to add a push at the moment of the throw rather than maintaining the wrist connection that guides the trajectory of the fall"}
+      ]
+    },
+    {
+      "id": "hapkido.shoulder-throw",
+      "name": "Shoulder Throw",
+      "description": "The hapkido shoulder throw enters under the attacker's arm and uses hip drive combined with an arm lift to project the attacker over the shoulder to the mat. It is distinct from judo's seoi nage in its entry angle — hapkido's version emphasises a circular entry alongside the attacker rather than a direct frontal entry, keeping the practitioner safer against strikes during the entry phase. It is the most powerful throw in hapkido's classical repertoire.",
+      "modelPath": "content/hapkido/models/shoulder_throw.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["back", "glutes", "quadriceps", "core"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "hip"],
+      "cameraPreset": "side",
+      "prerequisites": ["hapkido.wrist-throw"],
+      "commonMistakes": [
+        {"description": "Entering with the back fully to the attacker rather than at a slight angle, which exposes the back of the head to a rear clinch during the entry"},
+        {"description": "Lifting with the arms rather than driving through with the legs and hips, reducing power and risking shoulder strain on the practitioner"}
+      ]
+    },
+    {
+      "id": "hapkido.joint-lock-standing",
+      "name": "Standing Joint Lock",
+      "description": "The hapkido standing joint lock uses the mechanics of the wrist and elbow locks simultaneously to maintain control of a standing attacker without taking them to the mat. The practitioner guides the attacker's arm into an elevated position that loads the shoulder while the elbow is pressured from above and the wrist is folded. The combined three-joint control creates a structure so mechanically loaded that the attacker cannot move their arm without increasing the lock's pressure at one of the three points.",
+      "modelPath": "content/hapkido/models/joint_lock_standing.glb",
+      "defaultClip": "control",
+      "clips": [
+        {"name": "control", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["joint-control", "arm"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["hapkido.elbow-lock"],
+      "commonMistakes": [
+        {"description": "Relying on only the wrist or only the elbow component rather than maintaining all three joints simultaneously in the loaded structure"},
+        {"description": "Stepping to the attacker's direct rear where they can drop their weight and step through the lock rather than stepping to the side where the shoulder is most vulnerable"}
+      ]
+    },
+    {
+      "id": "hapkido.knife-defense",
+      "name": "Knife Defense",
+      "description": "The hapkido knife defence combines an entering deflection, a wrist control, and a disarm in a single coordinated sequence. As the knife arm attacks, the practitioner steps offline, deflects the weapon arm outward with a circular forearm block, traps the wrist, and applies a joint lock that forces the knife hand to open involuntarily. The wrist lock's mechanical pressure on the tendons of the wrist makes disarming structurally inevitable rather than dependent on strength.",
+      "modelPath": "content/hapkido/models/knife_defense.glb",
+      "defaultClip": "defend",
+      "clips": [
+        {"name": "defend", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "advanced",
+      "tags": ["defense", "disarm"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["hapkido.joint-lock-standing", "hapkido.wrist-throw"],
+      "commonMistakes": [
+        {"description": "Grabbing the knife arm before fully deflecting it, which presses the knife blade toward the practitioner's own body during the grapple"},
+        {"description": "Applying the wrist lock incorrectly so the thumb presses the knife handle rather than the forearm tendons, leaving the attacker able to grip tighter"}
+      ]
+    },
+    {
+      "id": "hapkido.aerial-kick",
+      "name": "Aerial Kick",
+      "description": "Hapkido's aerial kick launches the practitioner off the ground to deliver a kick at a height that would be mechanically impossible from the floor. Unlike taekwondo's jump kicks which are delivered in a sportive context, hapkido's aerial kick is specifically designed to attack a taller attacker's head height, to clear over a blocking arm, or to strike multiple targets during the jump's arc. Precision in the take-off, targeting, and recovery is the mark of a skilled practitioner.",
+      "modelPath": "content/hapkido/models/aerial_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "hip_flexors", "core"],
+      "difficulty": "advanced",
+      "tags": ["kick", "jump"],
+      "cameraPreset": "side",
+      "prerequisites": ["hapkido.crescent-kick", "hapkido.roundhouse-kick"],
+      "commonMistakes": [
+        {"description": "Jumping before confirming the target's position, so the kick reaches peak height before arriving at the attacker's location"},
+        {"description": "Landing with the kicking leg forward rather than resetting immediately to the fighting stance, leaving a critical gap in defensive posture on landing"}
+      ]
+    },
+    {
+      "id": "hapkido.choke-defense",
+      "name": "Choke Defense",
+      "description": "The hapkido choke defence addresses a two-hand choke to the throat by combining a body rotation, an arm sweep, and a joint control in a single motion. The rotation creates a gap in the choke grip while the arm sweep removes both the attacker's arms simultaneously, and the follow-through applies a wrist or elbow lock as the attacker's balance is disrupted. It exemplifies hapkido's approach to self-defence: the initial escape and the counterattack are a single movement, not two.",
+      "modelPath": "content/hapkido/models/choke_defense.glb",
+      "defaultClip": "defend",
+      "clips": [
+        {"name": "defend", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "advanced",
+      "tags": ["defense", "escape"],
+      "cameraPreset": "front",
+      "prerequisites": ["hapkido.joint-lock-standing", "hapkido.shoulder-throw"],
+      "commonMistakes": [
+        {"description": "Trying to pull both hands away from the throat before rotating, which creates a tug-of-war rather than exploiting the rotational gap the technique is designed to create"},
+        {"description": "Completing the escape without immediately transitioning to a control or throw, leaving the attacker able to immediately re-engage"}
+      ]
+    },
+    {
+      "id": "hapkido.multiple-attacker-entry",
+      "name": "Multiple Attacker Entry",
+      "description": "The multiple attacker entry is a movement principle in hapkido that addresses scenarios with more than one aggressor by using the body of one attacker as a shield or weapon against others. The practitioner enters directly into the nearest attacker, controls them with a joint lock, and positions that attacker between themselves and the remaining aggressors while the lock provides leverage over the controlled attacker's movements. It is the conceptual advanced expression of hapkido's principle that all conflict should be managed with minimum force and maximum positioning.",
+      "modelPath": "content/hapkido/models/multiple_attacker_entry.glb",
+      "defaultClip": "move",
+      "clips": [
+        {"name": "move", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["defense", "positioning"],
+      "cameraPreset": "top",
+      "prerequisites": ["hapkido.choke-defense", "hapkido.knife-defense"],
+      "commonMistakes": [
+        {"description": "Engaging two attackers simultaneously rather than decisively entering and controlling one first, which splits attention and reduces effectiveness on both"},
+        {"description": "Turning the back to the secondary attacker while dealing with the first rather than using the controlled attacker's body as a structural barrier"}
+      ]
+    },
+    {
+      "id": "hapkido.pressure-point-control",
+      "name": "Pressure Point Control",
+      "description": "Hapkido's pressure point control applies precise fingertip or thumb pressure to anatomically vulnerable points on the neck, mastoid area, or radial nerve to induce compliance without joint manipulation. The pressure points used in hapkido are primarily those accessible during normal grab or control scenarios rather than requiring specific anatomical access. The technique requires exact location knowledge and a specific angle of pressure — 90 degrees into the muscle or nerve cluster — to produce the intended effect.",
+      "modelPath": "content/hapkido/models/pressure_point_control.glb",
+      "defaultClip": "control",
+      "clips": [
+        {"name": "control", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core"],
+      "difficulty": "advanced",
+      "tags": ["control", "precision"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["hapkido.joint-lock-standing", "hapkido.elbow-lock"],
+      "commonMistakes": [
+        {"description": "Pressing at the wrong angle — pressure applied parallel to the muscle surface rather than perpendicular into the nerve bundle produces discomfort but not compliance"},
+        {"description": "Relying on pain alone without simultaneously controlling the attacker's arm or posture, allowing them to endure or block the pressure point rather than comply"}
+      ]
+    }
+  ]
+}
