@@ -75,8 +75,15 @@ fun DisciplineCard(
                     overflow = TextOverflow.Ellipsis
                 )
                 if (discipline.description.isNotBlank()) {
+                    val nameMatches = query.isNotBlank() &&
+                        findHighlightRange(discipline.name, query) != null
+                    val displayDescription = if (!nameMatches)
+                        browseDescriptionMatchSnippet(discipline.description, query)
+                            ?: discipline.description
+                    else
+                        discipline.description
                     Text(
-                        text = highlightedAnnotatedString(discipline.description, query),
+                        text = highlightedAnnotatedString(displayDescription, query),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 2,
