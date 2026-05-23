@@ -13,9 +13,9 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
@@ -38,7 +38,10 @@ class DetailViewModel @Inject constructor(
         }
         val excludedIds = (movement.prerequisites + movement.id).toSet()
         emitAll(
-            contentRepository.observeMovements(movement.disciplineId).map { disciplineMovements ->
+            combine(
+                contentRepository.observeMovements(movement.disciplineId),
+                contentRepository.observeAllMovements()
+            ) { disciplineMovements, allMovements ->
                 val related = disciplineMovements
                     .filter { it.id !in excludedIds }
                     .filter { candidate -> candidate.tags.any { it in movement.tags } }
@@ -48,7 +51,11 @@ class DetailViewModel @Inject constructor(
                     .take(3)
                 val prerequisites = movement.prerequisites
                     .mapNotNull { prereqId -> disciplineMovements.find { it.id == prereqId } }
-                DetailUiState.Ready(movement, related, unlocked, prerequisites)
+                val crossDisciplineRelated = allMovements
+                    .filter { it.disciplineId != movement.disciplineId }
+                    .filter { it.tags.any { t -> t in movement.tags } }
+                    .take(3)
+                DetailUiState.Ready(movement, related, unlocked, prerequisites, crossDisciplineRelated)
             }
         )
     }

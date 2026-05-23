@@ -275,11 +275,56 @@ class DetailViewModelTest {
         assertEquals(emptyList(), state.prerequisiteMovements)
     }
 
+    // ── cross-discipline related ──────────────────────────────────────────
+
+    @Test
+    fun `crossDisciplineRelated contains tag-matching movements from other disciplines`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
+        val gymKick = Movement(
+            id = "gym.leg-press", disciplineId = "gym", name = "Leg Press",
+            modelPath = "m.glb", defaultClip = "idle",
+            clips = listOf(AnimationClip("idle", 1f, 30)),
+            muscles = emptyList(), difficulty = Difficulty.BEGINNER,
+            tags = listOf("kick"), cameraPreset = null,
+            prerequisites = emptyList(), commonMistakes = emptyList()
+        )
+        val sameDiscMovement = fakeMovement("karate.mawashi-geri").copy(tags = listOf("kick"))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf(
+                "karate" to listOf(mainMovement, sameDiscMovement),
+                "gym" to listOf(gymKick)
+            )
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.crossDisciplineRelated.size)
+        assertEquals(gymKick.id, state.crossDisciplineRelated.first().id)
+    }
+
+    @Test
+    fun `crossDisciplineRelated excludes movements from the same discipline`() = runTest {
+        val mainMovement = fakeMovement("karate.mae-geri").copy(tags = listOf("kick"))
+        val sameDisc = fakeMovement("karate.yoko-geri").copy(tags = listOf("kick"))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(mainMovement.id to mainMovement),
+            movementsByDiscipline = mapOf("karate" to listOf(mainMovement, sameDisc))
+        )
+        val vm = vm(mainMovement.id, repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<DetailUiState.Ready>(vm.uiState.value)
+        assertEquals(emptyList(), state.crossDisciplineRelated)
+    }
+
     @Test
     fun `uiState is Error when repository throws`() = runTest {
         val throwingRepo = object : ContentRepository {
             override fun observeDisciplines(): Flow<List<Discipline>> = flowOf(emptyList())
             override fun observeMovements(disciplineId: String): Flow<List<Movement>> = flowOf(emptyList())
+            override fun observeAllMovements(): Flow<List<Movement>> = flowOf(emptyList())
             override suspend fun getMovement(movementId: String): Movement? =
                 throw RuntimeException("network error")
         }

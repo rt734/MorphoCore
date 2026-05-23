@@ -8,7 +8,8 @@ sealed class DetailUiState {
         val movement: Movement,
         val relatedMovements: List<Movement> = emptyList(),
         val unlockedMovements: List<Movement> = emptyList(),
-        val prerequisiteMovements: List<Movement> = emptyList()
+        val prerequisiteMovements: List<Movement> = emptyList(),
+        val crossDisciplineRelated: List<Movement> = emptyList()
     ) : DetailUiState()
     data class Error(val message: String) : DetailUiState()
 }
