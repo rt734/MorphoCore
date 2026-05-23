@@ -57,6 +57,11 @@ class BrowseViewModel @Inject constructor(
                 val disciplineBreakdowns = byDiscipline.mapValues { (_, ms) ->
                     ms.groupingBy { it.difficulty }.eachCount()
                 }
+                val disciplineMuscleBreakdowns = byDiscipline.mapValues { (_, ms) ->
+                    ms.flatMap { m -> m.muscles.map { it to m } }
+                        .groupBy({ it.first }, { it.second })
+                        .mapValues { (_, moves) -> moves.size }
+                }
                 val availableMuscles = movements.flatMap { it.muscles }.distinct()
                     .sortedBy { it.searchToken() }
                 var filteredDisciplines = if (filter.difficulty == null) disciplines
@@ -79,7 +84,8 @@ class BrowseViewModel @Inject constructor(
                     selectedDifficulty = filter.difficulty,
                     disciplineBreakdowns = disciplineBreakdowns,
                     availableMuscles = availableMuscles,
-                    selectedMuscle = filter.muscle
+                    selectedMuscle = filter.muscle,
+                    disciplineMuscleBreakdowns = disciplineMuscleBreakdowns
                 )
             }
             else -> {

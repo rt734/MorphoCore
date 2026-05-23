@@ -459,6 +459,25 @@ class BrowseViewModelTest {
         assertEquals(shouldersMovement.id, state.movementResults.first().id)
     }
 
+    // ── disciplineMuscleBreakdowns ────────────────────────────────────────
+
+    @Test
+    fun `disciplineMuscleBreakdowns maps discipline ids to their muscle group counts`() = runTest {
+        val m1 = movement("gym", "bench_press").copy(muscles = listOf(MuscleGroup.Chest, MuscleGroup.Shoulders))
+        val m2 = movement("gym", "overhead_press").copy(muscles = listOf(MuscleGroup.Shoulders))
+        val m3 = movement("karate", "punch").copy(muscles = listOf(MuscleGroup.Shoulders, MuscleGroup.Core))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(m1.id to m1, m2.id to m2, m3.id to m3)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.disciplineMuscleBreakdowns["gym"]?.get(MuscleGroup.Chest))
+        assertEquals(2, state.disciplineMuscleBreakdowns["gym"]?.get(MuscleGroup.Shoulders))
+        assertEquals(1, state.disciplineMuscleBreakdowns["karate"]?.get(MuscleGroup.Core))
+    }
+
     // ── muscle filter ─────────────────────────────────────────────────────
 
     @Test
