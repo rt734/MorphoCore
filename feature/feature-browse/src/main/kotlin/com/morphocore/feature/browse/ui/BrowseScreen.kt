@@ -36,9 +36,13 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -61,6 +65,14 @@ fun BrowseScreen(
     val query by viewModel.query.collectAsStateWithLifecycle()
     val filtersActive = (uiState as? BrowseUiState.Ready)
         ?.let { it.selectedDifficulty != null || it.selectedMuscle != null } == true
+    val listState = rememberLazyListState()
+    val coroutineScope = rememberCoroutineScope()
+
+    // Scroll to top when search mode changes (query blank ↔ non-blank transition)
+    val isSearching = (uiState as? BrowseUiState.Ready)?.query?.isNotBlank() == true
+    LaunchedEffect(isSearching) {
+        coroutineScope.launch { listState.scrollToItem(0) }
+    }
 
     BackHandler(enabled = query.isNotBlank()) {
         viewModel.setQuery("")
@@ -94,6 +106,7 @@ fun BrowseScreen(
             }
             is BrowseUiState.Ready -> {
                 LazyColumn(
+                    state = listState,
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding),

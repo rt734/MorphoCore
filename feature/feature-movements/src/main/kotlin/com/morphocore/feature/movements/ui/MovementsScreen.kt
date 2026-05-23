@@ -31,9 +31,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -73,6 +77,14 @@ fun MovementsScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val query by viewModel.query.collectAsStateWithLifecycle()
+    val listState = rememberLazyListState()
+    val coroutineScope = rememberCoroutineScope()
+
+    // Scroll to top whenever the effective query or sort changes
+    val readyState = uiState as? MovementsUiState.Ready
+    LaunchedEffect(readyState?.query, readyState?.sort) {
+        coroutineScope.launch { listState.scrollToItem(0) }
+    }
 
     val filtersActive = (uiState as? MovementsUiState.Ready)
         ?.let { it.selectedTags.isNotEmpty() || it.selectedDifficulties.isNotEmpty() || it.selectedMuscles.isNotEmpty() } == true
@@ -147,6 +159,7 @@ fun MovementsScreen(
                 val sortNonDefault = state.sort == MovementsSort.BY_NAME
 
                 LazyColumn(
+                    state = listState,
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding)
