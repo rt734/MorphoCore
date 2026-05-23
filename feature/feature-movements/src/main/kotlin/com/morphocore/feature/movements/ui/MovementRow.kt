@@ -106,6 +106,15 @@ fun MovementRow(
                 modifier = Modifier.padding(top = 2.dp)
             )
         }
+        if (movement.prerequisites.isNotEmpty()) {
+            val count = movement.prerequisites.size
+            Text(
+                text = "Requires $count prerequisite${if (count > 1) "s" else ""}",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(top = 2.dp)
+            )
+        }
         if (snippet != null) {
             Text(
                 text = highlightedAnnotatedString(snippet, query),

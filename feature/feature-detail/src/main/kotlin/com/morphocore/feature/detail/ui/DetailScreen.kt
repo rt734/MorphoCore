@@ -360,11 +360,12 @@ private fun MovementInfoPanel(
             }
         }
 
-        // Clip summary (only when multiple clips)
-        if (movement.clips.size > 1) {
-            val totalSeconds = movement.clips.sumOf { it.durationSeconds.toDouble() }.toFloat()
+        // Clip summary
+        if (movement.clips.isNotEmpty()) {
+            val count = movement.clips.size
+            val totalSeconds = movement.clips.sumOf { it.durationSeconds.toDouble() }
             Text(
-                text = "${"%.1f".format(totalSeconds)}s total · ${movement.clips.size} clips",
+                text = "$count clip${if (count > 1) "s" else ""} · ${"%.1f".format(totalSeconds)}s",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
