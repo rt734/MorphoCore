@@ -660,6 +660,121 @@ class MovementsViewModelTest {
         assertEquals(1, state.movements.size)
         assertEquals(withMistake.id, state.movements.first().id)
     }
+
+    // ── difficulty toggle parity ──────────────────────────────────────────
+
+    @Test
+    fun `toggleDifficulty twice removes the difficulty filter`() = runTest {
+        val beginner = movement("karate", "front_kick").copy(difficulty = Difficulty.BEGINNER)
+        val advanced = movement("karate", "spinning_kick").copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf("karate" to listOf(beginner, advanced))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficulty(Difficulty.BEGINNER)
+        advanceUntilIdle()
+        assertEquals(1, (vm.uiState.value as MovementsUiState.Ready).movements.size)
+        vm.toggleDifficulty(Difficulty.BEGINNER)
+        advanceUntilIdle()
+        assertEquals(2, (vm.uiState.value as MovementsUiState.Ready).movements.size)
+    }
+
+    @Test
+    fun `two difficulties selected simultaneously filters by union`() = runTest {
+        val beginner = movement("karate", "front_kick").copy(difficulty = Difficulty.BEGINNER)
+        val intermediate = movement("karate", "roundhouse").copy(difficulty = Difficulty.INTERMEDIATE)
+        val advanced = movement("karate", "spinning_kick").copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf("karate" to listOf(beginner, intermediate, advanced))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficulty(Difficulty.BEGINNER)
+        vm.toggleDifficulty(Difficulty.ADVANCED)
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(2, state.movements.size)
+        assertTrue(state.movements.any { it.difficulty == Difficulty.BEGINNER })
+        assertTrue(state.movements.any { it.difficulty == Difficulty.ADVANCED })
+    }
+
+    // ── retry ─────────────────────────────────────────────────────────────
+
+    @Test
+    fun `retry calls contentRegistry refresh`() = runTest {
+        val registry = TrackingFakeContentRegistry()
+        val handle = SavedStateHandle(mapOf("disciplineId" to "karate"))
+        val vm = MovementsViewModel(handle, FakeContentRepository(), registry)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.retry()
+        advanceUntilIdle()
+        assertEquals(1, registry.refreshCalls)
+    }
+
+    // ── availableTags ordering ────────────────────────────────────────────
+
+    @Test
+    fun `availableTags is sorted alphabetically`() = runTest {
+        val m1 = movement("karate", "kick").copy(tags = listOf("strike", "kick", "basic"))
+        val m2 = movement("karate", "punch").copy(tags = listOf("power", "advanced"))
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf("karate" to listOf(m1, m2))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(state.availableTags.sorted(), state.availableTags)
+    }
+
+    // ── hip flexors spaced search token ───────────────────────────────────
+
+    @Test
+    fun `setQuery matches hip flexors movement using spaced token`() = runTest {
+        val hipMovement = movement("karate", "mae_geri")
+            .copy(muscles = listOf(MuscleGroup.HipFlexors))
+        val otherMovement = movement("karate", "jodan_uke")
+            .copy(muscles = listOf(MuscleGroup.Shoulders))
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf("karate" to listOf(hipMovement, otherMovement))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("hip flexors")
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(hipMovement.id, state.movements.first().id)
+    }
+
+    // ── combined tag and difficulty filter ────────────────────────────────
+
+    @Test
+    fun `combined tag and difficulty filter requires both to match`() = runTest {
+        val kickBeginner = movement("karate", "front_kick")
+            .copy(tags = listOf("kick"), difficulty = Difficulty.BEGINNER)
+        val kickAdvanced = movement("karate", "spinning_kick")
+            .copy(tags = listOf("kick"), difficulty = Difficulty.ADVANCED)
+        val blockBeginner = movement("karate", "inner_block")
+            .copy(tags = listOf("block"), difficulty = Difficulty.BEGINNER)
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf("karate" to listOf(kickBeginner, kickAdvanced, blockBeginner))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleTag("kick")
+        vm.toggleDifficulty(Difficulty.BEGINNER)
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(kickBeginner.id, state.movements.first().id)
+    }
 }
 
 private open class FakeContentRegistry(
@@ -669,4 +784,9 @@ private open class FakeContentRegistry(
     override val state: StateFlow<RegistryState> = _state.asStateFlow()
     override suspend fun refresh() {}
     fun setState(s: RegistryState) { _state.value = s }
+}
+
+private class TrackingFakeContentRegistry : FakeContentRegistry() {
+    var refreshCalls = 0
+    override suspend fun refresh() { refreshCalls++ }
 }
