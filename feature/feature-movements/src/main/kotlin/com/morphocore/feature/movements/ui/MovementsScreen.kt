@@ -1,5 +1,6 @@
 package com.morphocore.feature.movements.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,6 +16,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.SwapVert
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -60,7 +63,7 @@ private fun MuscleGroup.displayLabel(): String = when (this) {
     is MuscleGroup.Unknown  -> this.raw.replaceFirstChar { it.uppercaseChar() }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun MovementsScreen(
     disciplineId: String,
@@ -327,14 +330,23 @@ fun MovementsScreen(
                             }
                         }
                     } else {
-                        items(state.movements, key = { it.id }) { movement ->
-                            MovementRow(
-                                movement = movement,
-                                onClick = { onMovementSelected(movement.id) },
+                        if (state.sort == MovementsSort.BY_DIFFICULTY) {
+                            difficultyGroupedItems(
+                                movements = state.movements,
+                                onMovementSelected = onMovementSelected,
                                 onTagClick = viewModel::toggleTag,
-                                query = query,
-                                modifier = Modifier.animateItem()
+                                query = query
                             )
+                        } else {
+                            items(state.movements, key = { it.id }) { movement ->
+                                MovementRow(
+                                    movement = movement,
+                                    onClick = { onMovementSelected(movement.id) },
+                                    onTagClick = viewModel::toggleTag,
+                                    query = query,
+                                    modifier = Modifier.animateItem()
+                                )
+                            }
                         }
                     }
                 }
@@ -361,6 +373,54 @@ fun MovementsScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+private fun LazyListScope.difficultyGroupedItems(
+    movements: List<com.morphocore.domain.Movement>,
+    onMovementSelected: (String) -> Unit,
+    onTagClick: (String) -> Unit,
+    query: String
+) {
+    val groups = movements.groupBy { it.difficulty }
+    listOf(
+        com.morphocore.domain.Difficulty.BEGINNER,
+        com.morphocore.domain.Difficulty.INTERMEDIATE,
+        com.morphocore.domain.Difficulty.ADVANCED
+    ).forEach { difficulty ->
+        val group = groups[difficulty] ?: return@forEach
+        stickyHeader(key = "header_${difficulty.name}") {
+            val label = when (difficulty) {
+                com.morphocore.domain.Difficulty.BEGINNER     -> "Beginner"
+                com.morphocore.domain.Difficulty.INTERMEDIATE -> "Intermediate"
+                com.morphocore.domain.Difficulty.ADVANCED     -> "Advanced"
+            }
+            Row(
+                modifier = androidx.compose.ui.Modifier
+                    .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.surface)
+                    .padding(horizontal = 16.dp, vertical = 6.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(label, style = MaterialTheme.typography.titleSmall)
+                Text(
+                    "${group.size}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+        items(group, key = { it.id }) { movement ->
+            MovementRow(
+                movement = movement,
+                onClick = { onMovementSelected(movement.id) },
+                onTagClick = onTagClick,
+                query = query,
+                modifier = androidx.compose.ui.Modifier.animateItem()
+            )
         }
     }
 }
