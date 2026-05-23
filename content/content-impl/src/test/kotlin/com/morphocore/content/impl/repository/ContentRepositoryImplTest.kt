@@ -98,4 +98,36 @@ class ContentRepositoryImplTest {
         assertNotNull(movement)
         assertEquals("Roundhouse Kick", movement.name)
     }
+
+    @Test
+    fun `observeAllMovements emits empty list before refresh`() = runTest {
+        val registry = buildRegistry(mapOf("karate" to karateJson), StandardTestDispatcher(testScheduler), this)
+        val repo = ContentRepositoryImpl(registry)
+        assertTrue(repo.observeAllMovements().first().isEmpty())
+    }
+
+    @Test
+    fun `observeAllMovements emits movements from all disciplines`() = runTest {
+        val dispatcher = StandardTestDispatcher(testScheduler)
+        val registry = buildRegistry(mapOf("karate" to karateJson, "yoga" to yogaJson), dispatcher, this)
+        val repo = ContentRepositoryImpl(registry)
+        registry.refresh()
+        advanceUntilIdle()
+        val all = repo.observeAllMovements().first()
+        // karate fixture has 3 movements, yoga fixture has 2
+        assertEquals(5, all.size)
+        assertTrue(all.any { it.disciplineId == "karate" })
+        assertTrue(all.any { it.disciplineId == "yoga" })
+    }
+
+    @Test
+    fun `observeAllMovements result is sorted by name`() = runTest {
+        val dispatcher = StandardTestDispatcher(testScheduler)
+        val registry = buildRegistry(mapOf("karate" to karateJson, "yoga" to yogaJson), dispatcher, this)
+        val repo = ContentRepositoryImpl(registry)
+        registry.refresh()
+        advanceUntilIdle()
+        val names = repo.observeAllMovements().first().map { it.name }
+        assertEquals(names.sorted(), names)
+    }
 }
