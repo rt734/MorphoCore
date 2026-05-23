@@ -610,6 +610,35 @@ class MovementsViewModelTest {
         advanceUntilIdle()
         assertIs<MovementsUiState.Error>(vm.uiState.value)
     }
+
+    // ── initialTag from nav arg ───────────────────────────────────────────
+
+    @Test
+    fun `initialTag from SavedStateHandle pre-selects that tag on first load`() = runTest {
+        val tagged = movement("karate", "front_kick").copy(tags = listOf("kick"))
+        val untagged = movement("karate", "arm_block").copy(tags = listOf("block"))
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf("karate" to listOf(tagged, untagged))
+        )
+        val handle = SavedStateHandle(mapOf("disciplineId" to "karate", "initialTag" to "kick"))
+        val vm = MovementsViewModel(handle, repo, FakeContentRegistry())
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(setOf("kick"), state.selectedTags)
+        assertEquals(1, state.movements.size)
+        assertEquals(tagged.id, state.movements.first().id)
+    }
+
+    @Test
+    fun `null initialTag leaves selectedTags empty`() = runTest {
+        val handle = SavedStateHandle(mapOf("disciplineId" to "karate"))
+        val vm = MovementsViewModel(handle, FakeContentRepository(), FakeContentRegistry())
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(emptySet<String>(), state.selectedTags)
+    }
 }
 
 private open class FakeContentRegistry(

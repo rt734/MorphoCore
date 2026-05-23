@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 object Browse
 
 @Serializable
-data class Movements(val disciplineId: String)
+data class Movements(val disciplineId: String, val initialTag: String? = null)
 
 @Serializable
 data class Detail(val movementId: String)
