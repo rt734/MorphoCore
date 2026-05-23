@@ -16,9 +16,32 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Discipline
+
+private fun findHighlightRange(text: String, query: String): IntRange? {
+    val q = query.trim().lowercase()
+    if (q.isBlank()) return null
+    val idx = text.lowercase().indexOf(q)
+    if (idx == -1) return null
+    return idx until idx + q.length
+}
+
+@Composable
+private fun highlightedAnnotatedString(text: String, query: String) =
+    findHighlightRange(text, query)?.let { range ->
+        buildAnnotatedString {
+            append(text.substring(0, range.first))
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(text.substring(range)) }
+            append(text.substring(range.last + 1))
+        }
+    } ?: buildAnnotatedString { append(text) }
 
 private val difficultyColors = mapOf(
     Difficulty.BEGINNER     to Color(0xFF4CAF50),
@@ -30,6 +53,7 @@ private val difficultyColors = mapOf(
 fun DisciplineCard(
     discipline: Discipline,
     difficultyBreakdown: Map<Difficulty, Int> = emptyMap(),
+    query: String = "",
     onClick: () -> Unit
 ) {
     Card(
@@ -49,9 +73,11 @@ fun DisciplineCard(
                 )
                 if (discipline.description.isNotBlank()) {
                     Text(
-                        text = discipline.description,
+                        text = highlightedAnnotatedString(discipline.description, query),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.padding(top = 2.dp)
                     )
                 }
