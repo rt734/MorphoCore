@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.morphocore.domain.Difficulty
@@ -32,6 +33,28 @@ private fun findHighlightRange(text: String, query: String): IntRange? {
     if (idx == -1) return null
     return idx until idx + q.length
 }
+
+internal fun descriptionMatchSnippet(description: String, query: String): String? {
+    val q = query.trim().lowercase()
+    if (q.isBlank()) return null
+    val idx = description.lowercase().indexOf(q)
+    if (idx == -1) return null
+    val start = maxOf(0, idx - 25)
+    val end = minOf(description.length, idx + q.length + 25)
+    val prefix = if (start > 0) "…" else ""
+    val suffix = if (end < description.length) "…" else ""
+    return "$prefix${description.substring(start, end)}$suffix"
+}
+
+@Composable
+private fun highlightedAnnotatedString(text: String, query: String) =
+    findHighlightRange(text, query)?.let { range ->
+        buildAnnotatedString {
+            append(text.substring(0, range.first))
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(text.substring(range)) }
+            append(text.substring(range.last + 1))
+        }
+    } ?: buildAnnotatedString { append(text) }
 
 @Composable
 private fun highlightedName(name: String, query: String) =
@@ -52,6 +75,9 @@ fun MovementRow(
     query: String = "",
     modifier: Modifier = Modifier
 ) {
+    val nameMatches = query.isNotBlank() && findHighlightRange(movement.name, query) != null
+    val snippet = if (!nameMatches) descriptionMatchSnippet(movement.description, query) else null
+
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -69,6 +95,16 @@ fun MovementRow(
                 modifier = Modifier.weight(1f)
             )
             DifficultyBadge(movement.difficulty)
+        }
+        if (snippet != null) {
+            Text(
+                text = highlightedAnnotatedString(snippet, query),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(top = 2.dp)
+            )
         }
         if (movement.muscles.isNotEmpty()) {
             FlowRow(
