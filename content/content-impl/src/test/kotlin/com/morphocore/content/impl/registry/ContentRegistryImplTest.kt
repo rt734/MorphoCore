@@ -101,4 +101,33 @@ class ContentRegistryImplTest {
         advanceUntilIdle()
         assertEquals(RegistryState.Ready, registry.state.value)
     }
+
+    @Test
+    fun `index movements count equals total movements across all disciplines`() = runTest {
+        val registry = ContentRegistryImpl(
+            sources = listOf(FakeAssetSource(manifests = mapOf("karate" to karateJson, "yoga" to yogaJson))),
+            ioDispatcher = StandardTestDispatcher(testScheduler),
+            scope = this
+        )
+        registry.refresh()
+        advanceUntilIdle()
+        assertEquals(5, registry.index.value.movements.size) // karate=3, yoga=2
+    }
+
+    @Test
+    fun `one failed source and one successful source results in Ready state`() = runTest {
+        val registry = ContentRegistryImpl(
+            sources = listOf(
+                FakeAssetSource(id = "bad", manifests = mapOf("broken" to "{ not json }")),
+                FakeAssetSource(id = "good", manifests = mapOf("karate" to karateJson))
+            ),
+            ioDispatcher = StandardTestDispatcher(testScheduler),
+            scope = this
+        )
+        registry.refresh()
+        advanceUntilIdle()
+        assertEquals(RegistryState.Ready, registry.state.value)
+        assertEquals(1, registry.index.value.disciplines.size)
+        assertTrue(registry.index.value.disciplines.containsKey("karate"))
+    }
 }
