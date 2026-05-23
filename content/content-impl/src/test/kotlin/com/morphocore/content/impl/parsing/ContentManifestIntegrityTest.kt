@@ -34,10 +34,10 @@ class ContentManifestIntegrityTest {
 
     @ParameterizedTest
     @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
-    fun `each discipline has exactly 12 movements`(disciplineId: String) {
+    fun `each discipline has exactly 15 movements`(disciplineId: String) {
         val result = readManifest(disciplineId) as ParseResult.Success
-        assertEquals(12, result.movements.size,
-            "$disciplineId should have 12 movements but has ${result.movements.size}")
+        assertEquals(15, result.movements.size,
+            "$disciplineId should have 15 movements but has ${result.movements.size}")
     }
 
     @ParameterizedTest

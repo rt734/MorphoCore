@@ -486,6 +486,129 @@
         }
       ],
       "description": "A simultaneous two-handed strike that overwhelms a single guard or attacks two targets at once. The coordinated bilateral motion trains symmetrical power generation and timing."
+    },
+    {
+      "id": "kung-fu.tiger-claw",
+      "name": "Tiger Claw Strike",
+      "description": "A close-range raking and gripping attack modelled on the tiger's paw. The fingers curve into a claw shape and strike downward or forward, targeting the face, throat, or weapon hand. Training develops crushing grip strength and toughens the fingertips.",
+      "modelPath": "content/kung-fu/models/tiger-claw.glb",
+      "defaultClip": "ready",
+      "clips": [
+        {
+          "name": "ready",
+          "durationSeconds": 0.7,
+          "fps": 30
+        },
+        {
+          "name": "strike",
+          "durationSeconds": 1.0,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "shoulders",
+        "chest",
+        "core"
+      ],
+      "difficulty": "intermediate",
+      "tags": [
+        "strike",
+        "close-range"
+      ],
+      "cameraPreset": "front",
+      "prerequisites": [
+        "kung-fu.palm-strike"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Keeping fingers too stiff instead of curving naturally into the claw shape"
+        },
+        {
+          "description": "Striking with the fingertips instead of the full claw surface"
+        }
+      ]
+    },
+    {
+      "id": "kung-fu.praying-mantis",
+      "name": "Praying Mantis Hook",
+      "description": "A hooking strike and deflection technique drawn from the Praying Mantis style. The wrist bends into a tight hook and simultaneously traps or redirects the opponent's arm while a secondary strike is delivered to an exposed target.",
+      "modelPath": "content/kung-fu/models/praying-mantis.glb",
+      "defaultClip": "ready",
+      "clips": [
+        {
+          "name": "ready",
+          "durationSeconds": 0.8,
+          "fps": 30
+        },
+        {
+          "name": "strike",
+          "durationSeconds": 1.2,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "shoulders",
+        "back",
+        "core"
+      ],
+      "difficulty": "advanced",
+      "tags": [
+        "strike",
+        "combination"
+      ],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [
+        "kung-fu.leopard-punch"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Forming the hook with the entire hand rather than just the wrist"
+        },
+        {
+          "description": "Losing shoulder alignment when executing the simultaneous deflect-and-strike"
+        }
+      ]
+    },
+    {
+      "id": "kung-fu.drop-stance",
+      "name": "Drop Stance",
+      "description": "A deep low stance in which the practitioner squats entirely onto one leg while the other extends along the ground. Used to dodge high attacks, transition under an opponent's guard, or set up sweeping counterstrikes from an unexpected angle.",
+      "modelPath": "content/kung-fu/models/drop-stance.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {
+          "name": "hold",
+          "durationSeconds": 2.0,
+          "fps": 30
+        },
+        {
+          "name": "transition",
+          "durationSeconds": 1.0,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "hip_flexors"
+      ],
+      "difficulty": "intermediate",
+      "tags": [
+        "stance",
+        "evasion"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "kung-fu.horse-stance"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Allowing the knee of the supporting leg to drift inward under load"
+        },
+        {
+          "description": "Placing the extended foot with the sole up instead of heel on the ground"
+        }
+      ]
     }
   ]
 }

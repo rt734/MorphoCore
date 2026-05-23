@@ -508,6 +508,129 @@
         }
       ],
       "description": "A rear deltoid and external rotator exercise using a rope attachment pulled toward the face. Corrects the internal rotation pattern caused by heavy pressing and maintains long-term shoulder health."
+    },
+    {
+      "id": "gym.incline-bench-press",
+      "name": "Incline Bench Press",
+      "description": "A bench press performed on a 30-45 degree incline to shift emphasis toward the upper chest and anterior deltoid. The elevated angle reduces lower pec recruitment while increasing demands on the clavicular head of the pectoralis major and the front shoulder.",
+      "modelPath": "content/gym/models/incline-bench-press.glb",
+      "defaultClip": "ready",
+      "clips": [
+        {
+          "name": "ready",
+          "durationSeconds": 0.8,
+          "fps": 30
+        },
+        {
+          "name": "press",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "chest",
+        "shoulders",
+        "core"
+      ],
+      "difficulty": "intermediate",
+      "tags": [
+        "press",
+        "compound"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "gym.bench-press"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Setting the bench angle too steep, turning the movement into a shoulder press"
+        },
+        {
+          "description": "Allowing the wrists to extend backward under the bar instead of staying neutral"
+        }
+      ]
+    },
+    {
+      "id": "gym.good-morning",
+      "name": "Good Morning",
+      "description": "A hip-hinge movement with a barbell on the upper back, in which the torso descends toward horizontal by pushing the hips back and softening the knees. Primarily trains the posterior chain under eccentric load, building the hamstring and lower back strength that supports the deadlift.",
+      "modelPath": "content/gym/models/good-morning.glb",
+      "defaultClip": "ready",
+      "clips": [
+        {
+          "name": "ready",
+          "durationSeconds": 0.8,
+          "fps": 30
+        },
+        {
+          "name": "lift",
+          "durationSeconds": 2.2,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "hamstrings",
+        "glutes",
+        "back"
+      ],
+      "difficulty": "intermediate",
+      "tags": [
+        "hinge",
+        "compound"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "gym.romanian-deadlift"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Rounding the lower back instead of maintaining a neutral spine throughout"
+        },
+        {
+          "description": "Using too much knee bend, converting the hinge into a squat pattern"
+        }
+      ]
+    },
+    {
+      "id": "gym.bulgarian-split-squat",
+      "name": "Bulgarian Split Squat",
+      "description": "A single-leg squat in which the rear foot is elevated on a bench, isolating the front leg to perform the full movement. The front knee tracks over the foot while the hip descends straight down. Develops unilateral leg strength, hip mobility, and addresses asymmetries between limbs.",
+      "modelPath": "content/gym/models/bulgarian-split-squat.glb",
+      "defaultClip": "ready",
+      "clips": [
+        {
+          "name": "ready",
+          "durationSeconds": 0.8,
+          "fps": 30
+        },
+        {
+          "name": "squat",
+          "durationSeconds": 2.0,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "quadriceps",
+        "glutes",
+        "hip_flexors"
+      ],
+      "difficulty": "intermediate",
+      "tags": [
+        "squat",
+        "compound"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "gym.squat"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Placing the front foot too close to the bench, forcing excessive forward knee travel"
+        },
+        {
+          "description": "Letting the torso collapse forward instead of staying upright with a tall spine"
+        }
+      ]
     }
   ]
 }
