@@ -23,6 +23,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
+import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class BrowseViewModelTest {
@@ -456,6 +457,83 @@ class BrowseViewModelTest {
         val state = vm.uiState.value as BrowseUiState.Ready
         assertEquals(1, state.movementResults.size)
         assertEquals(shouldersMovement.id, state.movementResults.first().id)
+    }
+
+    // ── muscle filter ─────────────────────────────────────────────────────
+
+    @Test
+    fun `toggleMuscleFilter filters disciplines to those with matching muscle movements`() = runTest {
+        val chestMovement = movement("gym", "bench_press").copy(muscles = listOf(MuscleGroup.Chest))
+        val coreMovement = movement("karate", "mae_geri").copy(muscles = listOf(MuscleGroup.Core))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym"), discipline("karate", "Karate")),
+            movementsById = mapOf(chestMovement.id to chestMovement, coreMovement.id to coreMovement)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleMuscleFilter(MuscleGroup.Chest)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.disciplines.size)
+        assertEquals("gym", state.disciplines.first().id)
+        assertEquals(MuscleGroup.Chest, state.selectedMuscle)
+    }
+
+    @Test
+    fun `toggleMuscleFilter selecting same muscle clears the filter`() = runTest {
+        val chestMovement = movement("gym", "bench_press").copy(muscles = listOf(MuscleGroup.Chest))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsById = mapOf(chestMovement.id to chestMovement)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleMuscleFilter(MuscleGroup.Chest)
+        advanceUntilIdle()
+        vm.toggleMuscleFilter(MuscleGroup.Chest)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(null, state.selectedMuscle)
+    }
+
+    @Test
+    fun `clearFilters resets both difficulty and muscle selection`() = runTest {
+        val m = movement("gym", "bench_press")
+            .copy(muscles = listOf(MuscleGroup.Chest), difficulty = Difficulty.BEGINNER)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsById = mapOf(m.id to m)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.BEGINNER)
+        vm.toggleMuscleFilter(MuscleGroup.Chest)
+        advanceUntilIdle()
+        vm.clearFilters()
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(null, state.selectedDifficulty)
+        assertEquals(null, state.selectedMuscle)
+    }
+
+    @Test
+    fun `availableMuscles lists distinct muscle groups from all movements`() = runTest {
+        val m1 = movement("gym", "squat").copy(muscles = listOf(MuscleGroup.Quadriceps, MuscleGroup.Glutes))
+        val m2 = movement("karate", "punch").copy(muscles = listOf(MuscleGroup.Shoulders, MuscleGroup.Quadriceps))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(m1.id to m1, m2.id to m2)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(3, state.availableMuscles.size)
+        assertTrue(MuscleGroup.Quadriceps in state.availableMuscles)
+        assertTrue(MuscleGroup.Glutes in state.availableMuscles)
+        assertTrue(MuscleGroup.Shoulders in state.availableMuscles)
     }
 
     @Test

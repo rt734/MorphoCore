@@ -2,6 +2,7 @@ package com.morphocore.feature.browse.ui
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Settings
@@ -42,6 +44,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.morphocore.domain.Difficulty
 import com.morphocore.domain.Movement
+import com.morphocore.domain.MuscleGroup
 import com.morphocore.feature.browse.BrowseUiState
 import com.morphocore.feature.browse.BrowseViewModel
 
@@ -55,13 +58,14 @@ fun BrowseScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val query by viewModel.query.collectAsStateWithLifecycle()
-    val difficultyFilterActive = (uiState as? BrowseUiState.Ready)?.selectedDifficulty != null
+    val filtersActive = (uiState as? BrowseUiState.Ready)
+        ?.let { it.selectedDifficulty != null || it.selectedMuscle != null } == true
 
     BackHandler(enabled = query.isNotBlank()) {
         viewModel.setQuery("")
     }
-    BackHandler(enabled = difficultyFilterActive && query.isBlank()) {
-        viewModel.clearDifficultyFilter()
+    BackHandler(enabled = filtersActive && query.isBlank()) {
+        viewModel.clearFilters()
     }
 
     Scaffold(
@@ -149,6 +153,26 @@ fun BrowseScreen(
                                                 )
                                             }
                                         }
+                                }
+                            }
+                        }
+                        // Muscle chips
+                        if (state.availableMuscles.isNotEmpty()) {
+                            item {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .horizontalScroll(rememberScrollState())
+                                        .padding(horizontal = 16.dp, vertical = 2.dp),
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    state.availableMuscles.forEach { muscle ->
+                                        FilterChip(
+                                            selected = state.selectedMuscle == muscle,
+                                            onClick = { viewModel.toggleMuscleFilter(muscle) },
+                                            label = { Text(muscle.displayLabel()) }
+                                        )
+                                    }
                                 }
                             }
                         }
@@ -256,6 +280,19 @@ fun BrowseScreen(
             }
         }
     }
+}
+
+private fun MuscleGroup.displayLabel(): String = when (this) {
+    MuscleGroup.Quadriceps  -> "Quads"
+    MuscleGroup.Hamstrings  -> "Hamstrings"
+    MuscleGroup.Glutes      -> "Glutes"
+    MuscleGroup.Core        -> "Core"
+    MuscleGroup.Shoulders   -> "Shoulders"
+    MuscleGroup.Back        -> "Back"
+    MuscleGroup.Chest       -> "Chest"
+    MuscleGroup.Calves      -> "Calves"
+    MuscleGroup.HipFlexors  -> "Hip Flexors"
+    is MuscleGroup.Unknown  -> this.raw.replaceFirstChar { it.uppercaseChar() }
 }
 
 internal fun findHighlightRange(text: String, query: String): IntRange? {
