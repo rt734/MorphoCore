@@ -647,6 +647,119 @@ class BrowseViewModelTest {
         val state = vm.uiState.value as BrowseUiState.Ready
         assertEquals(1, state.movementResults.size)
     }
+
+    // ── loading state ─────────────────────────────────────────────────────
+
+    @Test
+    fun `uiState is Loading when registry state is Loading`() = runTest {
+        val registry = FakeContentRegistry(initialState = RegistryState.Loading)
+        val vm = vm(registry = registry)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        assertIs<BrowseUiState.Loading>(vm.uiState.value)
+    }
+
+    // ── selectedMuscle default ────────────────────────────────────────────
+
+    @Test
+    fun `selectedMuscle is null by default`() = runTest {
+        val vm = vm()
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(null, state.selectedMuscle)
+    }
+
+    // ── tag search ────────────────────────────────────────────────────────
+
+    @Test
+    fun `search matches movements by tag`() = runTest {
+        val withTag = movement("karate", "mae_geri").copy(tags = listOf("kick", "striking"))
+        val withoutTag = movement("karate", "jodan_uke").copy(tags = listOf("block"))
+        val repo = FakeContentRepository(
+            movementsById = mapOf(withTag.id to withTag, withoutTag.id to withoutTag)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("striking")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.movementResults.size)
+        assertEquals(withTag.id, state.movementResults.first().id)
+    }
+
+    // ── availableMuscles edge cases ───────────────────────────────────────
+
+    @Test
+    fun `availableMuscles is empty when no movements exist`() = runTest {
+        val vm = vm()
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(emptyList<MuscleGroup>(), state.availableMuscles)
+    }
+
+    // ── search empty result ───────────────────────────────────────────────
+
+    @Test
+    fun `search yields empty movementResults when query matches nothing`() = runTest {
+        val m = movement("karate", "mae_geri").copy(name = "Front Kick", tags = listOf("kick"))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate")),
+            movementsById = mapOf(m.id to m)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("xyzzy_no_match")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(emptyList(), state.movementResults)
+        assertEquals(emptyList(), state.disciplines)
+    }
+
+    // ── difficulty toggle replacement ─────────────────────────────────────
+
+    @Test
+    fun `toggleDifficultyFilter replaces active difficulty when toggling a different one`() = runTest {
+        val beginnerM = movement("karate", "jab").copy(difficulty = Difficulty.BEGINNER)
+        val advancedM = movement("gym", "planche").copy(difficulty = Difficulty.ADVANCED)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("karate", "Karate"), discipline("gym", "Gym")),
+            movementsById = mapOf(beginnerM.id to beginnerM, advancedM.id to advancedM)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.BEGINNER)
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.ADVANCED)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(Difficulty.ADVANCED, state.selectedDifficulty)
+        assertEquals(1, state.disciplines.size)
+        assertEquals("gym", state.disciplines.first().id)
+    }
+
+    // ── disciplineFilteredCounts single-filter ────────────────────────────
+
+    @Test
+    fun `disciplineFilteredCounts reflects muscle counts when only muscle filter active`() = runTest {
+        val chestM = movement("gym", "bench_press").copy(muscles = listOf(MuscleGroup.Chest))
+        val coreM = movement("gym", "plank").copy(muscles = listOf(MuscleGroup.Core))
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsById = mapOf(chestM.id to chestM, coreM.id to coreM)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleMuscleFilter(MuscleGroup.Chest)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.disciplineFilteredCounts["gym"])
+    }
 }
 
 private open class FakeContentRegistry(
