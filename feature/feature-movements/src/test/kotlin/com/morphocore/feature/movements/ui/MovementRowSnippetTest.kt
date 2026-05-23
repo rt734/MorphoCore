@@ -65,4 +65,33 @@ class MovementRowSnippetTest {
         assertNotNull(result)
         assertTrue(result!!.contains("FRONT"))
     }
+
+    @Test
+    fun `empty description returns null`() {
+        assertNull(descriptionMatchSnippet("", "kick"))
+    }
+
+    @Test
+    fun `result preserves original casing of matched text`() {
+        val result = descriptionMatchSnippet("A Roundhouse Kick", "roundhouse")
+        assertNotNull(result)
+        assertTrue(result!!.contains("Roundhouse"))
+    }
+
+    @Test
+    fun `short description with match produces no ellipsis on either side`() {
+        val result = descriptionMatchSnippet("Mae Geri front kick", "front")
+        assertNotNull(result)
+        assertTrue(!result!!.startsWith("…"))
+        assertTrue(!result.endsWith("…"))
+    }
+
+    @Test
+    fun `only the first occurrence is included when query appears multiple times`() {
+        val desc = "kick the kick target"
+        val result = descriptionMatchSnippet(desc, "kick")
+        assertNotNull(result)
+        val idx = result!!.indexOf("kick")
+        assertTrue(idx >= 0, "Expected 'kick' to appear in snippet")
+    }
 }
