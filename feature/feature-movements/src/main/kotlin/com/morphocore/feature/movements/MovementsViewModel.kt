@@ -79,7 +79,8 @@ class MovementsViewModel @Inject constructor(
                     m.name.lowercase().contains(q) ||
                     m.description.lowercase().contains(q) ||
                     m.tags.any { it.lowercase().contains(q) } ||
-                    m.muscles.any { it.searchToken().contains(q) }
+                    m.muscles.any { it.searchToken().contains(q) } ||
+                    m.commonMistakes.any { it.lowercase().contains(q) }
                 }
             }
         val filtered = afterQuery

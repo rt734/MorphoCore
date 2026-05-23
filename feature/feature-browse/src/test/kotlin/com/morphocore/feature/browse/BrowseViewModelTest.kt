@@ -614,6 +614,25 @@ class BrowseViewModelTest {
     }
 
     @Test
+    fun `search matches movement by common mistake text`() = runTest {
+        val withMistake = movement("karate", "mae_geri")
+            .copy(commonMistakes = listOf("locking the knee at full extension"))
+        val withoutMistake = movement("karate", "jodan_uke")
+            .copy(commonMistakes = emptyList())
+        val repo = FakeContentRepository(
+            movementsById = mapOf(withMistake.id to withMistake, withoutMistake.id to withoutMistake)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("knee")
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(1, state.movementResults.size)
+        assertEquals(withMistake.id, state.movementResults.first().id)
+    }
+
+    @Test
     fun `search matches hip flexors using spaced token`() = runTest {
         val hipMovement = movement("karate", "mae_geri")
             .copy(muscles = listOf(MuscleGroup.HipFlexors))
