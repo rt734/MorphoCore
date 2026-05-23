@@ -112,11 +112,12 @@ fun MovementRow(
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 movement.muscles.take(3).forEach { muscle ->
+                    val label = muscleLabel(muscle)
                     AssistChip(
                         onClick = {},
                         label = {
                             Text(
-                                text = muscleLabel(muscle),
+                                text = highlightedAnnotatedString(label, query),
                                 style = MaterialTheme.typography.labelSmall
                             )
                         }
