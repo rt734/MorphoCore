@@ -390,7 +390,11 @@ private fun MovementSearchResultRow(
         .split('-')
         .joinToString(" ") { it.replaceFirstChar { c -> c.uppercaseChar() } }
     val nameMatches = query.isNotBlank() && findHighlightRange(movement.name, query) != null
-    val snippet = if (!nameMatches) browseDescriptionMatchSnippet(movement.description, query) else null
+    val snippet = if (!nameMatches) {
+        browseDescriptionMatchSnippet(movement.description, query)
+            ?: movement.commonMistakes.firstNotNullOfOrNull { browseDescriptionMatchSnippet(it, query) }
+                ?.let { "Mistake: $it" }
+    } else null
 
     ListItem(
         headlineContent = { Text(highlightedAnnotatedString(movement.name, query)) },
