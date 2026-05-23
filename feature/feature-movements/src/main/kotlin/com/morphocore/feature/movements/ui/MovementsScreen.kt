@@ -352,6 +352,7 @@ fun MovementsScreen(
                                 movements = state.movements,
                                 onMovementSelected = onMovementSelected,
                                 onTagClick = viewModel::toggleTag,
+                                onMuscleClick = viewModel::toggleMuscle,
                                 query = query
                             )
                         } else {
@@ -360,6 +361,7 @@ fun MovementsScreen(
                                     movement = movement,
                                     onClick = { onMovementSelected(movement.id) },
                                     onTagClick = viewModel::toggleTag,
+                                    onMuscleClick = viewModel::toggleMuscle,
                                     query = query,
                                     modifier = Modifier.animateItem()
                                 )
@@ -399,6 +401,7 @@ private fun LazyListScope.difficultyGroupedItems(
     movements: List<com.morphocore.domain.Movement>,
     onMovementSelected: (String) -> Unit,
     onTagClick: (String) -> Unit,
+    onMuscleClick: (com.morphocore.domain.MuscleGroup) -> Unit,
     query: String
 ) {
     val groups = movements.groupBy { it.difficulty }
@@ -435,6 +438,7 @@ private fun LazyListScope.difficultyGroupedItems(
                 movement = movement,
                 onClick = { onMovementSelected(movement.id) },
                 onTagClick = onTagClick,
+                onMuscleClick = onMuscleClick,
                 query = query,
                 modifier = androidx.compose.ui.Modifier.animateItem()
             )

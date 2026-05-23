@@ -73,6 +73,7 @@ fun MovementRow(
     movement: Movement,
     onClick: () -> Unit,
     onTagClick: ((String) -> Unit)? = null,
+    onMuscleClick: ((MuscleGroup) -> Unit)? = null,
     query: String = "",
     modifier: Modifier = Modifier
 ) {
@@ -137,7 +138,7 @@ fun MovementRow(
                 movement.muscles.take(3).forEach { muscle ->
                     val label = muscleLabel(muscle)
                     AssistChip(
-                        onClick = {},
+                        onClick = { onMuscleClick?.invoke(muscle) },
                         label = {
                             Text(
                                 text = highlightedAnnotatedString(label, query),
