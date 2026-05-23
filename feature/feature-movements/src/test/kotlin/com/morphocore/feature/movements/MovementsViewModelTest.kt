@@ -639,6 +639,27 @@ class MovementsViewModelTest {
         val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
         assertEquals(emptySet<String>(), state.selectedTags)
     }
+
+    // ── common mistakes search ────────────────────────────────────────────
+
+    @Test
+    fun `setQuery matches movements by common mistake text`() = runTest {
+        val withMistake = movement("karate", "mae_geri")
+            .copy(commonMistakes = listOf("locking the knee at full extension"))
+        val withoutMistake = movement("karate", "jodan_uke")
+            .copy(commonMistakes = emptyList())
+        val repo = FakeContentRepository(
+            movementsByDiscipline = mapOf("karate" to listOf(withMistake, withoutMistake))
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.setQuery("knee")
+        advanceUntilIdle()
+        val state = assertIs<MovementsUiState.Ready>(vm.uiState.value)
+        assertEquals(1, state.movements.size)
+        assertEquals(withMistake.id, state.movements.first().id)
+    }
 }
 
 private open class FakeContentRegistry(
