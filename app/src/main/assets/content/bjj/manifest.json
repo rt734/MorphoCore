@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "bjj",
+  "disciplineName": "Brazilian Jiu-Jitsu",
+  "description": "Brazilian Jiu-Jitsu is a ground-based martial art and combat sport that teaches a smaller practitioner to control, submit, and survive against a larger opponent through leverage, positional hierarchy, and chokes and joint locks. Unlike striking arts, the outcome is determined by positional dominance — escaping bad positions, achieving good ones, and eventually applying a submission that ends the fight or earns the tap.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "bjj.posture-in-guard",
+      "name": "Posture in Guard",
+      "description": "Posture in guard is the foundational defensive skill for the top player inside an opponent's closed guard. The top player sits upright with a straight spine, hands posted on the opponent's hips or stomach, preventing the guard player from pulling the head down to break posture and initiate sweeps or chokes. Maintaining posture is not passive — it requires constant active pressure downward and inward to prevent the legs from cinching tight.",
+      "modelPath": "content/bjj/models/posture_in_guard.glb",
+      "defaultClip": "posture",
+      "clips": [
+        {"name": "posture", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["guard", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Rounding the lower back and allowing the hips to slide backward, which lets the guard player pull the head down easily"},
+        {"description": "Placing both hands on the opponent's belly instead of posting one hand on the hip to prevent the hip turn that starts sweeps"}
+      ]
+    },
+    {
+      "id": "bjj.shrimping",
+      "name": "Shrimping",
+      "description": "Shrimping — also called hip escape — is the fundamental ground movement of BJJ. From a flat or side-pinned position, the practitioner bridges to one hip, then shoots both legs away while the hips move in the opposite direction, creating the space needed to insert a knee and begin a guard recovery. Every escape from every bad position in BJJ uses shrimping as its mechanical core.",
+      "modelPath": "content/bjj/models/shrimping.glb",
+      "defaultClip": "escape",
+      "clips": [
+        {"name": "escape", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "glutes"],
+      "difficulty": "beginner",
+      "tags": ["movement", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Pushing only with the feet rather than driving the entire hip away from the opponent during the escape"},
+        {"description": "Not turning to the hip first, so the shrimp is performed flat on the back and the legs cannot reach far enough"}
+      ]
+    },
+    {
+      "id": "bjj.closed-guard",
+      "name": "Closed Guard",
+      "description": "Closed guard is the position in which the bottom player wraps both legs around the opponent's waist and locks the ankles behind their back. From here the bottom player controls range, prevents the top player from advancing position, and threatens sweeps and submissions from the ankles up. Despite being the bottom position, closed guard is offensive and dominant — a skilled guard player attacks constantly from here.",
+      "modelPath": "content/bjj/models/closed_guard.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "glutes"],
+      "difficulty": "beginner",
+      "tags": ["guard", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Keeping the legs limp rather than actively squeezing to prevent the top player from posturing up and creating space"},
+        {"description": "Lying flat on the back in guard instead of staying active on the side and hip to maintain dynamic control"}
+      ]
+    },
+    {
+      "id": "bjj.guard-pass-torreando",
+      "name": "Torreando Pass",
+      "description": "The torreando — bullfighter — pass attacks the open guard by gripping both ankles or shins, pushing the legs to one side, and stepping around the legs to achieve side control. The passer never puts their weight on the ground between the legs; instead they remain standing and mobile, redirecting the guard player's legs until an angle opens. It is one of the most versatile passes against multiple guard variations.",
+      "modelPath": "content/bjj/models/guard_pass_torreando.glb",
+      "defaultClip": "pass",
+      "clips": [
+        {"name": "pass", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["guard-pass", "standing"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["bjj.posture-in-guard"],
+      "commonMistakes": [
+        {"description": "Dropping the knees to the ground between the legs, which gives the guard player a knee to push and re-guard"},
+        {"description": "Releasing the ankle grip before stepping around completely, allowing the guard player to hook the leg back in"}
+      ]
+    },
+    {
+      "id": "bjj.armbar-from-guard",
+      "name": "Armbar from Guard",
+      "description": "The armbar from guard is the foundational submission of BJJ. From closed guard the bottom player breaks the top player's posture, pivots the hips perpendicular to the opponent's body, throws one leg across the neck, and extends the hips to hyperextend the trapped elbow joint. The elbow is aligned with the thumb pointing upward so the joint bends against its natural axis. Mastering this submission requires understanding the interplay of hip angle, leg position, and the direction of force.",
+      "modelPath": "content/bjj/models/armbar_from_guard.glb",
+      "defaultClip": "submit",
+      "clips": [
+        {"name": "submit", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "back", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["submission", "armlock"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["bjj.closed-guard"],
+      "commonMistakes": [
+        {"description": "Extending the arm before the hips are fully across, so the lever arm is diagonal and the elbow does not hyperextend cleanly"},
+        {"description": "Allowing the opponent to turn their thumb downward and stack the guard player, escaping the submission"}
+      ]
+    },
+    {
+      "id": "bjj.triangle-choke",
+      "name": "Triangle Choke",
+      "description": "The triangle choke traps one of the opponent's arms inside while the other is outside, then the legs form a figure-four around the neck and trapped shoulder. The choke works by compressing the carotid arteries on both sides of the neck — one compressed by the thigh, the other by the trapped shoulder itself. The angle of the hips and the tightness of the knee behind the head determine whether blood flow is fully cut off.",
+      "modelPath": "content/bjj/models/triangle_choke.glb",
+      "defaultClip": "submit",
+      "clips": [
+        {"name": "submit", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["submission", "choke"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["bjj.closed-guard"],
+      "commonMistakes": [
+        {"description": "Allowing both of the opponent's arms inside the triangle, which blocks the choke and allows them to stack and pass"},
+        {"description": "Not cutting the angle of the hips perpendicular to the opponent's body, so the choke applies pressure on the jaw instead of the carotid"}
+      ]
+    },
+    {
+      "id": "bjj.side-control",
+      "name": "Side Control",
+      "description": "Side control is the dominant pinning position in BJJ achieved after passing the guard, in which the top player lies perpendicular across the opponent's chest with one arm underhooking the neck and the other blocking the hip. Chest pressure drives the opponent into the mat while the knees provide the horizontal base. From side control the top player can attempt submissions directly or transition to mount, north-south, or back control.",
+      "modelPath": "content/bjj/models/side_control.glb",
+      "defaultClip": "pin",
+      "clips": [
+        {"name": "pin", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["control", "pin"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["bjj.guard-pass-torreando"],
+      "commonMistakes": [
+        {"description": "Resting the hips on the mat between the opponent's legs, which allows them to shrimp and re-guard"},
+        {"description": "Allowing the near arm underhook to go too deep so the opponent can frame and escape rather than using it as a neck control"}
+      ]
+    },
+    {
+      "id": "bjj.mount",
+      "name": "Mount",
+      "description": "Mount is the highest-control position in BJJ, with the top player sitting astride the opponent's chest. Both knees squeeze to the opponent's sides and the top player's weight sinks through the hips downward. From mount every major submission family is available — arm locks, chokes, and wrist locks — and the opponent is forced to spend energy defending rather than attacking. Maintaining mount against an active opponent requires constant postural adjustment and weight distribution.",
+      "modelPath": "content/bjj/models/mount.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "hip_flexors"],
+      "difficulty": "intermediate",
+      "tags": ["control", "pin"],
+      "cameraPreset": "side",
+      "prerequisites": ["bjj.side-control"],
+      "commonMistakes": [
+        {"description": "Sitting too high on the chest with feet crossed behind the hips, allowing the opponent to bridge and roll easily"},
+        {"description": "Leaning forward over the opponent which raises the centre of gravity and makes it easy for them to shrimp and push the knee through"}
+      ]
+    },
+    {
+      "id": "bjj.rear-naked-choke",
+      "name": "Rear Naked Choke",
+      "description": "The rear naked choke is applied from back control, threading one arm under the opponent's chin to the opposite shoulder while the other arm locks behind their head in a figure-four. Squeezing the bicep and forearm together compresses both carotid arteries simultaneously. It is the highest-percentage submission in grappling because the opponent cannot see the attack and cannot use strength or posture to escape once the lock is in.",
+      "modelPath": "content/bjj/models/rear_naked_choke.glb",
+      "defaultClip": "submit",
+      "clips": [
+        {"name": "submit", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["submission", "choke"],
+      "cameraPreset": "side",
+      "prerequisites": ["bjj.closed-guard"],
+      "commonMistakes": [
+        {"description": "Placing the arm across the forehead rather than under the chin, applying pressure on the jaw instead of the carotid arteries"},
+        {"description": "Squeezing with the hands rather than with the entire arm, reducing the effective surface area and the compression force"}
+      ]
+    },
+    {
+      "id": "bjj.de-la-riva-guard",
+      "name": "De La Riva Guard",
+      "description": "De La Riva guard is an open guard in which the bottom player wraps one leg around the outside of the top player's near leg while the same-side foot hooks the inner thigh, and the far leg kicks against the far hip. The grip on the sleeve and ankle or collar completes the control system. It is one of the most effective guards against a standing or upright opponent, creating numerous sweeps and back-take entries from a single foundational position.",
+      "modelPath": "content/bjj/models/de_la_riva_guard.glb",
+      "defaultClip": "guard",
+      "clips": [
+        {"name": "guard", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["guard", "open-guard"],
+      "cameraPreset": "side",
+      "prerequisites": ["bjj.shrimping"],
+      "commonMistakes": [
+        {"description": "Wrapping the leg too loosely without curling the foot into the inner thigh, allowing the opponent to step out of the hook"},
+        {"description": "Failing to maintain the sleeve grip simultaneously with the hook, so the guard reduces to a single control point and collapses"}
+      ]
+    },
+    {
+      "id": "bjj.berimbolo",
+      "name": "Berimbolo",
+      "description": "The berimbolo is an inverted rolling technique initiated from De La Riva guard that takes the practitioner upside-down, around the opponent's hip, and behind them for back control. It exploits the opponent's leg position to invert and rotate underneath them in a direction they cannot easily follow. The berimbolo revolutionised modern competition BJJ, turning a defensive open-guard position into a reliable back-take.",
+      "modelPath": "content/bjj/models/berimbolo.glb",
+      "defaultClip": "invert",
+      "clips": [
+        {"name": "invert", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "back"],
+      "difficulty": "advanced",
+      "tags": ["inversion", "back-take"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["bjj.de-la-riva-guard", "bjj.shrimping"],
+      "commonMistakes": [
+        {"description": "Inverting without first securing the heel hook or ankle grip that controls the opponent's leg and defines the rotation direction"},
+        {"description": "Stopping the inversion halfway and staying on the shoulder rather than completing the rotation to reach behind the opponent"}
+      ]
+    },
+    {
+      "id": "bjj.omoplata",
+      "name": "Omoplata",
+      "description": "The omoplata attacks the shoulder joint by trapping the opponent's arm between the bottom player's legs, sitting up, and rotating the hips to apply a spiral rotational force on the shoulder. It can be used as a submission, a sweep, or a back-take depending on how the opponent reacts. The combination of shoulder lock and sweep in a single position makes it one of the most versatile techniques in the guard game.",
+      "modelPath": "content/bjj/models/omoplata.glb",
+      "defaultClip": "submit",
+      "clips": [
+        {"name": "submit", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "back"],
+      "difficulty": "advanced",
+      "tags": ["submission", "shoulder"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["bjj.triangle-choke", "bjj.armbar-from-guard"],
+      "commonMistakes": [
+        {"description": "Allowing the opponent to cartwheel or roll out by not sitting up quickly to post the hand and block the forward movement"},
+        {"description": "Locking the legs before the hip is fully perpendicular to the opponent, applying force on the elbow rather than the shoulder"}
+      ]
+    },
+    {
+      "id": "bjj.heel-hook",
+      "name": "Heel Hook",
+      "description": "The heel hook is an advanced leg-lock submission that rotates the heel in an axis the knee cannot follow, creating rotational stress on the ligaments of the knee rather than compression on the joint. The attacking practitioner controls the leg with both arms in a tight seatbelt-like grip and uses their entire body to rotate while the hands lever the heel. Because the submission can be applied with minimal warning and cause severe ligament damage rapidly, it is restricted to advanced practitioners.",
+      "modelPath": "content/bjj/models/heel_hook.glb",
+      "defaultClip": "submit",
+      "clips": [
+        {"name": "submit", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "hip_flexors", "back"],
+      "difficulty": "advanced",
+      "tags": ["submission", "leg-lock"],
+      "cameraPreset": "side",
+      "prerequisites": ["bjj.de-la-riva-guard", "bjj.mount"],
+      "commonMistakes": [
+        {"description": "Gripping only the heel without controlling the whole leg, allowing the opponent to straighten the knee and remove the rotational leverage"},
+        {"description": "Applying the heel hook with the elbow raised rather than tucked, which directs the force along the calf instead of rotating the heel"}
+      ]
+    },
+    {
+      "id": "bjj.darce-choke",
+      "name": "D'Arce Choke",
+      "description": "The D'Arce choke — a variation of the arm triangle — threads one arm under the opponent's near arm and across the throat, with the other arm clasping behind the opponent's far shoulder to complete a figure-four that compresses both carotid arteries. It is most commonly applied from the front headlock position after a failed double-leg, catching opponents in the transition between wrestling and BJJ positional frameworks.",
+      "modelPath": "content/bjj/models/darce_choke.glb",
+      "defaultClip": "submit",
+      "clips": [
+        {"name": "submit", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "advanced",
+      "tags": ["submission", "choke"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["bjj.side-control", "bjj.rear-naked-choke"],
+      "commonMistakes": [
+        {"description": "Failing to thread the arm deep enough past the throat before clasping, so the choke applies pressure on the jaw rather than the carotid"},
+        {"description": "Allowing the opponent to posture upright during the setup by not immediately applying downward chest pressure to break them flat"}
+      ]
+    },
+    {
+      "id": "bjj.leg-drag-pass",
+      "name": "Leg Drag Pass",
+      "description": "The leg drag pass controls the opponent's far leg by dragging it across the body toward the passer's hip while pivoting to drive the knee to the mat and establish side control. It bypasses most guard configurations by removing the outside leg from the equation and nullifying guard hooks. The leg drag is especially effective against the De La Riva and spider guard because those guards depend on the outside leg being free.",
+      "modelPath": "content/bjj/models/leg_drag_pass.glb",
+      "defaultClip": "pass",
+      "clips": [
+        {"name": "pass", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "quadriceps", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["guard-pass", "control"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["bjj.side-control", "bjj.guard-pass-torreando"],
+      "commonMistakes": [
+        {"description": "Dragging the leg but failing to drop the near hip to the mat, leaving space for the guard player to replace the hook"},
+        {"description": "Releasing the leg before establishing the chest-to-chest side control pin, allowing the opponent to invert and re-guard"}
+      ]
+    }
+  ]
+}
