@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.morphocore.domain.Difficulty
+import com.morphocore.domain.MuscleGroup
 import com.morphocore.feature.movements.MovementsSort
 import com.morphocore.feature.movements.MovementsUiState
 import com.morphocore.feature.movements.MovementsViewModel
@@ -44,6 +45,19 @@ private fun Difficulty.displayLabel(): String = when (this) {
     Difficulty.BEGINNER     -> "Beginner"
     Difficulty.INTERMEDIATE -> "Intermediate"
     Difficulty.ADVANCED     -> "Advanced"
+}
+
+private fun MuscleGroup.displayLabel(): String = when (this) {
+    MuscleGroup.Quadriceps  -> "Quads"
+    MuscleGroup.Hamstrings  -> "Hamstrings"
+    MuscleGroup.Glutes      -> "Glutes"
+    MuscleGroup.Core        -> "Core"
+    MuscleGroup.Shoulders   -> "Shoulders"
+    MuscleGroup.Back        -> "Back"
+    MuscleGroup.Chest       -> "Chest"
+    MuscleGroup.Calves      -> "Calves"
+    MuscleGroup.HipFlexors  -> "Hip Flexors"
+    is MuscleGroup.Unknown  -> this.raw.replaceFirstChar { it.uppercaseChar() }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,7 +72,7 @@ fun MovementsScreen(
     val query by viewModel.query.collectAsStateWithLifecycle()
 
     val filtersActive = (uiState as? MovementsUiState.Ready)
-        ?.let { it.selectedTags.isNotEmpty() || it.selectedDifficulties.isNotEmpty() } == true
+        ?.let { it.selectedTags.isNotEmpty() || it.selectedDifficulties.isNotEmpty() || it.selectedMuscles.isNotEmpty() } == true
 
     BackHandler(enabled = query.isNotBlank()) {
         viewModel.setQuery("")
@@ -178,6 +192,26 @@ fun MovementsScreen(
                             }
                         }
                     }
+                    // Muscle chips
+                    if (state.availableMuscles.isNotEmpty()) {
+                        item {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .horizontalScroll(rememberScrollState())
+                                    .padding(horizontal = 16.dp, vertical = 4.dp),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                state.availableMuscles.forEach { muscle ->
+                                    FilterChip(
+                                        selected = muscle in state.selectedMuscles,
+                                        onClick = { viewModel.toggleMuscle(muscle) },
+                                        label = { Text(muscle.displayLabel()) }
+                                    )
+                                }
+                            }
+                        }
+                    }
                     // Tag chips
                     if (state.availableTags.isNotEmpty()) {
                         item {
@@ -250,7 +284,7 @@ fun MovementsScreen(
                             ) {
                                 val parts = buildList {
                                     if (sortNonDefault) add("Sorted by name")
-                                    val filterCount = state.selectedTags.size + state.selectedDifficulties.size
+                                    val filterCount = state.selectedTags.size + state.selectedDifficulties.size + state.selectedMuscles.size
                                     if (filterCount > 0) add("$filterCount filter${if (filterCount > 1) "s" else ""} active")
                                 }
                                 Text(
