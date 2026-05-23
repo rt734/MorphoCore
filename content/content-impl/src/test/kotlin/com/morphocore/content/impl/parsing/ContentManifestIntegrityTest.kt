@@ -1,5 +1,6 @@
 package com.morphocore.content.impl.parsing
 
+import com.morphocore.domain.Difficulty
 import org.junit.jupiter.api.Assumptions.assumeTrue
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
@@ -126,6 +127,27 @@ class ContentManifestIntegrityTest {
         val result = readManifest(disciplineId) as ParseResult.Success
         result.movements.forEach { m ->
             assertTrue(m.tags.isNotEmpty(), "${m.id} has no tags")
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `every non-beginner movement has at least one prerequisite`(disciplineId: String) {
+        val result = readManifest(disciplineId) as ParseResult.Success
+        result.movements
+            .filter { it.difficulty != Difficulty.BEGINNER }
+            .forEach { m ->
+                assertTrue(m.prerequisites.isNotEmpty(),
+                    "${m.id} is ${m.difficulty} but has no prerequisites")
+            }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["karate", "yoga", "kung-fu", "gym", "calisthenics"])
+    fun `every movement has at least one common mistake`(disciplineId: String) {
+        val result = readManifest(disciplineId) as ParseResult.Success
+        result.movements.forEach { m ->
+            assertTrue(m.commonMistakes.isNotEmpty(), "${m.id} has no common mistakes")
         }
     }
 }

@@ -233,7 +233,9 @@
         "power"
       ],
       "cameraPreset": "side",
-      "prerequisites": [],
+      "prerequisites": [
+        "karate.mae-geri"
+      ],
       "commonMistakes": [
         {
           "description": "Not looking over the shoulder to aim before firing the kick, resulting in poor accuracy."

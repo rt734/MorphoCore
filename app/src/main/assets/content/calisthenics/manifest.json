@@ -74,7 +74,9 @@
         "compound"
       ],
       "cameraPreset": "front",
-      "prerequisites": [],
+      "prerequisites": [
+        "calisthenics.ring-row"
+      ],
       "commonMistakes": [
         {
           "description": "Failing to initiate the pull with scapular depression and retraction, leading to a shoulder-dominant pull that bypasses the lats entirely."
@@ -156,7 +158,9 @@
         "core"
       ],
       "cameraPreset": "side",
-      "prerequisites": [],
+      "prerequisites": [
+        "calisthenics.hollow-body"
+      ],
       "commonMistakes": [
         {
           "description": "Bending the knees to reduce hip flexor demand, which converts the skill into a tuck hold and removes the lever-length challenge central to L-sit progression."
