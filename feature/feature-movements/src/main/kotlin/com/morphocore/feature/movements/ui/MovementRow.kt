@@ -77,7 +77,11 @@ fun MovementRow(
     modifier: Modifier = Modifier
 ) {
     val nameMatches = query.isNotBlank() && findHighlightRange(movement.name, query) != null
-    val snippet = if (!nameMatches) descriptionMatchSnippet(movement.description, query) else null
+    val snippet = if (!nameMatches) {
+        descriptionMatchSnippet(movement.description, query)
+            ?: movement.commonMistakes.firstNotNullOfOrNull { descriptionMatchSnippet(it, query) }
+                ?.let { "Mistake: $it" }
+    } else null
 
     Column(
         modifier = modifier
