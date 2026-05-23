@@ -57,8 +57,14 @@ fun MovementsScreen(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val query by viewModel.query.collectAsStateWithLifecycle()
 
+    val filtersActive = (uiState as? MovementsUiState.Ready)
+        ?.let { it.selectedTags.isNotEmpty() || it.selectedDifficulties.isNotEmpty() } == true
+
     BackHandler(enabled = query.isNotBlank()) {
         viewModel.setQuery("")
+    }
+    BackHandler(enabled = filtersActive && query.isBlank()) {
+        viewModel.clearFilters()
     }
 
     Scaffold(

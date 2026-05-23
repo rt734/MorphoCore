@@ -97,6 +97,10 @@ class BrowseViewModel @Inject constructor(
         _selectedDifficulty.update { if (it == difficulty) null else difficulty }
     }
 
+    fun clearDifficultyFilter() {
+        _selectedDifficulty.value = null
+    }
+
     fun retry() {
         viewModelScope.launch { contentRegistry.refresh() }
     }
