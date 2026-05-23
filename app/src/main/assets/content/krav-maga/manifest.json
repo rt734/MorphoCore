@@ -1,0 +1,295 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "krav-maga",
+  "disciplineName": "Krav Maga",
+  "description": "Krav Maga is an Israeli self-defence system developed for the Israel Defense Forces and refined for civilian use. It emphasises simultaneous defence and counterattack, instinctive responses to real-world threats, and aggressive neutralisation of danger as quickly as possible. Unlike sport-based martial arts, Krav Maga trains explicitly for practical scenarios including weapon threats, grabs, chokes, ground positions, and multiple attackers. Techniques are drawn from boxing, wrestling, judo, and aikido, stripped of sporting rules and reoriented around survival.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "krav-maga.fighting-stance",
+      "name": "Fighting Stance",
+      "description": "The foundational ready position in Krav Maga: feet shoulder-width apart in a staggered stance, weight distributed 60/40 on the rear foot, hands raised to chin height with elbows in to protect the ribs. The body angles at roughly 45 degrees to minimise the target presented to an attacker. Unlike a boxing stance, the hands are open and forward to facilitate both striking and grabbing. This stance must be internalisable under stress, since a practitioner will adopt it automatically in an ambush rather than in a controlled warm-up.",
+      "modelPath": "content/krav-maga/models/fighting_stance.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "footwork", "fundamentals"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Standing square-on to the opponent instead of at an angle, doubling the target area presented to strikes and grabs"},
+        {"description": "Dropping the hands below chin height between exchanges, leaving the jaw and temples unprotected during the moment an incoming strike is most likely"}
+      ]
+    },
+    {
+      "id": "krav-maga.palm-heel-strike",
+      "name": "Palm Heel Strike",
+      "description": "A forward thrust using the heel of an open palm to strike the nose, chin, or throat. The palm heel is favoured in Krav Maga as an introductory strike because it protects the metacarpal bones that commonly fracture in untrained closed-fist punches, while delivering comparable impact force. Driving through with hip extension and full bodyweight transfer keeps the strike structurally sound from any distance. The open hand position also allows for an immediate grab or eye-gouge follow-up, maintaining combative continuity rather than resetting after each individual technique.",
+      "modelPath": "content/krav-maga/models/palm_heel_strike.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "beginner",
+      "tags": ["strike", "palm", "close-range"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Bending the wrist back at the moment of contact rather than keeping it rigid, which dissipates force and risks wrist sprain"},
+        {"description": "Hyperextending the elbow at full extension instead of landing with a slight bend, causing the energy of the strike to peak before it reaches the target"}
+      ]
+    },
+    {
+      "id": "krav-maga.groin-kick",
+      "name": "Groin Kick",
+      "description": "A front kick or knee drive targeting the groin, one of the primary equalising tools against physically larger attackers. The groin kick exploits a physiological vulnerability present regardless of the attacker's size or strength and is designed to create immediate pain compliance, doubling the attacker forward and creating space for escape or a finishing counterattack. In Krav Maga the kick is practised both from kicking distance using the instep and from clinch range using the knee, since real encounters rarely allow the practitioner to choose their range.",
+      "modelPath": "content/krav-maga/models/groin_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["hip-flexors", "quadriceps", "glutes"],
+      "difficulty": "beginner",
+      "tags": ["kick", "low-kick", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Telegraphing the kick by shifting the hip back before firing, giving the attacker time to angle away or protect the target"},
+        {"description": "Striking with the shin instead of the instep or knee depending on range, reducing penetration and wasting the available lever-arm force"}
+      ]
+    },
+    {
+      "id": "krav-maga.hammer-fist",
+      "name": "Hammer Fist",
+      "description": "A downward or lateral strike using the fleshy base of a closed fist — the same surface used to pound a table. The hammer fist is highly effective from clinch range where a straight punch cannot develop proper extension, and from above a downed opponent. The large striking surface and natural wrist alignment make the technique structurally safe for the attacker's hand even without training gloves. Targets include the temple, the back of the neck, and the bridge of the nose. In multi-strike combinations the hammer fist pairs naturally with elbow strikes at the same range.",
+      "modelPath": "content/krav-maga/models/hammer_fist.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "close-range", "clinch"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["krav-maga.fighting-stance"],
+      "commonMistakes": [
+        {"description": "Using only the arm without hip rotation, producing a glancing blow that lacks the bodyweight transfer needed to create meaningful impact at close range"},
+        {"description": "Aiming at the top of the skull instead of the temple or the back of the neck, where the bone is thick enough to absorb the blow without effect"}
+      ]
+    },
+    {
+      "id": "krav-maga.elbow-strike",
+      "name": "Elbow Strike",
+      "description": "A horizontal, diagonal-downward, or upward strike using the point of the elbow at close quarters. The elbow is the hardest natural striking surface on the body and retains full destructive power precisely when range collapses and straight punches can no longer develop. In Krav Maga the elbow is trained in all directions from the same body position so that the appropriate angle emerges automatically from wherever the attacker's head happens to be. The strike is also faster than a punch at close range because the lever arm is shorter, meaning less time to intercept.",
+      "modelPath": "content/krav-maga/models/elbow_strike.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "elbow", "close-range"],
+      "cameraPreset": "side",
+      "prerequisites": ["krav-maga.fighting-stance"],
+      "commonMistakes": [
+        {"description": "Swinging the elbow in a wide arc to build momentum, which takes longer, telegraphs the attack, and surrenders the tight structural integrity that gives the short elbow its power"},
+        {"description": "Not rotating the hips in the same direction as the elbow, cutting power in half and preventing the body from following through if the first contact does not end the exchange"}
+      ]
+    },
+    {
+      "id": "krav-maga.360-defense",
+      "name": "360° Defense",
+      "description": "An instinctive outside blocking system using forearm parries to redirect incoming attacks from eight standard angles — overhead, diagonal, horizontal, and upward sweeps from both sides. Named for the full-circle coverage it provides, the 360 Defense is based on gross motor interception rather than fine-motor precision so that it remains functional under adrenaline. Each block is taught in Krav Maga as an inseparable unit with an immediate counterattack: the blocking arm redirects while the other arm simultaneously strikes, so the attacker has no opportunity to deliver a follow-up before a counterattack is already landing.",
+      "modelPath": "content/krav-maga/models/360_defense.glb",
+      "defaultClip": "block",
+      "clips": [
+        {"name": "block", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "block", "instinctive"],
+      "cameraPreset": "front",
+      "prerequisites": ["krav-maga.fighting-stance"],
+      "commonMistakes": [
+        {"description": "Blocking without a simultaneous counterattack, treating the block as a pause point rather than executing both actions in the same moment and leaving the attacker free to throw a second strike"},
+        {"description": "Using too much range of motion in the blocking arm by swinging it from behind the hip, which takes longer than a compact forearm redirect from a raised guard position"}
+      ]
+    },
+    {
+      "id": "krav-maga.choke-defense-front",
+      "name": "Choke Defense (Front)",
+      "description": "A two-handed pluck technique that breaks a frontal choke by driving both thumbs aggressively into the gap between the attacker's wrists and the practitioner's neck and rotating the wrists outward to break the grip. Krav Maga teaches this defence with simultaneous forward momentum into the attacker rather than a backward lean, because stepping into the attacker eliminates the choking leverage and closes range for an immediate counterattack before the attacker can re-engage. The palm heel strike or knee to the groin are the standard follow-ups taught in the same drill.",
+      "modelPath": "content/krav-maga/models/choke_defense_front.glb",
+      "defaultClip": "pluck",
+      "clips": [
+        {"name": "pluck", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "choke", "grab-defense"],
+      "cameraPreset": "front",
+      "prerequisites": ["krav-maga.fighting-stance", "krav-maga.palm-heel-strike"],
+      "commonMistakes": [
+        {"description": "Pulling the head backward away from the attacker, which tightens the choke by lengthening the neck and allows the attacker's bodyweight to add to the grip force"},
+        {"description": "Trying to insert the thumbs into the attacker's wrist from the outside rather than from the inside of the grip gap, where the bones and tendons that resist the pluck motion are weakest"}
+      ]
+    },
+    {
+      "id": "krav-maga.wrist-release",
+      "name": "Wrist Release",
+      "description": "A rotation-based escape from a single or double wrist grab that exploits the structural weakness of any grip: the gap between the thumb and the fingers. By rotating the wrist toward the attacker's thumb — the weakest direction — while simultaneously stepping offline and pulling, the practitioner breaks the grab before the attacker can apply leverage or a follow-up lock. Wrist releases in Krav Maga are trained in all four directions from both one-handed and two-handed grabs so that the response becomes automatic regardless of which way the attacker's thumb is oriented.",
+      "modelPath": "content/krav-maga/models/wrist_release.glb",
+      "defaultClip": "release",
+      "clips": [
+        {"name": "release", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "grab-defense", "fundamentals"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["krav-maga.fighting-stance"],
+      "commonMistakes": [
+        {"description": "Pulling the arm straight backward against the grip, which directly opposes the strongest direction of the grab and relies on strength rather than leverage"},
+        {"description": "Releasing the grab but remaining in place in front of the attacker, failing to move offline to create distance and prevent an immediate re-grab or follow-up strike"}
+      ]
+    },
+    {
+      "id": "krav-maga.knee-strike",
+      "name": "Knee Strike",
+      "description": "A close-range upward drive of the knee targeting the groin, midsection, or the face of a bent-over opponent. In Krav Maga the knee strike is almost always executed from a clinch by pulling the opponent's head downward with both hands while simultaneously driving the knee upward, matching the forces to maximise impact. The knee is a longer lever than the groin kick and generates more force over a shorter travel distance, making it the preferred tool once range has collapsed below punching distance. Multiple consecutive knee strikes are trained until the opponent is no longer a threat.",
+      "modelPath": "content/krav-maga/models/knee_strike.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["hip-flexors", "quadriceps", "core", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "knee", "clinch"],
+      "cameraPreset": "side",
+      "prerequisites": ["krav-maga.fighting-stance", "krav-maga.groin-kick"],
+      "commonMistakes": [
+        {"description": "Driving the knee horizontally like a roundhouse instead of upward at the target, converting the technique from a penetrating body blow into a glancing lateral push"},
+        {"description": "Releasing the opponent's head before the knee lands, allowing them to straighten up and absorb the impact with the torso rather than the face"}
+      ]
+    },
+    {
+      "id": "krav-maga.bear-hug-defense",
+      "name": "Bear Hug Defense",
+      "description": "An escape from a rear bear hug with arms pinned to the sides — one of the most physically controlling attacks an untrained person can apply. The Krav Maga defence uses a sudden weight drop by bending the knees and widening the stance, which both lowers the centre of gravity below the attacker's grip point and creates slack in the bear hug. This is immediately followed by a heel stomp, groin strike backward with the hand, or head butt backward, softening the grip before the practitioner pivots and disengages. The drop is the critical element: resistance alone cannot overcome a larger attacker's grip.",
+      "modelPath": "content/krav-maga/models/bear_hug_defense.glb",
+      "defaultClip": "escape",
+      "clips": [
+        {"name": "escape", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "quadriceps", "hip-flexors"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "grab-defense", "rear-attack"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["krav-maga.groin-kick", "krav-maga.fighting-stance"],
+      "commonMistakes": [
+        {"description": "Pushing the elbows outward against the attacker's arms rather than dropping the entire bodyweight downward, which relies on strength and fails against a significantly larger attacker"},
+        {"description": "Pausing after breaking the grip rather than immediately delivering counterattacks and disengaging, allowing the attacker to re-establish the grab before the practitioner has turned to face them"}
+      ]
+    },
+    {
+      "id": "krav-maga.side-kick",
+      "name": "Side Kick",
+      "description": "A powerful lateral push-kick using the blade and heel of the foot, targeting the knee joint or midsection to create or maintain distance. The side kick is used in Krav Maga primarily as a structural kick against the knee — attacking a joint that cannot be conditioned away — rather than as a scoring technique. The hip drives fully through the kick, with the support foot pivoting to allow complete hip extension. Against an advancing attacker, a side kick to the knee can stop forward momentum and create enough space to escape or transition to a follow-up.",
+      "modelPath": "content/krav-maga/models/side_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hip-flexors", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "side-kick", "distance-control"],
+      "cameraPreset": "side",
+      "prerequisites": ["krav-maga.fighting-stance", "krav-maga.groin-kick"],
+      "commonMistakes": [
+        {"description": "Letting the supporting foot point directly away from the target rather than pivoting 90 degrees, which blocks the hip from extending fully and cuts the kick's power significantly"},
+        {"description": "Striking with the heel instead of the blade of the foot when targeting the knee joint, reducing contact area precision and missing the ligamentous structures that make the technique effective"}
+      ]
+    },
+    {
+      "id": "krav-maga.knife-defense",
+      "name": "Knife Defense",
+      "description": "A simultaneous block-and-control response to an overhead knife attack in which the forearm intercepts and redirects the weapon arm while the other hand grabs the attacker's wrist to secure the blade. This is immediately followed by multiple counterattacks and a weapon arm control or disarm. Krav Maga treats all knife defences as high-risk scenarios where injury to the defender is considered a realistic probability, so the emphasis is on getting off the line of attack, controlling the weapon arm with two hands as quickly as possible, and striking aggressively until the attacker can no longer continue. Controlled laboratory disarms without counterattacks are specifically avoided in training.",
+      "modelPath": "content/krav-maga/models/knife_defense.glb",
+      "defaultClip": "defend",
+      "clips": [
+        {"name": "defend", "durationSeconds": 1.4, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "advanced",
+      "tags": ["defense", "weapon-defense", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["krav-maga.360-defense", "krav-maga.hammer-fist"],
+      "commonMistakes": [
+        {"description": "Attempting to grab the weapon or the weapon hand before redirecting the attacking arm's energy, engaging the blade before the line of attack has been moved"},
+        {"description": "Blocking without simultaneously counterattacking, treating the block as a pause that allows the attacker to wind up for a second stabbing motion while the defender resets"}
+      ]
+    },
+    {
+      "id": "krav-maga.gun-front-defense",
+      "name": "Gun Front Defense",
+      "description": "A two-phase response to a firearm pointed at the front of the body: a lateral rotation of the body combined with a forearm redirect moves the muzzle offline, while the hands simultaneously grip the barrel-side wrist. The off-the-line-of-fire body rotation is the single non-negotiable element — without it, grabbing the weapon merely positions the hand in front of the barrel. Once the weapon line is cleared, counterattacks are delivered and the weapon is stripped by rotating the barrel toward the attacker's fingers, the weak direction of a handgun grip. This technique is the most stress-inoculated in the Krav Maga curriculum because the stakes of hesitation are uniquely high.",
+      "modelPath": "content/krav-maga/models/gun_front_defense.glb",
+      "defaultClip": "defend",
+      "clips": [
+        {"name": "defend", "durationSeconds": 1.6, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "advanced",
+      "tags": ["defense", "weapon-defense", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["krav-maga.360-defense", "krav-maga.choke-defense-front"],
+      "commonMistakes": [
+        {"description": "Reaching for the barrel before stepping offline, placing the hand directly in front of the muzzle and increasing danger rather than reducing it"},
+        {"description": "Not delivering immediate and continuous counterattacks after the redirect, allowing the attacker time to regain weapon control or draw a secondary weapon"}
+      ]
+    },
+    {
+      "id": "krav-maga.ground-kick-off",
+      "name": "Ground Kick-Off",
+      "description": "A defensive technique for managing a standing attacker from a supine ground position using continuous front and side kicks to the knees and midsection. The practitioner supports their weight on one hand and the opposite hip, orbiting around the support hand using a hip-propelled swing to continuously face the approaching attacker. Kicks are delivered with full leg extension to the knee or lower body to stop forward advance and create enough space to recover to the feet. The technique is studied in Krav Maga because ground positions are common outcomes of trips, pushes, and chases, and passivity on the ground against a standing attacker is catastrophic.",
+      "modelPath": "content/krav-maga/models/ground_kick_off.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "hip-flexors", "quadriceps", "glutes"],
+      "difficulty": "advanced",
+      "tags": ["ground-fighting", "defense", "recovery"],
+      "cameraPreset": "side",
+      "prerequisites": ["krav-maga.side-kick", "krav-maga.groin-kick"],
+      "commonMistakes": [
+        {"description": "Remaining stationary on the ground without orbiting to continuously face the attacker, allowing them to circle to the practitioner's head or blind side"},
+        {"description": "Failing to push back up to the feet using the support hand once the attacker has been stopped or distanced, remaining in the vulnerable ground position longer than necessary"}
+      ]
+    },
+    {
+      "id": "krav-maga.clinch-to-takedown",
+      "name": "Clinch to Takedown",
+      "description": "A double-underhook clinch position transitioned into a rear trip or dump takedown, used when prolonged striking is no longer sustainable or when the attacker initiates a grab that cannot be easily broken. The double underhooks neutralise the attacker's punching arms and the hip-to-hip contact provides the mechanical leverage for the trip or lift. Critically, Krav Maga's finish position for the takedown differs from sport grappling: the practitioner disengages immediately after putting the attacker down rather than following them to the ground, reflecting the possibility of multiple attackers or a weapon on the downed attacker.",
+      "modelPath": "content/krav-maga/models/clinch_to_takedown.glb",
+      "defaultClip": "clinch",
+      "clips": [
+        {"name": "clinch", "durationSeconds": 1.0, "fps": 30},
+        {"name": "throw", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["core", "back", "glutes", "quadriceps", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["takedown", "clinch", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["krav-maga.knee-strike", "krav-maga.bear-hug-defense"],
+      "commonMistakes": [
+        {"description": "Pulling backward to execute the trip rather than driving through the attacker with hip pressure, which relies on the practitioner's strength and fails against heavier opponents"},
+        {"description": "Following the attacker to the ground after the takedown rather than disengaging and returning to a standing position, creating a one-on-one ground fight that is dangerous in any scenario involving additional threats"}
+      ]
+    }
+  ]
+}
