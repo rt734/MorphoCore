@@ -506,6 +506,116 @@
         }
       ],
       "description": "A static hold with the body horizontal and parallel to the ground supported only by straight arms. One of the most demanding calisthenics skills, requiring years of systematic progressive training."
+    },
+    {
+      "id": "calisthenics.skin-the-cat",
+      "name": "Skin the Cat",
+      "description": "A hanging shoulder-mobility drill in which the legs are brought up, through, and behind the body while hanging from a bar or rings, then reversed. Develops an exceptional range of motion in the shoulder girdle and builds the posterior chain strength needed for levers and iron cross work.",
+      "modelPath": "content/calisthenics/models/skin-the-cat.glb",
+      "defaultClip": "swing",
+      "clips": [
+        {
+          "name": "swing",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "back",
+        "shoulders",
+        "core"
+      ],
+      "difficulty": "intermediate",
+      "tags": [
+        "pull",
+        "flexibility"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "calisthenics.pull-up"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Using momentum to swing through instead of controlling each phase"
+        },
+        {
+          "description": "Allowing the elbows to flare out rather than keeping the arms externally rotated"
+        }
+      ]
+    },
+    {
+      "id": "calisthenics.back-lever",
+      "name": "Back Lever",
+      "description": "A horizontal hold in which the body is suspended face-down, parallel to the ground, from a bar or rings by the arms extended overhead. The entire posterior chain and shoulder girdle must resist gravity simultaneously. Considered the entry-level horizontal lever before moving to the front lever.",
+      "modelPath": "content/calisthenics/models/back-lever.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "back",
+        "shoulders",
+        "core",
+        "glutes"
+      ],
+      "difficulty": "advanced",
+      "tags": [
+        "hold",
+        "advanced"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "calisthenics.skin-the-cat"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Allowing the hips to drop, breaking the straight line from shoulders to feet"
+        },
+        {
+          "description": "Bending the elbows instead of maintaining fully extended arms throughout"
+        }
+      ]
+    },
+    {
+      "id": "calisthenics.tuck-planche",
+      "name": "Tuck Planche",
+      "description": "A horizontal hold with the body suspended in front of the hands by the arms, with the knees tucked toward the chest to reduce the moment arm. The shoulders push forward past the wrists while the entire body fights gravity with no support from the legs.",
+      "modelPath": "content/calisthenics/models/tuck-planche.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "shoulders",
+        "chest",
+        "core"
+      ],
+      "difficulty": "advanced",
+      "tags": [
+        "hold",
+        "advanced"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "calisthenics.push-up",
+        "calisthenics.l-sit"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Not protacting the scapulae enough, causing the hips to stay too high"
+        },
+        {
+          "description": "Holding the breath instead of breathing steadily throughout the hold"
+        }
+      ]
     }
   ]
 }

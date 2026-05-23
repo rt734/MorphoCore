@@ -485,6 +485,130 @@
         }
       ],
       "description": "A quick lead-hand jab that closes distance and sets up combinations. Speed and timing are prioritized over power, making it a critical distancing and disruption tool."
+    },
+    {
+      "id": "karate.mae-tobi-geri",
+      "name": "Jumping Front Kick",
+      "description": "An airborne version of the front kick executed by leaping off the rear leg and chambering the front knee before extending. The additional height increases reach and momentum, making it effective against taller opponents or as a surprise technique.",
+      "modelPath": "content/karate/models/mae_tobi_geri.glb",
+      "defaultClip": "ready",
+      "clips": [
+        {
+          "name": "ready",
+          "durationSeconds": 0.8,
+          "fps": 30
+        },
+        {
+          "name": "kick",
+          "durationSeconds": 1.4,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "quadriceps",
+        "hip_flexors",
+        "core",
+        "calves"
+      ],
+      "difficulty": "advanced",
+      "tags": [
+        "kick",
+        "jump"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "karate.mae-geri"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Telegraphing the jump by bending the knees too slowly before takeoff"
+        },
+        {
+          "description": "Failing to chamber the knee fully before the kick extends"
+        }
+      ]
+    },
+    {
+      "id": "karate.nagashi-uke",
+      "name": "Flowing Block",
+      "description": "A sweeping parry that redirects an incoming strike by flowing the arm outward in a circular arc. Unlike a hard block, nagashi-uke uses the attacker's momentum against them, making it energy-efficient and suitable for continuous counter-attacking.",
+      "modelPath": "content/karate/models/nagashi_uke.glb",
+      "defaultClip": "ready",
+      "clips": [
+        {
+          "name": "ready",
+          "durationSeconds": 0.6,
+          "fps": 30
+        },
+        {
+          "name": "block",
+          "durationSeconds": 1.0,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "shoulders",
+        "back",
+        "core"
+      ],
+      "difficulty": "intermediate",
+      "tags": [
+        "block",
+        "defense"
+      ],
+      "cameraPreset": "front",
+      "prerequisites": [
+        "karate.jodan-uke"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Using a rigid stop rather than flowing through the arc"
+        },
+        {
+          "description": "Crossing the centreline and exposing the body"
+        }
+      ]
+    },
+    {
+      "id": "karate.haito-uchi",
+      "name": "Ridge Hand Strike",
+      "description": "A strike delivered with the inner ridge of the hand, formed by folding the thumb inward and extending the fingers. The weapon surface is the bony ridge along the index finger's base, and strikes target the temple, neck, or bridge of the nose.",
+      "modelPath": "content/karate/models/haito_uchi.glb",
+      "defaultClip": "ready",
+      "clips": [
+        {
+          "name": "ready",
+          "durationSeconds": 0.6,
+          "fps": 30
+        },
+        {
+          "name": "strike",
+          "durationSeconds": 0.9,
+          "fps": 30
+        }
+      ],
+      "muscles": [
+        "shoulders",
+        "chest",
+        "core"
+      ],
+      "difficulty": "intermediate",
+      "tags": [
+        "strike",
+        "hand"
+      ],
+      "cameraPreset": "front",
+      "prerequisites": [
+        "karate.gyaku-zuki"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Allowing the thumb to protrude, risking injury on impact"
+        },
+        {
+          "description": "Swinging the arm without rotating the hips, losing power"
+        }
+      ]
     }
   ]
 }

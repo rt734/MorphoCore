@@ -493,6 +493,112 @@
         }
       ],
       "description": "An arm balance requiring core engagement and the confidence to shift weight past the tipping point. Develops wrist strength and spatial awareness as the entry point to advanced arm balances."
+    },
+    {
+      "id": "yoga.cat-cow",
+      "name": "Cat-Cow Flow",
+      "description": "A rhythmic spinal mobilisation moving between two complementary positions. Cat arches the spine upward while the chin drops; Cow lets the belly descend as the chest lifts. Coordinating each transition with the breath warms the spine and establishes the breath-movement link foundational to all yoga.",
+      "modelPath": "content/yoga/models/cat_cow.glb",
+      "defaultClip": "flow",
+      "clips": [
+        {
+          "name": "flow",
+          "durationSeconds": 4.0,
+          "fps": 24
+        }
+      ],
+      "muscles": [
+        "back",
+        "core"
+      ],
+      "difficulty": "beginner",
+      "tags": [
+        "warmup",
+        "fundamental"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {
+          "description": "Moving the head independently instead of letting it follow the natural spinal curve"
+        },
+        {
+          "description": "Rushing the transitions instead of linking each movement to an inhale or exhale"
+        }
+      ]
+    },
+    {
+      "id": "yoga.plank",
+      "name": "Plank Pose",
+      "description": "A straight-arm hold with the body parallel to the floor, supported by hands and toes. The entire posterior chain and core must engage simultaneously to maintain a rigid plank shape. It is the foundational upper-body strengthening posture that precedes arm balances and transitions between poses.",
+      "modelPath": "content/yoga/models/plank.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {
+          "name": "hold",
+          "durationSeconds": 5.0,
+          "fps": 24
+        }
+      ],
+      "muscles": [
+        "core",
+        "shoulders",
+        "chest"
+      ],
+      "difficulty": "beginner",
+      "tags": [
+        "strength",
+        "fundamental"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "yoga.downward-dog"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Letting the hips sag or pike upward, breaking the straight line from head to heel"
+        },
+        {
+          "description": "Shifting the shoulders forward past the wrists instead of stacking them directly above"
+        }
+      ]
+    },
+    {
+      "id": "yoga.wheel-pose",
+      "name": "Wheel Pose",
+      "description": "A full spinal backbend in which the body forms an arched bridge, balanced on hands and feet with the torso reaching upward. Demands simultaneous shoulder flexibility, thoracic extension, and hip flexor length. One of the deepest backbends in the Hatha yoga canon.",
+      "modelPath": "content/yoga/models/wheel_pose.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {
+          "name": "hold",
+          "durationSeconds": 3.0,
+          "fps": 24
+        }
+      ],
+      "muscles": [
+        "back",
+        "shoulders",
+        "glutes",
+        "quadriceps"
+      ],
+      "difficulty": "advanced",
+      "tags": [
+        "backbend",
+        "strength"
+      ],
+      "cameraPreset": "side",
+      "prerequisites": [
+        "yoga.bridge"
+      ],
+      "commonMistakes": [
+        {
+          "description": "Externally rotating the feet, which closes the hip and strains the lower back"
+        },
+        {
+          "description": "Failing to press the chest forward through the arms, collapsing into a passive arch"
+        }
+      ]
     }
   ]
 }
