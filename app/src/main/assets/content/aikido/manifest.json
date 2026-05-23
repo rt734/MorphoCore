@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "aikido",
+  "disciplineName": "Aikido",
+  "description": "Aikido is a modern Japanese martial art founded by Morihei Ueshiba that redirects an attacker's force rather than opposing it, using circular motions, joint locks, and throws to neutralise aggression. Unlike competitive combat sports, aikido has no sporting competition — its techniques are studied for self-defence, philosophical development, and the cultivation of harmonious connection between partners. The art is famous for its flowing, spherical movements and its insistence that the goal is to protect both oneself and one's attacker.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "aikido.hanmi",
+      "name": "Hanmi",
+      "description": "Hanmi is the triangular stance of aikido — one foot forward and one back at 45 degrees, weight distributed evenly, and the leading hand extended gently forward. Unlike combative stances that square the body for maximum force, hanmi presents a narrow profile that minimises the target area while positioning the body to pivot and enter in any direction. The name means half-body and reflects the principle that presenting the full body to an attacker is structurally vulnerable.",
+      "modelPath": "content/aikido/models/hanmi.glb",
+      "defaultClip": "stance",
+      "clips": [
+        {"name": "stance", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Placing the feet too close together along the centreline, eliminating the triangular base that gives hanmi its structural stability"},
+        {"description": "Tensing the shoulders and raised hand rather than remaining relaxed and responsive, which prevents the sensory connection to an incoming force"}
+      ]
+    },
+    {
+      "id": "aikido.ukemi-mae",
+      "name": "Mae Ukemi",
+      "description": "Mae ukemi is the forward rolling breakfall — the safety technique that allows the aikidoka to receive and absorb a forward throw without injury. The practitioner rolls diagonally across the back of one arm, over the shoulder blades, and to the opposite foot in a smooth diagonal arc that dissipates the momentum of a throw into circular motion. Confidence in ukemi is what allows a student to receive powerful throws safely and is prerequisite to learning any throwing technique.",
+      "modelPath": "content/aikido/models/ukemi_mae.glb",
+      "defaultClip": "roll",
+      "clips": [
+        {"name": "roll", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "beginner",
+      "tags": ["ukemi", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Rolling straight down the spine rather than diagonally, which compresses the vertebrae instead of distributing the momentum across the shoulder arc"},
+        {"description": "Stopping in a compact ball on the mat rather than continuing into a standing position, breaking the momentum that makes the roll safe"}
+      ]
+    },
+    {
+      "id": "aikido.irimi",
+      "name": "Irimi",
+      "description": "Irimi — entering — is the foundational movement principle of aikido in which the aikidoka steps directly into the space beside an attacker rather than retreating from the attack. The entry moves to the outside of the attacker's arm, placing the aikidoka behind the attacker's line of force at the moment of greatest commitment. Irimi is not a technique but a movement principle that underlies dozens of throws and joint locks.",
+      "modelPath": "content/aikido/models/irimi.glb",
+      "defaultClip": "enter",
+      "clips": [
+        {"name": "enter", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "calves"],
+      "difficulty": "beginner",
+      "tags": ["footwork", "fundamental"],
+      "cameraPreset": "top",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Stepping backward away from the attack rather than entering forward alongside the attacker, which leaves the aikidoka in the attacker's power zone"},
+        {"description": "Entering in a straight line rather than a curved arc that places the body beside and slightly behind the attacker's shoulder"}
+      ]
+    },
+    {
+      "id": "aikido.ikkyo",
+      "name": "Ikkyo",
+      "description": "Ikkyo — first control — is the foundational joint control technique of aikido, applying a downward spiral to the attacker's arm that takes the wrist and elbow toward the mat in a controlled pin. The technique blends with an incoming strike by catching the arm at the wrist and elbow simultaneously, then redirecting the arm's direction in a large circle downward. Once on the mat, the attacker's elbow is pressed gently into the floor to maintain control.",
+      "modelPath": "content/aikido/models/ikkyo.glb",
+      "defaultClip": "control",
+      "clips": [
+        {"name": "control", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["joint-control", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["aikido.irimi"],
+      "commonMistakes": [
+        {"description": "Using arm strength to force the arm downward rather than guiding it along its natural arc with body weight and rotation"},
+        {"description": "Allowing the attacker's elbow to bend during the spiral, which lets them roll out of the technique rather than being taken to the mat"}
+      ]
+    },
+    {
+      "id": "aikido.nikyo",
+      "name": "Nikyo",
+      "description": "Nikyo — second control — is a wrist-lock technique that applies a rotational force to the wrist joint by folding it inward while the forearm is supinated. The lock is highly specific: the wrist is folded precisely at 90 degrees in the direction of wrist extension while simultaneously rotating the forearm, creating an immediate compliance response from the nervous system. It is often used as a standing wrist lock to control an attacker.",
+      "modelPath": "content/aikido/models/nikyo.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["joint-control", "wrist"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["aikido.ikkyo"],
+      "commonMistakes": [
+        {"description": "Applying the wrist fold without simultaneously supinating the forearm, making the lock feel uncomfortable but not structurally compelling"},
+        {"description": "Using pain to force compliance rather than the geometric precision that makes the nervous system respond regardless of pain tolerance"}
+      ]
+    },
+    {
+      "id": "aikido.sankyo",
+      "name": "Sankyo",
+      "description": "Sankyo — third control — is a wrist-and-forearm joint lock that spirals the entire arm from the wrist through the elbow to the shoulder in one unified rotational structure. The practitioner takes the wrist in a specific grip that allows the forearm to be rotated and elevated simultaneously, locking the shoulder and elbow as a consequence of the wrist position. Unlike nikyo's sharp compliance response, sankyo creates a gradual escalating pressure that draws the attacker up onto their toes.",
+      "modelPath": "content/aikido/models/sankyo.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["joint-control", "wrist"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["aikido.nikyo"],
+      "commonMistakes": [
+        {"description": "Separating the wrist from the elbow during the technique so the arm is controlled at two disconnected points instead of as a unified spiral"},
+        {"description": "Pushing down on the wrist rather than lifting the elbow to create the upward rotational spiral that characterises a true sankyo"}
+      ]
+    },
+    {
+      "id": "aikido.shiho-nage",
+      "name": "Shiho Nage",
+      "description": "Shiho nage — four-direction throw — traps the attacker's arm in a sword-cutting arc that is simultaneously extended and folded, producing a throw that can project the attacker in any of four directions depending on how the entry is made. The practitioner enters beside the attacker, raises the trapped arm overhead in an arc, and drives it down in a cutting motion that takes the attacker's weight off balance and folds them downward. It is one of the most visually distinctive throws in aikido.",
+      "modelPath": "content/aikido/models/shiho_nage.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "fundamental"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["aikido.irimi"],
+      "commonMistakes": [
+        {"description": "Stopping the cutting arc at shoulder height rather than continuing it all the way to the attacker's centre of gravity below the hip"},
+        {"description": "Pulling the arm downward using bicep strength rather than maintaining a connected structure that transmits body weight through the arm as the cut descends"}
+      ]
+    },
+    {
+      "id": "aikido.tenchi-nage",
+      "name": "Tenchi Nage",
+      "description": "Tenchi nage — heaven and earth throw — is a two-handed technique in which one hand sweeps upward past the attacker's face while the other sweeps downward into the attacker's hip, splitting their body in two vectors simultaneously. The opposing forces destabilise the attacker's structure completely in one instant, producing a large fall. The name refers to heaven (upward hand) and earth (downward hand) — the practitioner momentarily becomes a conduit between the two.",
+      "modelPath": "content/aikido/models/tenchi_nage.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["throw"],
+      "cameraPreset": "front",
+      "prerequisites": ["aikido.shiho-nage"],
+      "commonMistakes": [
+        {"description": "Applying the upward and downward forces sequentially rather than simultaneously, which gives the attacker time to react to each individual force"},
+        {"description": "Directing the upward hand toward the face rather than past it, pushing rather than unbalancing and converting the throw into a strike"}
+      ]
+    },
+    {
+      "id": "aikido.kotegaeshi",
+      "name": "Kotegaeshi",
+      "description": "Kotegaeshi — wrist reversal — is a throwing wrist lock that combines a specific outward wrist fold with a body drop that takes the attacker to the mat. The practitioner takes the attacker's wrist, rotates it outward and downward in a precise arc that both locks the wrist and unbalances the entire body, then follows the attacker to the mat to apply a pin. The wrist fold is so mechanically compelling that even forewarned practitioners cannot easily resist the structural unbalancing it creates.",
+      "modelPath": "content/aikido/models/kotegaeshi.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "wrist"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["aikido.nikyo"],
+      "commonMistakes": [
+        {"description": "Folding the wrist inward (toward the forearm) rather than outward (away from the forearm), which is a different lock that does not produce the throwing unbalancing effect"},
+        {"description": "Stopping the throw when the attacker begins to fall rather than continuing through and down to ensure a complete take-down rather than a stumble"}
+      ]
+    },
+    {
+      "id": "aikido.irimi-nage",
+      "name": "Irimi Nage",
+      "description": "Irimi nage — entering throw — enters directly into the attacker's structure and uses a sweeping hand across their face or chest to unbalance and project them rearward. The practitioner enters behind the attacker's arm, redirects their momentum with a circular hand movement, and then steps through the attacker's line to sweep them backward. It is sometimes called the 20-year technique because its subtlety — entering without resisting force — takes a lifetime to perfect.",
+      "modelPath": "content/aikido/models/irimi_nage.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["throw"],
+      "cameraPreset": "side",
+      "prerequisites": ["aikido.irimi", "aikido.shiho-nage"],
+      "commonMistakes": [
+        {"description": "Pushing the sweeping hand directly into the attacker's face or neck rather than sweeping across the front of the body to create the rearward rotation"},
+        {"description": "Entering at the same speed as the attacker rather than at a slightly different tempo that creates the connection needed to redirect their momentum"}
+      ]
+    },
+    {
+      "id": "aikido.kaiten-nage",
+      "name": "Kaiten Nage",
+      "description": "Kaiten nage — rotary throw — pins one of the attacker's arms downward behind their own back while the practitioner enters and pivots, causing the attacker to roll over their own pinned arm in a large rotating arc. The arm is simultaneously pressured from behind by the practitioner's body weight while being guided downward and forward. The technique is remarkable because it uses the attacker's own arm as the throwing mechanism.",
+      "modelPath": "content/aikido/models/kaiten_nage.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.2, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["throw", "rotation"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["aikido.irimi-nage", "aikido.kotegaeshi"],
+      "commonMistakes": [
+        {"description": "Pulling the pinned arm upward behind the back rather than pressing it downward, which removes the forward momentum that makes the rolling throw possible"},
+        {"description": "Stopping the entry pivot halfway so the attacker never reaches the off-balance point where gravity and the arm position combine to produce the throw"}
+      ]
+    },
+    {
+      "id": "aikido.kokyu-ho",
+      "name": "Kokyu Ho",
+      "description": "Kokyu ho — breath power exercise — is a fundamental seated training exercise in which two practitioners connect at the wrists and one attempts to take the other to the mat using only breath coordination, body extension, and connection rather than muscular force. It is a direct training exercise for kokyu — the harmonious timing of breath, body weight, and extension that underlies the power of all aikido techniques. Regular kokyu ho practice reveals whether a technique relies on leverage or on genuine connection.",
+      "modelPath": "content/aikido/models/kokyu_ho.glb",
+      "defaultClip": "exercise",
+      "clips": [
+        {"name": "exercise", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back"],
+      "difficulty": "advanced",
+      "tags": ["exercise", "kokyu"],
+      "cameraPreset": "front",
+      "prerequisites": ["aikido.sankyo", "aikido.tenchi-nage"],
+      "commonMistakes": [
+        {"description": "Pushing directly against the partner's resistance rather than extending energy in an arc that redirects the connected structure"},
+        {"description": "Using breath as an afterthought rather than the primary organising principle — the movement should arise from the breath, not precede it"}
+      ]
+    },
+    {
+      "id": "aikido.koshi-nage",
+      "name": "Koshi Nage",
+      "description": "Koshi nage — hip throw — enters under the attacker's centre of gravity by loading their hips onto the practitioner's hip, then using a hip extension and forward lean to project them over in a large arc. Unlike judo's o goshi which emphasises the hip drive forward, aikido's koshi nage emphasises entering under and rotating so the attacker flows over rather than being pushed over, reflecting the principle that the attacker's own committed energy provides the throw.",
+      "modelPath": "content/aikido/models/koshi_nage.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["throw", "hip"],
+      "cameraPreset": "side",
+      "prerequisites": ["aikido.irimi-nage", "aikido.tenchi-nage"],
+      "commonMistakes": [
+        {"description": "Stopping the entry before the practitioner's hip has fully passed through and under the attacker's centre of gravity, so the load is partial and the throw incomplete"},
+        {"description": "Pulling the attacker onto the hip using arm strength rather than entering underneath by bending the knees and extending the hip upward beneath them"}
+      ]
+    },
+    {
+      "id": "aikido.aiki-otoshi",
+      "name": "Aiki Otoshi",
+      "description": "Aiki otoshi — aiki drop — is a leg-sweeping drop technique in which the practitioner ducks deeply under the attacker's arm, hooks both of the attacker's legs at the knee, and rises to lift them before dropping them to the mat with a spiraling rotation. The deep crouch of the entry and the explosive rise make it the most physically demanding of the core aikido throws, combining the body mechanics of a squatting deadlift with the rotational entry of a spiral.",
+      "modelPath": "content/aikido/models/aiki_otoshi.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["throw", "leg"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["aikido.koshi-nage", "aikido.kaiten-nage"],
+      "commonMistakes": [
+        {"description": "Ducking under without bending the knees deeply enough so the entry is half-height and the shoulder merely hits the thigh rather than the hands hooking behind both knees"},
+        {"description": "Lifting with the back rather than the legs, which is both unsafe for the practitioner and fails to generate the rotational component of the spiral drop"}
+      ]
+    },
+    {
+      "id": "aikido.suwari-waza-ikkyo",
+      "name": "Suwari Waza Ikkyo",
+      "description": "Suwari waza ikkyo is the seated version of ikkyo, performed entirely from seiza — the formal kneeling position. Both practitioner and attacker sit and the entire technique must be executed by walking on the knees without rising. Because all reaching with the legs is removed, the practitioner must develop hip mobility, knee walking coordination, and body weight usage from a dramatically reduced base. It was traditionally practised in situations where drawing a sword from seated position was required.",
+      "modelPath": "content/aikido/models/suwari_waza_ikkyo.glb",
+      "defaultClip": "control",
+      "clips": [
+        {"name": "control", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "quadriceps", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["suwari-waza", "joint-control"],
+      "cameraPreset": "side",
+      "prerequisites": ["aikido.ikkyo", "aikido.kokyu-ho"],
+      "commonMistakes": [
+        {"description": "Lifting off the knees during the technique rather than remaining in contact with the mat throughout, losing the grounded base the exercise is specifically designed to develop"},
+        {"description": "Using arm extension to compensate for reduced reach rather than moving the entire body-on-knees to maintain the correct structural relationship to the attacker's arm"}
+      ]
+    }
+  ]
+}
