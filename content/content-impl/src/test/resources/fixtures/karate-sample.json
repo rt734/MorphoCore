@@ -2,11 +2,13 @@
   "schemaVersion": "1.0",
   "disciplineId": "karate",
   "disciplineName": "Karate",
+  "description": "A Japanese martial art emphasizing powerful strikes, precise blocks, and disciplined form. Develops full-body coordination, explosive speed, and mental focus through solo kata practice and partner drills.",
   "iconPath": "content/karate/icon.png",
   "movements": [
     {
       "id": "karate.roundhouse_kick",
       "name": "Roundhouse Kick",
+      "description": "A powerful circular kick delivered with the instep or shin. The kicking leg rotates around the hip while the supporting foot pivots to generate full-body power through the target.",
       "modelPath": "content/karate/roundhouse_kick.glb",
       "defaultClip": "kick_loop",
       "clips": [
@@ -23,6 +25,7 @@
     {
       "id": "karate.front_kick",
       "name": "Front Kick",
+      "description": "A straight thrust kick targeting the midsection or chin. The knee chambers high before the lower leg snaps outward, striking with the ball of the foot.",
       "modelPath": "content/karate/front_kick.glb",
       "defaultClip": "kick_loop",
       "clips": [
@@ -30,11 +33,15 @@
       ],
       "muscles": ["quadriceps", "hip_flexors"],
       "difficulty": "BEGINNER",
-      "tags": ["strike", "kick"]
+      "tags": ["strike", "kick"],
+      "commonMistakes": [
+        { "description": "Leaning back too far, reducing power transfer" }
+      ]
     },
     {
       "id": "karate.side_block",
       "name": "Side Block",
+      "description": "An outward forearm sweep that redirects an incoming strike to the outside line. The blocking arm rotates from the centreline while the other hand retracts to the hip.",
       "modelPath": "content/karate/side_block.glb",
       "defaultClip": "block_loop",
       "clips": [
@@ -42,7 +49,10 @@
       ],
       "muscles": ["shoulders", "back"],
       "difficulty": "BEGINNER",
-      "tags": ["block", "defense"]
+      "tags": ["block", "defense"],
+      "commonMistakes": [
+        { "description": "Using arm strength alone instead of rotating the torso" }
+      ]
     }
   ]
 }

@@ -148,8 +148,62 @@ class ManifestParserTest {
 
     @Test
     fun `movement with no commonMistakes has empty list`() {
+        val json = """
+        {
+          "schemaVersion": "1.0", "disciplineId": "x", "disciplineName": "X",
+          "movements": [{
+            "id": "x.move", "name": "Move", "modelPath": "x.glb",
+            "defaultClip": "idle",
+            "clips": [{"name":"idle","durationSeconds":1.0,"fps":30}],
+            "muscles": ["core"], "difficulty": "BEGINNER"
+          }]
+        }
+        """.trimIndent()
+        val result = parseManifest("test:x", json) as ParseResult.Success
+        assertEquals(emptyList(), result.movements.first().commonMistakes)
+    }
+
+    @Test
+    fun `discipline description is parsed`() {
         val result = parseManifest("test:karate", karateJson) as ParseResult.Success
-        val frontKick = result.movements.first { it.id == "karate.front_kick" }
-        assertEquals(emptyList(), frontKick.commonMistakes)
+        assertTrue(result.discipline.description.isNotBlank())
+    }
+
+    @Test
+    fun `movement description is parsed`() {
+        val result = parseManifest("test:karate", karateJson) as ParseResult.Success
+        val kick = result.movements.first { it.id == "karate.roundhouse_kick" }
+        assertTrue(kick.description.isNotBlank())
+    }
+
+    @Test
+    fun `discipline with no description field defaults to empty string`() {
+        val json = """{"schemaVersion":"1.0","disciplineId":"x","disciplineName":"X","movements":[]}"""
+        val result = parseManifest("test:x", json) as ParseResult.Success
+        assertEquals("", result.discipline.description)
+    }
+
+    @Test
+    fun `movement with no description field defaults to empty string`() {
+        val json = """
+        {
+          "schemaVersion": "1.0", "disciplineId": "x", "disciplineName": "X",
+          "movements": [{
+            "id": "x.move", "name": "Move", "modelPath": "x.glb",
+            "defaultClip": "idle",
+            "clips": [{"name":"idle","durationSeconds":1.0,"fps":30}],
+            "muscles": ["core"],
+            "difficulty": "BEGINNER"
+          }]
+        }
+        """.trimIndent()
+        val result = parseManifest("test:x", json) as ParseResult.Success
+        assertEquals("", result.movements.first().description)
+    }
+
+    @Test
+    fun `yoga discipline description is parsed`() {
+        val result = parseManifest("test:yoga", yogaJson) as ParseResult.Success
+        assertTrue(result.discipline.description.isNotBlank())
     }
 }
