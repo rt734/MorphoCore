@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "muay-thai",
+  "disciplineName": "Muay Thai",
+  "description": "Thailand's national combat sport uses fists, elbows, knees, and shins as weapons, earning it the title 'art of eight limbs'. Training develops explosive striking power, body conditioning, and clinch-work mastery through pad sessions and sparring.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "muay-thai.thai-guard",
+      "name": "Thai Guard",
+      "description": "The Muay Thai guard holds both hands high at forehead level, elbows angled downward to protect the ribs, and chin tucked. The high hand position shields against head kicks while the tight elbow alignment blocks body strikes. It is the foundation from which all Muay Thai attacks and defenses originate.",
+      "modelPath": "content/muay-thai/models/thai_guard.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core"],
+      "difficulty": "beginner",
+      "tags": ["guard", "fundamental"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Dropping the hands below chin level, exposing the head to kicks"},
+        {"description": "Flaring the elbows outward and leaving the ribs unprotected"}
+      ]
+    },
+    {
+      "id": "muay-thai.teep",
+      "name": "Teep (Push Kick)",
+      "description": "The teep is a long-range defensive weapon that pushes opponents away using the ball or heel of the foot. The knee chambers high before the leg drives straight forward, disrupting an opponent's rhythm and resetting the fighting distance. It can be used offensively to the body or as a lead to maintain space.",
+      "modelPath": "content/muay-thai/models/teep.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "kick", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip_flexors", "core"],
+      "difficulty": "beginner",
+      "tags": ["kick", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Failing to chamber the knee high enough before extending, reducing reach and power"},
+        {"description": "Leaning backward excessively and losing balance on the standing leg"}
+      ]
+    },
+    {
+      "id": "muay-thai.roundhouse-kick",
+      "name": "Thai Roundhouse Kick",
+      "description": "The Muay Thai roundhouse travels in a wide arc and lands with the shin rather than the instep, maximising the impact surface and bone density. The hip rotation is complete and committed, with the standing foot pivoting fully as the kicking leg swings through in a sweeping motion.",
+      "modelPath": "content/muay-thai/models/roundhouse_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves"],
+      "difficulty": "beginner",
+      "tags": ["kick", "fundamental"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Using the instep instead of the shin, which is weaker and more vulnerable to injury"},
+        {"description": "Not pivoting the standing foot fully, blocking hip rotation and reducing power significantly"}
+      ]
+    },
+    {
+      "id": "muay-thai.jab",
+      "name": "Jab",
+      "description": "In Muay Thai the jab is used primarily to establish distance, disrupt the opponent's guard, and set up more powerful weapons. Thrown from the Thai guard with the lead hand, it is shorter and sharper than a boxing jab, often serving as a range-finder before a kick or knee combination.",
+      "modelPath": "content/muay-thai/models/jab.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.4, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "combination"],
+      "cameraPreset": "front",
+      "prerequisites": ["muay-thai.thai-guard"],
+      "commonMistakes": [
+        {"description": "Over-extending the arm and dropping the rear hand away from the chin"},
+        {"description": "Leaning forward into the punch rather than rotating from the shoulder"}
+      ]
+    },
+    {
+      "id": "muay-thai.cross",
+      "name": "Cross",
+      "description": "The rear-hand cross in Muay Thai serves as a bridging punch to create openings for knees and elbows rather than as a finishing blow on its own. Full hip and shoulder rotation generate the power, and the punch is typically followed immediately by an elbow or clinch entry.",
+      "modelPath": "content/muay-thai/models/cross.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.4, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "combination"],
+      "cameraPreset": "front",
+      "prerequisites": ["muay-thai.thai-guard"],
+      "commonMistakes": [
+        {"description": "Dropping the lead guard while the cross extends, inviting a counter"},
+        {"description": "Stopping the combination after the cross instead of following with an elbow or knee"}
+      ]
+    },
+    {
+      "id": "muay-thai.left-hook",
+      "name": "Left Hook",
+      "description": "The lead-hand hook in Muay Thai typically precedes an elbow of the same arm or a right kick following the combination. The tight arc and rapid hip snap make it a close-range power strike. Its role is often to draw the guard inward before a kick lands to the open body or head.",
+      "modelPath": "content/muay-thai/models/left_hook.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.4, "fps": 30},
+        {"name": "punch", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "hook"],
+      "cameraPreset": "front",
+      "prerequisites": ["muay-thai.jab"],
+      "commonMistakes": [
+        {"description": "Telegraphing the hook with a wide wind-up that gives the opponent time to react"},
+        {"description": "Failing to protect the chin with the rear hand while the hook travels"}
+      ]
+    },
+    {
+      "id": "muay-thai.knee-strike",
+      "name": "Knee Strike",
+      "description": "The knee strike is a signature Muay Thai weapon, delivered by driving the bent knee sharply upward into the opponent's midsection, thighs, or face. The hips thrust forward at the moment of impact to maximise force. Knees are especially effective from the clinch where kicking is difficult.",
+      "modelPath": "content/muay-thai/models/knee_strike.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "strike", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["hip_flexors", "glutes", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["knee", "close-range"],
+      "cameraPreset": "side",
+      "prerequisites": ["muay-thai.teep"],
+      "commonMistakes": [
+        {"description": "Failing to pull the opponent into the knee, reducing both accuracy and power"},
+        {"description": "Driving the knee outward instead of straight upward along the centreline"}
+      ]
+    },
+    {
+      "id": "muay-thai.straight-elbow",
+      "name": "Straight Elbow",
+      "description": "The straight elbow thrusts the point of the elbow forward in a linear path, like a short punch. It is most effective at close range when the opponent is too near for a full punch to develop power. The elbow lands with devastating force on the temple, jaw, or bridge of the nose.",
+      "modelPath": "content/muay-thai/models/straight_elbow.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.4, "fps": 30},
+        {"name": "strike", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["elbow", "close-range"],
+      "cameraPreset": "front",
+      "prerequisites": ["muay-thai.jab"],
+      "commonMistakes": [
+        {"description": "Using the forearm instead of the point of the elbow, losing the cutting edge"},
+        {"description": "Not rotating the hip into the strike, producing an arm-only movement with minimal power"}
+      ]
+    },
+    {
+      "id": "muay-thai.horizontal-elbow",
+      "name": "Horizontal Elbow",
+      "description": "The horizontal elbow swings in a wide arc at head height, like a hook but striking with the elbow point instead of the fist. It is a powerful close-range weapon that can open cuts above the eye or stun the opponent. The forearm stays parallel to the floor through the entire arc.",
+      "modelPath": "content/muay-thai/models/horizontal_elbow.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.4, "fps": 30},
+        {"name": "strike", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["elbow", "close-range"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["muay-thai.straight-elbow"],
+      "commonMistakes": [
+        {"description": "Allowing the elbow to drop below horizontal, turning the strike into a glancing blow"},
+        {"description": "Over-rotating past the target without controlling the follow-through"}
+      ]
+    },
+    {
+      "id": "muay-thai.clinch",
+      "name": "Muay Thai Clinch",
+      "description": "The clinch is a controlled close-range position in which both fighters' necks are controlled with cupped hands. From inside the clinch, knees and short elbows are delivered to the body and head. The clinch is unique to Muay Thai and requires specific neck-wrestling skills to control and attack simultaneously.",
+      "modelPath": "content/muay-thai/models/clinch.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.5, "fps": 30},
+        {"name": "entry", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["clinch", "close-range"],
+      "cameraPreset": "front",
+      "prerequisites": ["muay-thai.knee-strike"],
+      "commonMistakes": [
+        {"description": "Gripping too low on the neck and losing control of the opponent's posture"},
+        {"description": "Standing upright in the clinch instead of keeping a low, bent-knee base for balance"}
+      ]
+    },
+    {
+      "id": "muay-thai.body-kick",
+      "name": "Body Kick",
+      "description": "The body kick targets the floating ribs and liver using the same shin-striking motion as the head roundhouse but aimed lower. It accumulates damage over a fight, slowing an opponent and forcing guard reactions that open the head. Timing the body kick after a feinted head attack is a core Muay Thai strategy.",
+      "modelPath": "content/muay-thai/models/body_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "body-shot"],
+      "cameraPreset": "side",
+      "prerequisites": ["muay-thai.roundhouse-kick"],
+      "commonMistakes": [
+        {"description": "Aiming too low and catching the elbow rather than landing on the floating ribs"},
+        {"description": "Telegraphing the kick by chambering the hip obviously before the leg swings"}
+      ]
+    },
+    {
+      "id": "muay-thai.spinning-elbow",
+      "name": "Spinning Elbow",
+      "description": "An advanced technique in which the fighter spins away from the opponent before reversing direction and driving the rear elbow backward in a tight arc. The spin generates rotational momentum that converts directly into elbow speed and force. Timing and misdirection are critical; the strike is most effective when the opponent cannot track the spin.",
+      "modelPath": "content/muay-thai/models/spinning_elbow.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "strike", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "advanced",
+      "tags": ["elbow", "spinning"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["muay-thai.horizontal-elbow"],
+      "commonMistakes": [
+        {"description": "Spinning too slowly and losing the element of surprise before the elbow arrives"},
+        {"description": "Failing to keep the eyes on the opponent during the spin, losing the target"}
+      ]
+    },
+    {
+      "id": "muay-thai.flying-knee",
+      "name": "Flying Knee",
+      "description": "The flying knee closes distance explosively by leaping off the rear foot while driving the lead knee upward at head height. The airborne phase adds momentum and height, allowing the knee to strike targets that would be unreachable from the ground. It is a powerful finishing technique often thrown when an opponent retreats.",
+      "modelPath": "content/muay-thai/models/flying_knee.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "strike", "durationSeconds": 1.3, "fps": 30}
+      ],
+      "muscles": ["hip_flexors", "glutes", "quadriceps", "core"],
+      "difficulty": "advanced",
+      "tags": ["knee", "jump"],
+      "cameraPreset": "side",
+      "prerequisites": ["muay-thai.knee-strike", "muay-thai.clinch"],
+      "commonMistakes": [
+        {"description": "Telegraphing the jump by looking at the target or shifting weight too slowly before leaping"},
+        {"description": "Not chambering the knee high enough during the jump, landing with the thigh instead of the point"}
+      ]
+    },
+    {
+      "id": "muay-thai.jump-kick",
+      "name": "Jump Roundhouse Kick",
+      "description": "The jump roundhouse combines the standard Thai roundhouse with a leaping takeoff from the rear foot, adding height and momentum to a technique already renowned for power. It is most effective as a surprise finishing blow after establishing a rhythm of grounded roundhouses that condition the opponent's timing.",
+      "modelPath": "content/muay-thai/models/jump_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "kick", "durationSeconds": 1.4, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves"],
+      "difficulty": "advanced",
+      "tags": ["kick", "jump"],
+      "cameraPreset": "side",
+      "prerequisites": ["muay-thai.roundhouse-kick", "muay-thai.body-kick"],
+      "commonMistakes": [
+        {"description": "Jumping straight up instead of slightly forward, failing to close distance on the target"},
+        {"description": "Landing with the kicking foot before the standing foot, collapsing balance on impact"}
+      ]
+    },
+    {
+      "id": "muay-thai.spinning-back-kick",
+      "name": "Spinning Back Kick",
+      "description": "The spinning back kick turns the body away from the opponent before the heel drives directly backward in a linear thrust. The rotation builds momentum while misdirecting the opponent's guard, and the heel arrives with the full body weight committed behind it. It is a powerful long-range technique targeting the midsection.",
+      "modelPath": "content/muay-thai/models/spinning_back_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "ready", "durationSeconds": 0.5, "fps": 30},
+        {"name": "kick", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "core"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning"],
+      "cameraPreset": "side",
+      "prerequisites": ["muay-thai.body-kick"],
+      "commonMistakes": [
+        {"description": "Looking away from the target for too long during the spin, losing accuracy"},
+        {"description": "Using the sole of the foot instead of the heel, significantly reducing penetrating power"}
+      ]
+    }
+  ]
+}
