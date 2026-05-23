@@ -130,4 +130,42 @@ class ContentRepositoryImplTest {
         val names = repo.observeAllMovements().first().map { it.name }
         assertEquals(names.sorted(), names)
     }
+
+    @Test
+    fun `observeMovements returns empty list for unknown disciplineId`() = runTest {
+        val dispatcher = StandardTestDispatcher(testScheduler)
+        val registry = buildRegistry(mapOf("karate" to karateJson), dispatcher, this)
+        val repo = ContentRepositoryImpl(registry)
+        registry.refresh()
+        advanceUntilIdle()
+        val movements = repo.observeMovements("nonexistent").first()
+        assertTrue(movements.isEmpty())
+    }
+
+    @Test
+    fun `getMovement returns null before refresh even if manifest is present`() = runTest {
+        val registry = buildRegistry(mapOf("karate" to karateJson), StandardTestDispatcher(testScheduler), this)
+        val repo = ContentRepositoryImpl(registry)
+        assertNull(repo.getMovement("karate.roundhouse_kick"))
+    }
+
+    @Test
+    fun `observeDisciplines reflects updated content after second refresh`() = runTest {
+        val dispatcher = StandardTestDispatcher(testScheduler)
+        val registry = ContentRegistryImpl(
+            sources = listOf(
+                FakeAssetSource(id = "src1", manifests = mapOf("karate" to karateJson)),
+                FakeAssetSource(id = "src2", manifests = mapOf("yoga" to yogaJson))
+            ),
+            ioDispatcher = dispatcher,
+            scope = this
+        )
+        val repo = ContentRepositoryImpl(registry)
+        registry.refresh()
+        advanceUntilIdle()
+        assertEquals(2, repo.observeDisciplines().first().size)
+        registry.refresh()
+        advanceUntilIdle()
+        assertEquals(2, repo.observeDisciplines().first().size)
+    }
 }
