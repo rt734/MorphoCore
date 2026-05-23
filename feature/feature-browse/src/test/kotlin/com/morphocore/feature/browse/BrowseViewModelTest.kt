@@ -597,6 +597,23 @@ class BrowseViewModelTest {
     }
 
     @Test
+    fun `discipline list is empty when active filter matches no movements`() = runTest {
+        val beginnerMovement = movement("gym", "squat").copy(difficulty = Difficulty.BEGINNER)
+        val repo = FakeContentRepository(
+            disciplines = listOf(discipline("gym", "Gym")),
+            movementsById = mapOf(beginnerMovement.id to beginnerMovement)
+        )
+        val vm = vm(repo = repo)
+        backgroundScope.launch { vm.uiState.collect {} }
+        advanceUntilIdle()
+        vm.toggleDifficultyFilter(Difficulty.ADVANCED)
+        advanceUntilIdle()
+        val state = vm.uiState.value as BrowseUiState.Ready
+        assertEquals(emptyList<com.morphocore.domain.Discipline>(), state.disciplines)
+        assertEquals(Difficulty.ADVANCED, state.selectedDifficulty)
+    }
+
+    @Test
     fun `search matches hip flexors using spaced token`() = runTest {
         val hipMovement = movement("karate", "mae_geri")
             .copy(muscles = listOf(MuscleGroup.HipFlexors))

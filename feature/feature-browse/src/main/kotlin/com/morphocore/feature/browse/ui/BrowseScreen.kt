@@ -206,16 +206,41 @@ fun BrowseScreen(
                             }
                         }
                         // Normal mode: show discipline cards with spacing
-                        items(state.disciplines, key = { it.id }) { discipline ->
-                            val breakdown = state.disciplineBreakdowns[discipline.id] ?: emptyMap()
-                            val filteredCount = state.disciplineFilteredCounts[discipline.id]
-                            Box(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
-                                DisciplineCard(
-                                    discipline = discipline,
-                                    difficultyBreakdown = breakdown,
-                                    filteredMovementCount = filteredCount,
-                                    onClick = { onDisciplineSelected(discipline.id) }
-                                )
+                        if (state.disciplines.isEmpty() && activeFilterCount > 0) {
+                            item {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 16.dp, vertical = 32.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Column(
+                                        horizontalAlignment = Alignment.CenterHorizontally,
+                                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                                    ) {
+                                        Text(
+                                            text = "No disciplines match your filters",
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                        TextButton(onClick = viewModel::clearFilters) {
+                                            Text("Clear filters")
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            items(state.disciplines, key = { it.id }) { discipline ->
+                                val breakdown = state.disciplineBreakdowns[discipline.id] ?: emptyMap()
+                                val filteredCount = state.disciplineFilteredCounts[discipline.id]
+                                Box(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
+                                    DisciplineCard(
+                                        discipline = discipline,
+                                        difficultyBreakdown = breakdown,
+                                        filteredMovementCount = filteredCount,
+                                        onClick = { onDisciplineSelected(discipline.id) }
+                                    )
+                                }
                             }
                         }
                     } else {
