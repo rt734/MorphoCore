@@ -16,7 +16,8 @@ sealed class BrowseUiState {
         val selectedDifficulty: Difficulty? = null,
         val disciplineBreakdowns: Map<String, Map<Difficulty, Int>> = emptyMap(),
         val availableMuscles: List<MuscleGroup> = emptyList(),
-        val selectedMuscle: MuscleGroup? = null
+        val selectedMuscle: MuscleGroup? = null,
+        val disciplineMuscleBreakdowns: Map<String, Map<MuscleGroup, Int>> = emptyMap()
     ) : BrowseUiState()
     data class Error(val message: String) : BrowseUiState()
 }
