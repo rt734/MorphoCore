@@ -35,7 +35,9 @@
         "legs"
       ],
       "cameraPreset": "side",
-      "prerequisites": [],
+      "prerequisites": [
+        "gym.hip-thrust"
+      ],
       "commonMistakes": [
         {
           "description": "Allowing the knees to track inward (valgus collapse) during the ascent, placing high shear stress on the ACL and medial collateral ligament."
@@ -118,7 +120,9 @@
         "upper-body"
       ],
       "cameraPreset": "three_quarter",
-      "prerequisites": [],
+      "prerequisites": [
+        "gym.face-pull"
+      ],
       "commonMistakes": [
         {
           "description": "Flaring the elbows to 90 degrees relative to the torso, which places excessive anterior shear on the glenohumeral joint and strains the rotator cuff."
@@ -159,7 +163,9 @@
         "bodyweight"
       ],
       "cameraPreset": "front",
-      "prerequisites": [],
+      "prerequisites": [
+        "gym.cable-row"
+      ],
       "commonMistakes": [
         {
           "description": "Using a kipping or swinging motion to generate momentum, removing tension from the lats and placing sudden rotational stress on the shoulder joint at the top."
@@ -199,7 +205,9 @@
         "overhead"
       ],
       "cameraPreset": "side",
-      "prerequisites": [],
+      "prerequisites": [
+        "gym.face-pull"
+      ],
       "commonMistakes": [
         {
           "description": "Hyperextending the lumbar spine to push the chest forward under heavy load, compensating for limited thoracic mobility and compressing the lumbar discs."
@@ -240,7 +248,9 @@
         "posterior-chain"
       ],
       "cameraPreset": "side",
-      "prerequisites": [],
+      "prerequisites": [
+        "gym.cable-row"
+      ],
       "commonMistakes": [
         {
           "description": "Jerking the weight up with the lower back rather than initiating the pull with the elbows, risking spinal injury."
@@ -281,7 +291,9 @@
         "bodyweight"
       ],
       "cameraPreset": "side",
-      "prerequisites": [],
+      "prerequisites": [
+        "gym.bench-press"
+      ],
       "commonMistakes": [
         {
           "description": "Flaring the elbows outward excessively, placing the shoulder joint in an impingement-prone position."

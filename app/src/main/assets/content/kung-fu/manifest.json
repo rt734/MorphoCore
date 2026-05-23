@@ -313,7 +313,9 @@
         "close-range"
       ],
       "cameraPreset": "three_quarter",
-      "prerequisites": [],
+      "prerequisites": [
+        "kung-fu.straight-punch"
+      ],
       "commonMistakes": [
         {
           "description": "Using full fist contact instead of the second knuckle row, losing the concentrated impact of the technique."
