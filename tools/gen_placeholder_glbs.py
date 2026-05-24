@@ -37,7 +37,7 @@ def main():
     assets_root = os.path.join(repo_root, "app", "src", "main", "assets")
     content_root = os.path.join(assets_root, "content")
 
-    disciplines = ["karate", "kung-fu", "yoga", "calisthenics", "gym", "boxing", "muay-thai", "pilates", "judo", "wrestling", "bjj", "taekwondo", "kickboxing", "aikido", "hapkido", "krav-maga", "capoeira", "wing-chun"]
+    disciplines = ["karate", "kung-fu", "yoga", "calisthenics", "gym", "boxing", "muay-thai", "pilates", "judo", "wrestling", "bjj", "taekwondo", "kickboxing", "aikido", "hapkido", "krav-maga", "capoeira", "wing-chun", "silat"]
     glb_data = make_minimal_glb()
     created = 0
     skipped = 0
