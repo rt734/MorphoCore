@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "sambo",
+  "disciplineName": "SAMBO",
+  "description": "SAMBO (an acronym from the Russian Samozashchita Bez Oruzhiya — 'self-defence without weapons') is a Soviet-era combat sport and martial art developed in the 1920s–30s by Viktor Spiridonov and Vasily Oshchepkov, who synthesised hundreds of international wrestling and martial arts systems — including judo, freestyle wrestling, Greco-Roman wrestling, and Central Asian folk wrestling — into a single ruleset optimised for Soviet military and law enforcement training. SAMBO is unique among major grappling arts in that it allows virtually all leg-lock submissions (ankle locks, heel hooks, knee bars) that BJJ does not permit in gi competition, while conducting all competition without the gi in a sambo kurtka (a short canvas jacket with loops on the lapels for gripping). Combat SAMBO extends the sport ruleset to include strikes and is considered one of the direct predecessors of MMA as a competitive format. The core SAMBO philosophy is integration without prejudice — every effective technique from any source is evaluated for practical utility in the sambo context and adopted or discarded on that basis alone, creating a system defined by functional efficiency rather than stylistic heritage.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "sambo.sambo-stance",
+      "name": "SAMBO Stance",
+      "description": "The SAMBO fighting stance — a low, forward-leaning athletic posture with feet shoulder-width apart, knees bent, hips low, and both arms extended forward to grip the opponent's kurtka lapels or sleeves, optimised for the simultaneous offensive and defensive use of throws, leg attacks, and defensive wrestling from the moment of engagement. SAMBO stance is more forward-leaning than judo stance and lower than boxing stance, reflecting the discipline's emphasis on explosive entry throws and the necessity of defending against leg locks that attack from below: the low hip position makes single-leg and double-leg entries shorter and the hip-escape required to counter them easier. The grip — both hands on the opponent's kurtka — is the primary tactical tool before a throw: changing grip position, breaking the opponent's grip, and establishing the specific grip combination that sets up the intended throw are often decided in the first few seconds of contact and determine which practitioner throws first.",
+      "modelPath": "content/sambo/models/sambo_stance.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hamstrings", "core", "back"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamentals", "grip"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Standing upright rather than maintaining the forward lean and low hip position, raising the centre of gravity and making entry throws longer and more easily countered"},
+        {"description": "Extending the arms fully to keep the opponent at a distance rather than actively fighting for grip position, surrendering the first-mover advantage that establishing the correct grip creates"}
+      ]
+    },
+    {
+      "id": "sambo.ukemi",
+      "name": "Ukemi (SAMBO Breakfall)",
+      "description": "The SAMBO breakfall — the protective falling technique that allows a practitioner to land safely after being thrown, distributing impact across the arm and back rather than concentrating it on the vulnerable wrist, elbow, or skull. Ukemi in SAMBO is derived from judo practice but adapted for the harder surfaces common in sambo training: the slap of the arm against the mat must be powerful enough to absorb the shock of the throw and signal the legal breakfall, since competition rules consider a fall completed when both shoulder blades touch simultaneously. SAMBO ukemi practice trains both forward and backward falls, since sambo throws include forward projections, hip throws, and backward leg-reap techniques that produce different fall trajectories. Developing reliable ukemi is not defensive passivity — it is the confidence foundation that allows a practitioner to commit to aggressive throws without fear of landing badly when the throw is countered.",
+      "modelPath": "content/sambo/models/ukemi.glb",
+      "defaultClip": "fall",
+      "clips": [
+        {"name": "fall", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["falling", "safety", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Extending the hand to break the fall rather than slapping the entire arm flat against the mat, concentrating all impact force on the wrist joint and risking fracture under the high-speed landings that powerful throws produce"},
+        {"description": "Tensing the neck and trying to lift the head during the fall rather than tucking the chin to the chest, allowing the back of the skull to strike the mat if the arm-slap timing is slightly late"}
+      ]
+    },
+    {
+      "id": "sambo.grip-fighting",
+      "name": "Grip Fighting",
+      "description": "The systematic contest for kurtka control that precedes every SAMBO throw — the series of two-hand grip establishments, grip breaks, sleeve controls, and collar manipulations that determine positional advantage before the entry to a throw begins. Grip fighting in SAMBO is more dynamic than judo because the kurtka's short hem means collar grips over the elbow are unavailable, directing gripping battles to the lapel, upper sleeve, and wrist areas. An ideal SAMBO grip for a hip throw places one hand on the opponent's lapel and the other on the sleeve above the elbow; for an outside leg-reap the ideal grip is high on both lapels; for a single-leg entry the grip is abandoned entirely. Teaching grip fighting as a discrete skill rather than as an incidental activity before throws separates successful SAMBO practitioners from those with good throws but poor outcomes — a practitioner who cannot establish their desired grip will rarely land their preferred throw.",
+      "modelPath": "content/sambo/models/grip_fighting.glb",
+      "defaultClip": "grip",
+      "clips": [
+        {"name": "grip", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "core", "chest"],
+      "difficulty": "beginner",
+      "tags": ["grip", "control", "fundamentals"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Using only strength to hold established grips rather than breaking and re-establishing grips tactically to set up throws, becoming predictable to experienced opponents who recognise the grip configuration and anticipate the intended throw"},
+        {"description": "Fighting for an opponent's grip to prevent any throw rather than fighting to establish the practitioner's own preferred grip, playing a purely reactive game that surrenders all offensive initiative"}
+      ]
+    },
+    {
+      "id": "sambo.hip-throw",
+      "name": "Taihotoshi (Hip Throw)",
+      "description": "The hip throw — a pivoting throw in which the practitioner steps across the opponent's front, loads the opponent's hip onto their own hip, and rolls them over the hip point in a forward arc to the mat. Taihotoshi in SAMBO is derived from judo's o-goshi and ippon-seoi-nage family and is one of the most fundamental throws in the system, applying the principle of body-as-fulcrum: the practitioner's hip becomes the pivot point over which the opponent's body rotates. The entry — securing the correct grip, stepping across, and loading the hip in a single continuous movement — must happen before the opponent can base out with a leg, since a standing base counters the hip throw at any stage. In SAMBO competition, hip throws score according to the quality of landing: both shoulder blades touching simultaneously from a full-speed throw scores the equivalent of ippon and ends the match.",
+      "modelPath": "content/sambo/models/hip_throw.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "hip", "projection"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sambo.ukemi", "sambo.grip-fighting"],
+      "commonMistakes": [
+        {"description": "Stopping the hip rotation when the opponent's feet leave the ground rather than continuing the full rotation until they land, leaving the throw incomplete and potentially scoring only a partial fall"},
+        {"description": "Loading the opponent onto the hip without breaking their posture first, allowing them to maintain an upright structure that resists the hip pivot and requires muscular force to overcome rather than mechanical leverage"}
+      ]
+    },
+    {
+      "id": "sambo.outside-leg-reap",
+      "name": "Outside Leg Reap (O-Soto)",
+      "description": "The outside leg reap — a throw in which the practitioner steps outside the opponent's lead leg, sweeps it from behind while driving the upper body backward and downward, toppling the opponent in a backward arc to the mat. The outside leg reap (closely related to judo's o-soto-gari) attacks the opponent's planted lead leg at the moment it bears the most weight — during forward pressure from the opponent — using the reaping leg to knock the support from under them and the upper-body pull to amplify the toppling motion. In SAMBO, the outside leg reap is particularly effective in kurtka competition because the lapel and sleeve grips used to drive the upper body backward translate directly to the kurtka's available grip points. It is one of the highest-scoring throws in competition when executed cleanly because the backward arc typically produces a clean two-shoulder landing.",
+      "modelPath": "content/sambo/models/outside_leg_reap.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "quadriceps", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "leg-reap", "projection"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.ukemi", "sambo.grip-fighting"],
+      "commonMistakes": [
+        {"description": "Reaping with insufficient hip drive behind the sweeping leg, producing a leg-block rather than a leg-reap and allowing the opponent to simply step around or over the stationary leg"},
+        {"description": "Pulling the opponent's upper body backward before the reaping leg makes contact, signalling the throw's direction so the opponent bases out with the rear foot before the leg reap can reach its target"}
+      ]
+    },
+    {
+      "id": "sambo.ankle-lock",
+      "name": "Ankle Lock",
+      "description": "The straight ankle lock — a leg submission that hyperextends the Achilles tendon and ankle joint by clamping the opponent's foot under the armpit while the legs hook over the opponent's hip and the body rotates to apply torque against the joint's extension limit. The straight ankle lock is the most fundamental SAMBO leg attack and is applied from the guard, from standing when a leg-grab fails, and as a counter when an opponent shoots for a takedown and gives up a leg. Unlike BJJ competition rules that prohibit or restrict leg locks depending on belt level, SAMBO allows all ankle-lock, heel hook, and knee bar submissions from the first day of training, making leg attack awareness a survival skill from the beginning of the training journey. The body position that executes the ankle lock — hip-to-hip contact with legs triangled over the opponent's hip — is the foundation from which heel hooks and knee bars transition without losing control.",
+      "modelPath": "content/sambo/models/ankle_lock.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "hamstrings", "back"],
+      "difficulty": "intermediate",
+      "tags": ["submission", "leg-lock", "ankle"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.sambo-stance", "sambo.ukemi"],
+      "commonMistakes": [
+        {"description": "Clasping the hands over the foot rather than using a figure-four arm position that traps the ankle in the elbow crease, losing the lever arm that makes the lock mechanically effective and reducing it to a grip-strength contest"},
+        {"description": "Failing to control the opponent's hip with the legs before applying the torque, allowing the opponent to roll out of the ankle lock by spinning their body in the direction the lock's torque pulls, which removes the foot from the submission position"}
+      ]
+    },
+    {
+      "id": "sambo.heel-hook",
+      "name": "Heel Hook",
+      "description": "The heel hook — a rotational knee submission that applies torque to the knee joint by clamping the heel in the crook of the elbow and rotating the foot in a direction that twists the knee beyond its rotational tolerance, tearing the ACL, MCL, or meniscus. The heel hook is SAMBO's most feared submission and one that immediately differentiates the competitive experience from gi BJJ: the inside heel hook, in particular, attacks the knee and hip simultaneously with a rotation that occurs faster than the sensation of pain, requiring the practitioner to tap before the structural damage rather than at pain onset, since at the speed SAMBO heel hooks are applied the window between discomfort and irreversible injury is extremely small. Training heel hooks in SAMBO is always accompanied by a strong cultural expectation of releasing immediately on the tap signal and developing the control to apply the lock slowly enough for the partner to recognise and respond.",
+      "modelPath": "content/sambo/models/heel_hook.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "hamstrings", "back"],
+      "difficulty": "intermediate",
+      "tags": ["submission", "leg-lock", "knee", "heel"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.ankle-lock"],
+      "commonMistakes": [
+        {"description": "Applying the heel hook by pulling backward on the heel rather than rotating the entire body to create torque, producing a linear force that stresses the ankle joint rather than the rotational force that attacks the knee"},
+        {"description": "Continuing to apply pressure after the tap signal because the grip has created momentum, which is the most dangerous training error in heel hook practice and the cause of the majority of training-floor knee injuries from the technique"}
+      ]
+    },
+    {
+      "id": "sambo.single-leg",
+      "name": "Single Leg Takedown",
+      "description": "The single-leg takedown — a wrestling entry in which the practitioner shoots below the opponent's guard to grip one leg around the knee or ankle and use it as a lever to trip, lift, or sweep the opponent to the ground. In SAMBO the single-leg is executed from both upright wrestling grip-fighting and from the kurtka grip at close range, where the practitioner releases the kurtka, drops to one knee, and scoops the near leg in a single explosive movement. The single-leg takedown is one of the bridges between SAMBO's jacket wrestling heritage (judo-derived throws from kurtka grips) and its no-jacket wrestling heritage (freestyle-derived entries from the clinch and underhook), representing the synthesis mandate that defines the system. Once the single leg is controlled, SAMBO offers a range of finishes — the outside trip, the inside trip, the lift-and-dump, and the running-the-pipe ankle torque — each exploiting a different defensive reaction from the opponent.",
+      "modelPath": "content/sambo/models/single_leg.glb",
+      "defaultClip": "shoot",
+      "clips": [
+        {"name": "shoot", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "back", "hamstrings"],
+      "difficulty": "intermediate",
+      "tags": ["takedown", "wrestling", "shot"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.sambo-stance", "sambo.grip-fighting"],
+      "commonMistakes": [
+        {"description": "Diving head-first into the single-leg shot rather than changing levels by bending the knees before the shot, presenting the head and neck to an opponent's sprawl and guillotine choke counter"},
+        {"description": "Scooping the leg at knee height with both hands under the knee rather than one arm around the calf-and-ankle and one arm around the back of the knee, making the single-leg control easier to strip"}
+      ]
+    },
+    {
+      "id": "sambo.kneebar",
+      "name": "Knee Bar",
+      "description": "The knee bar — a leg submission that hyperextends the knee joint by trapping the opponent's leg between the practitioner's legs in a scissor position and levering the kneecap forward with the hip while the hands pull the ankle backward, applying the same mechanical principle as the armbar but to the knee's extension range. The kneebar in SAMBO is applied from numerous positions — from top guard, from side control when the opponent's leg is trapped, and as a counter to a failed double-leg entry — and is distinguished from the ankle lock by the position of the focal point: the ankle lock attacks at the ankle's extension limit, while the knee bar attacks at the knee's hyperextension limit. Because the knee has a larger range before the pain signal becomes unambiguous, and because the damage from hyperextension at the ACL and PCL is severe, knee bars require the same early-tap discipline as heel hooks.",
+      "modelPath": "content/sambo/models/kneebar.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "hamstrings", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["submission", "leg-lock", "knee", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.heel-hook", "sambo.ankle-lock"],
+      "commonMistakes": [
+        {"description": "Applying the knee bar by pulling only the ankle without driving the hip forward against the kneecap, creating a lever with only one fulcrum point and reducing the hyperextension force to a fraction of the biomechanically optimal two-point lever"},
+        {"description": "Attempting the knee bar from a loose leg-scissor position that allows the opponent to roll toward the leg rather than rolling away from it, which removes the knee from the hyperextension position and turns the bar into a positional contest rather than a submission"}
+      ]
+    },
+    {
+      "id": "sambo.sacrifice-throw",
+      "name": "Sacrifice Throw (Sutemi-Waza)",
+      "description": "The sacrifice throw — a class of throws in which the practitioner intentionally falls to the ground during the throwing action, using their own falling momentum as additional driving force to project the opponent in a controlled arc. Sacrifice throws in SAMBO include the tomoe-nage (stomach throw, where the practitioner falls backward while lifting the opponent with one foot on the hip), sumi-gaeshi (corner reversal), and tani-otoshi (valley drop). These techniques sacrifice the positional advantage of standing in exchange for greater throwing force — by adding the practitioner's falling weight to the rotational energy of the throw, they can project opponents who are too well-braced to be thrown from standing. In SAMBO, sacrifice throws are particularly valued as counters against aggressive opponents who drive forward with strong posture, since their forward pressure provides the energy that the sacrifice throw redirects into the throw's arc.",
+      "modelPath": "content/sambo/models/sacrifice_throw.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "quadriceps", "back", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["throw", "sacrifice", "counter", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.hip-throw", "sambo.outside-leg-reap"],
+      "commonMistakes": [
+        {"description": "Initiating the fall too early before the opponent's weight is committed forward, landing on the back before the throwing mechanism has engaged the opponent and producing a fall with no throw"},
+        {"description": "Releasing the grip during the fall rather than maintaining kurtka control throughout the throw, losing the ability to direct the opponent's landing arc and converting the sacrifice throw into an uncontrolled mutual fall"}
+      ]
+    },
+    {
+      "id": "sambo.armbar",
+      "name": "Armbar (Juji-Gatame)",
+      "description": "The armbar — a joint manipulation that hyperextends the elbow by trapping the opponent's arm between the practitioner's legs and levering the joint over the hip bone while the hands pull the wrist downward and the hips drive upward, applying a two-point lever that attacks the elbow's extension limit. The armbar in SAMBO is derived from judo's juji-gatame and is applied both from guard positions and from the top following a throw, making it a natural continuation of the throw-to-ground-control chain that characterises sambo competition. Because sambo competition awards a direct win for any throw that cleanly drops the opponent on both shoulders, the armbar is primarily a competition tool for matches that reach the ground phase, either after an incomplete throw or during newaza (ground work) permitted after a clean take-to-ground that does not end the match. The transition from a controlled throw directly to juji-gatame in a single smooth movement — throw, control, lock — is one of SAMBO's signature competition sequences.",
+      "modelPath": "content/sambo/models/armbar.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "hamstrings", "back"],
+      "difficulty": "advanced",
+      "tags": ["submission", "armbar", "arm-lock", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.hip-throw", "sambo.single-leg"],
+      "commonMistakes": [
+        {"description": "Crossing the feet when applying the armbar rather than keeping them separate, allowing the opponent to roll over the top of the feet and escape the lock by using the connection between the legs as a pivot"},
+        {"description": "Pulling down on the wrist before the hips drive up and the thighs clamp the arm against the body, applying the hyperextension force before the mechanical position is set and allowing the opponent to pull the arm free before the lock is complete"}
+      ]
+    },
+    {
+      "id": "sambo.rear-choke",
+      "name": "Rear Naked Choke",
+      "description": "The rear naked choke — a blood choke applied from behind the opponent that compresses both carotid arteries simultaneously by placing one forearm across the throat with the elbow at the centreline and locking the choking arm with the opposite hand behind the opponent's head, cutting blood flow to the brain and inducing unconsciousness in 3–8 seconds without damaging the trachea. In combat SAMBO, which includes strikes and chokes, the rear naked choke is the primary finishing technique from back control: once the practitioner has achieved back mount (legs hooked over the opponent's hips from behind), the choke follows from the same body position and requires the opponent to either defend the arm access or accept submission. Sport SAMBO without strikes does not typically permit chokes in all rulesets, making the rear naked choke primarily a combat SAMBO and self-defence tool within the sambo curriculum.",
+      "modelPath": "content/sambo/models/rear_choke.glb",
+      "defaultClip": "choke",
+      "clips": [
+        {"name": "choke", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "core"],
+      "difficulty": "advanced",
+      "tags": ["choke", "submission", "advanced", "combat-sambo"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.armbar", "sambo.sacrifice-throw"],
+      "commonMistakes": [
+        {"description": "Applying the choke across the trachea rather than the carotid arteries — squeezing the windpipe rather than the sides of the neck — producing an airway choke that causes severe pain but takes minutes to end a match rather than the 3–8 seconds of the blood choke"},
+        {"description": "Using a single-arm pull on the opponent's arm to break their chin-tuck defence rather than using both hands to peel the defending arm away before resetting the choke depth, allowing the opponent to recover the chin defence during the single-arm struggle"}
+      ]
+    },
+    {
+      "id": "sambo.inside-trip",
+      "name": "Inside Trip (Ko-Uchi-Gari)",
+      "description": "The inside trip — a throw in which the practitioner hooks the opponent's near ankle from the inside with the sole of the foot and sweeps it forward while driving the upper body backward and slightly off-axis, tripping the opponent in a rotating arc to the mat. The inside trip (closely related to judo's ko-uchi-gari) is a close-range throwing tool that works from any gripping engagement where the practitioner is chest-to-chest with the opponent — a position where the longer hip-throw and leg-reap entries cannot develop because there is no room for the entry step. The inside trip attacks the ankle at the moment it bears weight during a forward step, using minimal force — a sharp ankle-hook at the correct moment requires almost no muscular effort — and is therefore one of the first throws SAMBO practitioners develop an intuitive sense for, since it arises naturally from close-contact grip exchanges without requiring a deliberate entry movement. The inside trip is also an effective combination setup: when the opponent feels the ankle hook and lifts the near leg to avoid the sweep, the opposite hip-throw or outside leg-reap becomes immediately available.",
+      "modelPath": "content/sambo/models/inside_trip.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "trip", "close-range"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sambo.outside-leg-reap", "sambo.grip-fighting"],
+      "commonMistakes": [
+        {"description": "Sweeping too early when the opponent's weight is still on the targeted ankle rather than waiting for the transition moment when the foot lifts for a step, since a loaded ankle resists the trip and requires far more force than a momentarily unweighted one"},
+        {"description": "Pulling the opponent straight backward rather than off-axis to one side, which allows them to step back on the other foot and base out rather than being rotated off their support base in the specific arc the inside trip requires"}
+      ]
+    },
+    {
+      "id": "sambo.double-leg",
+      "name": "Double Leg Takedown",
+      "description": "The double-leg takedown — a wrestling entry in which the practitioner drops below the opponent's guard and drives both arms around both legs at knee height while driving the shoulder into the opponent's hips or midsection, then lifts and drives forward to deposit the opponent on their back. The double leg is the highest-percentage single takedown in wrestling and is adopted into SAMBO as one of the primary entries when kurtka grips are unavailable or have been broken. SAMBO double-leg mechanics differ slightly from freestyle wrestling double-legs in that the kurtka makes a hip-contact drive more natural than a head-outside position, and the SAMBO throw finish — dumping the opponent backward rather than running through them — is more consistent with the scoring preference for clean two-shoulder landings. The double-leg counter-to-ankle-lock is a specifically sambo combination: when the double-leg is sprawled and the practitioner's legs are controlled, the ankle lock on the controlling leg is immediately available.",
+      "modelPath": "content/sambo/models/double_leg.glb",
+      "defaultClip": "shoot",
+      "clips": [
+        {"name": "shoot", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["takedown", "wrestling", "shot", "double-leg"],
+      "cameraPreset": "side",
+      "prerequisites": ["sambo.single-leg", "sambo.sambo-stance"],
+      "commonMistakes": [
+        {"description": "Shooting the double-leg at knee height with head-up posture rather than changing levels first by bending the knees, creating a higher and slower entry that gives the opponent time to sprawl and guillotine"},
+        {"description": "Stopping the drive immediately after contact rather than continuing forward momentum through the takedown, allowing the opponent to hop backward on their heels and maintain standing balance while the practitioner's position degrades"}
+      ]
+    },
+    {
+      "id": "sambo.groundwork-control",
+      "name": "Groundwork Control (Newaza)",
+      "description": "The SAMBO ground control system — the structured set of pins, transitions, and submission-initiating positions used during the newaza (ground-work) phase that follows an incomplete throw or a takedown, including side control, north-south, and the mount position from which submissions are applied. SAMBO newaza differs from judo newaza in that SAMBO allows leg locks from all positions from day one, and from BJJ newaza in that SAMBO does not use the guard as a sustained defensive position — SAMBO competition rules and training culture emphasise escaping the ground phase and returning to standing rather than fighting from the back, since the sambo scoring system rewards throws over ground submissions. Developing groundwork control in SAMBO therefore focuses on pin maintenance and immediate submission attack rather than patient guard play, producing a faster-paced ground game with a stronger emphasis on the transition from throw directly to submission without an intermediate control phase.",
+      "modelPath": "content/sambo/models/groundwork_control.glb",
+      "defaultClip": "control",
+      "clips": [
+        {"name": "control", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "back", "quadriceps", "shoulders"],
+      "difficulty": "advanced",
+      "tags": ["ground", "control", "newaza", "advanced"],
+      "cameraPreset": "top",
+      "prerequisites": ["sambo.kneebar", "sambo.double-leg"],
+      "commonMistakes": [
+        {"description": "Using heavy static pressure in the pin rather than maintaining dynamic pressure that transitions toward a submission, allowing the opponent time to bridge, roll, and recover standing because no submission threat is forcing them to remain stationary"},
+        {"description": "Staying on the ground voluntarily after a takedown rather than attempting to return to standing when the submission attempt has stalled, ceding the standing advantage that SAMBO's throw-scoring system rewards and extending a ground phase where the practitioner is not scoring"}
+      ]
+    }
+  ]
+}
