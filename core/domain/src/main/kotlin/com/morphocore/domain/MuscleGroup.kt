@@ -22,7 +22,7 @@ sealed class MuscleGroup {
             "back"        -> Back
             "chest"       -> Chest
             "calves"      -> Calves
-            "hip_flexors" -> HipFlexors
+            "hip_flexors", "hip-flexors" -> HipFlexors
             else          -> Unknown(value)
         }
     }
