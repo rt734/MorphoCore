@@ -115,4 +115,47 @@ class ThemeProviderImplTest {
         )
         assertNotNull(provider.activeTheme.value)
     }
+
+    @Test
+    fun `saved id not in registry falls back to default theme`() = runTest {
+        val dispatcher = StandardTestDispatcher(testScheduler)
+        advanceUntilIdle()
+        val provider = buildProvider(
+            manifests = mapOf("studio" to studioJson),
+            dispatcher = dispatcher,
+            scope = this,
+            savedId = "deleted-theme"
+        )
+        assertEquals("studio", provider.activeTheme.value.id)
+    }
+
+    @Test
+    fun `setActiveTheme to already-active id still persists to prefs`() = runTest {
+        val dispatcher = StandardTestDispatcher(testScheduler)
+        advanceUntilIdle()
+        val prefs = FakeThemePreferences()
+        val registry = ThemeRegistryImpl(
+            source = FakeThemeAssetSource(manifests = mapOf("studio" to studioJson)),
+            ioDispatcher = dispatcher,
+            scope = this
+        )
+        registry.refresh()
+        val provider = ThemeProviderImpl(registry = registry, prefs = prefs)
+        provider.setActiveTheme("studio")
+        assertEquals("studio", prefs.lastId)
+        assertEquals("studio", provider.activeTheme.value.id)
+    }
+
+    @Test
+    fun `no isDefault theme and no saved id activates first available theme`() = runTest {
+        val dispatcher = StandardTestDispatcher(testScheduler)
+        advanceUntilIdle()
+        val provider = buildProvider(
+            manifests = mapOf("dojo" to dojoJson),
+            dispatcher = dispatcher,
+            scope = this,
+            savedId = null
+        )
+        assertEquals("dojo", provider.activeTheme.value.id)
+    }
 }
