@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "sanda",
+  "disciplineName": "Sanda",
+  "description": "Sanda (散打, also called San Shou or Chinese kickboxing) is China's national full-contact combat sport, developed in the 1970s–80s by the Chinese military and sports commission as a practical combat training method that combined the striking techniques of Chinese martial arts with Western boxing mechanics and the throwing and takedown techniques of Chinese folk wrestling (Shuai Jiao). Sanda competitions are contested on an elevated platform (leitai) where falling off the edge scores points for the opponent — a structural rule that rewards takedowns more than in most other combat sports and makes throwing techniques a primary tactical tool rather than a backup for when striking fails. The technical ruleset permits punches, kicks to all legal targets, knee strikes, and all throwing and takedown techniques including the shuai technique (shoulder throw) and felling techniques derived from Shuai Jiao. Sanda is explicitly distinguished from traditional Chinese martial arts forms (taolu) as the combat application portion of Chinese martial arts training, and its practitioners often train taolu forms alongside sanda sparring, though the two are evaluated separately in competition.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "sanda.basic-stance",
+      "name": "Basic Stance",
+      "description": "The Sanda fighting stance — a modified boxing guard with feet shoulder-width apart, lead foot pointing toward the opponent, rear foot at 45 degrees, both hands raised to chin height, and the body angled slightly sideways to reduce the target profile. The Sanda basic stance is more upright than Muay Thai's forward-leaning posture and closer to boxing's stance, but is distinguished by lower and more active hand position that accommodates both punching and the wrist-gripping entries that begin Sanda's throwing techniques. Because Sanda competition on the leitai rewards edge-pushing via throws, the stance maintains a lower, more balanced centre of gravity than pure boxing to defend against the clinch-entry takedowns that opponents attempt from every range. The lead hand is held slightly lower and more forward than in Western boxing, serving as both a jab platform and the primary grabbing hand when the practitioner initiates a throw from a punching combination.",
+      "modelPath": "content/sanda/models/basic_stance.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "core", "shoulders", "back"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamentals", "guard"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Adopting a square-on stance rather than the angled sideways position, presenting the full chest and both hips as targets and losing the shoulder-rotation range that powers the rear-hand cross"},
+        {"description": "Holding the hands at forehead height rather than chin height in an attempt to guard the face, limiting visibility and slowing the transition to throwing entries that begin from chin-height grip range"}
+      ]
+    },
+    {
+      "id": "sanda.straight-punch",
+      "name": "Straight Punch (Chong Quan)",
+      "description": "The straight punch — a linear fist strike driving along the centreline from either hand, using hip rotation and shoulder-turn mechanics derived from boxing but with the additional awareness that the punching arm's over-extension invites the wrist-grab entry for Sanda's throwing techniques. Chong Quan (Chinese: 'straight punch') is the foundational striking tool in Sanda and is trained with boxing mechanics — hip rotation, weight transfer, arm rotation to vertical knuckles at impact — but the tactical context differs from boxing in that a committed, extended punch in Sanda is also a throw-entry opportunity for the opponent. Sanda practitioners therefore train the straight punch with a shorter range and faster retraction than boxing's straight, to limit the grab window, while still delivering enough force to require defensive response. The jab-cross combination is as central to Sanda as to boxing, but in Sanda it also serves as the distance-measuring phase before a throw entry.",
+      "modelPath": "content/sanda/models/straight_punch.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "punch", "durationSeconds": 0.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "beginner",
+      "tags": ["punch", "strike", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Over-extending the straight punch to maximise reach, leaving the arm out long enough for an opponent to grip the wrist and initiate a throwing technique — Sanda's punching range is shorter than boxing's to eliminate this vulnerability"},
+        {"description": "Punching without hip rotation from the square-on stance position, generating arm-only force that lacks the structural power created when the hip drives the shoulder into the punch along the kinetic chain"}
+      ]
+    },
+    {
+      "id": "sanda.roundhouse-kick",
+      "name": "Roundhouse Kick (Bian Tui)",
+      "description": "The Sanda roundhouse kick — a rotational kick using the instep or shin delivered in a horizontal arc to the opponent's body or head, mechanically similar to Muay Thai's roundhouse but typically higher and faster rather than lower and more structural, reflecting the scoring system's emphasis on clean striking over cumulative damage. Bian Tui (Chinese: 'whip kick') is the most common Sanda kick and is used both as a solo attacking technique and as a setup for the throwing transitions that follow when the kick partially connects or is partially blocked — the opponent's defensive arm movement in response to the kick creates momentary grip opportunities. In competition on the leitai, body kicks are thrown primarily to score points and to rotate the opponent toward the edge; head kicks are thrown for the higher-scoring technique value. Sanda's roundhouse differs from Muay Thai's in that it is used more frequently at longer range and incorporates more hip rotation to achieve the higher target line.",
+      "modelPath": "content/sanda/models/roundhouse_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core"],
+      "difficulty": "beginner",
+      "tags": ["kick", "roundhouse", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Leaning the torso away from the kick rather than rotating the hip through the target, reducing the kick to an arm-and-leg motion without the hip drive that generates the technique's power"},
+        {"description": "Returning the kicking foot directly to the ground rather than retracting to guard stance after the kick, leaving the kicking leg momentarily forward and creating a grab opportunity for the opponent's shuai technique"}
+      ]
+    },
+    {
+      "id": "sanda.front-kick",
+      "name": "Front Kick (Zheng Tui)",
+      "description": "The front push kick — a forward heel-or-ball thrust directed at the opponent's midsection to create distance or disrupt an incoming attack, used in Sanda primarily to prevent clinch entries and to maintain the punching range where the practitioner's punching combination is most effective. Zheng Tui (Chinese: 'straight push kick') is Sanda's primary range-maintenance tool and serves the same strategic function as the teep in Muay Thai: it prevents the opponent from closing to the grab-and-throw range that makes Sanda's throwing techniques available. Because Sanda competition rewards throws highly, practitioners who establish a strong front kick force the opponent to either throw from distance (lower-percentage) or accept the kick's impact to force a clinch. The front kick is also used defensively as the opponent initiates a throwing entry — a kick timed to meet the opponent's forward step can stop the entry entirely.",
+      "modelPath": "content/sanda/models/front_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core"],
+      "difficulty": "beginner",
+      "tags": ["kick", "front-kick", "range-control"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Committing the body weight forward during the front kick rather than driving the leg from a stationary base, falling toward the opponent and losing the distance-creating effect the kick is specifically designed to produce"},
+        {"description": "Using the front kick only reactively when the opponent closes range, rather than proactively to prevent the opponent from ever establishing the throwing-entry distance — the kick is most effective as an anticipatory range setter"}
+      ]
+    },
+    {
+      "id": "sanda.side-kick",
+      "name": "Side Kick (Ce Tui)",
+      "description": "The Sanda side kick — a linear heel-first thrust delivered perpendicular to the body in a horizontal drive to the opponent's ribs, hip, or knee, using hip extension and a side-leaning body position to project the heel along a line parallel to the floor. Ce Tui (Chinese: 'side kick') is a distinctive tool in Sanda that derives from Chinese martial arts forms where the side kick is a fundamental technique, and its presence distinguishes Sanda's kicking vocabulary from Muay Thai (which does not commonly feature a side kick) and adds a second axis of attack alongside the roundhouse. The side kick is effective for two tactical purposes: at long range it maintains distance against a charging opponent by placing the heel in their path; at medium range it pivots the practitioner 90 degrees relative to the opponent, creating an outside angle for a following roundhouse or shuai entry on the newly-exposed side. The technique requires pivoting on the supporting foot to orient the body sideways, extending the kicking leg laterally, and retracted immediately to restore stance alignment.",
+      "modelPath": "content/sanda/models/side_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hip-flexors", "core"],
+      "difficulty": "beginner",
+      "tags": ["kick", "side-kick", "fundamentals"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Failing to pivot the supporting foot and orient the body sideways before extending the kick, forcing a partial side kick from a forward-facing stance that cannot achieve full hip extension and reduces the kick to a forward push with the side of the foot"},
+        {"description": "Pointing the kick at a 45-degree downward angle rather than maintaining a horizontal trajectory, reducing the penetrating force by directing it into the ground rather than through the target along the body's centreline"}
+      ]
+    },
+    {
+      "id": "sanda.shuai",
+      "name": "Shuai (Shoulder Throw)",
+      "description": "The Sanda shoulder throw — the primary throwing technique combining upper-body grip control from a punching combination with a hip-loaded shoulder throw that projects the opponent to the floor or off the leitai edge. Shuai (Chinese: 'throw') in Sanda encompasses several throwing techniques derived from Shuai Jiao wrestling, but the shoulder throw is the most fundamental: the practitioner enters from a punching range, grabs the opponent's sleeve or wrist and collar or neck, and executes a hip-rotation forward throw that drives the opponent over the shoulder. The transition from punching combination to shuai entry is the defining tactical pattern of Sanda — a punch-punch-grab sequence that uses the first two punches to force defensive arm movements that create the grab opportunity, then converts the grab immediately into the throw. On the leitai, a throw that puts the opponent off the platform scores more than most striking combinations, making shuai the highest-value technique per successful execution.",
+      "modelPath": "content/sanda/models/shuai.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "core", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "shuai-jiao", "takedown"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sanda.straight-punch", "sanda.basic-stance"],
+      "commonMistakes": [
+        {"description": "Initiating the shuai grip from a neutral punching position rather than from a committed punch that forces the opponent's guard to move, attempting to grab against a relaxed defensive posture that makes the wrist grip easy to break"},
+        {"description": "Executing the throw as a standalone pull rather than as a hip-loaded rotation, requiring far more arm strength than the technique should need and producing a slow, resistable throw rather than the explosive turn-and-drive"}
+      ]
+    },
+    {
+      "id": "sanda.back-kick",
+      "name": "Back Kick (Hou Tui)",
+      "description": "The spinning back kick — a kick delivered with the heel after a 180-degree hip rotation, targeting the opponent's midsection or sternum as the practitioner's back turns briefly toward them during the spin. Hou Tui (Chinese: 'back kick/rear kick') is one of Sanda's spinning techniques and derives from Chinese martial arts forms where spinning attacks are extensively trained, distinguishing Sanda's technical range from Muay Thai and kickboxing which do not typically include spinning back kicks in their core curriculum. The back kick's tactical value is surprise and impact: the spin breaks the opponent's rhythm, the brief back-turn is a deliberately exploited vulnerability (the opponent may charge into the kick), and the heel lands with the full body rotation behind it for exceptional penetrating force. The kick requires precise timing — launched too early exposes the back; launched exactly at the moment the opponent steps forward converts their advance into additional impact force.",
+      "modelPath": "content/sanda/models/back_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["glutes", "core", "quadriceps", "calves"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "spinning", "back-kick", "power"],
+      "cameraPreset": "side",
+      "prerequisites": ["sanda.roundhouse-kick", "sanda.basic-stance"],
+      "commonMistakes": [
+        {"description": "Looking backward over the shoulder during the spin rather than looking across the body at the last moment to time the kick, slowing the rotation and telegraphing the spin's direction to the opponent"},
+        {"description": "Committing the full body weight to the spinning momentum before the kick is on target, which makes the kick difficult to abort if the opponent has moved and impossible to retract for a second technique"}
+      ]
+    },
+    {
+      "id": "sanda.leg-sweep",
+      "name": "Leg Sweep (Sao Tui)",
+      "description": "The low leg sweep — a quick circular sweep of the instep or shin at ankle height against the opponent's supporting leg, used after a striking combination has advanced the practitioner to inside range, exploiting the momentary instability of the opponent's leg as weight transfers from one foot to the other during defensive movement. Sao Tui (Chinese: 'sweeping leg') is the Sanda practitioner's low-cost throwing tool: where shuai requires a full upper-body grab and hip rotation, sao tui requires only a short stepping sweep that trips the ankle during the opponent's weight transfer. The sweep is never thrown alone — it is the closing technique of a 3–4 strike combination that forces the opponent's defensive footwork into the range and timing window where the sweep's arc intersects the moving support foot. On the leitai, a successful sao tui that takes the opponent to the floor from a combination scores points even if the opponent immediately rises, making it worth incorporating into every combination that ends at inside range.",
+      "modelPath": "content/sanda/models/leg_sweep.glb",
+      "defaultClip": "sweep",
+      "clips": [
+        {"name": "sweep", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["sweep", "low", "combination"],
+      "cameraPreset": "side",
+      "prerequisites": ["sanda.shuai", "sanda.front-kick"],
+      "commonMistakes": [
+        {"description": "Throwing the sao tui at the beginning of a combination before the opponent's defensive movement has created the sweep window, attacking a planted and fully weighted foot rather than the transitioning foot that the sweep is designed for"},
+        {"description": "Sweeping with only the leg without a simultaneous upper-body disruption (grab or push on the opponent's arm or shoulder), allowing the opponent to balance on the unswept leg and avoid the fall"}
+      ]
+    },
+    {
+      "id": "sanda.spinning-back-fist",
+      "name": "Spinning Back Fist (Zhuan Shen Bian Quan)",
+      "description": "The spinning back fist — a horizontal fist strike delivered with the knuckles after a 180-degree body rotation, targeting the opponent's temple or jaw at a speed and angle that the standard hand guard often fails to defend because it arrives from behind the defensive focus. Zhuan Shen Bian Quan (Chinese: 'turning body whip punch') is one of Sanda's Chinese martial arts heritage techniques, retained from the wushu forms in which horizontal spinning strikes are a stylistic signature. In competition it is used as a counter — when the opponent throws a wide hook, the practitioner slips inside and the body rotation positions the back fist at the opponent's unguarded ear — and as a combination closer after a body kick that drives the opponent's arms down. The spinning back fist's risk is the same as all spinning techniques: the rotation creates a brief moment of visual tracking loss and postural commitment that skilled opponents can exploit with a clinch entry.",
+      "modelPath": "content/sanda/models/spinning_back_fist.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "spinning", "combination", "wushu"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sanda.straight-punch", "sanda.back-kick"],
+      "commonMistakes": [
+        {"description": "Rotating past the target rather than timing the snap of the fist to arrive at the exact moment the knuckles face the target during the rotation, over-rotating and striking with the side of the hand rather than the knuckle face"},
+        {"description": "Using the spinning back fist as an opener rather than a combination closer or counter, allowing an alert opponent to step back from the rotation and time a straight punch into the practitioner's exposed chin during the spin"}
+      ]
+    },
+    {
+      "id": "sanda.knee-strike",
+      "name": "Knee Strike (Xi Gai)",
+      "description": "The Sanda knee strike — an upward or forward knee drive into the opponent's midsection or face during the clinch, allowed in Sanda competition and used to score points during or after a shuai entry when the practitioner is in the clinch position before the throw is completed. Xi Gai (Chinese: 'knee cap/knee strike') is permitted in Sanda competition above the waist, making it one of the tools available in the grab-and-throw exchanges that define Sanda's close-range fighting. The knee strike in Sanda is typically applied during the moment after a shuai grip is established but before the throw completes — the opponent's defensive resistance to the throw briefly exposes their midsection, and a knee to the solar plexus simultaneously creates pain compliance that aids the throw and scores striking points. The knee can also be used after a failed throw attempt to disengage from the clinch by creating enough pain response to break the opponent's grip.",
+      "modelPath": "content/sanda/models/knee_strike.glb",
+      "defaultClip": "knee",
+      "clips": [
+        {"name": "knee", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["knee", "clinch", "combination"],
+      "cameraPreset": "side",
+      "prerequisites": ["sanda.shuai", "sanda.front-kick"],
+      "commonMistakes": [
+        {"description": "Using the knee strike as the first close-range technique rather than as a phase within a shuai sequence, attempting to land a knee before establishing the grip control that prevents the opponent from simply stepping back away from the chambered leg"},
+        {"description": "Releasing the grip when throwing the knee to enable greater hip drive, losing the clinch control that keeps the opponent in range for the knee and allowing them to escape during the knee's delivery"}
+      ]
+    },
+    {
+      "id": "sanda.combination-punch-throw",
+      "name": "Punch-Throw Combination",
+      "description": "The fundamental punch-to-throw combination — the Sanda-defining sequence in which a punching combination at boxing range creates the defensive response that enables an immediate shuai grip entry, converting the boxing exchange directly into a throwing technique without breaking flow or returning to guard. This combination represents Sanda's distinguishing tactical identity: unlike boxing or Muay Thai where throwing is prohibited, and unlike Judo or SAMBO where striking is prohibited, Sanda requires practitioners to train the seamless integration of both domains. The prototypical sequence is jab-cross-grab-throw: the jab-cross forces the opponent's hands upward to guard the face, creating a gap between the elbow and the hip that is the shuai grip window; the immediate grab converts the defensive arm movement into the throw entry without the pause that would allow the opponent to reset their guard. Drilling this combination until the transition from punch to grab to throw is a single continuous movement is the central training objective of Sanda's technical curriculum.",
+      "modelPath": "content/sanda/models/combination_punch_throw.glb",
+      "defaultClip": "combo",
+      "clips": [
+        {"name": "combo", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "glutes", "back", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["combination", "punch-throw", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sanda.shuai", "sanda.straight-punch", "sanda.roundhouse-kick"],
+      "commonMistakes": [
+        {"description": "Pausing between the last punch and the grab entry to plant the feet in a throwing stance, signalling the transition to the opponent and giving them time to create defensive distance before the grab can reach"},
+        {"description": "Committing all punching energy to the combination and having no momentum left for the throw, arriving at the grab position with a tired arm rather than an arm that is already in the shoulder-rotation path that the shuai requires"}
+      ]
+    },
+    {
+      "id": "sanda.leitai-footwork",
+      "name": "Leitai Footwork",
+      "description": "Platform-aware footwork — the Sanda-specific movement pattern that maintains the practitioner's position toward the centre of the leitai while managing offensive angles against the opponent, using the platform's edge as a scoring weapon (forcing the opponent off scores points) while avoiding being forced off. Leitai (Chinese: 'thunder platform') footwork is unique to Sanda among the disciplines in this library: no other combat sport uses the three-dimensional geometry of platform position as a primary tactical tool. A practitioner who circles toward the centre while pushing the opponent toward an edge creates a throw-threat multiplier — any throw that lands near the edge potentially pushes the opponent off the platform. Leitai footwork training includes the ability to execute a full shuai sequence while sidestepping at the platform's boundary, avoiding a simultaneous throw-off while completing the opponent's, and the instinctive awareness of platform geometry that makes edge-pressure a constant tactical weapon without requiring conscious attention.",
+      "modelPath": "content/sanda/models/leitai_footwork.glb",
+      "defaultClip": "move",
+      "clips": [
+        {"name": "move", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves", "hip-flexors"],
+      "difficulty": "advanced",
+      "tags": ["footwork", "platform", "advanced", "spatial-awareness"],
+      "cameraPreset": "top",
+      "prerequisites": ["sanda.leg-sweep", "sanda.combination-punch-throw"],
+      "commonMistakes": [
+        {"description": "Focusing exclusively on the opponent's technique and losing awareness of the platform position, being surprised by the edge when backing away from a combination and stepping off unintentionally"},
+        {"description": "Retreating straight backward away from the opponent's advance rather than circling to the side and allowing the opponent to move toward the edge, wasting the platform-boundary pressure that is Sanda's most persistent tactical resource"}
+      ]
+    },
+    {
+      "id": "sanda.clinch-control",
+      "name": "Clinch Control",
+      "description": "The Sanda clinch management system — the technique for controlling the opponent's arms and upper body from inside the grip range where punching combinations have closed the distance to throwing range, using inside position, grip breaks, and head control to prevent the opponent from executing their throw while completing the practitioner's own. Clinch control in Sanda differs from boxing's clinch (used defensively to stop combination flow) and Muay Thai's clinch (used offensively to deliver knees): in Sanda, the clinch is a transitional phase where both practitioners are fighting for throw position simultaneously, and the outcome of the clinch determines who throws and who is thrown. The key skills are inside-outside positional fighting (similar to sumo grip fighting), the ability to break grips on the mawashi or jacket equivalent (the opponent's sleeve and collar), and the simultaneous initiation of both a throw attempt and a knee-strike threat to create a two-problem defensive situation that makes defending the throw harder.",
+      "modelPath": "content/sanda/models/clinch_control.glb",
+      "defaultClip": "clinch",
+      "clips": [
+        {"name": "clinch", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "core", "chest"],
+      "difficulty": "advanced",
+      "tags": ["clinch", "control", "advanced", "grappling"],
+      "cameraPreset": "front",
+      "prerequisites": ["sanda.combination-punch-throw", "sanda.knee-strike"],
+      "commonMistakes": [
+        {"description": "Accepting a passive clinch to rest rather than immediately fighting for inside position or initiating a throw attempt, ceding all tactical initiative during the clinch phase and allowing the opponent to dictate when the clinch breaks"},
+        {"description": "Pushing the opponent away from the clinch when no throw is available, breaking the range where the practitioner's own throwing techniques are viable and resetting to punching range where the sequence must begin again"}
+      ]
+    },
+    {
+      "id": "sanda.spinning-heel-kick",
+      "name": "Spinning Heel Kick (Zhuan Shen Hou Tui)",
+      "description": "The spinning heel kick — a 360-degree rotation delivering the heel in a horizontal arc to the opponent's head, temple, or jaw, the highest-risk and highest-reward striking technique in Sanda's arsenal. Zhuan Shen Hou Tui (Chinese: 'turning body back kick') requires complete commitment — the full 360-degree spin means the practitioner faces away from the opponent for half the rotation — and delivers exceptional force when timed correctly because the spinning momentum adds to the hip extension and leg drive. In competition it is a fight-ending technique when it lands cleanly, and the visual drama of its execution makes it a crowd-pleasing finish that Sanda competition rewards with bonus scoring. The tactical setup is a combination that forces the opponent to commit a guard response: when both hands come up to defend a high kick, the practitioner spins through the guard with the heel arriving from the opposite direction. Failed spinning heel kicks are the most dangerous moments in Sanda competition because the recovery time after a miss is long enough for a decisive counter.",
+      "modelPath": "content/sanda/models/spinning_heel_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "core", "quadriceps", "hamstrings", "hip-flexors"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning", "heel", "power", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["sanda.back-kick", "sanda.spinning-back-fist"],
+      "commonMistakes": [
+        {"description": "Using the spinning heel kick as a first-round technique against an unknown opponent, exposing the back without the combination setup that creates the guard-high opening the kick is designed to target"},
+        {"description": "Stopping the rotation at impact rather than following through past the target, reducing impact force by decelerating through the point of contact rather than driving through it"}
+      ]
+    },
+    {
+      "id": "sanda.free-fighting",
+      "name": "Free Fighting (Zi You Bo Ji)",
+      "description": "The full-range Sanda sparring — the training mode in which all permitted Sanda techniques (punching, kicking, knee strikes, throwing, platform edge work) are used freely against a resisting opponent under competition rules, developing the tactical integration of striking and throwing that makes Sanda distinct from either pure striking or pure grappling arts. Zi You Bo Ji (Chinese: 'free fighting') is the applied competitive practice mode and the highest-demand training context, where all the individual techniques and combinations practised in isolation are deployed against opponents who are simultaneously pursuing their own combinations and throw attempts. Because Sanda's rule set rewards both striking and throwing, free fighting trains a unique tactical intelligence: the ability to switch between boxing range (where punch-kick combinations score) and throwing range (where shuai attempts score) based on the opponent's defensive adaptations in real time. Developing the ability to use one range to set up the other — punching to create throw openings, throwing to disrupt the opponent's striking rhythm — is the highest skill expression in Sanda.",
+      "modelPath": "content/sanda/models/free_fighting.glb",
+      "defaultClip": "spar",
+      "clips": [
+        {"name": "spar", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "shoulders", "back", "calves", "hip-flexors"],
+      "difficulty": "advanced",
+      "tags": ["sparring", "advanced", "full-contact", "competition"],
+      "cameraPreset": "side",
+      "prerequisites": ["sanda.leitai-footwork", "sanda.clinch-control", "sanda.spinning-heel-kick"],
+      "commonMistakes": [
+        {"description": "Defaulting entirely to either striking or throwing during free fighting rather than using each range to create opportunities in the other, becoming a one-dimensional competitor that opponents quickly adapt to by simply staying in their non-preferred range"},
+        {"description": "Training free fighting at full intensity before individual techniques are mechanically reliable, developing reflexive responses that are fast but structurally flawed — high-intensity free fighting before technical proficiency reinforces bad mechanics faster than it builds competitive skill"}
+      ]
+    }
+  ]
+}
