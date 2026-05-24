@@ -1,0 +1,342 @@
+{
+  "discipline": {
+    "id": "systema",
+    "name": "Systema",
+    "description": "Systema (Система, 'the system') is a Russian martial art developed in the Soviet special forces that emphasises four foundational principles — breathing, relaxation, movement, and form — over memorised techniques. Rather than a catalogue of fixed responses, Systema trains the nervous system to remain calm and functional under extreme stress, producing spontaneous adaptive responses to any attack. Popularised in the West through instructors like Mikhail Ryabko and Vladimir Vasiliev, Systema integrates striking, grappling, weapons, and psychological conditioning into a holistic combat framework.",
+    "movementIds": [
+      "systema.breathing",
+      "systema.relaxation",
+      "systema.groundwork",
+      "systema.strikes",
+      "systema.continuous-motion",
+      "systema.lever-work",
+      "systema.pressure-points",
+      "systema.falling-rolling",
+      "systema.multiple-attackers",
+      "systema.knife-defence",
+      "systema.psycho-physical",
+      "systema.restoration",
+      "systema.takedowns",
+      "systema.chokes-holds",
+      "systema.combat-breathing"
+    ]
+  },
+  "movements": [
+    {
+      "id": "systema.breathing",
+      "name": "Breathing",
+      "description": "The first and most fundamental principle of Systema — the continuous, rhythmic breath that oxygenates the body, regulates the nervous system, and prevents the tension freeze that destroys movement quality under stress. Systema's breathing drills include nasal-in/mouth-out rhythms, breath-hold recovery sequences under exertion, and the 'shake' — a full-body relaxation triggered by a sharp exhale that instantly releases accumulated tension after a drill.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/systema/models/breathing.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 4.0, "fps": 30 },
+        { "name": "drill", "durationSeconds": 6.0, "fps": 30 }
+      ],
+      "tags": ["breathing", "beginner", "principle", "relaxation"],
+      "cameraPreset": "front",
+      "muscleGroups": ["core", "back"],
+      "commonMistakes": [
+        "Holding the breath during a drill — Systema strictly prohibits breath-holding during movement",
+        "Breathing shallowly into the chest rather than deeply into the abdomen",
+        "Treating the breathing drill as passive — each breath should actively track the movement being performed"
+      ]
+    },
+    {
+      "id": "systema.relaxation",
+      "name": "Relaxation",
+      "description": "The second principle — the ability to release muscular tension instantly and specifically while under physical and psychological stress. Systema practitioners train to identify and eliminate tension in individual muscle groups on demand, maintaining full-body softness while executing power movements. The relaxation principle is what allows Systema's strikes to penetrate deeply: a relaxed muscle transfers force rather than absorbing it at the surface.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/systema/models/relaxation.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "release", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "tags": ["relaxation", "beginner", "principle", "tension"],
+      "cameraPreset": "front",
+      "muscleGroups": ["shoulders", "back", "core", "legs"],
+      "commonMistakes": [
+        "Confusing relaxation with limpness — the body should be free of excess tension, not devoid of structure",
+        "Only relaxing between drills rather than during them",
+        "Neglecting to relax the face and jaw, which signal tension throughout the nervous system"
+      ]
+    },
+    {
+      "id": "systema.groundwork",
+      "name": "Groundwork",
+      "description": "Movement and fighting from positions on or near the ground — sitting, lying, rolling, and crawling while maintaining the ability to strike, control, or escape. Systema groundwork is not the static positional game of grappling arts but a continuous-movement discipline where the practitioner never stops transitioning through positions, making it difficult to pin or submit. Ground movement is practised in all directions against opponents who are both standing and on the ground.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/systema/models/groundwork.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "movement", "durationSeconds": 5.0, "fps": 30 }
+      ],
+      "tags": ["ground", "beginner", "movement", "fluid"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "back", "legs", "shoulders"],
+      "commonMistakes": [
+        "Stopping in a position rather than maintaining continuous transitional movement",
+        "Tensing the arms to push up rather than using the whole body to flow upward",
+        "Losing sight of the opponent when low — keep the eyes tracking even when rolling"
+      ]
+    },
+    {
+      "id": "systema.strikes",
+      "name": "Strikes",
+      "description": "Systema striking — short, relaxed blows delivered from any body position and targeting the nervous system rather than producing surface trauma. A Systema strike lands with a whipping quality: loose on approach, dense at impact, immediately relaxed after. Common striking surfaces include the fist, palm, forearm, elbow, knee, and foot, all used interchangeably as appropriate for the distance and position. Power generation comes from gravity and body mass, not muscular contraction.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["systema.breathing", "systema.relaxation"],
+      "modelPath": "content/systema/models/strikes.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.6, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "relaxed", "nervous-system"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "core", "forearms", "back"],
+      "commonMistakes": [
+        "Tensing the fist before impact — Systema strikes clench only at the moment of contact and release immediately",
+        "Pulling back for power rather than using the body's natural falling and rotation",
+        "Targeting only the head — Systema strikes frequently target the solar plexus, neck, and inner thigh"
+      ]
+    },
+    {
+      "id": "systema.continuous-motion",
+      "name": "Continuous Motion",
+      "description": "The third principle in practice — maintaining uninterrupted flow of movement that makes the practitioner a moving target and prevents the accumulation of predictable patterns. Continuous motion drills train the body to never pause in a neutral position, always transitioning through techniques rather than between them. Against multiple attackers, continuous motion means the practitioner is always moving toward the next contact rather than finishing one exchange before starting the next.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["systema.breathing", "systema.groundwork"],
+      "modelPath": "content/systema/models/continuous_motion.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "flow", "durationSeconds": 5.0, "fps": 30 }
+      ],
+      "tags": ["movement", "intermediate", "flow", "unpredictability"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "legs", "back", "shoulders"],
+      "commonMistakes": [
+        "Stopping to set up the next technique rather than letting it emerge from the current one",
+        "Moving in straight lines — Systema motion spirals and curves constantly",
+        "Increasing speed instead of increasing efficiency when under pressure"
+      ]
+    },
+    {
+      "id": "systema.lever-work",
+      "name": "Lever Work",
+      "description": "Joint manipulation and structural control using leverage — a core component of Systema's grappling that avoids strength-based locks in favour of finding the body's natural mechanical disadvantages. Lever work targets elbow, shoulder, wrist, and knee joints by angling pressure against the joint's structure with minimal grip force, requiring the practitioner to feel where resistance begins and work just beyond it. The result is control that adapts fluidly to the opponent's movement rather than a static hold.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["systema.relaxation", "systema.strikes"],
+      "modelPath": "content/systema/models/lever_work.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "lock", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "tags": ["locks", "intermediate", "leverage", "joint-control"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Using grip strength instead of structural leverage — the grip should be light, the angle is the key",
+        "Staying on one joint rather than transitioning when the opponent adapts",
+        "Losing breathing continuity during the lock — tension will transfer to the opponent"
+      ]
+    },
+    {
+      "id": "systema.pressure-points",
+      "name": "Pressure Points",
+      "description": "Systema's use of nerve and muscle pressure to control, distract, and pain-comply an opponent without destroying the joint — a refinement of lever work that targets specific anatomical locations. Pressure points used in Systema include the radial nerve on the outer forearm, the peroneal nerve on the outer knee, the brachial plexus in the neck, and the subclavian nerve below the clavicle. The practitioner learns these locations through partner drills where the recipient confirms the neurological effect.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["systema.lever-work", "systema.strikes"],
+      "modelPath": "content/systema/models/pressure_points.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "press", "durationSeconds": 0.8, "fps": 30 }
+      ],
+      "tags": ["pressure-points", "intermediate", "nerve", "pain-compliance"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "shoulders"],
+      "commonMistakes": [
+        "Using too much surface area — pressure points require focused, small contact",
+        "Pressing without first positioning the opponent so they cannot move away from the pressure",
+        "Relying on pressure points as a primary strategy — use them as set-ups and transitions"
+      ]
+    },
+    {
+      "id": "systema.falling-rolling",
+      "name": "Falling and Rolling",
+      "description": "The Systema approach to breakfalls and rolls — different from traditional martial arts ukemi in that the body is kept completely soft throughout, dissipating impact through the whole body surface rather than a specific limb or rolling arc. Systema falling drills begin from a standing position with a sudden relaxation (fall), training the body to collapse safely from any angle. Rolling can be initiated from any position including prone and seated, covering the complete sphere of possible falls.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["systema.groundwork", "systema.relaxation"],
+      "modelPath": "content/systema/models/falling_rolling.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "fall", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "roll", "durationSeconds": 1.5, "fps": 30 }
+      ],
+      "tags": ["falling", "intermediate", "rolling", "absorption"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "back", "shoulders", "legs"],
+      "commonMistakes": [
+        "Bracing with the hands or elbows — the whole body surface should take the impact",
+        "Tensing up as the fall begins rather than exhaling and releasing completely",
+        "Limiting rolls to a single direction — Systema requires falling in all planes"
+      ]
+    },
+    {
+      "id": "systema.multiple-attackers",
+      "name": "Multiple Attackers",
+      "description": "The tactical framework for engaging simultaneous or sequential opponents — using continuous motion to prevent being surrounded, directing one opponent into another's path, and selecting targets that control the group's structure rather than the strongest individual. Systema multi-attacker training begins with slow-motion drills where the practitioner walks through the group using breathing and movement principles before adding contact and speed, building neural patterns before physical intensity.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["systema.continuous-motion", "systema.strikes"],
+      "modelPath": "content/systema/models/multiple_attackers.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "movement", "durationSeconds": 6.0, "fps": 30 }
+      ],
+      "tags": ["multiple-attackers", "intermediate", "tactical", "positioning"],
+      "cameraPreset": "top",
+      "muscleGroups": ["core", "legs", "shoulders", "back"],
+      "commonMistakes": [
+        "Engaging one attacker completely before addressing the next — all movement must consider the whole group",
+        "Moving to the centre of the group instead of staying on the perimeter",
+        "Stopping movement to assess — keep moving and assess through movement"
+      ]
+    },
+    {
+      "id": "systema.knife-defence",
+      "name": "Knife Defence",
+      "description": "Systema's approach to edged weapon confrontations — acknowledging that contact with a knife will likely result in cuts, and training to continue functioning through psychological shock, pain, and injury. Drills use rubber knives with progressive contact to build tolerance and response capacity. The strategy prioritises controlling the weapon arm and the attacker's structure rather than attempting to disarm as a first response, using strikes and lever work to create the conditions for a safe disarm or escape.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["systema.lever-work", "systema.continuous-motion"],
+      "modelPath": "content/systema/models/knife_defence.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "defence", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "tags": ["weapon-defence", "advanced", "knife", "edged-weapon"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["forearms", "shoulders", "core", "back"],
+      "commonMistakes": [
+        "Attempting to disarm immediately rather than first controlling the weapon arm",
+        "Freezing when the knife contacts the body — training must build the response to continue through contact",
+        "Focusing only on the weapon hand and losing track of the attacker's other limbs"
+      ]
+    },
+    {
+      "id": "systema.psycho-physical",
+      "name": "Psycho-Physical Training",
+      "description": "The psychological dimension of Systema's training methodology — systematic exposure to fear, discomfort, and stress to build resilience and maintain technical quality under psychological pressure. Drills include strike tolerance (partners strike progressively harder while the receiver maintains relaxed breathing), cold-water exposure, sleep-deprivation training, and shouting drills. The goal is not toughness but adaptability — the ability to function when the nervous system is activated.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["systema.breathing", "systema.relaxation", "systema.multiple-attackers"],
+      "modelPath": "content/systema/models/psycho_physical.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "tolerance", "durationSeconds": 5.0, "fps": 30 }
+      ],
+      "tags": ["psychological", "advanced", "stress", "resilience"],
+      "cameraPreset": "front",
+      "muscleGroups": ["core", "back", "shoulders"],
+      "commonMistakes": [
+        "Confusing pain tolerance with ego — the goal is nervous system regulation, not proving toughness",
+        "Progressing intensity too quickly before the breathing regulation is automatic",
+        "Performing these drills without an experienced instructor who can identify hyperventilation or dissociation"
+      ]
+    },
+    {
+      "id": "systema.restoration",
+      "name": "Restoration",
+      "description": "The recovery practices embedded within Systema training — breathing sequences, self-massage, and movement that accelerate physiological recovery between intense drills and after trauma. Restoration is not passive rest but active regeneration: practitioners use specific breathing patterns to bring the heart rate down, massage sequences to restore circulation to tensed muscle groups, and slow undulating movement to clear lactic acid and nervous system arousal. It is considered as important as the combat techniques themselves.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["systema.breathing", "systema.pressure-points"],
+      "modelPath": "content/systema/models/restoration.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "recovery", "durationSeconds": 6.0, "fps": 30 }
+      ],
+      "tags": ["recovery", "advanced", "restoration", "breathing"],
+      "cameraPreset": "front",
+      "muscleGroups": ["core", "back", "shoulders", "legs"],
+      "commonMistakes": [
+        "Rushing through restoration sequences to get back to combat drills",
+        "Applying massage with tense hands rather than relaxed palms that allow sensitivity",
+        "Neglecting the psychological element — restoration must address mental state, not just physical recovery"
+      ]
+    },
+    {
+      "id": "systema.takedowns",
+      "name": "Takedowns",
+      "description": "Systema takedowns and throws — not fixed techniques but disruptions of the opponent's structure using lever work, strikes, and continuous movement. A Systema takedown emerges from whatever control is available: a grabbed arm becomes a shoulder throw, a missed punch becomes a spin to the back. The practitioner follows the opponent's mass to the ground rather than forcing a predetermined technique, making the takedown adaptive to any defensive response.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["systema.lever-work", "systema.falling-rolling", "systema.continuous-motion"],
+      "modelPath": "content/systema/models/takedowns.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "throw", "durationSeconds": 1.3, "fps": 30 }
+      ],
+      "tags": ["takedown", "advanced", "adaptive", "throw"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "back", "legs", "shoulders", "glutes"],
+      "commonMistakes": [
+        "Committing to a predetermined technique rather than following the opponent's movement",
+        "Releasing the opponent after taking them down — Systema follows all the way to the ground",
+        "Using muscle to complete a takedown when resistance appears — find the new angle instead"
+      ]
+    },
+    {
+      "id": "systema.chokes-holds",
+      "name": "Chokes and Holds",
+      "description": "Systema's use of chokes and constriction to control or incapacitate an opponent — applied without a gi using body weight, arm positioning, and structural pressure rather than grip strength. Systema chokes include the lateral neck compression, the forearm-across-throat air choke, the carotid-squeezing body-mass choke, and constrictions using the legs and torso. The practitioner uses breathing and relaxation to maintain the compression even when the opponent thrashes, rather than gripping harder.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["systema.takedowns", "systema.psycho-physical"],
+      "modelPath": "content/systema/models/chokes_holds.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "choke", "durationSeconds": 1.3, "fps": 30 }
+      ],
+      "tags": ["choke", "advanced", "constriction", "control"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "core", "back", "shoulders"],
+      "commonMistakes": [
+        "Gripping tighter instead of redistributing weight when the opponent resists",
+        "Holding the breath during the choke — continuous exhale maintains the compression without strength",
+        "Applying from a static position — Systema chokes follow movement and should adjust with the opponent"
+      ]
+    },
+    {
+      "id": "systema.combat-breathing",
+      "name": "Combat Breathing",
+      "description": "The integration of breathing with combat techniques under maximum stress — the capstone Systema skill that synthesises all four principles (breathing, relaxation, movement, form) under live conditions. Combat breathing drills place the practitioner under a controlled overload: multiple partners striking continuously, extreme fatigue, psychological pressure, or pain, while maintaining the breathing rhythm that keeps the nervous system regulated. A practitioner who maintains breathing through this level of stress can maintain technical quality in real encounters.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["systema.chokes-holds", "systema.restoration", "systema.knife-defence"],
+      "modelPath": "content/systema/models/combat_breathing.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "drill", "durationSeconds": 8.0, "fps": 30 }
+      ],
+      "tags": ["breathing", "advanced", "integration", "stress"],
+      "cameraPreset": "front",
+      "muscleGroups": ["core", "back", "shoulders", "legs"],
+      "commonMistakes": [
+        "Allowing the breathing to speed up rather than remain rhythmic under pressure",
+        "Switching to chest breathing when fatigued — the diaphragm must stay engaged",
+        "Stopping the drill when the breathing breaks rather than recovering mid-drill through conscious exhale"
+      ]
+    }
+  ]
+}
