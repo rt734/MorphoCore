@@ -1,0 +1,341 @@
+{
+  "discipline": {
+    "id": "muay-boran",
+    "name": "Muay Boran",
+    "description": "Muay Boran (มวยโบราณ) is the ancient predecessor of Muay Thai, a comprehensive Thai battlefield art that employs all nine natural weapons — fists, elbows, knees, feet, and head. Developed for warfare, it emphasises powerful strikes from close range, grappling, and throws. Modern practitioners study Muay Boran to recover techniques lost in the sport evolution of Muay Thai, including head-butts, groin strikes, and joint locks forbidden in competition.",
+    "movementIds": [
+      "muay-boran.wai-kru",
+      "muay-boran.mae-mai-ta-sao",
+      "muay-boran.sok-tong",
+      "muay-boran.jab-klong",
+      "muay-boran.teep-trong",
+      "muay-boran.khao-trong",
+      "muay-boran.kradog-chern-kru",
+      "muay-boran.hanuman-thayarn",
+      "muay-boran.ta-then-kham-fak",
+      "muay-boran.naka-bid-hang",
+      "muay-boran.paksa-waeg-rang",
+      "muay-boran.erawan-sueb-sarn",
+      "muay-boran.hak-nguang-aiyara",
+      "muay-boran.inao-plung-daab",
+      "muay-boran.mahayak-ngad-ngao"
+    ]
+  },
+  "movements": [
+    {
+      "id": "muay-boran.wai-kru",
+      "name": "Wai Kru",
+      "description": "The ceremonial salutation performed before every bout, a flowing sequence of movements that pays respect to teachers, ancestors, and the spirit of the art. Wai Kru builds body awareness, balance, and the focused mental state required for combat. Each gesture has symbolic meaning rooted in Buddhist and Brahmanical tradition.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/muay-boran/models/wai_kru.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "full", "durationSeconds": 8.0, "fps": 30 }
+      ],
+      "tags": ["ritual", "beginner", "ceremony", "balance"],
+      "cameraPreset": "front",
+      "muscleGroups": ["core", "shoulders", "legs"],
+      "commonMistakes": [
+        "Rushing through the sequence without controlled breathing",
+        "Performing gestures mechanically without understanding their meaning",
+        "Poor balance during the lowering and rising phases"
+      ]
+    },
+    {
+      "id": "muay-boran.mae-mai-ta-sao",
+      "name": "Mae Mai Ta Sao",
+      "description": "The foundational mother technique known as 'pillar punch' — a straight punch that penetrates through the target rather than snapping back. The shoulder drives forward as the hip rotates, generating a crushing force that differs fundamentally from Muay Thai's snapping jab. Body alignment from heel to fist is the defining principle.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/muay-boran/models/mae_mai_ta_sao.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.6, "fps": 60 }
+      ],
+      "tags": ["punch", "beginner", "straight", "foundation"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "chest", "core"],
+      "commonMistakes": [
+        "Snapping the punch back like Muay Thai instead of driving through",
+        "Failing to rotate the hip fully behind the strike",
+        "Dropping the rear guard hand"
+      ]
+    },
+    {
+      "id": "muay-boran.sok-tong",
+      "name": "Sok Tong",
+      "description": "The descending elbow — a powerful downward strike where the elbow drops from above onto the opponent's skull, nose, or collarbone. Sok Tong is delivered by raising the elbow overhead and driving it downward with full body weight, making it one of the most destructive techniques in Muay Boran's arsenal against taller opponents or clinching adversaries.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/muay-boran/models/sok_tong.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.5, "fps": 60 }
+      ],
+      "tags": ["elbow", "beginner", "descending", "close-range"],
+      "cameraPreset": "front",
+      "muscleGroups": ["triceps", "shoulders", "core"],
+      "commonMistakes": [
+        "Telegraphing by raising the elbow too slowly",
+        "Striking with the point rather than the blade of the elbow",
+        "Losing balance during the downward weight shift"
+      ]
+    },
+    {
+      "id": "muay-boran.jab-klong",
+      "name": "Jab Klong",
+      "description": "The hammer fist or 'drum strike' — a downward or diagonal blow delivered with the bottom of the closed fist, mimicking the motion of striking a drum. Used to target the temples, base of the skull, and spine, jab-klong can be performed while stepping in, turning out of a clinch, or following a blocked strike to create an unexpected angle of attack.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["muay-boran.mae-mai-ta-sao"],
+      "modelPath": "content/muay-boran/models/jab_klong.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.55, "fps": 60 }
+      ],
+      "tags": ["hammer-fist", "intermediate", "diagonal", "temple"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Using a loose open fist instead of tightly closing the hand",
+        "Striking with the knuckles rather than the base of the fist",
+        "Neglecting hip rotation — treat it like a compact hook"
+      ]
+    },
+    {
+      "id": "muay-boran.teep-trong",
+      "name": "Teep Trong",
+      "description": "The straight front push-kick — the fundamental distancing tool of Muay Boran. Teep Trong extends the leg straight into the opponent's midsection, face, or knee to create space, disrupt timing, and damage the body. Unlike a roundhouse kick, the ball of the foot thrusts forward, requiring strong hip flexors and precise timing to catch the opponent stepping in.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["muay-boran.wai-kru"],
+      "modelPath": "content/muay-boran/models/teep_trong.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "kick", "durationSeconds": 0.7, "fps": 60 }
+      ],
+      "tags": ["kick", "intermediate", "push-kick", "range"],
+      "cameraPreset": "side",
+      "muscleGroups": ["hip_flexors", "quadriceps", "core"],
+      "commonMistakes": [
+        "Bending the knee too much — the kick should extend fully",
+        "Striking with the heel instead of the ball of the foot",
+        "Failing to chamber and rechamber quickly, leaving the leg extended"
+      ]
+    },
+    {
+      "id": "muay-boran.khao-trong",
+      "name": "Khao Trong",
+      "description": "The straight knee — a thrusting knee strike driven directly into the opponent's midsection, solar plexus, or groin at close range. Khao Trong is the entry point to Muay Boran's extensive knee arsenal, teaching the practitioner to generate power from hip extension rather than just the knee joint alone. Clinch grip technique is practised simultaneously.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["muay-boran.wai-kru", "muay-boran.mae-mai-ta-sao"],
+      "modelPath": "content/muay-boran/models/khao_trong.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.6, "fps": 60 }
+      ],
+      "tags": ["knee", "intermediate", "clinch", "close-range"],
+      "cameraPreset": "side",
+      "muscleGroups": ["hip_flexors", "glutes", "core"],
+      "commonMistakes": [
+        "Driving with the knee joint rather than the hip",
+        "Pulling the opponent into the knee incorrectly — use the lats, not the arms",
+        "Allowing the standing foot to come off the ground"
+      ]
+    },
+    {
+      "id": "muay-boran.kradog-chern-kru",
+      "name": "Kradog Chern Kru",
+      "description": "The 'leaping to steal the teacher' technique — a flying elbow delivered by jumping toward the opponent, bringing the elbow down in a diagonal arc onto the skull or collarbone. One of the signature aerial techniques of Muay Boran, kradog-chern-kru combines explosive leg power with the bone-crushing force of the elbow to overcome tall opponents or break a defensive shell.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["muay-boran.sok-tong", "muay-boran.teep-trong"],
+      "modelPath": "content/muay-boran/models/kradog_chern_kru.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "jump", "durationSeconds": 1.0, "fps": 60 }
+      ],
+      "tags": ["flying-elbow", "intermediate", "aerial", "elbow"],
+      "cameraPreset": "side",
+      "muscleGroups": ["quadriceps", "calves", "shoulders", "core"],
+      "commonMistakes": [
+        "Not generating enough height from the jump to add elbow weight",
+        "Landing on both feet simultaneously instead of absorbing sequentially",
+        "Telegraphing the jump by dipping the knees too visibly"
+      ]
+    },
+    {
+      "id": "muay-boran.hanuman-thayarn",
+      "name": "Hanuman Thayarn",
+      "description": "Named after the monkey general Hanuman from the Ramayana epic, this technique involves leaping forward and delivering a double elbow strike — one horizontal and one descending — in a single aerial combination. The movement mimics Hanuman's attack posture and is designed to overwhelm defences by presenting two simultaneous striking surfaces from above.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["muay-boran.kradog-chern-kru", "muay-boran.sok-tong"],
+      "modelPath": "content/muay-boran/models/hanuman_thayarn.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "combo", "durationSeconds": 1.2, "fps": 60 }
+      ],
+      "tags": ["double-elbow", "intermediate", "aerial", "combination"],
+      "cameraPreset": "front",
+      "muscleGroups": ["shoulders", "triceps", "core", "quadriceps"],
+      "commonMistakes": [
+        "Delivering both elbows at the same height instead of staggering the angles",
+        "Insufficient jump height reduces the penetrating power of the strike",
+        "Crossing the arms in flight instead of keeping them parallel"
+      ]
+    },
+    {
+      "id": "muay-boran.ta-then-kham-fak",
+      "name": "Ta Then Kham Fak",
+      "description": "The 'guardian angel crossing the gourd' technique — a spinning elbow that turns 180 degrees and drives the elbow horizontally into the opponent's temple or jaw. The spin is initiated by a feint or blocked strike, making the opponent commit to a response before the rotation begins. The elbow travels the longest arc of any Muay Boran technique, generating devastating centrifugal force.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["muay-boran.sok-tong", "muay-boran.jab-klong"],
+      "modelPath": "content/muay-boran/models/ta_then_kham_fak.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "spin", "durationSeconds": 0.9, "fps": 60 }
+      ],
+      "tags": ["spinning-elbow", "intermediate", "rotation", "temple"],
+      "cameraPreset": "top",
+      "muscleGroups": ["core", "obliques", "shoulders"],
+      "commonMistakes": [
+        "Beginning the spin without a prior feint, giving away the technique",
+        "Stepping past the centre of gravity — keep weight over the pivot foot",
+        "Striking too early in the arc before full rotational speed builds"
+      ]
+    },
+    {
+      "id": "muay-boran.naka-bid-hang",
+      "name": "Naka Bid Hang",
+      "description": "The 'naga twisting the tail' technique — a leg grab and twist that traps the opponent's lead leg after a blocked kick, rotates the leg sharply to break balance, and drives them into the ground. Naka-bid-hang is Muay Boran's answer to the caught-kick scenario, converting a defensive catch into a throwing counter that can damage the knee, hip, or shoulder on impact.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["muay-boran.teep-trong", "muay-boran.khao-trong"],
+      "modelPath": "content/muay-boran/models/naka_bid_hang.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "throw", "durationSeconds": 1.1, "fps": 30 }
+      ],
+      "tags": ["throw", "intermediate", "leg-grab", "counter"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "glutes", "back", "forearms"],
+      "commonMistakes": [
+        "Catching too far from the body — pull the leg in tight before rotating",
+        "Twisting without a simultaneous step into the opponent's base",
+        "Releasing the leg too early before full off-balance is achieved"
+      ]
+    },
+    {
+      "id": "muay-boran.paksa-waeg-rang",
+      "name": "Paksa Waeg Rang",
+      "description": "The 'bird perching on a branch' technique — a jumping knee strike delivered mid-air by leaping onto the opponent and thrusting the knee upward into the chin or chest as the body descends. The practitioner 'perches' momentarily by gripping the opponent's neck or shoulders, using their weight to anchor the knee's upward drive. One of the most visually dramatic and technically demanding techniques in the system.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["muay-boran.khao-trong", "muay-boran.kradog-chern-kru"],
+      "modelPath": "content/muay-boran/models/paksa_waeg_rang.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "flying-knee", "durationSeconds": 1.3, "fps": 60 }
+      ],
+      "tags": ["flying-knee", "advanced", "aerial", "dramatic"],
+      "cameraPreset": "side",
+      "muscleGroups": ["hip_flexors", "quadriceps", "glutes", "core"],
+      "commonMistakes": [
+        "Relying on arm grip alone — the upward knee thrust must come from the hip",
+        "Not jumping high enough to clear the opponent's guard before landing",
+        "Descending too steeply — control the angle of fall to avoid head collision"
+      ]
+    },
+    {
+      "id": "muay-boran.erawan-sueb-sarn",
+      "name": "Erawan Sueb Sarn",
+      "description": "Named after Erawan, the divine three-headed elephant, this technique delivers three consecutive elbow strikes in rapid succession — horizontal, descending, and uppercut — while advancing on the opponent. Erawan-sueb-sarn trains the practitioner to link elbow weapons seamlessly, preventing the opponent from recovering or creating distance between each strike.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["muay-boran.sok-tong", "muay-boran.hanuman-thayarn", "muay-boran.ta-then-kham-fak"],
+      "modelPath": "content/muay-boran/models/erawan_sueb_sarn.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "triple-elbow", "durationSeconds": 1.5, "fps": 60 }
+      ],
+      "tags": ["triple-elbow", "advanced", "combination", "relentless"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "triceps", "core", "obliques"],
+      "commonMistakes": [
+        "Pausing between elbows — the sequence must flow without reset",
+        "Using only arm power; drive each elbow with the entire torso",
+        "Losing forward momentum — each elbow should advance one step"
+      ]
+    },
+    {
+      "id": "muay-boran.hak-nguang-aiyara",
+      "name": "Hak Nguang Aiyara",
+      "description": "The 'breaking the elephant's trunk' technique — a devastating clinch manoeuvre that traps the opponent's neck in a double collar tie, wrenches downward sharply to break posture, and simultaneously drives a knee upward to meet the descending face. The technique replicates the motion of a mahout forcing a resisting elephant's head down, combining leverage, weight, and a rising knee into one explosive counter.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["muay-boran.khao-trong", "muay-boran.naka-bid-hang"],
+      "modelPath": "content/muay-boran/models/hak_nguang_aiyara.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "clinch-knee", "durationSeconds": 1.2, "fps": 60 }
+      ],
+      "tags": ["clinch", "advanced", "knee", "neck-control"],
+      "cameraPreset": "front",
+      "muscleGroups": ["back", "core", "hip_flexors", "glutes", "forearms"],
+      "commonMistakes": [
+        "Pulling the neck straight down instead of diagonally into the knee's path",
+        "Under-committing to the downward wrench — use full bodyweight, not arm strength",
+        "Raising the knee too slowly after the pull, giving the opponent time to recover posture"
+      ]
+    },
+    {
+      "id": "muay-boran.inao-plung-daab",
+      "name": "Inao Plung Daab",
+      "description": "Named after the Javanese prince Inao, this sword-hand technique delivers a chopping strike with the blade edge of the hand to the neck, clavicle, or forearm. Historically practised with a short blade, the empty-hand version uses the radius edge just above the wrist as the striking surface. Inao-plung-daab is the gateway technique for weapon-to-empty-hand translation in Muay Boran's classical curriculum.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["muay-boran.mae-mai-ta-sao", "muay-boran.ta-then-kham-fak", "muay-boran.erawan-sueb-sarn"],
+      "modelPath": "content/muay-boran/models/inao_plung_daab.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "chop", "durationSeconds": 0.65, "fps": 60 }
+      ],
+      "tags": ["chop", "advanced", "sword-hand", "neck"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Striking with the flat palm rather than the blade edge of the hand",
+        "Bending the wrist on impact instead of maintaining a straight forearm alignment",
+        "Chopping straight down — the correct arc is diagonal, like a sword draw"
+      ]
+    },
+    {
+      "id": "muay-boran.mahayak-ngad-ngao",
+      "name": "Mahayak Ngad Ngao",
+      "description": "The grand finale technique — 'great giant impaling with a halberd' — a high spinning heel kick that covers 360 degrees and targets the back of the skull, temple, or spine. The heel becomes the halberd, tracing a horizontal circle at head height with full body rotation to maximise impact velocity. Mahayak-ngad-ngao is the capstone of Muay Boran's kicking arsenal, requiring balance, flexibility, timing, and explosive rotational power mastered from all preceding techniques.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["muay-boran.paksa-waeg-rang", "muay-boran.inao-plung-daab"],
+      "modelPath": "content/muay-boran/models/mahayak_ngad_ngao.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "spin-kick", "durationSeconds": 1.4, "fps": 60 }
+      ],
+      "tags": ["spinning-heel-kick", "advanced", "360", "head-height"],
+      "cameraPreset": "top",
+      "muscleGroups": ["glutes", "hamstrings", "core", "obliques", "calves"],
+      "commonMistakes": [
+        "Insufficient pivot speed — the spin must be initiated from the hips, not the shoulders",
+        "Dropping the heel below head height mid-rotation, losing the target window",
+        "Not spotting a reference point, causing dizziness and loss of balance on landing"
+      ]
+    }
+  ]
+}
