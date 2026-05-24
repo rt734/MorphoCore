@@ -1,0 +1,341 @@
+{
+  "discipline": {
+    "id": "gatka",
+    "name": "Gatka",
+    "description": "Gatka (ਗਤਕਾ) is the traditional Sikh martial art of Punjab, rooted in the warrior culture of the Khalsa — the community of initiated Sikhs formed by Guru Gobind Singh in 1699. Originally a comprehensive system of armed and unarmed combat used by the Akali Nihang warriors, Gatka has evolved into both a competitive sport and a living cultural practice, performed at Sikh religious festivals (Gurpurabs) and demonstrations worldwide. Practitioners use a rattan stick (gatka) that simulates the kirpan (sword), paired with a shield (phari), practising sequences called pentra (footwork patterns) and lishkara (strikes). The art is characterised by its circular chakkar footwork, rhythmic drum-accompanied sparring, and the integration of martial discipline with spiritual devotion.",
+    "movementIds": [
+      "gatka.basic-grip",
+      "gatka.pentra-stance",
+      "gatka.chakkar-step",
+      "gatka.overhead-strike",
+      "gatka.diagonal-cut",
+      "gatka.shield-block",
+      "gatka.flowing-pentra",
+      "gatka.spinning-strike",
+      "gatka.double-stick",
+      "gatka.advance-retreat",
+      "gatka.lishkara",
+      "gatka.disarm-technique",
+      "gatka.aerial-strike",
+      "gatka.chakkar-combination",
+      "gatka.gatka-sparring"
+    ]
+  },
+  "movements": [
+    {
+      "id": "gatka.basic-grip",
+      "name": "Basic Grip",
+      "description": "The foundational hand position for holding the gatka (rattan stick) — a relaxed but secure grip that allows wrist rotation to generate whipping power while preventing the stick from turning inadvertently on impact. The stick rests diagonally across the palm with the thumb and index finger forming a guide ring and the remaining fingers providing support. Unlike a tennis grip, the Gatka grip holds the stick closer to the end to maximise reach, and the wrist remains loose enough to snap on impact rather than being rigid. Both one-handed and two-handed grip variations are taught from the outset.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/gatka/models/basic_grip.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "grip-rotation", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "tags": ["weapon", "beginner", "grip", "stick", "fundamental"],
+      "cameraPreset": "front",
+      "muscleGroups": ["forearms", "grip", "wrist"],
+      "commonMistakes": [
+        "Gripping too tightly — a white-knuckle grip prevents the wrist snap that generates power and causes forearm fatigue",
+        "Holding too close to the centre — choke the grip toward one end for maximum reach and leverage",
+        "Locking the wrist — the wrist must remain mobile to redirect strikes and transition between techniques"
+      ]
+    },
+    {
+      "id": "gatka.pentra-stance",
+      "name": "Pentra Stance",
+      "description": "The base position of Gatka from which all footwork and striking originates — a wide, sideways-oriented stance with the knees bent, weight equally distributed, and the weapon arm extended diagonally forward. Pentra means 'entry' or 'footwork pattern' and refers both to this foundational stance and to the fluid movement sequences built upon it. The feet are roughly shoulder-width apart with both feet pointing slightly outward (duck-footed), enabling rapid rotation in either direction — a necessity for the circular chakkar movements that define Gatka's footwork system.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/gatka/models/pentra_stance.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "weight-shift", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "tags": ["stance", "beginner", "pentra", "footwork", "base"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["legs", "core", "glutes"],
+      "commonMistakes": [
+        "Pointing the feet straight forward — the outward angle is essential for the hip rotation that powers Gatka's circular strikes",
+        "Leaning forward — weight should be centred over both feet, not pitched onto the lead leg",
+        "Keeping the knees locked — bent knees are the shock absorbers that allow rapid direction changes"
+      ]
+    },
+    {
+      "id": "gatka.chakkar-step",
+      "name": "Chakkar Step",
+      "description": "The signature circular footwork of Gatka — a full or partial rotation of the body using a pivot on the lead or rear foot, generating rotational momentum that feeds directly into a strike. Chakkar (ਚੱਕਰ) means 'circle' or 'wheel' and appears throughout Sikh iconography including the steel throwing weapon of the same name. The chakkar step is used both offensively (adding rotation to a strike) and defensively (rotating off the line of attack while repositioning). Unlike spinning kicks in other arts, the Gatka chakkar keeps the stick in motion throughout the rotation, so the weapon is always a threat and never 'parked' on the opposite side of the body.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/gatka/models/chakkar_step.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "rotation", "durationSeconds": 1.5, "fps": 30 }
+      ],
+      "tags": ["footwork", "beginner", "chakkar", "rotation", "fundamental"],
+      "cameraPreset": "top",
+      "muscleGroups": ["legs", "core", "glutes", "hips"],
+      "commonMistakes": [
+        "Stopping the rotation midway — the chakkar must complete fully or the practitioner is briefly exposed with the stick behind them",
+        "Losing sight of the opponent during the turn — the head must lead the rotation, spotting the opponent as early as possible",
+        "Pivoting flat-footed — the rotation should use the ball of the foot, not the heel, to maintain speed and control"
+      ]
+    },
+    {
+      "id": "gatka.overhead-strike",
+      "name": "Overhead Strike",
+      "description": "A vertical downward blow from directly above the head — one of the primary power strikes of Gatka, targeting the skull, collarbone, or shoulder. The stick is raised by rotating the shoulder backward and overhead, then whipped downward with a simultaneous forward step and shoulder-rotation, producing a motion similar to an axe chop. In stick sparring the overhead is blocked with the flat of the phari (shield) raised horizontally above the head. In the weapon traditions from which Gatka descends, this strike replicates a two-handed sword cut delivered from a high guard position.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["gatka.basic-grip", "gatka.pentra-stance"],
+      "modelPath": "content/gatka/models/overhead_strike.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.7, "fps": 60 }
+      ],
+      "tags": ["weapon", "intermediate", "strike", "overhead", "power"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "lats", "core", "triceps"],
+      "commonMistakes": [
+        "Stopping the stick at shoulder height rather than carrying it all the way overhead — a partial raise produces a weak, arm-only strike",
+        "Stepping after the strike rather than simultaneously — the step and strike must arrive together for maximum force transfer",
+        "Cutting straight down with the arm only — the torso rotation is where the power originates, not the shoulder"
+      ]
+    },
+    {
+      "id": "gatka.diagonal-cut",
+      "name": "Diagonal Cut",
+      "description": "A descending diagonal strike from high-right to low-left or high-left to low-right, targeting the neck, shoulder, ribs, or hip joint — the most versatile attack in Gatka because it can be disguised as an overhead or redirected into a horizontal as the situation changes. The diagonal cut is the primary attack in most Gatka pentra sequences and is practised in both forehand and backhand variants. Its angular trajectory is harder to block than a vertical strike because the shield must be positioned in the correct plane; a shield held horizontally for an overhead will fail against a diagonal cutting downward at 45 degrees.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["gatka.basic-grip", "gatka.pentra-stance"],
+      "modelPath": "content/gatka/models/diagonal_cut.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.6, "fps": 60 }
+      ],
+      "tags": ["weapon", "intermediate", "strike", "diagonal", "versatile"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "core", "lats", "obliques"],
+      "commonMistakes": [
+        "Committing the angle too early — keep the initial motion ambiguous so the opponent cannot predict forehand or backhand",
+        "Cutting only with the arm — the shoulder and hip rotation drive the stick; arm extension is just the final whip",
+        "Stopping on contact rather than cutting through — Gatka strikes are designed to continue through the target, not bounce off it"
+      ]
+    },
+    {
+      "id": "gatka.shield-block",
+      "name": "Shield Block (Phari)",
+      "description": "The use of the phari (ਫੜੀ) — a small round shield roughly 30cm in diameter — to intercept, deflect, and redirect incoming strikes while the weapon hand prepares the counter. Unlike a passive block that stops force with force, the Gatka shield technique uses angulation to redirect the strike sideways rather than absorbing it, preserving the practitioner's structural integrity and immediately creating an opening for counter-attack. The phari is held on the forearm with a grip that allows wrist rotation for tilt-adjustments, and it moves in arcs rather than straight lines to ensure the striking stick slides off its curved surface.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["gatka.pentra-stance", "gatka.overhead-strike"],
+      "modelPath": "content/gatka/models/shield_block.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "deflect", "durationSeconds": 0.8, "fps": 60 }
+      ],
+      "tags": ["weapon", "intermediate", "defence", "shield", "phari"],
+      "cameraPreset": "front",
+      "muscleGroups": ["forearms", "shoulders", "back", "core"],
+      "commonMistakes": [
+        "Holding the shield statically — the phari must move to meet the incoming stick, tilted so the strike slides off rather than lands flat",
+        "Blocking without simultaneously setting up the counter — every block is the first half of a block-and-strike combination",
+        "Exposing the elbow — the phari should cover from the wrist to the elbow; a dangling elbow is a legal target"
+      ]
+    },
+    {
+      "id": "gatka.flowing-pentra",
+      "name": "Flowing Pentra",
+      "description": "A continuous sequence of strikes, footwork changes, and position transitions performed to the rhythm of the dhol (drum) — the Gatka equivalent of a kata or form, but improvised rather than fixed. The flowing pentra connects overhead cuts, diagonal strikes, and chakkar steps into a rhythmic flow that trains timing, spatial awareness, and the ability to maintain weapon motion between attacks. In demonstrations and competitions, flowing pentra is performed as a solo exhibition or synchronised with a partner, with the quality of rhythm and the continuity of weapon motion judged as much as the accuracy of individual strikes.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["gatka.chakkar-step", "gatka.overhead-strike", "gatka.diagonal-cut"],
+      "modelPath": "content/gatka/models/flowing_pentra.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "sequence", "durationSeconds": 8.0, "fps": 30 }
+      ],
+      "tags": ["weapon", "intermediate", "pentra", "flow", "rhythm"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "core", "legs", "forearms"],
+      "commonMistakes": [
+        "Pausing between techniques — the pentra must flow continuously; any pause breaks the rhythm and the pattern",
+        "Forgetting the footwork — novices focus on the weapon and stand still; the feet must contribute to every technique",
+        "Rushing to keep up with the drum rather than letting the body find the rhythm — start without music, then introduce the beat"
+      ]
+    },
+    {
+      "id": "gatka.spinning-strike",
+      "name": "Spinning Strike",
+      "description": "A full-body rotation combined with a horizontal or diagonal strike — one of Gatka's most powerful and visually dramatic techniques, combining the chakkar rotation with a timed weapon release to deliver a centrifugal blow at the end of the spin. The practitioner enters the spin from a planted rear foot, completes the rotation while keeping the weapon close to the body to maximise spin speed, then extends the weapon outward at the critical release point to transfer the accumulated rotation into the strike. Timing the extension is the critical skill — releasing too early or too late reduces the force dramatically.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["gatka.chakkar-step", "gatka.diagonal-cut"],
+      "modelPath": "content/gatka/models/spinning_strike.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "spin-strike", "durationSeconds": 1.0, "fps": 60 }
+      ],
+      "tags": ["weapon", "intermediate", "spinning", "power", "chakkar"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "shoulders", "legs", "hips"],
+      "commonMistakes": [
+        "Extending the weapon too early in the rotation — the stick must stay close to the body during the spin, then extend at the release point",
+        "Losing balance post-spin — plant the foot firmly before the release to avoid stumbling after impact",
+        "Committing without confirming the range — a spinning technique has a long preparation phase during which the practitioner is vulnerable"
+      ]
+    },
+    {
+      "id": "gatka.double-stick",
+      "name": "Double Stick",
+      "description": "The ambidextrous use of two gatkas simultaneously — one in each hand — a tradition within Gatka that trains coordination, bilateral strength, and the ability to attack and defend with each hand independently. Double-stick Gatka uses coordinated striking patterns where one stick attacks while the other guards, alternating in rhythmic exchange, or both sticks attack simultaneously in a crossing-cut pattern that overwhelms a single shield. This practice descends from the Nihang warriors who historically fought with sword and shield but trained ambidexterity to function effectively if one arm were disabled in combat.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["gatka.basic-grip", "gatka.overhead-strike"],
+      "modelPath": "content/gatka/models/double_stick.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "alternating", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "tags": ["weapon", "intermediate", "double-stick", "ambidextrous", "coordination"],
+      "cameraPreset": "front",
+      "muscleGroups": ["shoulders", "forearms", "core", "back"],
+      "commonMistakes": [
+        "Favouring the dominant hand — both sticks must strike with equal authority; practise the non-dominant hand alone before combining",
+        "Moving both sticks together rather than alternating — the key is independence: one hand attacks while the other resets",
+        "Neglecting the body rotation — double-stick still requires torso involvement for power, not just arm swings"
+      ]
+    },
+    {
+      "id": "gatka.advance-retreat",
+      "name": "Advance and Retreat",
+      "description": "Systematic distance management using the pentra footwork — stepping into range to attack and withdrawing out of range to reset, keeping the practitioner at the optimal reach for their weapon. In Gatka, advance-retreat is performed at a specific rhythm that links to the dhol beat, making it a practiced response that does not require conscious calculation under pressure. The advance typically covers two steps (shuffle-step entry closing the gap from mid-range) and the retreat withdraws three steps (longer range recovery) to ensure the return position is outside the opponent's maximum reach.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["gatka.pentra-stance", "gatka.chakkar-step"],
+      "modelPath": "content/gatka/models/advance_retreat.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "footwork", "durationSeconds": 5.0, "fps": 30 }
+      ],
+      "tags": ["footwork", "intermediate", "distance", "rhythm", "pentra"],
+      "cameraPreset": "side",
+      "muscleGroups": ["legs", "core", "glutes"],
+      "commonMistakes": [
+        "Retreating straight backward — angled retreats are safer because they take the body off the centreline",
+        "Over-advancing — entering too deep surrenders the weapon range advantage and forces grappling range where a stick is less effective",
+        "Breaking rhythm — advance-retreat is deliberate; nervous fighters speed up and lose coordination between weapon and footwork"
+      ]
+    },
+    {
+      "id": "gatka.lishkara",
+      "name": "Lishkara",
+      "description": "A rapid whipping strike — the fastest technique in Gatka's arsenal, using minimal backswing and maximum wrist snap to deliver a sharp, stinging blow that lands before the opponent can react. Lishkara (ਲਿਸ਼ਕਾਰਾ) derives from a word meaning 'flash' or 'glint,' evoking the speed of reflected light from a sword. Unlike the power strikes (overhead, diagonal cut) that rely on full-body rotation, lishkara generates its force almost entirely from forearm pronation and wrist snap, making it nearly impossible to time defensively. It is used to check the opponent's rhythm, create openings for power strikes, and score quick points in competition.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["gatka.basic-grip", "gatka.diagonal-cut"],
+      "modelPath": "content/gatka/models/lishkara.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "whip", "durationSeconds": 0.25, "fps": 60 }
+      ],
+      "tags": ["weapon", "intermediate", "speed", "whip", "snap"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "wrist", "shoulders"],
+      "commonMistakes": [
+        "Using a large backswing — lishkara is defined by its minimal preparation; any visible windup negates the speed advantage",
+        "Using the shoulder for power — the snap must come entirely from forearm rotation and wrist flexion",
+        "Aiming at the body instead of the extremities — lishkara targets the weapon hand or forearm where even a small impact disrupts the opponent's grip"
+      ]
+    },
+    {
+      "id": "gatka.disarm-technique",
+      "name": "Disarm Technique",
+      "description": "A controlled strike or lever that removes the opponent's weapon from their grip without physical grappling — striking the weapon hand's wrist or the stick itself at an angle that produces a rotational torque exceeding the grip force. Disarms in Gatka are integrated into the sparring rhythm as high-value scoring techniques rather than incidental wins; a clean disarm is considered a demonstration of superior timing and accuracy. The most common disarm angles hit the opponent's weapon forehand or backhand across the knuckles as they extend a strike, using the momentum of their own attack to amplify the disarming torque.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["gatka.lishkara", "gatka.advance-retreat"],
+      "modelPath": "content/gatka/models/disarm_technique.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "disarm", "durationSeconds": 0.8, "fps": 60 }
+      ],
+      "tags": ["weapon", "advanced", "disarm", "timing", "control"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["forearms", "wrist", "shoulders", "core"],
+      "commonMistakes": [
+        "Targeting the stick rather than the hand — a hit on the stick rarely generates enough torque; the knuckles and wrist are the effective targets",
+        "Over-committing — if the disarm fails the practitioner is extended and open; the motion must be small enough to recover from",
+        "Attempting the disarm without timing — only available in the moment the opponent extends their own strike; trying it from a static position gives the opponent time to grip harder"
+      ]
+    },
+    {
+      "id": "gatka.aerial-strike",
+      "name": "Aerial Strike",
+      "description": "A jump-powered overhead or diagonal strike delivered from an airborne position — one of Gatka's most spectacular techniques, combining a vertical leap with a downward cut to add gravitational force to the rotational power of the strike. The aerial strike is associated with the Akali Nihang warrior aesthetic, frequently seen in festival demonstrations where practitioners leap over partners or props while executing weapon sequences. In combat application the jump serves to close the final distance gap in a single explosive movement, bypassing the advance footwork and arriving at an unexpected height angle that challenges the defensive shield positioning.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["gatka.overhead-strike", "gatka.spinning-strike"],
+      "modelPath": "content/gatka/models/aerial_strike.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "jump-strike", "durationSeconds": 1.2, "fps": 60 }
+      ],
+      "tags": ["weapon", "advanced", "aerial", "jump", "spectacular"],
+      "cameraPreset": "side",
+      "muscleGroups": ["legs", "core", "shoulders", "lats"],
+      "commonMistakes": [
+        "Jumping before the weapon is positioned — the stick must be in the loading position before leaving the ground; loading while airborne is too slow",
+        "Landing without absorption — bent knees on landing are essential to protect the joints and enable an immediate follow-up",
+        "Using the aerial as a first strike — it should be set up by a feint or a pressure sequence that commits the opponent's shield downward before the jump"
+      ]
+    },
+    {
+      "id": "gatka.chakkar-combination",
+      "name": "Chakkar Combination",
+      "description": "A structured sequence that links multiple chakkar rotations with strikes — the practitioner uses each rotation to generate momentum for the next, chaining two or three spins and strikes in rapid succession without a pause to reset. The chakkar combination is the advanced expression of Gatka's circular movement principle: rather than rotating to attack once, the practitioner attacks on the way into and out of each rotation, making each combination a multi-hit sequence from different angles. Executing multiple linked rotations requires exceptional core strength, proprioceptive balance, and spatial awareness to avoid dizziness and maintain target acquisition through each revolution.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["gatka.spinning-strike", "gatka.flowing-pentra"],
+      "modelPath": "content/gatka/models/chakkar_combination.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "combination", "durationSeconds": 3.0, "fps": 60 }
+      ],
+      "tags": ["weapon", "advanced", "chakkar", "combination", "spinning"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "shoulders", "legs", "hips", "forearms"],
+      "commonMistakes": [
+        "Letting the momentum dissipate between rotations — each spin must carry directly into the next without a flat reset phase",
+        "Losing the weapon angle — the stick must change planes between rotations to attack from a different direction each time",
+        "Neglecting the spot — track the target with the eyes during each rotation the same way a ballet dancer spots to avoid dizziness"
+      ]
+    },
+    {
+      "id": "gatka.gatka-sparring",
+      "name": "Gatka Sparring (Khel)",
+      "description": "Full sparring practice — khel (ਖੇਲ, 'play') — where two practitioners apply Gatka techniques against a responsive, resisting opponent under competition or festival rules, using padded sticks and protective equipment. Khel integrates all preceding skills: the pentra footwork, the strikes and blocks, the disarms and spinning techniques, all subject to the opponent's real-time reactions and decisions. Unlike pre-arranged drills, khel trains the conversion reflex — the ability to apply the correct technique to the specific opening the opponent creates — and builds the competitive rhythm required for Gatka championships.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["gatka.disarm-technique", "gatka.chakkar-combination", "gatka.shield-block"],
+      "modelPath": "content/gatka/models/gatka_sparring.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "sparring", "durationSeconds": 8.0, "fps": 30 }
+      ],
+      "tags": ["weapon", "advanced", "sparring", "khel", "competition"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "core", "legs", "forearms", "back"],
+      "commonMistakes": [
+        "Reverting to solo patterns — the pentra and lishkara drills must adapt to what the opponent is actually doing, not what was practised in isolation",
+        "Abandoning the footwork under pressure — beginners stop moving when they get nervous; the chakkar footwork is even more important in live sparring than in drills",
+        "Over-reliance on one technique — elite Gatka khel requires the ability to use every tool in the arsenal based on range, angle, and timing"
+      ]
+    }
+  ]
+}
