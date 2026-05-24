@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "arnis",
+  "disciplineName": "Arnis",
+  "description": "Arnis (also called Eskrima or Kali) is the national martial art and sport of the Philippines, distinguished by the principle that all empty-hand techniques are derivatives of weapon-based movement rather than the reverse. Training begins with rattan sticks (baston), then transitions to knives and finally empty-hand technique — so that the practitioner's striking angles, parries, and footwork are always weapon-coherent. Arnis organises attacks and defences into numbered angles (typically 12), each angle representing a line of attack that can be delivered with stick, knife, or hand interchangeably. This weapon-to-empty-hand transfer means an Arnis practitioner's open-hand strikes, deflections, and disarms follow the same mechanics as their stick work, and any grab, control, or lock is simultaneously a weapon-retention or weapon-access technique. The art's philosophy of attribute development over set technique means that drills like Sinawali (weaving) and Sombrada (shadow) are practised not to memorise patterns but to develop timing, flow, and the ability to continue fighting when a weapon is lost or an attack is partially blocked.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "arnis.ready-stance",
+      "name": "Ready Stance",
+      "description": "The fighting stance of Arnis — feet shoulder-width apart in a slight forward stagger, dominant-side foot slightly back, baston (rattan stick) held vertically at shoulder height in the dominant hand with the tip pointing upward and the non-dominant hand open and forward as a live-hand guard. The ready stance in Arnis is not a static guard but a loaded position from which the first strike can be launched along any of the 12 attack angles without a preparatory motion. Weight is distributed 60-40 on the front foot to facilitate rapid forward pressure, and the stick is held loosely — a tight grip absorbs vibration and fatigues the forearm; a relaxed grip allows the stick to flow with the strike rather than fighting it. The live hand's open position is not decorative — it is the checking and gripping hand that controls the opponent's weapon arm at the ranges where the stick is no longer usable.",
+      "modelPath": "content/arnis/models/ready_stance.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "core", "shoulders", "back"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamentals", "guard"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Gripping the stick too tightly at rest, fatiguing the forearm before the engagement begins and reducing the snap speed of the first strike"},
+        {"description": "Holding the live hand flat against the body rather than extended as a forward guard, allowing the opponent's weapon to enter without a checking surface and making disarms and grabs slower to execute"}
+      ]
+    },
+    {
+      "id": "arnis.abaniko",
+      "name": "Abaniko",
+      "description": "The fan strike — a rapid horizontal snap of the wrist that drives the tip of the baston in a short, tight arc to strike the temple, jaw, or ribs from a position where a full swing has no room to develop. Abaniko (Filipino: 'fan') derives its name from the resemblance of the stick's arc to the opening of a folding fan. Unlike a full forehand or backhand swing, abaniko uses wrist rotation rather than arm travel, making it invisible until impact at close range and allowing it to be thrown at full speed from inside the opponent's guard. The same wrist snap that delivers abaniko also powers deflections and redirects, so training it as a striking tool simultaneously improves the speed of all Arnis defensive techniques. Abaniko is the primary answer to the question of what to do when the opponent has closed the distance and a full swing would hit only air or overshoot.",
+      "modelPath": "content/arnis/models/abaniko.glb",
+      "defaultClip": "snap",
+      "clips": [
+        {"name": "snap", "durationSeconds": 0.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "beginner",
+      "tags": ["strike", "wrist", "close-range"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Using the whole arm to swing abaniko rather than isolating the wrist snap, telegraphing the strike with a large arm motion and losing the speed advantage that makes the technique effective at close range"},
+        {"description": "Stopping the arc at the target rather than snapping through it, reducing impact and leaving the stick tip momentarily stuck at the point of contact instead of retracting to a guard position"}
+      ]
+    },
+    {
+      "id": "arnis.witik",
+      "name": "Witik",
+      "description": "The whipping backhand snap — the reverse-side companion to abaniko, using the same wrist rotation in the opposite direction to strike with the back of the stick hand along angles that a forehand strike cannot reach without reorienting the body. Witik (Filipino: 'whip/flick') is the foundational second strike in any Arnis combination: after a forehand abaniko or angle-1 strike lands or is deflected, the witik returns along the backhand line without withdrawing the arm, creating a figure-eight of continuous striking that gives the opponent two simultaneous threats to address. Because the wrist-snap mechanics of abaniko and witik are identical and simply reversed, drilling the two together develops ambidirectional reflexes — the stick flows between forehand and backhand at the wrist without the arm needing to reposition, enabling continuous striking at speeds a parrying opponent cannot match.",
+      "modelPath": "content/arnis/models/witik.glb",
+      "defaultClip": "snap",
+      "clips": [
+        {"name": "snap", "durationSeconds": 0.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "beginner",
+      "tags": ["strike", "backhand", "wrist"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Pulling the arm back before the witik rather than reversing the wrist in place, creating a pause between abaniko and witik that gives the opponent a recovery window"},
+        {"description": "Reversing the grip orientation for the backhand rather than maintaining the same grip and rotating the wrist, slowing the transition and alerting the opponent to the incoming reverse strike"}
+      ]
+    },
+    {
+      "id": "arnis.angle-1",
+      "name": "Angle 1 Strike",
+      "description": "The diagonal forehand strike descending from the outside high line — a full-power swing from shoulder height on the dominant side downward at 45 degrees to the opponent's temple, collarbone, or neck. Angle 1 in Arnis's 12-angle system is always the first attack taught because it is the most natural and powerful line of attack for a right-handed practitioner and represents the angle from which all other attacks diverge. The strike is delivered with the hips and shoulders rotating together, the elbow leading the swing to maintain structural alignment, and the wrist snapping at the last moment to accelerate the stick tip. Understanding angle-1 as a weapon line — not merely a stick swing — is the key pedagogical step: the same body mechanics and the same defensive responses apply whether the incoming threat is a stick, a knife slash, or an open-hand hook from that angle.",
+      "modelPath": "content/arnis/models/angle_1.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "beginner",
+      "tags": ["strike", "angle", "forehand"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Striking with the arm alone without the hip-and-shoulder rotation, reducing a full-power weapon strike to an arm swing that lacks the structural force to overcome a deflection"},
+        {"description": "Committing the entire weight to the front foot during the strike, making a forward pressure-check from the opponent likely to unbalance the attacker before the strike completes"}
+      ]
+    },
+    {
+      "id": "arnis.angle-2",
+      "name": "Angle 2 Strike",
+      "description": "The diagonal backhand strike descending from the outside high line on the non-dominant side — the mirror of angle 1, delivered from the left shoulder (for right-handed practitioners) downward to the opponent's left temple, neck, or collarbone. Angle 2 is taught immediately after angle 1 because the two form the first paired threat: a practitioner who delivers both angle-1 and angle-2 attacks forces the opponent to guard two different high-outside lines simultaneously, which at Arnis fighting speed is impossible with a single block. The mechanics of angle 2 require the same hip rotation as angle 1 but in the opposite direction, with the shoulders counter-rotating to drive the backhand across the body. In stick work the angle-2 backhand strike is slightly weaker than the forehand; in knife work the reverse is often true because a reverse-grip slash delivered backhand can reach angles a forehand slash cannot.",
+      "modelPath": "content/arnis/models/angle_2.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "angle", "backhand"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["arnis.angle-1"],
+      "commonMistakes": [
+        {"description": "Crossing the body with the backhand strike rather than rotating the hips to drive it, producing a weak reaching motion instead of a structurally powered swing"},
+        {"description": "Leaving the stick-side shoulder back during the backhand and striking with the arm alone, reducing the power to a fraction of what the full shoulder rotation delivers"}
+      ]
+    },
+    {
+      "id": "arnis.deflection-banda",
+      "name": "Deflection — Banda",
+      "description": "The live-side deflection — a redirecting block applied with the forearm or stick that angles the opponent's incoming attack off its line without stopping it, repositioning the threat while simultaneously opening the counter-attack window. Banda (Filipino: 'side/deflect') in Arnis is the equivalent of parrying rather than blocking: the deflecting surface is angled at 45 degrees to the incoming force so that the attack's energy passes harmlessly off to one side while the defender's stick or hand is already on the rebound toward the counter-strike. Deflection-banda applies to all 12 incoming angles with variations of the angle, timing, and whether the stick or the live hand performs the deflection. Training banda as a reflex pairs with training the 12 angles, since each attack angle has a corresponding banda that correctly redirects it — learning to match angle to banda is the core of Arnis defensive training.",
+      "modelPath": "content/arnis/models/deflection_banda.glb",
+      "defaultClip": "deflect",
+      "clips": [
+        {"name": "deflect", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "deflection", "parry"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["arnis.ready-stance", "arnis.angle-1"],
+      "commonMistakes": [
+        {"description": "Blocking square to the incoming force rather than angling the deflecting surface, absorbing the full energy of the stick strike and risking injury to the blocking arm"},
+        {"description": "Stopping the deflection at the point of contact rather than continuing the redirecting motion through to the counter-strike, creating a pause between defence and offence that gives the attacker time to recover and re-attack"}
+      ]
+    },
+    {
+      "id": "arnis.sinawali-basic",
+      "name": "Sinawali (Basic)",
+      "description": "The basic weaving drill — a double-stick pattern in which two practitioners exchange continuous alternating forehand and backhand strikes, each deflecting and striking simultaneously so that neither stops to block before countering. Sinawali (Filipino: 'to weave') is Arnis's most iconic training drill and is named for the woven bamboo wall panels of Filipino traditional construction. In the basic pattern, practitioner A strikes angle-1 while practitioner B deflects and simultaneously strikes angle-2; both immediately transition to the opposite angles, creating a continuous symmetrical exchange of four strikes repeated. The drill trains three things simultaneously: stick speed through high-repetition striking, timing through synchronised exchange, and the fundamental principle that deflection and counter-strike are a single movement rather than a two-step sequence. Basic sinawali is performed with light contact at controlled speed until the pattern is automatic, then progressively increased in speed without losing structural alignment.",
+      "modelPath": "content/arnis/models/sinawali_basic.glb",
+      "defaultClip": "weave",
+      "clips": [
+        {"name": "weave", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "intermediate",
+      "tags": ["drill", "double-stick", "partner-work", "coordination"],
+      "cameraPreset": "front",
+      "prerequisites": ["arnis.abaniko", "arnis.witik", "arnis.deflection-banda"],
+      "commonMistakes": [
+        {"description": "Pausing between the deflection and the counter-strike rather than executing them as a single overlapping motion, breaking the flow of sinawali and training a gap in the response chain"},
+        {"description": "Speeding up before the pattern is consistent, producing fast but structurally compromised exchanges that entrench inaccurate mechanics at high repetition"}
+      ]
+    },
+    {
+      "id": "arnis.disarmo",
+      "name": "Disarmo",
+      "description": "The disarm — a technique that strips the weapon from the opponent's hand using leverage applied to the wrist, a strike to the weapon arm, or a trap-and-roll of the attacking stick, converting the opponent's committed attack into a moment of vulnerability and ending with the practitioner holding the weapon or the weapon on the ground. Disarmo (Filipino: 'disarm', from Spanish) is a core strategic goal in Arnis — an armed opponent who is disarmed is immediately at a severe disadvantage at close range. Disarms are not isolated grabs; they are executed during a deflection, when the opponent's arm is extended and the weapon is momentarily off-line. The most fundamental disarm traps the opponent's weapon arm against the practitioner's body using the live hand while the stick strikes the wrist from inside the hold, using the structural leverage of the trapped arm to overcome the grip. Timing is everything — a disarm attempt on a retracted arm fails; on a committed, extended arm it requires minimal strength.",
+      "modelPath": "content/arnis/models/disarmo.glb",
+      "defaultClip": "disarm",
+      "clips": [
+        {"name": "disarm", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["disarm", "control", "weapon"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["arnis.deflection-banda", "arnis.angle-2"],
+      "commonMistakes": [
+        {"description": "Attempting to grab the opponent's weapon directly from a non-extended position, fighting against the grip rather than using a deflection to create a moment of arm extension where the disarm geometry becomes favourable"},
+        {"description": "Over-committing to the disarm by using both hands to strip the weapon, abandoning the ability to counter-strike and allowing the opponent to use their free hand against the practitioner while the disarm is incomplete"}
+      ]
+    },
+    {
+      "id": "arnis.sombrada",
+      "name": "Sombrada",
+      "description": "The shadow drill — an intermediate partner drill in which one practitioner attacks along a set sequence of angles while the other deflects and counters, but the attacker immediately deflects the counter and adds the next attack in the sequence, creating a three-count loop (attack, deflect-counter, deflect-new attack) that trains the transition from offence to defence and back without breaking flow. Sombrada (Filipino: 'shadow', from Spanish) is more complex than sinawali because it contains asymmetric roles that switch: the attacker must respond to the counter-strike before returning to attack, developing the reflexes for the unpredictable role-switch that occurs in real fighting. At advanced speed, the distinction between attacker and defender dissolves and sombrada becomes a flowing improvised exchange where both practitioners are simultaneously attacking and defending. The drill also teaches range management — attacks thrown from too far are deflected easily; attacks thrown from proper range require actual defensive skill to handle.",
+      "modelPath": "content/arnis/models/sombrada.glb",
+      "defaultClip": "flow",
+      "clips": [
+        {"name": "flow", "durationSeconds": 3.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["drill", "partner-work", "flow", "combination"],
+      "cameraPreset": "side",
+      "prerequisites": ["arnis.sinawali-basic", "arnis.disarmo"],
+      "commonMistakes": [
+        {"description": "Waiting for the partner's counter-strike to complete before adding the next attack, slowing the three-count loop to a stop-start cadence instead of the continuous flow that makes sombrada useful for developing automatic responses"},
+        {"description": "Drilling only the taught sequence without variation, developing pattern-dependence rather than angle-recognition — the purpose of sombrada is to build reflexes, not to memorise a set of moves"}
+      ]
+    },
+    {
+      "id": "arnis.hubud-lubud",
+      "name": "Hubud-Lubud",
+      "description": "The passing-and-connecting sensitivity drill — a close-range partner drill in which each practitioner alternately passes (deflects and redirects) the other's arm and connects (traps, checks, and follows) with a counter-stroke, developing the tactile sensitivity and timing to feel the opponent's arm tension and respond with the appropriate technique at the ranges where vision is insufficient. Hubud-Lubud (Filipino: 'to tie and untie') operates at fist range — closer than sinawali or sombrada — and therefore transitions between stick strikes, empty-hand strikes, locks, and traps within the same drill. The drill has no fixed attack sequence; each practitioner responds to what is felt rather than what is expected, making hubud-lubud the primary tool for developing the spontaneous reaction quality that all other Arnis drills prepare the practitioner to use. Regular hubud-lubud practice develops the ability to intercept and redirect incoming force through touch before the visual signal has been processed.",
+      "modelPath": "content/arnis/models/hubud_lubud.glb",
+      "defaultClip": "pass",
+      "clips": [
+        {"name": "pass", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "advanced",
+      "tags": ["drill", "sensitivity", "close-range", "advanced"],
+      "cameraPreset": "front",
+      "prerequisites": ["arnis.sombrada", "arnis.disarmo"],
+      "commonMistakes": [
+        {"description": "Relying on visual cues rather than tactile feeling to time the pass, which is the opposite of what the drill trains and defeats its purpose as a sensitivity exercise at close range where vision is unreliable"},
+        {"description": "Slowing down to \"feel\" better rather than maintaining a light, flowing contact speed, since at too slow a pace the tactile information that hubud-lubud develops does not arise"}
+      ]
+    },
+    {
+      "id": "arnis.daga",
+      "name": "Daga (Knife Transition)",
+      "description": "The knife-work transition — the systematic application of the stick-based striking angles, deflections, and disarms to an edged weapon held in the live hand (the non-dominant hand), developing the understanding that all Arnis techniques are weapon-agnostic and that switching between stick-and-live-hand and double-stick and knife-and-stick configurations requires no change in fundamental mechanics. Daga (Filipino: 'knife/dagger') training begins with a training knife in the live hand while the dominant hand retains the baston, then transitions to live hand alone, then to reverse-grip configurations. The practitioner uses the knife for checking, trapping, and close-range slashing along angles 5 through 8 (thrusting and horizontal angles) while the stick handles angles 1 through 4. Daga training is not about knife fighting in isolation — it is about understanding the weapon-agnostic nature of the angle system and building the reflex to use whatever is in the hand along the mechanically correct lines.",
+      "modelPath": "content/arnis/models/daga.glb",
+      "defaultClip": "transition",
+      "clips": [
+        {"name": "transition", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "advanced",
+      "tags": ["knife", "weapon", "transition", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["arnis.hubud-lubud", "arnis.sinawali-basic"],
+      "commonMistakes": [
+        {"description": "Treating the knife-hand as a passive guard rather than an active live-hand that checks, traps, and delivers secondary strikes, wasting the threat value that a weapon in the live hand creates"},
+        {"description": "Changing fighting mechanics when transitioning from stick to knife rather than maintaining identical footwork, deflection angles, and body positioning — the principle of weapons-agnostic mechanics means the weapon changes but the system does not"}
+      ]
+    },
+    {
+      "id": "arnis.cinco-teros",
+      "name": "Cinco Teros",
+      "description": "The five basic strikes — a foundational solo drilling pattern in which the practitioner delivers angles 1 through 5 sequentially, covering the high-outside forehand, high-outside backhand, outside thrust, inside horizontal forehand, and inside horizontal backhand in a single repeating sequence that trains the arm, shoulder, and hip mechanics for all five major attack lines. Cinco Teros (Spanish-Filipino: 'five strikes') is one of the oldest and most widely taught solo forms in Arnis, appearing in some form across nearly all FMA systems regardless of regional origin. The drill is performed as a continuous loop: after angle 5 completes, angle 1 begins again without a neutral reset, training the practitioner to flow from one attack line to another without telegraphing the transition. Each strike in cinco teros is a full-power movement, making the drill also a conditioning exercise for the striking muscles and a pattern-recognition tool — the practitioner's body learns to distinguish the rotational origin and mechanical signature of each attack angle, which directly improves deflection speed by making incoming attacks recognisable earlier.",
+      "modelPath": "content/arnis/models/cinco_teros.glb",
+      "defaultClip": "form",
+      "clips": [
+        {"name": "form", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["form", "solo-drill", "angles", "advanced"],
+      "cameraPreset": "front",
+      "prerequisites": ["arnis.angle-2", "arnis.deflection-banda", "arnis.sombrada"],
+      "commonMistakes": [
+        {"description": "Performing cinco teros at half-speed as a slow kata rather than at close to full striking speed, failing to develop the muscle memory and pattern recognition that only emerge at realistic striking velocities"},
+        {"description": "Pausing between angle 5 and the return to angle 1 rather than connecting the loop seamlessly, training a gap in the attack flow that an opponent in partner drilling would immediately exploit"}
+      ]
+    },
+    {
+      "id": "arnis.largo-mano",
+      "name": "Largo Mano",
+      "description": "The long-hand range — the outermost fighting distance in Arnis where only the tip of the baston reaches the opponent, requiring extended footwork to create or close range and limiting the available attacks to full-power angle strikes rather than the close-range abaniko and witik snaps. Largo Mano (Spanish-Filipino: 'long hand') is one of Arnis's three primary ranges, the others being medio (medium) and corto (close). At largo range, the practitioner can strike the opponent's stick hand and wrist with power before the opponent can reach the practitioner's body, making range management the primary offensive tool: staying just outside the opponent's effective range while delivering powerful tip strikes to the weapon arm. Training largo mano footwork means learning to extend and retract the striking range with a single step — to enter for a strike and exit before the counter can land — and to disrupt the opponent's timing by changing between ranges without telegraphing the shift.",
+      "modelPath": "content/arnis/models/largo_mano.glb",
+      "defaultClip": "range",
+      "clips": [
+        {"name": "range", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "shoulders", "hip-flexors"],
+      "difficulty": "advanced",
+      "tags": ["range", "footwork", "advanced", "distance-management"],
+      "cameraPreset": "side",
+      "prerequisites": ["arnis.cinco-teros", "arnis.hubud-lubud"],
+      "commonMistakes": [
+        {"description": "Standing static at largo range rather than using the enter-strike-exit footwork sequence, allowing the opponent to control the timing and range transition rather than the practitioner"},
+        {"description": "Using full swings at largo range without targeting the weapon arm specifically, sacrificing the range advantage by striking at body targets that require entering the opponent's counter-attack zone"}
+      ]
+    },
+    {
+      "id": "arnis.cadena-de-mano",
+      "name": "Cadena de Mano",
+      "description": "The chain of hands — the advanced empty-hand sub-system of Arnis in which all stick techniques are performed with the open hand, fist, elbow, and forearm, applying the same 12-angle attack and deflection system to empty-hand striking and trapping without any mechanical adjustment. Cadena de Mano (Spanish-Filipino: 'chain of hands') represents the completion of the weapon-to-empty-hand transfer principle: a practitioner who has trained the 12 angles extensively with a baston has already trained the biomechanics of an open-hand palm strike, a hooking punch, a backhand slap, and a chop along every angle — the empty-hand version merely substitutes the striking surface. At corto range, cadena de mano includes trapping the opponent's arms with the checking hand while striking with the other, creating simultaneous deflection and counter combinations identical in structure to sinawali but executed empty-hand. Cadena de Mano is practised in sinawali-style drills using open hands, making the transition to it from stick work immediate and requiring no new drill structure.",
+      "modelPath": "content/arnis/models/cadena_de_mano.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "advanced",
+      "tags": ["empty-hand", "advanced", "chain", "combination"],
+      "cameraPreset": "front",
+      "prerequisites": ["arnis.largo-mano", "arnis.daga"],
+      "commonMistakes": [
+        {"description": "Treating cadena de mano as a separate empty-hand fighting style that must be learned from scratch rather than recognising it as the same angle system applied with a different tool, requiring unnecessary re-learning of mechanics already established by stick training"},
+        {"description": "Performing cadena de mano with punching mechanics learned from boxing rather than Arnis's angled snap-and-retract striking mechanics, losing the weapon-coherent structure that makes the system function"}
+      ]
+    },
+    {
+      "id": "arnis.espada-y-daga",
+      "name": "Espada y Daga",
+      "description": "The sword and knife — the dual-weapon configuration in which the dominant hand wields a longer weapon (traditionally a sword, in modern practice the longer baston) and the non-dominant hand wields a shorter weapon (the daga or training knife), combining the reach and power of the long weapon with the speed and close-range utility of the short weapon. Espada y Daga (Spanish-Filipino: 'sword and dagger') training is the summit of Arnis weapons work, requiring the practitioner to manage two simultaneous weapon lines, use the short weapon to parry while the long weapon attacks, and transition fluidly between ranges where each weapon is most effective. The combination creates a complete offensive and defensive system from all ranges: the largo weapon strikes and parries at extended range; the daga operates at corto range where the largo weapon is over-committed; and both weapons can be used simultaneously against different attack lines from the medio range. Espada y daga training integrates all previous single-weapon skills into a unified system and is where the weapon-agnostic principle reaches its fullest expression.",
+      "modelPath": "content/arnis/models/espada_y_daga.glb",
+      "defaultClip": "dual",
+      "clips": [
+        {"name": "dual", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["dual-weapon", "advanced", "sword", "knife"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["arnis.cadena-de-mano", "arnis.daga"],
+      "commonMistakes": [
+        {"description": "Using only the long weapon and treating the short weapon as a passive guard, failing to actively deploy the daga as a striking and trapping tool and reducing espada y daga to a single-weapon fight with a stick held in the other hand"},
+        {"description": "Fighting at a single range rather than transitioning between the three ranges each weapon is optimised for, producing an inflexible combination that skilled opponents can neutralise by forcing a range change"}
+      ]
+    }
+  ]
+}
