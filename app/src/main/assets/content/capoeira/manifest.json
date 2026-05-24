@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "capoeira",
+  "disciplineName": "Capoeira",
+  "description": "Capoeira is a Brazilian martial art created by enslaved Africans that combines kicks, acrobatics, evasions, and music into a unique interactive game called the jogo. Practitioners engage in an improvised dialogue of attack and evasion set to the rhythm of the berimbau — a single-string bow instrument that dictates the tempo, style, and intensity of the game. Capoeira is distinguished from all other martial arts by this inseparable relationship with music: the berimbau's rhythm does not merely accompany the game, it governs it. Movement patterns, kick selection, and the level of engagement all follow musical cues. The jogo is played in a circle of players called the roda, and the goal is to continuously present opportunities to score on the opponent through deception, rhythm, and unpredictability of the ginga rather than through brute force.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "capoeira.ginga",
+      "name": "Ginga",
+      "description": "The ginga (Portuguese: 'swing' or 'sway') is the foundational continuous rocking movement of Capoeira — the perpetual-motion base from which all attacks, escapes, and acrobatics are initiated or entered. The practitioner swings between a wide lateral triangular footwork pattern, stepping left, right, and back, while continuously shifting weight and changing level so that no static target is ever presented to the opponent. Unlike the fixed fighting stance of other martial arts, the ginga never stops; a capoeirista who ceases moving has broken the game and signalled vulnerability. The tempo of the ginga is dictated by the berimbau, making Capoeira unique in having its timing set by a musical instrument rather than by the practitioners themselves.",
+      "modelPath": "content/capoeira/models/ginga.glb",
+      "defaultClip": "sway",
+      "clips": [
+        {"name": "sway", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "calves", "hip-flexors"],
+      "difficulty": "beginner",
+      "tags": ["footwork", "fundamentals", "rhythm"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Stopping the movement between exchanges, presenting a static target to the opponent and losing the rhythm that powers the kicks"},
+        {"description": "Reducing the ginga to a weight shift without the lateral triangular step, eliminating the base geometry that generates power for circular kicks"}
+      ]
+    },
+    {
+      "id": "capoeira.esquiva",
+      "name": "Esquiva",
+      "description": "The esquiva (Portuguese: 'evasion') is the primary escape-by-movement defensive action in Capoeira, performed by dropping the body laterally or diagonally away from an incoming kick while keeping the feet in place. Unlike a block that opposes force, the esquiva removes the target from the kick's path by using the practitioner's own body mobility. The esquiva lateral drops the torso sideways while bending the rear knee; the esquiva para frente ducks the head under high kicks. All esquivas are practised as fluid continuations of the ginga rather than reactive stops, because in the jogo an esquiva that halts the ginga wastes the positional advantage gained — the exit from the dodge should flow directly into a counterattack.",
+      "modelPath": "content/capoeira/models/esquiva.glb",
+      "defaultClip": "dodge",
+      "clips": [
+        {"name": "dodge", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "back", "hip-flexors"],
+      "difficulty": "beginner",
+      "tags": ["evasion", "defense", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Lifting the lead foot when dropping sideways, reducing stability and making it difficult to transition immediately into a counterattack"},
+        {"description": "Over-committing to a large lateral movement that takes the practitioner too far from the opponent, turning evasion into retreat rather than into a counterattack opportunity"}
+      ]
+    },
+    {
+      "id": "capoeira.cocorinha",
+      "name": "Cocorinha",
+      "description": "A deep crouching evasion in which the practitioner drops suddenly into a low squat while raising one forearm to protect the head, allowing a kick to pass harmlessly overhead. The cocorinha is the most compact evasion in Capoeira and is used to avoid high and mid-level kicks without any lateral displacement. Because the practitioner remains directly under the opponent's kick, the cocorinha is the ideal entry into a rasteira — the hand can reach directly from the squat position to the opponent's support leg. The sudden vertical drop is also perceptually deceptive: the target disappears downward when the opponent expects a lateral movement.",
+      "modelPath": "content/capoeira/models/cocorinha.glb",
+      "defaultClip": "drop",
+      "clips": [
+        {"name": "drop", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves"],
+      "difficulty": "beginner",
+      "tags": ["evasion", "defense", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Looking down at the ground during the drop instead of maintaining eye contact with the opponent, losing situational awareness at the moment the opponent is closest"},
+        {"description": "Keeping the torso upright rather than leaning forward over the knees, raising the back of the head into the kick instead of tucking it below the forearm guard"}
+      ]
+    },
+    {
+      "id": "capoeira.meia-lua-de-frente",
+      "name": "Meia-Lua de Frente",
+      "description": "A horizontal arc kick that sweeps from the outside inward in front of the practitioner, tracing the arc of a half-circle across the opponent's face or chest. The kicking leg rises outward from the hip, sweeps across the centreline, and recovers on the opposite side as a natural step into the ginga. The meia-lua de frente (Portuguese: 'front half-moon') is one of the first kicks taught in Capoeira because its arc is mechanically natural and its recovery automatically re-enters the ginga pattern. It is typically aimed at head height to force the opponent into an evasion, creating the timing and positional displacement needed for a follow-up attack.",
+      "modelPath": "content/capoeira/models/meia_lua_de_frente.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["hip-flexors", "core", "quadriceps", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "crescent-kick", "strike"],
+      "cameraPreset": "front",
+      "prerequisites": ["capoeira.ginga"],
+      "commonMistakes": [
+        {"description": "Striking with the toe rather than the instep or shin, reducing the contact surface and risking toe injury against a guarding forearm"},
+        {"description": "Stopping the arc at the centreline instead of following through to a natural recovery step, disrupting the re-entry into the ginga and telegraphing the kick's end-point to the opponent"}
+      ]
+    },
+    {
+      "id": "capoeira.bencao",
+      "name": "Benção",
+      "description": "A straight thrust kick using the ball of the foot or heel, directed at the opponent's chest or midsection to interrupt their movement and create distance. Unlike the meia-lua's arcing path, the benção (Portuguese: 'blessing') travels in a direct linear trajectory and is Capoeira's closest equivalent to a push-kick. Its primary role in the jogo is strategic: the benção disrupts the opponent's ginga rhythm, stops their forward advance, and creates space for the practitioner to reposition or launch a circular kick. Because the benção travels straight, it is harder to dodge by lateral movement and forces the opponent into a deeper evasion than a circling kick.",
+      "modelPath": "content/capoeira/models/bencao.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "push-kick", "distance-control"],
+      "cameraPreset": "side",
+      "prerequisites": ["capoeira.ginga"],
+      "commonMistakes": [
+        {"description": "Not pivoting the supporting foot to align the hip behind the kick, producing a weak reach at arm's length rather than a full-body drive through the target"},
+        {"description": "Throwing the benção mid-ginga step rather than from a briefly planted base, sacrificing the structural rigidity that converts bodyweight into kick power"}
+      ]
+    },
+    {
+      "id": "capoeira.queixada",
+      "name": "Queixada",
+      "description": "An outside-to-inward crescent kick that swings from behind the kicking-side hip, arcs wide to the outside, and cuts across the opponent's head or neck from the outside toward the centreline, striking with the outer blade or heel. The queixada (Portuguese: 'jaw') is named for its primary target and is commonly thrown after an esquiva has created a positional angle advantage, since the wide outward arc naturally matches the angle from which the practitioner has just dodged. The large sweep of the kick generates momentum that converts into both power and deceptive visual tracking — the kick's path initiates away from the target before closing into it.",
+      "modelPath": "content/capoeira/models/queixada.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["hip-flexors", "glutes", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "crescent-kick", "strike"],
+      "cameraPreset": "side",
+      "prerequisites": ["capoeira.ginga"],
+      "commonMistakes": [
+        {"description": "Driving the arc with the hip in isolation rather than rotating the entire torso, reducing the radius and power of the sweep"},
+        {"description": "Kicking at chest height rather than head height, missing the primary target and allowing the opponent to read the kick before it closes the final arc"}
+      ]
+    },
+    {
+      "id": "capoeira.au",
+      "name": "Aú",
+      "description": "The aú (Capoeira cartwheel) is a fundamental locomotion and evasion movement in which the practitioner traverses the floor laterally by placing alternating hands down while the legs arc overhead. Unlike a gymnastics cartwheel, the Capoeira aú is practised at variable speeds — slow and wide to maintain eye contact and strategic options, or fast and low to escape incoming kicks. The inverted phase also presents the feet toward the opponent as a platform for kicks delivered upside-down. Aú is the gateway technique for the macaco and the aú sem mão, and its hand-placement mechanics are the same foundation used in those advanced acrobatics.",
+      "modelPath": "content/capoeira/models/au.glb",
+      "defaultClip": "cartwheel",
+      "clips": [
+        {"name": "cartwheel", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "back", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["acrobatics", "footwork", "evasion"],
+      "cameraPreset": "side",
+      "prerequisites": ["capoeira.esquiva"],
+      "commonMistakes": [
+        {"description": "Placing both hands too close together, reducing the arc width and making the movement rigid rather than the fluid flow needed for acrobatic transitions"},
+        {"description": "Dropping the head to watch the ground through the inverted phase rather than tracking the opponent, losing situational awareness at the most physically vulnerable point"}
+      ]
+    },
+    {
+      "id": "capoeira.rasteira",
+      "name": "Rasteira",
+      "description": "A low ground sweep that targets the opponent's support leg while they are committed to the ginga or mid-kick, tripping them or forcing an interrupting jump. The practitioner hooks one leg along the floor behind the opponent's ankle or calf, displacing the base of support before the opponent can shift weight. The rasteira is Capoeira's signature takedown and is most cleanly set up from the cocorinha position, from which the hand can reach the opponent's ankle while the practitioner remains shielded by the crouching profile. Precise timing — thrown when the opponent is transferring weight rather than planted — makes the rasteira as much a musical skill as a physical one.",
+      "modelPath": "content/capoeira/models/rasteira.glb",
+      "defaultClip": "sweep",
+      "clips": [
+        {"name": "sweep", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["hip-flexors", "glutes", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["sweep", "takedown", "low-attack"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["capoeira.ginga"],
+      "commonMistakes": [
+        {"description": "Sweeping before the opponent has committed weight to the support leg, catching the foot rather than displacing the ankle and producing no takedown"},
+        {"description": "Over-extending the sweeping leg fully along the floor, slowing the recovery to standing and leaving the practitioner exposed on the ground if the sweep misses"}
+      ]
+    },
+    {
+      "id": "capoeira.role",
+      "name": "Rolê",
+      "description": "A low circling movement in which the practitioner drops close to the floor and rotates their body around one supporting hand in a tight spiral, either to escape a standing kick or to transition between ground-level attacks. The rolê (Portuguese: 'roll') keeps the practitioner moving at ground height — bridging the negativa, rasteira, and other baixo (low) techniques. In the jogo it is used to pass under a high kick and emerge on the opponent's opposite side, maintaining the unbroken flow that characterises Capoeira's game. Speed varies deliberately: fast as an escape, slow as a deceptive positioning tool that draws the opponent into an overcommitted kick.",
+      "modelPath": "content/capoeira/models/role.glb",
+      "defaultClip": "roll",
+      "clips": [
+        {"name": "roll", "durationSeconds": 1.4, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back", "hip-flexors"],
+      "difficulty": "intermediate",
+      "tags": ["footwork", "ground-movement", "evasion"],
+      "cameraPreset": "side",
+      "prerequisites": ["capoeira.esquiva"],
+      "commonMistakes": [
+        {"description": "Placing the supporting hand too far forward, causing the body to tip and stopping the circular rotation rather than spiralling around the pivot point"},
+        {"description": "Raising the hips during the rotation, converting the rolê into a crawl that presents the torso as a target rather than maintaining the low flat profile"}
+      ]
+    },
+    {
+      "id": "capoeira.negativa",
+      "name": "Negativa",
+      "description": "A low defensive ground position in which the practitioner extends one leg along the floor while supporting on the opposite foot and hand, creating a long, flat profile that escapes mid-level and high kicks by existing in a different plane entirely. From the negativa (Portuguese: 'refusal') the practitioner can enter a rasteira, flow into a rolê, or rise back to ginga. It is the specific answer to the queixada and armada, whose wide arcing paths make lateral evasion difficult — the safest response is dropping below the kick's arc rather than sideways out of it. The name reflects the technique's fundamental logic: the negativa refuses to be in the plane where the kick exists.",
+      "modelPath": "content/capoeira/models/negativa.glb",
+      "defaultClip": "drop",
+      "clips": [
+        {"name": "drop", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["core", "hip-flexors", "quadriceps", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["evasion", "ground-movement", "defense"],
+      "cameraPreset": "side",
+      "prerequisites": ["capoeira.cocorinha"],
+      "commonMistakes": [
+        {"description": "Bending the extended leg rather than keeping it straight along the floor, raising the hip and eliminating the low profile that makes the negativa effective under high arcing kicks"},
+        {"description": "Looking away from the opponent when transitioning into the position, losing visual tracking during the exact moment the opponent has the clearest opportunity to follow up"}
+      ]
+    },
+    {
+      "id": "capoeira.armada",
+      "name": "Armada",
+      "description": "A turning heel kick in which the practitioner pivots a full 360 degrees, launching the rear leg in a wide horizontal arc that strikes with the heel or sole at the completion of the rotation. The armada is the first spinning kick taught in Capoeira and is the technical foundation for both the chapéu de couro and the parafuso. Full rotation generates substantial momentum and a wide arc that is visually difficult to track through its full path, making the armada deceptive as well as powerful. It is most effective as a follow-up when the opponent has been forced forward by a benção or has over-committed to an evasion — the spin exploits the angle created by their movement.",
+      "modelPath": "content/capoeira/models/armada.glb",
+      "defaultClip": "spin-kick",
+      "clips": [
+        {"name": "spin-kick", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip-flexors", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "spinning-kick", "strike"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["capoeira.ginga"],
+      "commonMistakes": [
+        {"description": "Beginning the spin from a fully upright position without first dropping the shoulder to load the pivot, producing a slow, telegraphed rotation that the opponent can easily read"},
+        {"description": "Kicking with the foot parallel to the floor rather than leading with the heel, reducing the impact surface and missing the decisive snapping contact at the end of the arc"}
+      ]
+    },
+    {
+      "id": "capoeira.parafuso",
+      "name": "Parafuso",
+      "description": "A jumping spinning kick in which the practitioner leaves the ground, rotates horizontally in the air, and delivers a heel kick at the apex of the rotation before landing. The parafuso (Portuguese: 'propeller' or 'screw') extends the armada concept into the air — the jump eliminates the support leg as a sweep target during the kick, and the additional height makes the kick harder to evade by lateral movement. It is one of the signature high-skill kicks of Capoeira Contemporânea and appears in both the jogo and in demonstration performances. Landing from the parafuso requires an immediate re-entry into the ginga; a practitioner caught stationary on landing is at maximum vulnerability.",
+      "modelPath": "content/capoeira/models/parafuso.glb",
+      "defaultClip": "jump-kick",
+      "clips": [
+        {"name": "jump-kick", "durationSeconds": 1.4, "fps": 30}
+      ],
+      "muscles": ["glutes", "quadriceps", "hip-flexors", "core", "calves"],
+      "difficulty": "advanced",
+      "tags": ["kick", "jumping-kick", "acrobatics", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["capoeira.armada"],
+      "commonMistakes": [
+        {"description": "Jumping before completing the initial spin's loading phase, reducing rotational velocity and losing the height that makes the kick visually and mechanically effective"},
+        {"description": "Landing with the heel of the landing foot rather than the ball, causing a rigid impact that prevents immediate return to the ginga and leaves the practitioner planted and vulnerable"}
+      ]
+    },
+    {
+      "id": "capoeira.macaco",
+      "name": "Macaco",
+      "description": "A back handspring from a crouching position in which the practitioner places one hand on the floor beside the hip, pushes explosively off the hand, and launches the hips and legs overhead in a backward arc that carries the body to an upright landing. The macaco (Portuguese: 'monkey') is a key acrobatic transition in Capoeira, performed from a standing position, from the aú, or directly from the ginga to escape a close-range attack. The hand is placed beside the hip rather than behind the body, which is specific to Capoeira and maintains a forward-facing orientation that keeps the opponent visible throughout the technique. The macaco is the direct precursor to the aú sem mão.",
+      "modelPath": "content/capoeira/models/macaco.glb",
+      "defaultClip": "flip",
+      "clips": [
+        {"name": "flip", "durationSeconds": 1.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "quadriceps", "back", "glutes"],
+      "difficulty": "advanced",
+      "tags": ["acrobatics", "advanced", "evasion"],
+      "cameraPreset": "side",
+      "prerequisites": ["capoeira.au"],
+      "commonMistakes": [
+        {"description": "Placing the hand directly behind the hip rather than to the side, pulling the practitioner into a sideways tumble rather than the clean backward arc of a true macaco"},
+        {"description": "Bending the pushing arm rather than keeping it rigid through the push-off phase, absorbing the drive into the elbow joint rather than transferring it into the backward arc"}
+      ]
+    },
+    {
+      "id": "capoeira.chapeu-de-couro",
+      "name": "Chapéu de Couro",
+      "description": "A spinning heel kick delivered at waist to chest height, with the heel sweeping through the target in a flat trajectory rather than the higher arc of the armada. The chapéu de couro (Portuguese: 'leather hat') is used in Capoeira to attack an opponent in the negativa or cocorinha position, where high kicks overshoot. It relies on the same full-rotation mechanism as the armada but angles the kicking arc lower and more horizontal, making the two kicks visually indistinguishable in their initial rotation — the deception is in the targeting, not the spin. The lower arc also makes the chapéu de couro harder to duck by simply dropping further, since it follows the opponent down.",
+      "modelPath": "content/capoeira/models/chapeu_de_couro.glb",
+      "defaultClip": "spin-kick",
+      "clips": [
+        {"name": "spin-kick", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "hip-flexors", "core", "quadriceps", "back"],
+      "difficulty": "advanced",
+      "tags": ["kick", "spinning-kick", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["capoeira.armada", "capoeira.queixada"],
+      "commonMistakes": [
+        {"description": "Aiming too high and converting the technique into an armada rather than maintaining the lower arc that makes the chapéu de couro effective against dropped opponents"},
+        {"description": "Under-rotating to 270 degrees rather than completing the full circle, striking with the outside blade of the foot rather than the heel and significantly reducing impact force"}
+      ]
+    },
+    {
+      "id": "capoeira.au-sem-mao",
+      "name": "Aú Sem Mão",
+      "description": "A no-hands aerial cartwheel in which the practitioner completes the full lateral arc without placing either hand on the floor, relying entirely on core tension and rotational momentum to carry the body through the inverted phase to an upright landing. The aú sem mão (Portuguese: 'cartwheel without hands') is used to escape across distance while keeping both hands free for defensive coverage or to deliver kicks during the inverted phase. It is considered a hallmark of advanced Capoeira because it requires the practitioner to trust the momentum built through the aú and macaco progressions and to commit to the takeoff without any hand safety net — hesitation at the moment of takeoff collapses the arc.",
+      "modelPath": "content/capoeira/models/au_sem_mao.glb",
+      "defaultClip": "aerial",
+      "clips": [
+        {"name": "aerial", "durationSeconds": 1.8, "fps": 30}
+      ],
+      "muscles": ["core", "shoulders", "back", "quadriceps", "glutes"],
+      "difficulty": "advanced",
+      "tags": ["acrobatics", "advanced", "evasion"],
+      "cameraPreset": "side",
+      "prerequisites": ["capoeira.au", "capoeira.macaco"],
+      "commonMistakes": [
+        {"description": "Attempting the movement without sufficient lateral momentum, stalling in the inverted phase and collapsing to the floor rather than completing the arc"},
+        {"description": "Jumping with both feet simultaneously rather than driving off one leg first, converting the aerial cartwheel into a side jump that lacks the rotational momentum to complete the arc upright"}
+      ]
+    }
+  ]
+}
