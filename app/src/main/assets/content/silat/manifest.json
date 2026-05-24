@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "silat",
+  "disciplineName": "Pencak Silat",
+  "description": "Pencak Silat is the collective name for the indigenous martial arts of the Malay Archipelago — Indonesia, Malaysia, Brunei, southern Thailand, and the Philippines — encompassing hundreds of regional styles unified by their emphasis on low stances, evasive footwork, fluid transitions between stand-up and ground fighting, and the integration of weapons into every empty-hand technique. The word 'pencak' refers to the performance and artistic aspects of the art; 'silat' refers to the combat application — together they describe a complete system in which beauty and lethality are considered inseparable. Silat is built around two foundational principles: the langkah (step), a triangular or diamond-shaped footwork pattern that relocates the practitioner relative to an opponent's attack line, and the kuda-kuda (horse stance), a low, wide base from which transitions to sweeps, locks, and ground positions originate. Silat does not block — it evades and simultaneously redirects, so the practitioner is never where the attack lands, and the response is already in motion before the evasion is complete.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "silat.kuda-kuda",
+      "name": "Kuda-Kuda",
+      "description": "The horse stance — the wide, low foundational stance of Pencak Silat from which all techniques are initiated and to which all transitions return. Kuda-Kuda (Malay: 'horse') places the feet two to three shoulder-widths apart with the knees deeply bent, the hips low, and the weight distributed according to the direction of engagement — forward kuda-kuda loads the front leg, back kuda-kuda loads the rear leg, and side kuda-kuda centres weight over the rear foot to facilitate sweeping the front leg. The extreme depth of the stance lowers the practitioner's centre of gravity below the opponent's and makes sweeping, tripping, and joint-locking techniques geometrically simpler. Holding kuda-kuda for extended periods builds the leg strength and structural stability to execute rapid transitions without losing the low base that defines Silat's fighting posture.",
+      "modelPath": "content/silat/models/kuda_kuda.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hamstrings", "core", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamentals", "structure"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Standing too high rather than sinking deeply into the stance, raising the centre of gravity and negating the sweeping and locking advantages that the low position provides"},
+        {"description": "Allowing the knees to track inward rather than pressing outward over the little toes, collapsing the hip structure and reducing the explosive drive available for step transitions"}
+      ]
+    },
+    {
+      "id": "silat.langkah-tiga",
+      "name": "Langkah Tiga",
+      "description": "The three-step footwork pattern — a triangular stepping sequence in which the practitioner moves to each point of a triangle relative to an imaginary opponent, practising the spatial repositioning that underlies all Silat evasion. Langkah Tiga (Malay: 'three steps') is drilled as a solo form before partner work, teaching the practitioner to relocate from the attack line to an outside or inside angle with a single step while maintaining the low kuda-kuda base. Each point of the triangle represents a different strategic position: forward outside, forward inside, and behind the opponent's original position. The pattern trains the habit of responding to force with movement rather than resistance — Silat's fundamental orientation — and develops the hip mobility to execute large evasive steps without standing up out of the stance.",
+      "modelPath": "content/silat/models/langkah_tiga.glb",
+      "defaultClip": "step",
+      "clips": [
+        {"name": "step", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hamstrings", "hip-flexors", "core"],
+      "difficulty": "beginner",
+      "tags": ["footwork", "evasion", "fundamentals"],
+      "cameraPreset": "top",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Taking steps of inconsistent length, making the triangle irregular and training asymmetric evasion habits that break down under pressure"},
+        {"description": "Rising out of kuda-kuda during each step rather than maintaining the low base throughout, losing the structural position that makes the evasion useful for follow-up techniques"}
+      ]
+    },
+    {
+      "id": "silat.pukulan-lurus",
+      "name": "Pukulan Lurus",
+      "description": "The straight strike — a direct linear punch travelling along the centreline to a close-range target, typically the face, throat, or solar plexus. Pukulan Lurus (Malay: 'straight strike') in Silat differs from boxing punches in that the whole body rotates into the strike from the low kuda-kuda base, driving the mass of the lowered hips into the punch rather than extending from a high stance. The fist travels horizontally with the vertical knuckles forward and is retracted immediately to resume guard, since leaving a committed arm extended at Silat's close ranges exposes the limb to locks and breaks. Pukulan Lurus is the foundational striking tool introduced before more complex hitting patterns, establishing the body mechanics — hip rotation, ground connection, immediate retraction — that all Silat strikes share.",
+      "modelPath": "content/silat/models/pukulan_lurus.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "beginner",
+      "tags": ["strike", "punch", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Punching from a high stance without the hip rotation of the kuda-kuda base, reducing the power by stripping out the lower-body contribution that gives Silat strikes their structural depth"},
+        {"description": "Leaving the arm extended after impact rather than retracting immediately, presenting the forearm as a target for the opponent's grab, lock, or break in the close-range environment Silat operates in"}
+      ]
+    },
+    {
+      "id": "silat.elakan",
+      "name": "Elakan",
+      "description": "The evasion — the family of body-angling and stepping techniques that remove the practitioner from the attack line without retreating, placing the body beside or behind the incoming strike rather than blocking it. Elakan (Malay: 'evasion/avoidance') is not a single movement but a principle: when an attack arrives, the practitioner steps to the outside or inside angle so that the strike passes through empty space, and the body is already positioned for a simultaneous or immediate counter. Silat distinguishes between elakan luar (outside evasion, stepping to the attacker's weapon-side) and elakan dalam (inside evasion, stepping across the centreline to the attacker's non-weapon side), each creating different tactical opportunities for sweeps, locks, and counter-strikes. Because evasion and counter are timed to arrive together, elakan removes the separation between defence and offence that characterises block-based systems.",
+      "modelPath": "content/silat/models/elakan.glb",
+      "defaultClip": "evade",
+      "clips": [
+        {"name": "evade", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hip-flexors", "core", "hamstrings"],
+      "difficulty": "intermediate",
+      "tags": ["evasion", "defense", "positioning"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["silat.langkah-tiga"],
+      "commonMistakes": [
+        {"description": "Evading without simultaneously setting up the counter, treating elakan as a defensive move rather than the first half of a combined evasion-and-attack that must arrive as a single unit"},
+        {"description": "Under-rotating the hips during the evasion step, landing at 90 degrees from the optimal angle rather than at 45 degrees, which reduces both the evasion's margin and the quality of the follow-up position"}
+      ]
+    },
+    {
+      "id": "silat.sapuan",
+      "name": "Sapuan",
+      "description": "The low sweep — a wide, fast leg sweep at ankle or shin height that removes the opponent's base by striking or hooking the supporting leg during a committed attack or an unstable stance transition. Sapuan (Malay: 'sweep') is one of Silat's signature tools, derived naturally from the low kuda-kuda base: because the practitioner is already low, the sweeping leg travels a short distance to reach the opponent's feet, and the attack is geometrically difficult to see and harder to defend from a higher stance. Sapuan is not a running kick — it is a controlled arc of the calf or shin across the back of the opponent's ankle or lower shin, typically applied as the practitioner performs an elakan to the outside angle, so that the sweep and the evasion arrive simultaneously. The follow-through after the sweep is a lock or pin, not a step back, since Silat techniques chain directly into ground control.",
+      "modelPath": "content/silat/models/sapuan.glb",
+      "defaultClip": "sweep",
+      "clips": [
+        {"name": "sweep", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hamstrings", "glutes", "calves", "core"],
+      "difficulty": "intermediate",
+      "tags": ["sweep", "takedown", "low-attack"],
+      "cameraPreset": "side",
+      "prerequisites": ["silat.kuda-kuda", "silat.langkah-tiga"],
+      "commonMistakes": [
+        {"description": "Swinging the sweeping leg in a large arc from a standing position, losing the low structural base that makes the sweep fast and difficult to detect"},
+        {"description": "Stopping after the sweep rather than following immediately into a lock or pin, giving the fallen opponent time to recover before the technique is completed"}
+      ]
+    },
+    {
+      "id": "silat.tangkisan",
+      "name": "Tangkisan",
+      "description": "The parry-deflection — a forearm or palm-based redirection of an incoming strike that simultaneously positions the deflecting arm for the follow-up lock or counter, used when the evasion alone is insufficient to clear the attack. Tangkisan (Malay: 'parry/guard') is applied inside elakan: as the practitioner steps off the attack line, the near arm deflects the incoming weapon hand outward or downward so that the evasion and the redirect work together to completely remove the threat. Unlike a block, tangkisan does not stop the force — it uses the arm as a wedge that redirects the momentum and carries the opponent's arm into a position where the follow-up joint lock is already available. The timing of tangkisan is the same as elakan: contact, redirect, and lock are a single three-count that runs faster than a two-move sequence of block-then-technique.",
+      "modelPath": "content/silat/models/tangkisan.glb",
+      "defaultClip": "parry",
+      "clips": [
+        {"name": "parry", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "deflection", "parry"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["silat.elakan"],
+      "commonMistakes": [
+        {"description": "Blocking the strike with sustained force rather than redirecting it with a deflecting angle, converting the technique into a strength contest that abandons the mechanical advantage of the angular redirect"},
+        {"description": "Deflecting without carrying the arm into the lock position, treating tangkisan as a complete defensive action rather than the setup for the joint control that must immediately follow"}
+      ]
+    },
+    {
+      "id": "silat.kuncian-pergelangan",
+      "name": "Kuncian Pergelangan",
+      "description": "The wrist lock — a joint manipulation applied to the opponent's wrist that uses the wrist joint's limited rotation range to control the arm, direct the opponent's body movement, and take them to the ground. Kuncian Pergelangan (Malay: 'wrist lock') is the most common of Silat's kuncian (locking) techniques and is applied immediately after tangkisan redirects the opponent's arm into position. The lock is applied by gripping the hand and rotating it against the wrist's natural range of motion while pressing downward or forward with the forearm, creating pain compliance at minimal force and guiding the opponent's body through the direction of least resistance. Because the wrist lock controls the entire arm chain above it, a properly applied kuncian pergelangan directs the opponent's shoulder and hip, enabling a throw or takedown from the lock without requiring a separate transition.",
+      "modelPath": "content/silat/models/kuncian_pergelangan.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["lock", "joint-control", "wrist"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["silat.tangkisan"],
+      "commonMistakes": [
+        {"description": "Gripping only the fingers rather than the full hand below the wrist joint, losing the lever arm that makes the lock mechanically effective and allowing the opponent to escape by simply opening the hand"},
+        {"description": "Applying the lock statically without directing the opponent's body movement, treating it as a pain hold rather than a dynamic control that leads immediately to a takedown or throw"}
+      ]
+    },
+    {
+      "id": "silat.serangan-siku",
+      "name": "Serangan Siku",
+      "description": "The elbow strike — a close-range strike using the point or ridge of the elbow to target the opponent's face, jaw, temple, ribs, or spine at the ranges where punches are over-committed. Serangan Siku (Malay: 'elbow attack') is the natural close-range weapon when elakan and tangkisan bring the practitioner inside the opponent's guard: the elbow is already in position as the deflecting arm completes its redirect, requiring only a rotation of the shoulder to drive the elbow point into the nearest target. Silat elbow strikes are delivered in horizontal, vertical, upward, and downward arcs depending on the target and the practitioner's position relative to the opponent, and they chain with knee strikes, sweeps, and locks without returning to a neutral guard position. The elbow is the hardest surface on the arm and at close range carries more structural force than a punch because it does not require the full arm extension that punches need.",
+      "modelPath": "content/silat/models/serangan_siku.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "elbow", "close-range"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["silat.elakan", "silat.pukulan-lurus"],
+      "commonMistakes": [
+        {"description": "Telegraphing the elbow by pulling the arm back before swinging forward, giving the opponent time to move out of the arc at a range where every millisecond of warning is decisive"},
+        {"description": "Striking with the forearm rather than the elbow point, distributing the impact over a larger surface and dramatically reducing the penetrating force to the target"}
+      ]
+    },
+    {
+      "id": "silat.tendangan-lutut",
+      "name": "Tendangan Lutut",
+      "description": "The knee strike — an upward or forward drive of the knee into the opponent's midsection, thigh, head, or face during a clinch or after a grabbing control. Tendangan Lutut (Malay: 'knee kick') is delivered from the close range created by Silat's entry techniques: after elakan and tangkisan bring the practitioner inside the guard, the controlling hand grabs the opponent's neck, shoulder, or arm and the rear knee drives forward and upward into the nearest available target. In Silat, the knee strike is primarily used against a forward-bent or controlled opponent — one who has been pulled down by a lapel grip or bent over by a sweeping action — so that the strike lands while the opponent cannot move away. The knee strike is frequently the final technique before or after a throwing action, compressing the sequence into evasion, control, knee, throw.",
+      "modelPath": "content/silat/models/tendangan_lutut.glb",
+      "defaultClip": "knee",
+      "clips": [
+        {"name": "knee", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "knee", "close-range"],
+      "cameraPreset": "side",
+      "prerequisites": ["silat.kuda-kuda", "silat.elakan"],
+      "commonMistakes": [
+        {"description": "Striking with a chambered knee pull from a standing position without a controlling grip, giving the opponent the freedom to step back out of range before the knee arrives"},
+        {"description": "Driving the knee straight forward without pulling the opponent's head or torso downward to meet it, reducing the impact force to whatever force the knee alone generates rather than the combined force of knee-up and opponent-pulled-down"}
+      ]
+    },
+    {
+      "id": "silat.bantingan",
+      "name": "Bantingan",
+      "description": "The throw — a hip, shoulder, or leg-generated projection that removes the opponent from their feet and drives them into the ground, typically following a kuncian or sapuan that has already broken the opponent's structural balance. Bantingan (Malay: 'throwing/slamming') in Silat is not a standalone technique like a judo throw — it is the completion of a sequence that began with evasion, passed through deflection and locking, and arrives at the throw as the natural conclusion of accumulated control. The mechanics depend on the entry: a hip throw exploits an outside elakan with a waist wrap; a shoulder throw uses a trapped arm leveraged over the shoulder; a leg throw combines sapuan with a push of the upper body. Because the opponent's balance is already compromised when bantingan is applied, the power requirement is minimal — the throw is a guided fall rather than a muscular lift.",
+      "modelPath": "content/silat/models/bantingan.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "core", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "takedown", "finishing"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["silat.sapuan", "silat.kuncian-pergelangan"],
+      "commonMistakes": [
+        {"description": "Attempting the throw as a standalone muscular effort rather than as the final stage of a control sequence, requiring far more strength than Silat's technique-based system is designed to need"},
+        {"description": "Releasing the opponent after they land rather than following immediately to a pin or lock on the ground, wasting the dominant position the throw created"}
+      ]
+    },
+    {
+      "id": "silat.jurus-dasar",
+      "name": "Jurus Dasar",
+      "description": "The basic form — the foundational solo movement pattern that encodes Silat's essential techniques in a structured sequence, practised as a continuous flow of langkah, elakan, pukulan, and kuncian components. Jurus (Malay: 'technique form') in Silat are not kata in the Japanese sense; they are sequences of combat applications that retain their tactical meaning throughout. Jurus Dasar (the foundational form) introduces the triangle footwork, the body angling of elakan, the basic strikes and deflections, and the transitions between kuda-kuda positions, combining them into a single continuous pattern that can be practised as shadowboxing against an imaginary opponent. Regular jurus practice develops the ability to flow between discrete techniques without resetting to a neutral guard, since in Silat the end of one technique is the beginning of the next.",
+      "modelPath": "content/silat/models/jurus_dasar.glb",
+      "defaultClip": "form",
+      "clips": [
+        {"name": "form", "durationSeconds": 3.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["form", "fundamentals", "combination"],
+      "cameraPreset": "front",
+      "prerequisites": ["silat.langkah-tiga", "silat.pukulan-lurus", "silat.elakan"],
+      "commonMistakes": [
+        {"description": "Pausing between individual techniques to reset guard position, breaking the flow of the form and training a habit of momentary vulnerability between movements"},
+        {"description": "Rushing through the form at speed before individual techniques are structurally correct, encoding inaccurate mechanics that become progressively harder to correct as repetition count increases"}
+      ]
+    },
+    {
+      "id": "silat.kuncian-siku",
+      "name": "Kuncian Siku",
+      "description": "The elbow lock — a joint manipulation that hyperextends or hyper-rotates the elbow joint by trapping the opponent's forearm against the practitioner's body or shoulder and applying force against the elbow's natural extension limit. Kuncian Siku (Malay: 'elbow lock') is typically applied after a deflection that captures the opponent's extended arm: the tangkisan controls the wrist, the practitioner rotates under or over the arm, and the elbow lock completes the arm control in a single circular motion. Because the elbow has very little tolerance for rotation and a narrow extension range, the lock reaches effective pain compliance at minimal force and allows the practitioner to direct the opponent's entire body through the elbow joint. Kuncian siku chains directly into bantingan (throw) or a ground pin by driving the locked arm downward, using the joint pressure to steer the opponent's body without striking.",
+      "modelPath": "content/silat/models/kuncian_siku.glb",
+      "defaultClip": "lock",
+      "clips": [
+        {"name": "lock", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "advanced",
+      "tags": ["lock", "joint-control", "elbow", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["silat.kuncian-pergelangan", "silat.bantingan"],
+      "commonMistakes": [
+        {"description": "Applying the elbow lock by pulling the wrist rather than using body rotation to lever the joint, reducing structural efficiency and requiring arm strength rather than body weight and rotation"},
+        {"description": "Locking the elbow while standing beside the opponent at the same height, losing the positional advantage that comes from being below the joint's lever arm and making the lock escapable through upper-body rotation"}
+      ]
+    },
+    {
+      "id": "silat.buah-pukul",
+      "name": "Buah Pukul",
+      "description": "The striking fruit — a two-person Silat drill in which each practitioner delivers and receives the fundamental striking and evasion combinations of their style in a structured, compliant format before transitioning to increasingly spontaneous exchanges. Buah Pukul (Malay: 'striking application' — 'buah' meaning fruit in the sense of the product or result of the technique tree) is the applied partner counterpart to jurus solo form practice. One partner initiates attacks along prescribed angles; the other executes elakan, tangkisan, and counter-strikes from the drill's pattern. Unlike free sparring, buah pukul retains a teaching structure — the attacker's committed line creates the specific geometry the defender's technique is designed to address — but the transitions between exchanges are unscripted, requiring the defender to read the incoming attack's angle and select the appropriate response in real time.",
+      "modelPath": "content/silat/models/buah_pukul.glb",
+      "defaultClip": "drill",
+      "clips": [
+        {"name": "drill", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "shoulders", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["drill", "partner-work", "combination", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["silat.jurus-dasar", "silat.serangan-siku", "silat.tendangan-lutut"],
+      "commonMistakes": [
+        {"description": "Sticking rigidly to the scripted attack sequence after the initial exchange, preventing the defender from practising the angle-reading skill that buah pukul is specifically designed to develop"},
+        {"description": "Treating the drill as sparring and increasing intensity until technique breaks down, which trains physical toughness at the cost of the mechanical accuracy the structured format is meant to reinforce"}
+      ]
+    },
+    {
+      "id": "silat.gelombang",
+      "name": "Gelombang",
+      "description": "The wave — an advanced body-mechanics principle in which power is generated and transmitted through a wave-like contraction running from the rear foot through the hips, spine, and shoulder into the striking or locking limb, rather than from muscular isolation of the striking arm alone. Gelombang (Malay: 'wave') represents the internal power development tradition found in Silat styles from West Sumatra (Minangkabau Silek) and parts of Java, where the external efficiency of evasion and locks is supplemented by the ability to transmit ground-reaction force through a relaxed, connected body as a wave of pressure. Training gelombang begins with standing exercises that develop awareness of the spine's flexion and extension as a power channel, then progresses to inserting the wave into the pukulan and sapuan techniques already learned, amplifying their effect without increasing muscular tension or visible telegraphing.",
+      "modelPath": "content/silat/models/gelombang.glb",
+      "defaultClip": "wave",
+      "clips": [
+        {"name": "wave", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "glutes", "shoulders", "hamstrings"],
+      "difficulty": "advanced",
+      "tags": ["power", "body-mechanics", "advanced", "internal"],
+      "cameraPreset": "side",
+      "prerequisites": ["silat.jurus-dasar", "silat.bantingan"],
+      "commonMistakes": [
+        {"description": "Forcing the wave by consciously undulating the spine, creating a visible and telegraphed body movement instead of the subtle structural transmission that makes gelombang effective and invisible to the opponent"},
+        {"description": "Attempting gelombang before the foundational techniques are mechanically stable, adding internal power expression to movements that are not yet correctly structured and reinforcing misaligned patterns at greater intensity"}
+      ]
+    },
+    {
+      "id": "silat.harimau",
+      "name": "Harimau",
+      "description": "The tiger — a ground-fighting sub-system of Pencak Silat in which the practitioner drops to the floor mid-combat or enters from the ground, fighting from a seated, supine, or prone position using low sweeps, ground kicks, and leg-hook takedowns that are inaccessible from standing. Harimau (Malay: 'tiger') originates from West Sumatra and is named for the tiger's ability to fight from the ground with terrifying effectiveness. The practitioner drops into a one- or two-hand supported semi-sitting position and uses the legs as offensive weapons — hooking ankles, sweeping shins, and driving heel kicks into knees and hips — while the hands provide stability and occasional grips. Harimau is not a fallback for when the practitioner is knocked down; it is an intentional entry into a fighting domain the opponent is not prepared to engage, exploiting the shock and geometrical unfamiliarity of a standing person facing someone attacking from the floor.",
+      "modelPath": "content/silat/models/harimau.glb",
+      "defaultClip": "ground",
+      "clips": [
+        {"name": "ground", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["core", "glutes", "hamstrings", "quadriceps", "calves"],
+      "difficulty": "advanced",
+      "tags": ["ground-fighting", "advanced", "tiger", "low"],
+      "cameraPreset": "side",
+      "prerequisites": ["silat.kuda-kuda", "silat.sapuan", "silat.kuncian-siku"],
+      "commonMistakes": [
+        {"description": "Dropping to the ground defensively after being pushed or swept, treating harimau as a recovery rather than a deliberate offensive entry that must be initiated with timing and position controlled by the practitioner"},
+        {"description": "Staying static on the ground rather than moving continuously, allowing the opponent to circle to a position where the leg weapons cannot reach and the practitioner's back becomes exposed"}
+      ]
+    }
+  ]
+}
