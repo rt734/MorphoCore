@@ -1,0 +1,342 @@
+{
+  "discipline": {
+    "id": "kendo",
+    "name": "Kendo",
+    "description": "Kendo (剣道) is the Way of the Sword — a Japanese martial art that evolved from kenjutsu sword fighting into a modern competitive discipline practised with the shinai (bamboo sword) and bogu (protective armour). More than a sport, kendo is a path of character development: practitioners seek to forge the spirit through the rigorous discipline of sword work, cultivating presence, decisiveness, and mutual respect. Each strike must demonstrate ki-ken-tai-ichi — the simultaneous unity of spirit, sword, and body — to score in competition.",
+    "movementIds": [
+      "kendo.sonkyo",
+      "kendo.suburi",
+      "kendo.chudan-no-kamae",
+      "kendo.men-uchi",
+      "kendo.kote-uchi",
+      "kendo.do-uchi",
+      "kendo.tsuki",
+      "kendo.harai-waza",
+      "kendo.debana-kote",
+      "kendo.nuki-do",
+      "kendo.kaeshi-do",
+      "kendo.kiri-kaeshi",
+      "kendo.oji-waza",
+      "kendo.hiki-waza",
+      "kendo.ippon-me-nihon-me"
+    ]
+  },
+  "movements": [
+    {
+      "id": "kendo.sonkyo",
+      "name": "Sonkyo",
+      "description": "The crouching bow — performed at the start and end of every bout or practice session, where both practitioners simultaneously descend into a deep squat on the balls of the feet, hold the shinai vertically, and bow. Sonkyo is not merely a ritual; the posture trains the explosive lower-body strength required to launch forward attacks, and the mutual bow represents the respect and equality between practitioners regardless of rank.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/kendo/models/sonkyo.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "bow", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "tags": ["ritual", "beginner", "bow", "etiquette"],
+      "cameraPreset": "side",
+      "muscleGroups": ["quadriceps", "calves", "core"],
+      "commonMistakes": [
+        "Rising onto the toes unevenly, signalling imbalance before the match begins",
+        "Allowing the shinai to angle forward rather than remaining vertical",
+        "Breaking the bow before the opponent rises — mutual timing is part of the etiquette"
+      ]
+    },
+    {
+      "id": "kendo.suburi",
+      "name": "Suburi",
+      "description": "Solo cutting practice — repeated swinging of the shinai through the full cutting arc to build muscle memory, strength, and correct path. Suburi encompasses joge-suburi (up-down swing), naname-suburi (diagonal swings), and hayasuburi (rapid continuous cuts). Every aspect of proper men-uchi begins in suburi: the raising of the hands to the correct height, the angle of descent, and the snap of the wrists at the moment of contact.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/kendo/models/suburi.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "swing", "durationSeconds": 1.0, "fps": 30 },
+        { "name": "rapid", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "tags": ["solo", "beginner", "swing", "cutting-practice"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "forearms", "core", "back"],
+      "commonMistakes": [
+        "Raising the hands too far back — the shinai should not extend past 45° behind the head",
+        "Relying on elbow bend rather than wrist snap at the cut's terminus",
+        "Losing posture by leaning forward as fatigue sets in during rapid suburi"
+      ]
+    },
+    {
+      "id": "kendo.chudan-no-kamae",
+      "name": "Chudan No Kamae",
+      "description": "Middle-level posture — the fundamental fighting stance of kendo in which the shinai is held pointing at the opponent's throat, feet shoulder-width apart, left heel slightly raised. Chudan-no-kamae is described as both offensive and defensive simultaneously: the shinai threatens the throat while the body is balanced to move in any direction. All other kamae (jodan, gedan, hasso, waki) are variations or departures from this central posture.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/kendo/models/chudan_no_kamae.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "step-forward", "durationSeconds": 1.5, "fps": 30 }
+      ],
+      "tags": ["stance", "beginner", "posture", "foundation"],
+      "cameraPreset": "side",
+      "muscleGroups": ["legs", "core", "forearms", "shoulders"],
+      "commonMistakes": [
+        "Pointing the shinai too low — it should threaten the throat, not the chest",
+        "Straightening the left arm completely; both arms should maintain slight flex",
+        "Allowing the left heel to touch the ground, which slows explosive forward movement"
+      ]
+    },
+    {
+      "id": "kendo.men-uchi",
+      "name": "Men Uchi",
+      "description": "Strike to the head — the most fundamental and prestigious cut in kendo, targeting the top of the helmet (men). A correct men-uchi begins from chudan with an explosive forward step, the hands lifting to forehead height, and the shinai descending with a sharp wrist snap to strike the centre of the men with the datotsu-bu (the upper third of the shinai). The kiai (battle cry) must accompany the strike, and the body must pass through or stop at the correct ma-ai (combative distance).",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["kendo.suburi", "kendo.chudan-no-kamae"],
+      "modelPath": "content/kendo/models/men_uchi.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.6, "fps": 60 }
+      ],
+      "tags": ["strike", "intermediate", "head", "fundamental"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "forearms", "quadriceps", "core"],
+      "commonMistakes": [
+        "Lifting only the arms without simultaneously pushing off the back foot",
+        "Striking off-centre — men-uchi must land precisely on the centreline",
+        "Failing to shout the kiai, which also arrests the body in correct zanshin posture"
+      ]
+    },
+    {
+      "id": "kendo.kote-uchi",
+      "name": "Kote Uchi",
+      "description": "Strike to the wrist — a targeted cut to the right kote (gauntlet), one of the four scoring targets in kendo. Kote-uchi is shorter than men-uchi in arc and distance, requiring precise angling of the shinai tip to descend onto the small target of the glove's striking area. It is often used as a preparatory technique before a follow-up men, or as a quick finish when the opponent raises their arms to defend the head.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["kendo.suburi", "kendo.chudan-no-kamae"],
+      "modelPath": "content/kendo/models/kote_uchi.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.5, "fps": 60 }
+      ],
+      "tags": ["strike", "intermediate", "wrist", "scoring"],
+      "cameraPreset": "front",
+      "muscleGroups": ["shoulders", "forearms", "core"],
+      "commonMistakes": [
+        "Raising the hands as high as for men-uchi — kote needs only a short lifting arc",
+        "Striking the back of the gauntlet or the forearm rather than the defined striking area",
+        "Leaning forward to extend range, which destroys posture and invites a counterattack"
+      ]
+    },
+    {
+      "id": "kendo.do-uchi",
+      "name": "Do Uchi",
+      "description": "Strike to the body — a horizontal or diagonal cut to the right side of the do (chest protector), sweeping across the abdomen line. Do-uchi is the most technically challenging of the basic strikes because the cutting angle changes to near-horizontal, the shinai must be angled correctly to achieve valid contact, and the practitioner must pass alongside the opponent rather than through the centre line, exposing them to a do-kaeshi counter.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["kendo.men-uchi"],
+      "modelPath": "content/kendo/models/do_uchi.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.65, "fps": 60 }
+      ],
+      "tags": ["strike", "intermediate", "body", "horizontal"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "obliques", "shoulders", "forearms"],
+      "commonMistakes": [
+        "Striking too vertically — do-uchi must travel diagonally upward-to-downward across the body",
+        "Neglecting the follow-through step past the opponent's right side",
+        "Losing track of the opponent after the cut — zanshin (remaining mind) is essential"
+      ]
+    },
+    {
+      "id": "kendo.tsuki",
+      "name": "Tsuki",
+      "description": "Throat thrust — a two-handed thrust to the tsuki-tare (throat protector) that scores by penetrating rather than cutting. Tsuki is the only thrusting technique in sport kendo and is generally restricted to advanced practitioners because an incorrect tsuki can injure the opponent. The thrust drives the shinai tip directly forward along the centreline with both hands pressing simultaneously, requiring precise distance management.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["kendo.men-uchi", "kendo.kote-uchi"],
+      "modelPath": "content/kendo/models/tsuki.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "thrust", "durationSeconds": 0.45, "fps": 60 }
+      ],
+      "tags": ["thrust", "intermediate", "throat", "dangerous"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "chest", "core", "forearms"],
+      "commonMistakes": [
+        "Thrusting with one hand dominant — both hands must push with equal force",
+        "Over-extending past the correct ma-ai, which leaves the practitioner leaning and exposed",
+        "Angling the thrust upward into the face rather than straight to the throat protector"
+      ]
+    },
+    {
+      "id": "kendo.harai-waza",
+      "name": "Harai Waza",
+      "description": "Sweeping technique — brushing the opponent's shinai aside to break their centreline control and create an opening for an immediate follow-up cut. Harai-men sweeps the blade away and immediately cuts men in a single fluid motion; harai-kote does the same to open the wrist. The sweep must be sharp and short — a large sweeping arc signals the attack and gives the opponent time to recover.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["kendo.chudan-no-kamae", "kendo.men-uchi", "kendo.kote-uchi"],
+      "modelPath": "content/kendo/models/harai_waza.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "sweep-cut", "durationSeconds": 0.8, "fps": 60 }
+      ],
+      "tags": ["sweep", "intermediate", "combination", "centreline"],
+      "cameraPreset": "front",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Pausing between the sweep and the cut — the two must be a single motion",
+        "Sweeping too broadly, which pulls the practitioner's own centreline out of line",
+        "Sweeping when the opponent is not pressing — harai works only against active pressure"
+      ]
+    },
+    {
+      "id": "kendo.debana-kote",
+      "name": "Debana Kote",
+      "description": "Emerging wrist strike — a precise kote delivered at the exact moment the opponent begins to raise their hands to launch men-uchi. The strike exploits the brief instant when the opponent's kote travels upward and forward into the cutting path, timing the attack to meet the wrist as it rises. Debana-kote is the quintessential sen-no-waza (initiative technique): the practitioner must read the opponent's intention before their movement is visible.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["kendo.kote-uchi", "kendo.harai-waza"],
+      "modelPath": "content/kendo/models/debana_kote.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "counter", "durationSeconds": 0.5, "fps": 60 }
+      ],
+      "tags": ["counter", "advanced", "timing", "wrist"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "shoulders", "core", "quadriceps"],
+      "commonMistakes": [
+        "Reacting too late and striking the raised arm rather than the rising kote",
+        "Moving the feet before the shinai — in debana techniques the cut initiates the movement",
+        "Second-guessing the read and hesitating, which removes the timing advantage entirely"
+      ]
+    },
+    {
+      "id": "kendo.nuki-do",
+      "name": "Nuki Do",
+      "description": "Avoiding-body strike — a counter technique where the practitioner steps aside to evade an incoming men-uchi and simultaneously cuts do on the passing opponent's body. The evasion and the cut occur as one movement: as the opponent's shinai travels overhead, the practitioner steps diagonally to the right while the shinai cuts horizontally across the exposed do. Nuki-do is prized as an elegant technique that requires no blocking — only precise timing and angulation.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["kendo.do-uchi", "kendo.debana-kote"],
+      "modelPath": "content/kendo/models/nuki_do.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "evade-cut", "durationSeconds": 0.9, "fps": 60 }
+      ],
+      "tags": ["evasion", "advanced", "counter", "body"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "obliques", "legs", "shoulders"],
+      "commonMistakes": [
+        "Stepping back rather than diagonally — the step must clear the shinai while placing the body in cutting range",
+        "Cutting too early before the opponent commits to men-uchi",
+        "Forgetting zanshin and not monitoring the opponent after the cut"
+      ]
+    },
+    {
+      "id": "kendo.kaeshi-do",
+      "name": "Kaeshi Do",
+      "description": "Returning-body strike — a counter that receives the opponent's men-uchi on the shinai and uses the contact energy to redirect the blade into a do cut. The incoming shinai is met with the upper half of the practitioner's blade (kissaki region), and the wrists turn over the block to redirect downward into the right do in a single connected motion. Kaeshi-do requires precise blade angle at the point of contact and rapid wrist rotation.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["kendo.do-uchi", "kendo.nuki-do"],
+      "modelPath": "content/kendo/models/kaeshi_do.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "block-counter", "durationSeconds": 0.85, "fps": 60 }
+      ],
+      "tags": ["counter", "advanced", "redirect", "body"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "core", "shoulders", "obliques"],
+      "commonMistakes": [
+        "Blocking with too much force, absorbing the energy rather than redirecting it",
+        "Allowing the hands to cross during the redirection instead of pivoting in place",
+        "Cutting do on the left side rather than the right side — the target is always right do"
+      ]
+    },
+    {
+      "id": "kendo.kiri-kaeshi",
+      "name": "Kiri Kaeshi",
+      "description": "Alternating diagonal strikes — a fundamental partner drill that chains successive diagonal cuts to the left and right men areas while advancing and retreating. One practitioner cuts while the other receives and redirects; roles reverse every half. Kiri-kaeshi trains continuity of movement, correct shinai path through the full angle, explosive footwork, and the ability to maintain ki-ken-tai-ichi across many consecutive strikes without degradation of form.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["kendo.men-uchi", "kendo.kaeshi-do", "kendo.harai-waza"],
+      "modelPath": "content/kendo/models/kiri_kaeshi.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "drill", "durationSeconds": 8.0, "fps": 30 }
+      ],
+      "tags": ["drill", "advanced", "diagonal", "combination"],
+      "cameraPreset": "front",
+      "muscleGroups": ["shoulders", "forearms", "core", "quadriceps", "calves"],
+      "commonMistakes": [
+        "Letting the shinai path become too vertical as fatigue sets in",
+        "Falling into a rhythm that loses the ki-ken-tai-ichi connection on each individual cut",
+        "Not completing the retreat footwork fully before the partner begins their portion"
+      ]
+    },
+    {
+      "id": "kendo.oji-waza",
+      "name": "Oji Waza",
+      "description": "Response techniques — the broad category of counters that wait for the opponent to attack and respond with an immediate counter-strike. Oji-waza includes suriage-waza (sliding deflection), kaeshi-waza (redirect), nuki-waza (evade), and uchiotoshi-waza (striking down the opponent's shinai). Mastery of oji-waza requires understanding the opponent's attack patterns and the ability to remain still under pressure long enough to trigger the attacking response.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["kendo.kaeshi-do", "kendo.nuki-do", "kendo.debana-kote"],
+      "modelPath": "content/kendo/models/oji_waza.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "counter-series", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "tags": ["counter", "advanced", "response", "timing"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "forearms", "shoulders", "legs"],
+      "commonMistakes": [
+        "Moving before the opponent has committed to their attack",
+        "Using the same counter repeatedly and becoming predictable",
+        "Hesitating in the counter — oji-waza must be instantaneous with the attacking movement"
+      ]
+    },
+    {
+      "id": "kendo.hiki-waza",
+      "name": "Hiki Waza",
+      "description": "Retreating techniques — strikes executed while stepping backward from tsubazeriai (close-quarters shinai contact). Hiki-men, hiki-kote, and hiki-do are the three variants. Hiki-waza requires creating space by pushing off the opponent with the tsuba (guard) while simultaneously raising the hands and cutting as the body retreats. It is one of kendo's most demanding techniques because the cut is delivered mid-retreat, requiring both timing and the strength to generate a valid strike in reverse motion.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["kendo.kiri-kaeshi", "kendo.tsuki"],
+      "modelPath": "content/kendo/models/hiki_waza.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "retreat-strike", "durationSeconds": 0.9, "fps": 60 }
+      ],
+      "tags": ["retreating", "advanced", "close-quarters", "tsubazeriai"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "forearms", "quadriceps", "core"],
+      "commonMistakes": [
+        "Retreating first and then cutting rather than cutting and retreating simultaneously",
+        "Failing to create a clear separation from tsubazeriai before the cut",
+        "Retreating straight back — the step should be slightly to the side to avoid the opponent's counter"
+      ]
+    },
+    {
+      "id": "kendo.ippon-me-nihon-me",
+      "name": "Ippon Me Nihon Me",
+      "description": "First and second forms of the Nihon Kendo Kata — the two opening kata practised with wooden swords (bokken) that preserve the classical kenjutsu origins of kendo. Ippon-me is a direct men-uchi initiated from jodan by the shidachi (student), met by uchidachi (teacher) from chudan, resolving in mutual zanshin. Nihon-me introduces a thrust and evasion cycle. Kata practice develops the precise blade path, correct distance, and controlled intention that sport kendo does not always capture.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["kendo.oji-waza", "kendo.hiki-waza"],
+      "modelPath": "content/kendo/models/ippon_me_nihon_me.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "kata", "durationSeconds": 14.0, "fps": 30 }
+      ],
+      "tags": ["kata", "advanced", "bokken", "classical"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "shoulders", "forearms", "back", "legs"],
+      "commonMistakes": [
+        "Rushing the kata to complete it rather than pausing in each posture",
+        "Treating the kata as a choreographed performance rather than a live exchange with real intent",
+        "Neglecting the uchidachi (attacking) role — both roles carry equal discipline responsibility"
+      ]
+    }
+  ]
+}
