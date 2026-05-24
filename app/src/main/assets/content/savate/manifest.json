@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "savate",
+  "disciplineName": "Savate",
+  "description": "Savate (also called Boxe Française or French kickboxing) is a European striking art developed in early 19th-century France, distinct from all other kickboxing systems in that it is the only major combat sport that uses the shoe as a striking surface, with kicks delivered with the toe, ball, heel, and sole of the foot rather than the instep or shin. Savate emerged from the street-fighting culture of French sailors in Marseille, where kicking while wearing shoes was a natural adaptation, and was systematised into a competitive sport in Paris where the fencing-influenced guard, precise footwork, and tactical distance management of classical European swordsmanship were integrated with low, mid, and high kicks. The four canonical kick types — fouetté (whipping), chassé (pushing/thrusting), revers (returning sweep), and coup de pied bas (low kick) — each exist at all valid target levels, creating a matrix of 12+ distinct kicks. Unlike Muay Thai's emphasis on structural power, Savate prioritises accuracy, combination speed, and the use of footwork to control range and angle, with bouts often decided on technical points rather than knockdowns.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "savate.garde",
+      "name": "Garde",
+      "description": "The Savate guard — an upright fencing-influenced stance with the dominant foot behind, both hands raised with the rear hand near the chin and the lead hand extended as a distance-measuring jab guard, weight centred over the balls of both feet to allow immediate forward, backward, or lateral movement. Garde (French: 'guard') in Savate is more upright than boxing guards and more linear than martial arts stances, reflecting the system's inheritance from classical European swordsmanship: the narrow profile, the extended lead hand as a probing tool, and the emphasis on maintaining a precise measured distance from the opponent before committing to an attack. The rear-weighted stance protects the lead leg from counter-kicks while keeping the dominant side ready to deliver the more powerful rear kicks. The guard is not static — it moves continuously in small chassé footwork steps to maintain the optimal attack and counter-attack range.",
+      "modelPath": "content/savate/models/garde.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "core", "shoulders", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "guard", "fundamentals"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Planting the feet flat rather than staying on the balls of the feet, losing the ability to move immediately in any direction and turning the guard into a static position rather than a mobile platform"},
+        {"description": "Dropping the rear hand from chin level to hip level to improve shoulder mobility for kicks, leaving the jaw unguarded during the longer windup time that powerful rear kicks require"}
+      ]
+    },
+    {
+      "id": "savate.jab",
+      "name": "Jab",
+      "description": "The Savate jab — a quick lead-hand probe delivered from the garde with the fist rotating to horizontal at extension, used primarily to measure distance, disrupt the opponent's timing, and set up combinations rather than as a power punch. Savate's jab inherits directly from boxing but is deployed within a distance-management framework informed by fencing: the jab is thrown not just to strike but to touch (toucher), scoring a point in competition and measuring whether the opponent is at the distance where rear attacks land. Because Savate emphasises combination speed over single-shot power, the jab is retracted immediately upon extension — a long-held extended jab is a target — and is thrown multiple times in rapid succession to progressively advance or to prevent the opponent from reading the next technique. The Savate jab differs from boxing's in that the combination following it is as likely to be a fouetté kick as a cross, requiring the opponent to guard against both hands and feet simultaneously.",
+      "modelPath": "content/savate/models/jab.glb",
+      "defaultClip": "jab",
+      "clips": [
+        {"name": "jab", "durationSeconds": 0.4, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core"],
+      "difficulty": "beginner",
+      "tags": ["punch", "lead-hand", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Throwing the jab as a power strike rather than a precision probing tool, committing the body forward for a strike that is better used as a setup, and losing the instant retraction that keeps the lead hand unavailable to grab"},
+        {"description": "Dropping the rear hand during the jab to counter-rotate the shoulder into the punch, creating brief unguarded chin exposure that opponents looking for jab-counters immediately exploit"}
+      ]
+    },
+    {
+      "id": "savate.cross",
+      "name": "Cross",
+      "description": "The Savate cross — a powerful rear-hand straight punch driven by full hip rotation from the rear foot, delivering the dominant side's mass into the target along the centreline. In Savate the cross is typically set up by one or more jabs or by a fouetté kick that forces the opponent to lower their guard, since Savate scoring rewards combinations and the cross alone without a setup is a predictable attack that skilled opponents can counter-time. The cross in Savate competition is one of the six canonical punches (straight, hook, and uppercut on each hand) and follows boxing mechanics exactly — hip rotation, shoulder turn, and retraction — with the key difference that it is combined with kicks far more fluidly than in boxing, since the opponent must guard against the kick-and-punch matrix simultaneously. The cross-fouetté-cross sequence is one of Savate's most common combinations at all levels.",
+      "modelPath": "content/savate/models/cross.glb",
+      "defaultClip": "cross",
+      "clips": [
+        {"name": "cross", "durationSeconds": 0.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "beginner",
+      "tags": ["punch", "rear-hand", "power"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Rotating the hip without the corresponding rear heel rise and drive, generating rotation from the waist alone and losing the ground-reaction force that the heel pivot delivers through the kinetic chain"},
+        {"description": "Failing to return to garde immediately after the cross, holding the extended position briefly while the shoulder is rotated forward and presenting an open chin to a counter-jab or hook"}
+      ]
+    },
+    {
+      "id": "savate.fouette-median",
+      "name": "Fouetté Médian",
+      "description": "The mid-level whip kick — a Savate fouetté delivered at the opponent's waist, ribs, or solar plexus, using the toe or ball of the shoe as the striking surface in a snapping outward-then-inward arc. Fouetté (French: 'whipped') describes the motion: the knee rises to hip height, the shin and foot are whipped outward and forward in a rotational arc, and the foot snaps through the target before the leg retracts. The mid-level fouetté is the most frequently thrown Savate kick because the solar plexus and floating ribs are structurally vulnerable and the kick's trajectory naturally bypasses a boxing-style hand guard, requiring the opponent to lower both elbows or step offline to defend it. The fouetté médian from the lead leg is particularly valued as a counter, intercepting the opponent's committed forward step before they are in punch range.",
+      "modelPath": "content/savate/models/fouette_median.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "fouette", "mid-level"],
+      "cameraPreset": "side",
+      "prerequisites": ["savate.garde"],
+      "commonMistakes": [
+        {"description": "Swinging the whole leg in a circle from the hip rather than snapping the shin and foot from a raised knee, converting the precise fouetté into a slow circular kick that telegraphs early and misses the snapping acceleration that makes the technique powerful at contact"},
+        {"description": "Returning the foot to the floor in front of the body after the kick rather than retracting to garde, leaving the kicking leg forward and weight shifted so that any evasion or counter can unbalance the practitioner"}
+      ]
+    },
+    {
+      "id": "savate.fouette-figure",
+      "name": "Fouetté Figure",
+      "description": "The head-level whip kick — the high-line fouetté targeting the opponent's temple, jaw, or ear delivered with the toe of the shoe in a rising outward arc from the knee-chamber position. Fouetté Figure (French: 'face whip') is one of Savate's signature high kicks, relying on the flexibility to bring the knee above the waist and the balance to pivot on a single supporting foot while the kicking leg extends to head height without telegraphing. In competition it scores the highest point value because it targets the head and is the most difficult to defend against given Savate's stance, which does not naturally protect against a kick at face height from the outside angle. The head-level fouetté is faster than the equivalent height roundhouse kick in Muay Thai because it uses a snapping shin rather than a swinging leg, though it sacrifices some power in exchange for speed and the smaller target profile of the toe versus the shin.",
+      "modelPath": "content/savate/models/fouette_figure.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core", "hamstrings"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "fouette", "high-level"],
+      "cameraPreset": "side",
+      "prerequisites": ["savate.fouette-median"],
+      "commonMistakes": [
+        {"description": "Leaning the torso sideways away from the kicking leg rather than maintaining upright body alignment, compromising balance on the supporting leg and reducing hip rotation range"},
+        {"description": "Telegraphing the high fouetté with a preparatory lean-back before the knee rises, giving the opponent the advance warning they need to slip offline before the kick arrives at head height"}
+      ]
+    },
+    {
+      "id": "savate.chasse-lateral",
+      "name": "Chassé Latéral",
+      "description": "The lateral pushing kick — a linear thrust kick delivered sideways using the heel or sole of the foot to the opponent's knee, hip, or ribs, pushing them offline rather than whipping through the target. Chassé (French: 'chasing/pushing') describes a family of Savate thrusting kicks distinct from the fouetté's snapping arc; where fouetté whips through, chassé pushes with sustained contact. The chassé latéral uses the side of the body, chambering the knee across the body and extending the leg laterally in the direction perpendicular to the practitioner's line of facing. It is primarily a range-maintaining tool — a mid-fight reset that creates the specific distance where fouetté and cross combinations land optimally — and as a low-line kick to the knee it is also a structural attack designed to compromise the opponent's base without entering their powerful punching range.",
+      "modelPath": "content/savate/models/chasse_lateral.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "hip-flexors"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "chasse", "push-kick"],
+      "cameraPreset": "front",
+      "prerequisites": ["savate.garde", "savate.fouette-median"],
+      "commonMistakes": [
+        {"description": "Aiming the chassé at the opponent's torso when intending to push them back, since a torso-height lateral push-kick requires more hip flexibility and telegraphs more than a knee-level target that achieves the same distancing effect"},
+        {"description": "Using the chassé latéral as a power attack rather than a range tool, loading too much weight forward into the kick and losing the guard-reset position that makes the immediately following combination possible"}
+      ]
+    },
+    {
+      "id": "savate.revers",
+      "name": "Revers",
+      "description": "The return kick — a semi-circular sweep kick that approaches from outside the opponent's guard in a hooking arc using the outside of the shoe, targeting the temple, neck, or ribs on the return path of a movement that begins as a fouetté or chassé and redirects in a sweeping motion rather than retracting. Revers (French: 'reverse/backswing') is a deceitful kick because its setup motion is identical to a fouetté until the last moment, when the shin redirects outward to sweep around rather than through the target. In competition it is used to catch opponents who have leaned away from the expected fouetté — the revers follows the opponent's evasion by sweeping in the direction they moved, landing on the side that they believed was safe. The revers requires hip flexibility and precise timing to redirect mid-extension and still arrive with force, making it an advanced technique despite its conceptual simplicity.",
+      "modelPath": "content/savate/models/revers.glb",
+      "defaultClip": "sweep",
+      "clips": [
+        {"name": "sweep", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core", "hamstrings"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "revers", "sweep", "deceptive"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["savate.fouette-median", "savate.fouette-figure"],
+      "commonMistakes": [
+        {"description": "Committing to the revers as the first kick without the preceding fouetté setup, losing the deceptive value that comes from the two kicks having identical initial trajectories"},
+        {"description": "Over-rotating the hip in the redirecting motion and losing balance on the standing leg, since the mid-air redirection of the shin requires the hip to absorb the momentum change and maintain a stable pivot"}
+      ]
+    },
+    {
+      "id": "savate.coup-de-pied-bas",
+      "name": "Coup de Pied Bas",
+      "description": "The low kick — a Savate fouetté or chassé variation delivered at or below the knee, targeting the thigh, knee joint, calf, or shin using the toe or outside of the shoe in a rapid low arc. Coup de Pied Bas (French: 'low foot strike') is one of Savate's primary defensive and setup tools because it is faster to deliver than mid- or high-level kicks, harder for the opponent to see and anticipate, and targets the leg's supporting structure to create cumulative damage that affects balance and mobility without requiring a knockout-level power hit. In Savate competition, the low kick scores at the lowest level but is often the highest-frequency technique, establishing kicking presence in the opponent's legs while the hands and high kicks score the decisive points. The coup de pied bas is delivered from the lead or rear leg and can be used as an intercepting kick against the opponent's advancing front foot.",
+      "modelPath": "content/savate/models/coup_de_pied_bas.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "core", "calves"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "low-kick", "setup"],
+      "cameraPreset": "side",
+      "prerequisites": ["savate.garde", "savate.fouette-median"],
+      "commonMistakes": [
+        {"description": "Telegraphing the low kick by dropping the gaze to the opponent's legs before delivering it, since eye movement is one of the first cues an experienced opponent reads for low kick anticipation"},
+        {"description": "Kicking with the instep rather than the toe or outside of the shoe, surrendering the armour advantage of the shoe and reducing structural impact compared to correct footwear-based targeting"}
+      ]
+    },
+    {
+      "id": "savate.direct-avant",
+      "name": "Direct Avant",
+      "description": "The lead straight — the Savate equivalent of the boxing lead straight (not the jab), a committed lead-hand punch thrown with hip rotation and full weight transfer for a power strike along the centreline. Direct Avant (French: 'forward straight') is distinct from the probing jab in that it is a committed power shot with hip rotation; where the jab flicks from the wrist, the direct avant drives from the hip. In Savate combinations it is used as an answer — following a fouetté that forces the opponent to lower their guard, the direct avant arrives at the unguarded face before the guard can be restored. It is also thrown as a long-range counter against a kick that falls short, leaning back to let the kick pass and driving the lead hand forward in the opponent's recovery phase. The lead-hand straight is preferred to the rear-hand cross in specific Savate situations because it travels a shorter distance and leaves the rear hand free to follow immediately.",
+      "modelPath": "content/savate/models/direct_avant.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "punch", "durationSeconds": 0.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "lead-hand", "power", "combination"],
+      "cameraPreset": "side",
+      "prerequisites": ["savate.jab", "savate.cross"],
+      "commonMistakes": [
+        {"description": "Throwing the direct avant as a jab — from the arm alone without hip rotation — reducing a committed power punch to a probing touch that fails to force a defensive reaction from the opponent"},
+        {"description": "Over-committing to the direct avant without a preceding kick to open the guard, making the straight punch predictable and easily countered with a slip-and-hook by an experienced opponent who recognises the unset-up straight punch angle"}
+      ]
+    },
+    {
+      "id": "savate.crochet",
+      "name": "Crochet",
+      "description": "The hook — a horizontal arc punch delivered with the arm bent at 90 degrees, targeting the jaw, temple, or ear from an outside angle that bypasses the opponent's forward guard. Crochet (French: 'hook') in Savate follows boxing hook mechanics but is used in distinctive combination contexts — the fouetté-crochet sequence is one of Savate's most productive combinations because the fouetté to the ribs forces the opponent's elbow down to protect the body, opening the head for the hook that immediately follows. Because Savate competition allows both kicks and punches, the crochet's defensive challenge is compounded: an opponent guarding against hooks must also guard against the kicks that arrive at angles the defensive arm movements for hooks leave open. The Savate crochet is thrown from both the lead and rear hand, and the body-to-head fouetté-crochet combination is among the most commonly scored point sequences at all competitive levels.",
+      "modelPath": "content/savate/models/crochet.glb",
+      "defaultClip": "hook",
+      "clips": [
+        {"name": "hook", "durationSeconds": 0.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "hook", "angle", "combination"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["savate.jab", "savate.fouette-median"],
+      "commonMistakes": [
+        {"description": "Dropping the elbow below the horizontal plane of the fist, converting the hook into a looping overhand that loses the penetrating lateral arc and takes longer to arrive because of the increased travel distance"},
+        {"description": "Stepping into the hook without the preceding kick setup that lowers the opponent's guard, making the hook a telegraphed angle attack that experienced fighters slip by simply rotating the chin slightly offline"}
+      ]
+    },
+    {
+      "id": "savate.esquive",
+      "name": "Esquive",
+      "description": "The slip — Savate's primary defensive movement, in which the practitioner moves the head and body off the attack line without retreating, using small rotational and lateral movements of the torso and footwork adjustments to cause an incoming punch or kick to miss while remaining in counter-striking range. Esquive (French: 'dodge/slip') in Savate is more precisely defined than the equivalent movement in boxing because it must simultaneously evade both punches and kicks: an esquive that moves the head offline from a punch while stepping into a kick is worse than no evasion at all. Esquive techniques include the duck (bending both knees to slip under a high kick), the bob (torso rotation to allow a hook to pass over the shoulder), and the cross-step (moving the lead foot across the body to change the lateral angle entirely). Because Savate competition is scored on touches made on specific valid targets, the esquive is as important as the attack — avoiding a touch while making one scores even in a simultaneous exchange.",
+      "modelPath": "content/savate/models/esquive.glb",
+      "defaultClip": "slip",
+      "clips": [
+        {"name": "slip", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "back", "calves"],
+      "difficulty": "advanced",
+      "tags": ["defense", "evasion", "slip", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["savate.garde", "savate.chasse-lateral", "savate.revers"],
+      "commonMistakes": [
+        {"description": "Making the esquive after the attack has already committed rather than during it, slipping past the endpoint of the motion rather than removing the target before the attack arrives, which for fast kicks is too late"},
+        {"description": "Over-rotating in the esquive and ending up outside the counter-attack range, using the defensive movement to escape the exchange completely rather than to create a counter-attack position from a safe angle"}
+      ]
+    },
+    {
+      "id": "savate.combinaison-fouette-cross",
+      "name": "Combinaison Fouetté-Cross",
+      "description": "The fouetté-cross combination — a foundational two-technique sequence in which a mid-level fouetté to the body immediately precedes a rear-hand cross to the face, the kick forcing the opponent's elbow down to protect the ribs and the cross landing before the guard recovers. Combinaison (French: 'combination') Fouetté-Cross is the most fundamental Savate combination and exists in every competitive Savate practitioner's toolkit because it solves the central defensive problem opponents face against Savate: a guard that covers the face does not cover the body from the fouetté, and a guard that covers the body from the fouetté does not cover the face from the cross. The sequence must be thrown as a single continuous movement — the cross launches in the same instant the fouetté begins its retraction — rather than as two separate attacks with a pause between, since the pause allows the opponent to restore the guard between the two threats.",
+      "modelPath": "content/savate/models/combinaison_fouette_cross.glb",
+      "defaultClip": "combo",
+      "clips": [
+        {"name": "combo", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "shoulders", "chest", "core"],
+      "difficulty": "advanced",
+      "tags": ["combination", "kick-punch", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["savate.fouette-figure", "savate.direct-avant", "savate.crochet"],
+      "commonMistakes": [
+        {"description": "Waiting until the fouetté foot lands before throwing the cross, creating a two-beat sequence that the opponent can defend separately rather than the overlapping one-count that makes the combination effective"},
+        {"description": "Planting the kicking foot in front of the body at an angle that mis-aligns the hips for the cross, forcing the cross to travel at a compromised angle because the kicking-leg retraction did not correctly reset the hip position"}
+      ]
+    },
+    {
+      "id": "savate.assaut",
+      "name": "Assaut",
+      "description": "The full-range sparring engagement — the competitive training exercise in which both practitioners execute the full Savate technique matrix (six punches, eight kicks, all angles and levels) at controlled contact within the scoring rules, developing the ability to read angles, manage range, time combinations, and make tactical decisions under pressure and fatigue. Assaut (French: 'assault/sparring') is the competitive mode of Savate, distinct from pre-choc (power sparring) and combat (full-power competition), and is the primary context in which all technical elements — garde, footwork, kicks, punches, esquive, and combinations — are integrated into adaptive spontaneous fighting. Developing assaut competence requires the practitioner to maintain offensive threat while processing the opponent's distance, guard position, and tendencies simultaneously, making assaut the highest-demand training mode where technical skill and tactical intelligence converge. The periodic switch between attacking and counter-attacking roles develops the read-and-respond speed that separates technically skilled practitioners from competitive ones.",
+      "modelPath": "content/savate/models/assaut.glb",
+      "defaultClip": "spar",
+      "clips": [
+        {"name": "spar", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "shoulders", "core", "calves", "hip-flexors"],
+      "difficulty": "advanced",
+      "tags": ["sparring", "competition", "advanced", "full-range"],
+      "cameraPreset": "side",
+      "prerequisites": ["savate.esquive", "savate.combinaison-fouette-cross", "savate.coup-de-pied-bas"],
+      "commonMistakes": [
+        {"description": "Reverting to a single favourite technique under pressure rather than reading what the opponent's guard position offers in each exchange, reducing assaut to a test of whether the practitioner's best technique beats the opponent's best counter rather than a tactical dialogue"},
+        {"description": "Neglecting footwork under fatigue and fighting flat-footed, losing the range management that makes all Savate techniques effective and turning the exchange into a range-invariant slugfest that the art is not designed for"}
+      ]
+    },
+    {
+      "id": "savate.uppercut",
+      "name": "Uppercut",
+      "description": "The uppercut — a vertically rising punch delivered with either hand from a bent-arm position, driving upward through the guard into the chin or solar plexus in the close-range space that horizontal strikes cannot reach. The Savate uppercut follows the same mechanics as the boxing uppercut — the driving leg dips, the shoulder drops, and the fist rises in a tight vertical arc driven by the legs and hips — but is used in specific contexts that differ from boxing: after a fouetté has disrupted the opponent's posture and caused a forward lean, the uppercut travels through the newly open space under the chin before the opponent can restore upright alignment. The lead uppercut (direct inférieur avant) is thrown to the solar plexus at close range; the rear uppercut (direct inférieur arrière) targets the chin with the full power of the dominant side's hip drive. In competition the uppercut is a high-scoring technique when it lands cleanly because opponents often move their head toward the practitioner while evading body kicks, creating exactly the forward-lean geometry the uppercut is designed to exploit.",
+      "modelPath": "content/savate/models/uppercut.glb",
+      "defaultClip": "uppercut",
+      "clips": [
+        {"name": "uppercut", "durationSeconds": 0.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["punch", "uppercut", "close-range"],
+      "cameraPreset": "side",
+      "prerequisites": ["savate.jab", "savate.cross"],
+      "commonMistakes": [
+        {"description": "Throwing the uppercut from a standing posture without the brief dip that loads the driving leg, producing an arm-only arc that lacks the leg-drive power that makes the uppercut's rising force effective at penetrating a close-in guard"},
+        {"description": "Over-winding the uppercut by dropping the shoulder too far before the punch rises, telegraphing the technique's direction a full beat before it travels, which at close range is enough for an experienced opponent to clinch or slip before impact"}
+      ]
+    },
+    {
+      "id": "savate.chasse-frontal",
+      "name": "Chassé Frontal",
+      "description": "The forward pushing kick — a linear heel-first thrust directly forward into the opponent's solar plexus, hip, or knee using the heel of the shoe, applied as a long-range entry disruption or a mid-fight reset that creates distance when the exchange has moved too close for fouetté kicks to develop properly. Chassé Frontal (French: 'forward chasing kick') is the most structurally powerful Savate kick because it uses the heel, the hardest part of the shoe, in a direct linear push, delivering force along the exact centreline without rotational inefficiency. The technique is used both as an offensive entry disruptor — thrown at the opponent's lead leg as they advance — and as a defensive push-away when the opponent has closed inside fouetté range and the practitioner needs to restore the optimal kicking distance before resuming combinations. Because it pushes rather than cuts, the chassé frontal is less likely to score in competition than the fouetté but is more reliable as a range-management tool.",
+      "modelPath": "content/savate/models/chasse_frontal.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "hip-flexors"],
+      "difficulty": "beginner",
+      "tags": ["kick", "chasse", "push-kick", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Delivering the chassé frontal with the ball of the foot rather than the heel, sacrificing the structural hardness of the heel and the heel-drive mechanical advantage that makes this the most powerful Savate kick per unit of effort"},
+        {"description": "Using the chassé frontal as a long-range attack against a retreating opponent rather than as a range-control tool against an advancing one, pushing empty air rather than disrupting committed forward motion"}
+      ]
+    }
+  ]
+}
