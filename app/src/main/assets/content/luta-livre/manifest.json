@@ -1,0 +1,341 @@
+{
+  "discipline": {
+    "id": "luta-livre",
+    "name": "Luta Livre",
+    "description": "Luta Livre (Portuguese: 'free fighting') is a Brazilian submission grappling art that developed independently from BJJ in the early 20th century, emphasising ground fighting without the gi. Where BJJ grew from Gracie family judo lineage, Luta Livre emerged from the working-class tradition of vale-tudo and European catch wrestling, producing a style that prizes leg locks, no-gi takedowns, and aggressive offensive submission chains. Its rivalry with BJJ shaped modern MMA grappling and produced techniques now common throughout submission wrestling.",
+    "movementIds": [
+      "luta-livre.sprawl",
+      "luta-livre.base-position",
+      "luta-livre.single-leg",
+      "luta-livre.double-leg",
+      "luta-livre.rear-naked-choke",
+      "luta-livre.guillotine",
+      "luta-livre.kneebar",
+      "luta-livre.ankle-lock",
+      "luta-livre.kimura",
+      "luta-livre.arm-triangle",
+      "luta-livre.heel-hook",
+      "luta-livre.body-lock-takedown",
+      "luta-livre.truck-position",
+      "luta-livre.electric-chair",
+      "luta-livre.calf-slicer"
+    ]
+  },
+  "movements": [
+    {
+      "id": "luta-livre.sprawl",
+      "name": "Sprawl",
+      "description": "The fundamental takedown defence — when the opponent shoots for a double or single leg, the practitioner explosively throws the hips backward and downward while driving the chest into the opponent's upper back, pinning them face-down. The sprawl is the gateway between stand-up and ground fighting, and its speed and efficiency determine whether the practitioner engages on their own terms or gets taken down.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/luta-livre/models/sprawl.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "sprawl", "durationSeconds": 0.7, "fps": 60 }
+      ],
+      "tags": ["defence", "beginner", "takedown-defence", "hips"],
+      "cameraPreset": "side",
+      "muscleGroups": ["glutes", "hip_flexors", "core", "back"],
+      "commonMistakes": [
+        "Moving the hips backward without driving the chest down simultaneously",
+        "Cross-facing too slowly — the chest pressure must be immediate to prevent recovery",
+        "Sprawling to one side rather than straight back, leaving a leg accessible"
+      ]
+    },
+    {
+      "id": "luta-livre.base-position",
+      "name": "Base Position",
+      "description": "The foundational posture for Luta Livre ground work — a balanced, low stance that allows movement in all directions while making the practitioner difficult to sweep, trip, or submit. Base encompasses proper hip positioning on top, guard retention posture on the bottom, and the connection of hands-hips-feet that maintains structural stability. Without solid base, all subsequent ground techniques fail.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/luta-livre/models/base_position.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "movement", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "tags": ["position", "beginner", "ground", "stability"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "glutes", "back", "legs"],
+      "commonMistakes": [
+        "Sitting flat on the hip, which eliminates the ability to move or post",
+        "Placing the hands between the knees instead of wide outside the base",
+        "Allowing weight to shift forward, making sweeps easy for the opponent"
+      ]
+    },
+    {
+      "id": "luta-livre.single-leg",
+      "name": "Single Leg Takedown",
+      "description": "A takedown initiated by shooting to one leg, wrapping it at the knee or ankle, and driving the opponent off balance. Luta Livre's single-leg emphasises no-gi grips — the leg is secured with a tight clamp rather than a sleeve, making hip-to-hip contact essential. The finish can be a lateral dump, a trip of the standing leg, or a running single where the practitioner stands with the captured leg and walks the opponent to the mat.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/luta-livre/models/single_leg.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "shot", "durationSeconds": 1.0, "fps": 60 }
+      ],
+      "tags": ["takedown", "beginner", "leg", "shot"],
+      "cameraPreset": "side",
+      "muscleGroups": ["quadriceps", "core", "back", "glutes"],
+      "commonMistakes": [
+        "Grabbing the knee joint instead of wrapping above or below it",
+        "Standing upright after securing the leg — stay low and drive",
+        "Not controlling the head position, allowing the opponent to guillotine"
+      ]
+    },
+    {
+      "id": "luta-livre.double-leg",
+      "name": "Double Leg Takedown",
+      "description": "The most powerful takedown in grappling — a level-change followed by an explosive shot that drives both knees into the opponent's hips while the head is positioned on the outside of the thigh. The practitioner wraps both legs with their arms and lifts or drives forward to bring the opponent to the mat. Without a gi, the double-leg relies entirely on explosive level change and contact pressure rather than grip strength.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["luta-livre.single-leg", "luta-livre.sprawl"],
+      "modelPath": "content/luta-livre/models/double_leg.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "shot", "durationSeconds": 0.9, "fps": 60 }
+      ],
+      "tags": ["takedown", "intermediate", "double-leg", "explosive"],
+      "cameraPreset": "side",
+      "muscleGroups": ["quadriceps", "glutes", "core", "back", "shoulders"],
+      "commonMistakes": [
+        "Head positioning on the inside of the thigh, risking a guillotine",
+        "Grabbing the legs without driving the hips forward through the opponent",
+        "Pausing after contact instead of continuously driving to complete the takedown"
+      ]
+    },
+    {
+      "id": "luta-livre.rear-naked-choke",
+      "name": "Rear Naked Choke",
+      "description": "The finishing choke from back control — one arm snakes under the chin and across the throat while the other arm secures it behind the opponent's head, forming a triangle with both forearms around the carotid arteries. The squeeze cuts off blood flow rather than air, causing unconsciousness within seconds. Proper back control with hooks prevents the opponent from escaping before the choke is fully locked.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["luta-livre.base-position"],
+      "modelPath": "content/luta-livre/models/rear_naked_choke.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "choke", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "tags": ["choke", "intermediate", "back-control", "blood-choke"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "biceps", "back", "core"],
+      "commonMistakes": [
+        "Placing the forearm across the windpipe rather than the carotid arteries",
+        "Failing to secure back control hooks before attempting the choke",
+        "Allowing the chin to tuck, blocking the choking arm's path to the throat"
+      ]
+    },
+    {
+      "id": "luta-livre.guillotine",
+      "name": "Guillotine Choke",
+      "description": "A front headlock choke applied when the opponent ducks their head — the practitioner's arm encircles the neck from above and squeezes with a forearm pressure that compresses the carotid arteries and trachea. Luta Livre utilises the arm-in guillotine, the high-elbow guillotine, and the 10-finger grip to attack opponents who shoot for takedowns. The guard-pull guillotine is a signature defensive transition.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["luta-livre.sprawl", "luta-livre.base-position"],
+      "modelPath": "content/luta-livre/models/guillotine.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "choke", "durationSeconds": 1.1, "fps": 30 }
+      ],
+      "tags": ["choke", "intermediate", "front-headlock", "counter"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["forearms", "biceps", "core", "shoulders"],
+      "commonMistakes": [
+        "Applying with the wrist bone instead of the forearm — it reduces compression and risks wrist injury",
+        "Not elevating the elbow high enough to close the neck space",
+        "Failing to pull guard or establish a secure base, allowing the opponent to walk out"
+      ]
+    },
+    {
+      "id": "luta-livre.kneebar",
+      "name": "Kneebar",
+      "description": "A leg submission that hyperextends the knee joint — the practitioner wraps both arms around the leg and levers the knee over the hip bone or thigh while controlling the foot between their bicep and forearm. The kneebar is a signature Luta Livre weapon and was historically used by Luta Livre practitioners against BJJ's guard game, catching opponents who didn't protect their legs when playing on the ground.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["luta-livre.ankle-lock"],
+      "modelPath": "content/luta-livre/models/kneebar.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "submission", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "tags": ["leg-lock", "intermediate", "knee", "submission"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "back", "arms", "legs"],
+      "commonMistakes": [
+        "Pulling the foot away from the body rather than leveraging the knee over the fulcrum",
+        "Failing to control the hip rotation — the opponent can spin out without hip control",
+        "Not securing the foot grip tightly before applying extension pressure"
+      ]
+    },
+    {
+      "id": "luta-livre.ankle-lock",
+      "name": "Ankle Lock",
+      "description": "A straight ankle lock (achilles lock) applied from the ground — the foot is trapped under the armpit with the forearm bone pressing against the Achilles tendon, and the hips drive forward to extend the ankle joint past its range. Luta Livre practitioners often attack the ankle when passing guard or from a scramble, making it a transitional submission that doesn't require full positional control to initiate.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["luta-livre.base-position", "luta-livre.sprawl"],
+      "modelPath": "content/luta-livre/models/ankle_lock.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "submission", "durationSeconds": 0.9, "fps": 30 }
+      ],
+      "tags": ["leg-lock", "intermediate", "ankle", "achilles"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "back", "forearms"],
+      "commonMistakes": [
+        "Using the wrist instead of the forearm bone as the pressure point",
+        "Releasing the hip bridge, allowing the opponent to roll and escape",
+        "Not controlling the knee — the ankle lock becomes ineffective if the opponent can bend the knee freely"
+      ]
+    },
+    {
+      "id": "luta-livre.kimura",
+      "name": "Kimura",
+      "description": "A figure-four shoulder lock applied by trapping the opponent's arm behind their back — one hand grips the wrist while the other arm passes over the shoulder to grab its own wrist, then rotates the arm upward and inward to force the shoulder joint. Named after judoka Masahiko Kimura who used it to defeat Hélio Gracie in 1951, the kimura is a bridge technique in Luta Livre used from guard, side control, and scrambles.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["luta-livre.base-position", "luta-livre.guillotine"],
+      "modelPath": "content/luta-livre/models/kimura.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "lock", "durationSeconds": 1.1, "fps": 30 }
+      ],
+      "tags": ["arm-lock", "intermediate", "shoulder", "figure-four"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "back", "core", "forearms"],
+      "commonMistakes": [
+        "Rotating the arm before establishing control of the wrist and elbow",
+        "Applying the lock when the opponent can still post on the ground — break the post first",
+        "Leaning too far over the opponent, sacrificing base and inviting a sweep"
+      ]
+    },
+    {
+      "id": "luta-livre.arm-triangle",
+      "name": "Arm Triangle Choke",
+      "description": "A blood choke from top position where the opponent's own arm is used against them — the practitioner traps one of the opponent's arms against their neck with a tight shoulder-to-shoulder compression while securing the head with their own arm and chest pressure. The arm wedged against the neck compresses the carotid on that side while the practitioner's own shoulder compresses the other, creating a vascular choke without using the hands.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["luta-livre.rear-naked-choke", "luta-livre.double-leg"],
+      "modelPath": "content/luta-livre/models/arm_triangle.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "choke", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "tags": ["choke", "intermediate", "arm-triangle", "top-position"],
+      "cameraPreset": "front",
+      "muscleGroups": ["chest", "shoulders", "core", "back"],
+      "commonMistakes": [
+        "Not clearing the trapped arm fully to the opponent's far side",
+        "Failing to adjust the shoulder angle — the tight side shoulder must compress, not just hold",
+        "Staying flat instead of posting on the foot to redistribute weight and close the triangle"
+      ]
+    },
+    {
+      "id": "luta-livre.heel-hook",
+      "name": "Heel Hook",
+      "description": "The most powerful and highest-risk leg lock — the heel is secured under the armpit while the hands hook the ankle and rotate the entire leg assembly to torque the knee ligaments laterally. Luta Livre practitioners developed systematic heel hook entries from leg entanglements decades before the submission-wrestling community adopted them mainstream. The inside heel hook and outside heel hook attack different ligaments and require different positional entries.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["luta-livre.kneebar", "luta-livre.ankle-lock"],
+      "modelPath": "content/luta-livre/models/heel_hook.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "submission", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "tags": ["leg-lock", "advanced", "heel-hook", "knee-ligament"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "back", "arms"],
+      "commonMistakes": [
+        "Rotating the heel by pulling rather than by rotating the entire body",
+        "Failing to close the knee of the attacking leg around the opponent's thigh",
+        "Applying too slowly — the hook gives its effect only when rotational force is sudden and complete"
+      ]
+    },
+    {
+      "id": "luta-livre.body-lock-takedown",
+      "name": "Body Lock Takedown",
+      "description": "A clinch takedown where both arms wrap around the opponent's waist in a double underhook grip, locking behind the back. From the body lock, the practitioner lifts and pivots to dump the opponent sideways (lateral drop), drives them backward (suplex entry), or runs them to the fence to establish a dominant position. The body lock is essential in no-gi because it eliminates the risk of guillotine that plagues double-leg shots.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["luta-livre.double-leg", "luta-livre.kimura"],
+      "modelPath": "content/luta-livre/models/body_lock_takedown.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "takedown", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "tags": ["takedown", "advanced", "clinch", "body-lock"],
+      "cameraPreset": "front",
+      "muscleGroups": ["back", "core", "shoulders", "glutes", "quadriceps"],
+      "commonMistakes": [
+        "Allowing gaps between the chest and opponent — the lock requires full body contact",
+        "Attempting the lift before breaking the opponent's base with a hip bump",
+        "Locking the hands at the fingers rather than palm-to-palm, which weakens grip under pressure"
+      ]
+    },
+    {
+      "id": "luta-livre.truck-position",
+      "name": "Truck Position",
+      "description": "A high-percentage leg entanglement control popularised in submission wrestling — from behind an opponent who is on all fours, the practitioner hooks one leg and uses it as a lever to access the back, roll the opponent over, or attack leg locks. The truck gives direct access to the back take, the calf slicer, the heel hook, and the banana split stretch, making it a hub position with multiple finishing options.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["luta-livre.heel-hook", "luta-livre.body-lock-takedown"],
+      "modelPath": "content/luta-livre/models/truck_position.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "control", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "tags": ["position", "advanced", "truck", "leg-entanglement"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "legs", "glutes", "back"],
+      "commonMistakes": [
+        "Not securing the outside leg — the hook must prevent the opponent from stepping over",
+        "Sitting back instead of driving the hip into the opponent's hip to maintain contact",
+        "Attacking submissions before controlling the position — the truck must be stable before attacking"
+      ]
+    },
+    {
+      "id": "luta-livre.electric-chair",
+      "name": "Electric Chair",
+      "description": "A split and stretch submission from the truck position that attacks the hip adductors and hamstrings simultaneously — one leg is hooked at the hip, the other is pushed down or away with the practitioner's free leg or body weight, forcing a severe abduction beyond the hip joint's range. The technique is named for the involuntary spasm it produces as the adductors tear. It is both a submission and a path to the back take.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["luta-livre.truck-position"],
+      "modelPath": "content/luta-livre/models/electric_chair.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "submission", "durationSeconds": 1.3, "fps": 30 }
+      ],
+      "tags": ["submission", "advanced", "stretch", "adductor"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "glutes", "back", "legs"],
+      "commonMistakes": [
+        "Attempting the stretch before fully securing the truck position",
+        "Pushing the free leg instead of using body weight — the stretch requires controlled pressure, not a kick",
+        "Not monitoring the opponent's reaction for a back-take opportunity when they defend the stretch"
+      ]
+    },
+    {
+      "id": "luta-livre.calf-slicer",
+      "name": "Calf Slicer",
+      "description": "A compression lock applied to the calf muscle and knee by wedging a knee or shin between the opponent's ankle and their own thigh, then collapsing the leg assembly to create a slicing pressure across the calf. The calf slicer is used in Luta Livre from the truck position, from top half guard, and from the back when the opponent is turtled. Although it compresses rather than hyperextends, the pain and potential for muscle damage produce fast taps.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["luta-livre.electric-chair", "luta-livre.kneebar"],
+      "modelPath": "content/luta-livre/models/calf_slicer.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "submission", "durationSeconds": 0.9, "fps": 30 }
+      ],
+      "tags": ["submission", "advanced", "compression", "calf"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "legs", "back"],
+      "commonMistakes": [
+        "Using the knee point rather than the flat shin surface as the wedge — the knee point creates a different (potentially unsafe) pressure",
+        "Not controlling the opponent's hip rotation while applying — they can relieve pressure by spinning",
+        "Forgetting the back take option when the opponent bridges hard to escape the lock"
+      ]
+    }
+  ]
+}
