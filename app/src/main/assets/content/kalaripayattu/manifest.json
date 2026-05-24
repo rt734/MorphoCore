@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "kalaripayattu",
+  "disciplineName": "Kalaripayattu",
+  "description": "Kalaripayattu (കളരിപ്പയറ്റ്, 'kalari practice/fight') is the ancient martial art of Kerala, India, considered among the oldest surviving martial arts systems in the world with documented practice dating to the 12th century CE and oral traditions tracing its origins much earlier to the Vedic warrior-sage Parashurama. The art is trained in a specially prepared earthen pit gymnasium called the kalari, where the floor is consecrated soil and practice begins with prayers to the guardian deity. Kalaripayattu is structured in three sequential phases: meithari (body exercises — the physical conditioning stage that develops the extreme flexibility, agility, and strength the techniques require), kolthari (wooden-weapon combat — long staff, short stick, curved otta), and verumkai (empty-hand combat — the final and most revered stage, in which the practitioner applies the weapons principles to bare-hand techniques including the marma-based attacks targeting vital points of the body). The system's defining physical quality is extreme flexibility combined with controlled explosive power — the low sweeping kicks, the splits-based footwork, and the flowing animal-movement sequences (lion, elephant, horse, snake, cat) demand a range of motion that is developed through years of systematic body conditioning before weapons training begins. Kalaripayattu is closely connected to the traditional Ayurvedic healing system through its marma knowledge (vital energy points), and kalaripayattu masters (gurukkal) are traditionally also marma therapists.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "kalaripayattu.vandanam",
+      "name": "Vandanam",
+      "description": "The opening salutation — the ritual bow performed at the entrance to the kalari and before the guru before every practice session, in which the practitioner touches the sacred earth of the kalari floor with the forehead and both palms, rises, and makes the anjali mudra (pressed-palms salute) gesture at the brow, chest, and lower abdomen. Vandanam (Malayalam: 'salutation/reverence') is not a preliminary formality to be completed quickly before real practice begins — in Kalaripayattu it is itself a training element that develops the humility required to receive knowledge, the spatial awareness of the kalari as a consecrated and directional space, and the correct physical relationship with the earth that all Kalaripayattu footwork requires. Touching the earth at the entrance acknowledges the floor as the practitioner's first teacher and training partner — all sweeping low attacks, low stances, and ground-level kicks are made possible only because the practitioner has learned to work with the earth rather than standing on it indifferently. The salutation also marks the psychological transition from ordinary daily life into the focused altered state that effective practice requires.",
+      "modelPath": "content/kalaripayattu/models/vandanam.glb",
+      "defaultClip": "bow",
+      "clips": [
+        {"name": "bow", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders", "quadriceps"],
+      "difficulty": "beginner",
+      "tags": ["ritual", "salutation", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Performing vandanam perfunctorily as a brief gesture rather than with the full physical engagement of forehead and both palms touching the earth, missing the grounding connection to the kalari floor that the salutation is designed to establish"},
+        {"description": "Rushing through vandanam to reach the conditioning exercises, misunderstanding that the quality of attention brought to the ritual directly predicts the quality of attention available for all subsequent practice"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.chuvadu",
+      "name": "Chuvadu",
+      "description": "The foundational footwork pattern — the family of stepping, jumping, and direction-changing movements that form the basic locomotion vocabulary of Kalaripayattu, practised alone as a conditioning drill before they appear embedded in the combat sequences and animal forms. Chuvadu (Malayalam: 'step/footstep') in Kalaripayattu is not a single step but a comprehensive footwork system with named patterns including the forward-back shuffle, the diagonal advance, the low sweeping step, and the explosive jump-step used to create distance or close range suddenly. Because Kalaripayattu's strikes often originate from very low stances and involve sweeping the leg in large arcs, the footwork that positions the body for each technique is inseparable from the technique itself — an attack thrown from poor foot placement does not work regardless of upper-body mechanics. Daily chuvadu drilling builds the reflex to achieve perfect foot placement without conscious attention, freeing the practitioner's focus for the tactical elements of the exchange.",
+      "modelPath": "content/kalaripayattu/models/chuvadu.glb",
+      "defaultClip": "step",
+      "clips": [
+        {"name": "step", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hamstrings", "calves", "core"],
+      "difficulty": "beginner",
+      "tags": ["footwork", "fundamentals", "conditioning"],
+      "cameraPreset": "top",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Drilling chuvadu at a single comfortable speed rather than progressively pushing toward explosive transitions, since the footwork's practical value is inseparable from the speed at which it can be executed under the time pressure of a real attack"},
+        {"description": "Focusing on the placement of each individual foot rather than training the rhythm of the whole sequence as a continuous movement, since chuvadu patterns must flow as integrated locomotion, not a series of deliberate foot decisions"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.meithari",
+      "name": "Meithari",
+      "description": "The body-conditioning sequence — the graduated series of bending, stretching, jumping, and rolling exercises that constitutes the first stage of Kalaripayattu training and is practised daily throughout a practitioner's training life to maintain the extreme physical conditioning the art requires. Meithari (Malayalam: 'body exercise') is not a warm-up but the core training of the first stage, and the quality of a practitioner's meithari directly determines the quality of all subsequent stages — without the splits, the bridge, the deep backbend, and the explosive jumping combinations that meithari develops, the attack and defence techniques of the advanced stages are physically impossible. Meithari includes exercises that specifically target the posterior chain for the deep backbend flexibility, the hip-flexors and adductors for the splits-based low stances, the calves and Achilles tendons for the explosive heel-based footwork, and the thoracic spine for the extreme rotational kicks. The sequence takes 45 minutes to perform correctly in its full version and must be completed before any weapons or empty-hand training begins in each session.",
+      "modelPath": "content/kalaripayattu/models/meithari.glb",
+      "defaultClip": "condition",
+      "clips": [
+        {"name": "condition", "durationSeconds": 5.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hamstrings", "glutes", "core", "back", "calves", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["conditioning", "flexibility", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": ["kalaripayattu.vandanam"],
+      "commonMistakes": [
+        {"description": "Treating meithari as preparatory to the real training rather than as the core training of the first stage, shortening or skipping exercises because the subsequent weapons practice feels more interesting"},
+        {"description": "Forcing the flexibility exercises by using external pressure or momentum rather than progressive active flexibility development, achieving temporary range through passive stretching rather than the active range that live movement requires"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.meipayattu",
+      "name": "Meipayattu",
+      "description": "The body-flexibility exercise sequence — a set of sequential whole-body movements combining forward bends, backward arches, lateral stretches, and ground-level rolls performed in a flowing, rhythmic pattern that trains and maintains the extreme range of motion that all Kalaripayattu techniques require. Meipayattu (Malayalam: 'body exercise series') bridges the gap between static meithari stretches and the dynamic movement of the animal forms, developing the ability to move through the full flexibility range at speed rather than achieving it only in held positions. The sequence includes the tiger stretch (deep forward fold with the torso flat on the floor and the legs long behind), the cobra arch (prone back extension), and the rolling bridge (backward roll over the arched spine), each transition flowing into the next without stopping. The meipayattu sequence takes approximately 20 minutes when performed correctly and is considered the physical foundation upon which all Kalaripayattu technique is built — a practitioner whose meipayattu is fluid and expansive has the physical prerequisites for every technique in the curriculum.",
+      "modelPath": "content/kalaripayattu/models/meipayattu.glb",
+      "defaultClip": "flow",
+      "clips": [
+        {"name": "flow", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["hamstrings", "glutes", "core", "back", "shoulders", "calves", "quadriceps"],
+      "difficulty": "beginner",
+      "tags": ["flexibility", "conditioning", "fundamentals", "body-exercise"],
+      "cameraPreset": "side",
+      "prerequisites": ["kalaripayattu.meithari"],
+      "commonMistakes": [
+        {"description": "Performing meipayattu as a sequence of separate exercises rather than as a continuous flowing sequence, losing the dynamic flexibility development that arises from moving through the full range without stopping"},
+        {"description": "Advancing to the next position before completing the full range of the current one, building a meipayattu sequence that reaches only 80% of the available range at each position and thus only 80% of the physical prerequisite for the techniques that follow"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.kathi",
+      "name": "Kathi (Knife Combat)",
+      "description": "The short-blade technique — the use of the kathi, a traditional Kerala knife with a curved blade approximately 20 cm long, in the ankathari sequence's initial metal-weapon stage, applying the close-range footwork and marma precision developed in the otta stage to an edged weapon that demands exact distance management. Kathi (Malayalam: 'knife') techniques in Kalaripayattu are not knife-fighting in the Western sense — they are specific attack-and-defence sequences against both armed and unarmed opponents, derived from the otta's curved-tip marma applications but executed with an edge. The practitioner's footwork in kathi work is the most precise in the entire system because the knife's short length means the difference between a disabling marma cut and a non-contact miss is a matter of centimetres controlled entirely by the supporting foot's exact position. Kathi sparring is conducted at controlled speed with wooden training blades before the practitioner is judged ready for metal blade work, and the gurukkal's evaluation of the student's spatial precision and emotional control at wooden-blade speed determines when the transition to live-blade practice occurs.",
+      "modelPath": "content/kalaripayattu/models/kathi.glb",
+      "defaultClip": "cut",
+      "clips": [
+        {"name": "cut", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "quadriceps", "calves"],
+      "difficulty": "intermediate",
+      "tags": ["weapon", "knife", "close-range", "metal"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kalaripayattu.otta", "kalaripayattu.ashta-vadivukal"],
+      "commonMistakes": [
+        {"description": "Practising kathi with the same timing and distance as otta, failing to recalibrate the shorter reach that requires the practitioner to be half a body-length closer to the opponent than otta distance — a practitioner who has learned otta distances must consciously adjust inward for kathi"},
+        {"description": "Treating knife training as an extension of the unarmed stages rather than as a new weapon with distinct grip mechanics, blade orientation awareness, and edge-management requirements that the previous stages did not address"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.ashta-vadivukal",
+      "name": "Ashta Vadivukal",
+      "description": "The eight animal forms — a series of eight movement sequences each modelling the characteristic movement pattern of a specific animal (lion, elephant, horse, cat, snake, crocodile, cock, and boar) and each developing a distinct quality of movement that is applied in the combat techniques. Ashta Vadivukal (Malayalam/Sanskrit: 'eight forms/postures') is the signature of Kalaripayattu's pedagogical approach: rather than teaching techniques directly, the gurukkal teaches the animal's essential quality — the lion's explosive charge from stillness, the cat's silent foot placement and spring, the snake's low flowing evasion, the elephant's irresistible mass and groundedness — and the student embodies that quality until it appears naturally in combat. The horse form, for instance, develops the high-stepping, rhythm-breaking footwork used in weapons combat; the crocodile form develops the low ground-sweeping attack position from which kalaripayattu's signature ground kicks are launched. Practitioners spend years on each form before advancing, and the animal forms are considered the living memory of the art's combat knowledge in movement language.",
+      "modelPath": "content/kalaripayattu/models/ashta_vadivukal.glb",
+      "defaultClip": "form",
+      "clips": [
+        {"name": "form", "durationSeconds": 6.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hamstrings", "glutes", "core", "back", "shoulders", "calves"],
+      "difficulty": "intermediate",
+      "tags": ["form", "animal-forms", "pattern", "fundamental-skill"],
+      "cameraPreset": "side",
+      "prerequisites": ["kalaripayattu.chuvadu", "kalaripayattu.meithari"],
+      "commonMistakes": [
+        {"description": "Imitating the external shape of the animal movement without inhabiting the animal's characteristic quality, producing technically correct shapes that lack the underlying movement intention that makes the forms useful for combat application"},
+        {"description": "Rushing through multiple animal forms in a single session rather than spending deep focused time on one form at a time, developing shallow familiarity with all forms rather than genuine embodiment of each"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.high-kick",
+      "name": "High Kick (Mael Thirichu Adi)",
+      "description": "The overhead kick — a vertically rising kick delivered with the heel or sole of the foot to a target at or above head height, requiring complete splits-level hamstring flexibility and hip-flexor mobility to raise the leg fully vertical while the supporting leg remains fully grounded. Mael Thirichu Adi (Malayalam: 'high turning strike') is one of Kalaripayattu's signature movements and directly reflects the meithari training that precedes it: a practitioner who cannot do a standing splits cannot execute this kick, making it a natural test of the conditioning stage's completion. The kick's trajectory is vertical rather than the horizontal arc of a roundhouse kick — the foot rises straight up before the heel drops forward onto the target, which at maximum height is the opponent's head, but which at initial practice levels is drilled with a target kept progressively higher as flexibility allows. The ability to raise the foot to head height without pre-leaning, without bending the supporting knee, and without losing balance on the supporting foot is the standard required before the kick is considered trained.",
+      "modelPath": "content/kalaripayattu/models/high_kick.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["hamstrings", "hip-flexors", "glutes", "quadriceps", "core", "calves"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "high-kick", "flexibility"],
+      "cameraPreset": "side",
+      "prerequisites": ["kalaripayattu.meithari", "kalaripayattu.chuvadu"],
+      "commonMistakes": [
+        {"description": "Bending forward at the hips to close the gap between the torso and the high leg rather than keeping the torso vertical and developing the active hamstring flexibility to bring the leg to the torso, which trains the wrong flexibility pattern and collapses the structure"},
+        {"description": "Kicking with momentum by swinging the leg rather than raising it in a controlled, measured lift that stops at the natural end of the active range — momentum-driven kicks develop speed but not the controlled flexibility that makes the technique safe and precise"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.kaikuththipayattu",
+      "name": "Kaikuththipayattu",
+      "description": "The spinning kick — a rotation-based kick in which the practitioner spins 180 or 360 degrees and delivers a heel or back-kick during or at the completion of the spin, using the rotational momentum to add power and the spin itself to generate a deceptive angle of attack that approaches from behind the opponent's visual focus. Kaikuththipayattu (Malayalam: 'turning-fist fight' — though colloquially applied to spinning kicks) involves stepping to the side, spinning on the ball of the front foot, and driving the rear heel backward at the target during the rotation. In Kalaripayattu's fluid offensive style, spinning techniques follow naturally from the animal forms: the turning, unpredictable movement vocabulary of the horse and lion forms makes spinning attacks a natural stylistic element rather than a specialised addition. The technique requires the practitioner to maintain the target's visual tracking through the spin's early phase and commit to the heel strike from positional memory rather than visual confirmation.",
+      "modelPath": "content/kalaripayattu/models/kaikuththipayattu.glb",
+      "defaultClip": "spin",
+      "clips": [
+        {"name": "spin", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["glutes", "core", "quadriceps", "calves", "hip-flexors"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "spinning", "rotational"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kalaripayattu.high-kick", "kalaripayattu.chuvadu"],
+      "commonMistakes": [
+        {"description": "Stepping too wide before the spin, creating a large circular base that slows the rotation and telegraphs the technique's initiation — the pivot foot should remain close to the body's centre for a compact, fast spin"},
+        {"description": "Looking backward over the shoulder to find the target rather than committing the kick to the last-known target position from the pre-spin visual fix, which breaks the spin's momentum with a visual-tracking hesitation"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.marma-strike",
+      "name": "Marma Strike",
+      "description": "The vital-point strike — a precision attack targeting one of the 108 marma points of the body (vital junctions of muscles, tendons, bones, and veins identified in the Ayurvedic Sushruta Samhita) using the fingertips, knuckles, or specific edge-hand positions to create a disproportionately large effect from minimal force. Marma strikes are the most guarded and most feared element of Kalaripayattu combat and are not taught until the gurukkal is satisfied that the student's character is trustworthy — the knowledge of which point produces paralysis, unconsciousness, or death is considered sacred knowledge that can cause severe harm if misused. In training, the six primary accessible marma points — the temples, throat, solar plexus, groin, knee backs, and ankles — are practised with light touch rather than full force, developing precision of placement that is never practised at full force on a live partner. The philosophy of marma combat is the inverse of powerful strikes: a marma strike succeeds by finding the exact point regardless of the opponent's size, strength, or guard, making size and strength irrelevant to the outcome.",
+      "modelPath": "content/kalaripayattu/models/marma_strike.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "marma", "precision", "vital-points"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kalaripayattu.ashta-vadivukal"],
+      "commonMistakes": [
+        {"description": "Attempting marma strikes at full force in training rather than developing placement precision at touch level, since the strikes' value is in the accuracy of the point contact, not the force, and force-training masks accuracy errors behind pain responses"},
+        {"description": "Treating marma points as isolated targets to memorise and hit rather than understanding the body's energy network that connects them — the gurukkal's knowledge is of the living map, not a list of coordinates"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.otta",
+      "name": "Otta",
+      "description": "The curved wooden-staff technique — the use of the otta, a unique S-curved hardwood weapon approximately 45 cm long resembling a large elongated hook, to deliver strikes, hooks, and joint manipulations that target the marma points of the opponent's body from outside arm's reach. Otta (Malayalam: 'staff/stick') is the most important of Kalaripayattu's wooden weapons and the final weapon stage before verumkai (empty-hand) training: the otta's curved shape concentrates impact into the tip precisely at the marma points that the weapon is specifically shaped to reach, making it a tool of precision marma application rather than general striking. The otta techniques are derived from the animal forms — each attack follows the movement quality of a specific animal — and they are practised in the sequence Otta Ezhil Maipayattu (seven otta forms), which encodes the curriculum's weapon applications. Mastery of otta is the gateway to verumkai because the precision, footwork, and marma awareness developed with the weapon transfer directly to empty-hand techniques.",
+      "modelPath": "content/kalaripayattu/models/otta.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "forearms"],
+      "difficulty": "intermediate",
+      "tags": ["weapon", "otta", "curved-stick", "marma"],
+      "cameraPreset": "side",
+      "prerequisites": ["kalaripayattu.marma-strike", "kalaripayattu.ashta-vadivukal"],
+      "commonMistakes": [
+        {"description": "Using the otta as a blunt-impact club rather than as a precision marma-targeting instrument, striking with the body of the staff rather than directing the curved tip to the specific anatomical point it is shaped to reach"},
+        {"description": "Training the otta forms slowly without the footwork precision that positions the body correctly for each strike, since the otta's range and angle are fixed by the weapon's length — foot placement is the only variable that determines whether the tip lands on the marma point or not"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.neduvadi",
+      "name": "Neduvadi (Long Staff)",
+      "description": "The long-staff technique — the use of the neduvadi, a six-foot bamboo or wood pole, in the kolthari (wooden-weapon) stage of training, developing the circular, flowing staff work that introduces the practitioner to the dynamics of extended-reach weapons before advancing to shorter and edged tools. Neduvadi (Malayalam: 'long stick') training begins kolthari because the long staff's reach prevents the training partner from entering the intimate range where marma strikes are effective, making it the safest and most structural introduction to weapons dynamics. The neduvadi techniques use both ends of the staff alternately, requiring constant grip-sliding that keeps the weapon's weight centred rather than tip-heavy, and the attack angles follow the same eight directional lines used in the animal forms and chuvadu footwork. Long-staff practice develops the shoulder-socket mobility and forearm-rotation speed that all subsequent Kalaripayattu weapons require, making it a conditioning tool as well as a tactical one.",
+      "modelPath": "content/kalaripayattu/models/neduvadi.glb",
+      "defaultClip": "strike",
+      "clips": [
+        {"name": "strike", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "intermediate",
+      "tags": ["weapon", "staff", "long-range"],
+      "cameraPreset": "side",
+      "prerequisites": ["kalaripayattu.ashta-vadivukal", "kalaripayattu.chuvadu"],
+      "commonMistakes": [
+        {"description": "Gripping the staff at a fixed point rather than sliding the hands along it during each strike, reducing the weapon to a fixed-length tool and losing the reach extension and power amplification that the variable-grip technique provides"},
+        {"description": "Moving the staff with the arms alone rather than transferring the body's rotation through the arms into the staff, producing arm-powered strikes that lack the rotational momentum of whole-body staff work"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.verumkai",
+      "name": "Verumkai",
+      "description": "Empty-hand combat — the final and most revered stage of Kalaripayattu, in which the practitioner applies the marma knowledge, animal-form movement quality, and weapons-derived body mechanics to bare-hand fighting that includes strikes to vital points, joint locks, throws, and the use of the opponent's own weapons against them. Verumkai (Malayalam: 'bare hand fight') is reached only after years of meithari, kolthari, and otta training have built the physical conditioning, movement quality, and marma awareness that empty-hand technique requires. The verumkai practitioner fights in the same footwork vocabulary as the weapons stages, but every technique is now informed by the marma map: a grab becomes a grip on a vital point; a deflection positions a nerve bundle for compression; a throw is completed by a marma press that prevents recovery. Verumkai is traditionally the stage at which the gurukkal tests whether the student's character justifies transmitting the most dangerous knowledge, and the transition from otta to verumkai is marked by a ceremony.",
+      "modelPath": "content/kalaripayattu/models/verumkai.glb",
+      "defaultClip": "combat",
+      "clips": [
+        {"name": "combat", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "shoulders", "core", "back", "calves"],
+      "difficulty": "advanced",
+      "tags": ["empty-hand", "advanced", "verumkai", "marma"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kalaripayattu.otta", "kalaripayattu.kaikuththipayattu"],
+      "commonMistakes": [
+        {"description": "Approaching verumkai as a collection of techniques to add to an existing fighting system rather than as the natural outgrowth of all previous Kalaripayattu stages — verumkai done correctly is not a new skill but the expression of everything the previous stages developed"},
+        {"description": "Practising verumkai applications without the meithari conditioning that makes them physically possible, executing low-stance entries and ground-level sweeps with a body that lacks the flexibility those techniques require"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.urumi",
+      "name": "Urumi (Flexible Sword)",
+      "description": "The flexible sword technique — the use of the urumi, a long, razor-sharp flexible metal blade between 1.5 and 2 metres long that can be coiled around the waist or wielded in flowing circular arcs, representing the pinnacle of Kalaripayattu weapons training and the most dangerous weapon in any traditional martial art. Urumi (Malayalam: 'flexible sword') is the final weapon stage and is taught last because the weapon's flexible blade is completely unpredictable in the hands of an untrained user — it strikes in all directions simultaneously, including backward at the wielder, and can only be used safely by a practitioner with the extreme physical conditioning, precise spatial awareness, and reflexive footwork that all previous stages have developed. The urumi is wielded in flowing, figure-eight spirals that build overlapping defence and attack arcs simultaneously, and the footwork patterns used are identical to those of chuvadu and the animal forms, demonstrating that the entire training sequence has been preparation for this final weapon. The urumi is also a mental test: the weapon demands absolute commitment and the absence of hesitation — any flinching at the blade's proximity during a wielding spiral results in self-injury.",
+      "modelPath": "content/kalaripayattu/models/urumi.glb",
+      "defaultClip": "wield",
+      "clips": [
+        {"name": "wield", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "quadriceps", "glutes", "calves"],
+      "difficulty": "advanced",
+      "tags": ["weapon", "urumi", "flexible-sword", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["kalaripayattu.neduvadi", "kalaripayattu.verumkai"],
+      "commonMistakes": [
+        {"description": "Attempting to control the flexible blade's arc by restricting the arm's range of motion, which paradoxically creates unpredictable blade trajectories — correct urumi use requires committing to the full arc completely so the blade's path follows a predictable curve"},
+        {"description": "Practising urumi without the grounding footwork that keeps the body outside the blade's arc, since the urumi's danger to the wielder comes exclusively from the footwork failing to maintain the body's position in the blade-safe zone during each spiral"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.ground-kick",
+      "name": "Ground Kick (Chuzhali)",
+      "description": "The floor-based spinning kick — a low attack delivered from a near-ground position in which the practitioner drops to one hand and sweeps a leg in a wide circle at ankle or shin height to fell the opponent, or kicks upward from the ground with explosive hip extension. Chuzhali (Malayalam: 'spinning/whirling') is the distinctive Kalaripayattu ground technique that makes use of the practitioner's trained extreme flexibility and lower-body strength: dropping to the ground and fighting from the floor is not a disadvantaged position in Kalaripayattu but a tactical choice that targets the opponent's supporting structure from below their defensive reach. The ground kick's entry — transitioning from upright fighting stance to the ground in a single movement — requires the splits-depth flexibility and wrist-joint strength developed in meithari, and the kick's power comes from hip rotation at ground level rather than leg extension. This technique is the practical expression of the crocodile form from ashta vadivukal, making the animal-forms training directly applicable.",
+      "modelPath": "content/kalaripayattu/models/ground_kick.glb",
+      "defaultClip": "sweep",
+      "clips": [
+        {"name": "sweep", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "core", "quadriceps", "calves"],
+      "difficulty": "advanced",
+      "tags": ["kick", "ground", "sweep", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["kalaripayattu.high-kick", "kalaripayattu.verumkai"],
+      "commonMistakes": [
+        {"description": "Breaking the fall to the ground with the hand before the kick is in motion, adding a pause between the descent and the sweep that allows the opponent to step over the leg rather than being caught by its initial arc"},
+        {"description": "Pushing up immediately after the ground kick to restore standing position, missing the combination opportunities that arise from the ground position when the opponent has stepped back or shifted weight to avoid the first sweep"}
+      ]
+    },
+    {
+      "id": "kalaripayattu.ankathari",
+      "name": "Ankathari (Metal Weapon Forms)",
+      "description": "The metal-weapons stage — the advanced weapons training in which the practitioner progresses from wooden weapons to the metal weapons of Kalaripayattu's ankathari sequence: the katti (knife), the vaal (sword), and finally the urumi (flexible sword), applying all the movement vocabulary developed through meithari and kolthari to edged weapons. Ankathari (Malayalam: 'iron/metal weapons practice') is the stage at which the aesthetic, physical, and martial elements of Kalaripayattu converge: the weapons forms are beautiful to witness, physically demanding to execute correctly, and directly applicable to the combat principles the entire training has been building. The progression within ankathari follows a logic of increasing danger and decreasing margin for error — the knife is a close-range weapon that leaves little room for footwork error; the sword requires more footwork precision but a more forgiving blade trajectory; the urumi demands perfect footwork and absolute physical commitment simultaneously. Ankathari training requires the gurukkal's direct supervision at all times because the combination of sharp metal weapons and the demanding physical positions creates injury risk that cannot be managed by the student alone.",
+      "modelPath": "content/kalaripayattu/models/ankathari.glb",
+      "defaultClip": "form",
+      "clips": [
+        {"name": "form", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "quadriceps", "glutes", "calves"],
+      "difficulty": "advanced",
+      "tags": ["weapon", "metal", "advanced", "sword"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["kalaripayattu.urumi", "kalaripayattu.ground-kick"],
+      "commonMistakes": [
+        {"description": "Treating the metal weapons as simply harder or sharper versions of the wooden weapons, rather than recognising that the weight, balance, and consequence of error are qualitatively different and require recalibrating all previously learned distance and timing judgements"},
+        {"description": "Practising ankathari forms at full speed before the footwork and blade trajectory are fully automatic at slow speed, since the reduced reaction time at full speed means footwork errors that were recoverable slowly become injuries quickly"}
+      ]
+    }
+  ]
+}

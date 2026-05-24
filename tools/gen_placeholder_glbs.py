@@ -37,7 +37,7 @@ def main():
     assets_root = os.path.join(repo_root, "app", "src", "main", "assets")
     content_root = os.path.join(assets_root, "content")
 
-    disciplines = ["karate", "kung-fu", "yoga", "calisthenics", "gym", "boxing", "muay-thai", "pilates", "judo", "wrestling", "bjj", "taekwondo", "kickboxing", "aikido", "hapkido", "krav-maga", "capoeira", "wing-chun", "silat", "arnis", "savate", "sambo", "sumo", "sanda", "tai-chi"]
+    disciplines = ["karate", "kung-fu", "yoga", "calisthenics", "gym", "boxing", "muay-thai", "pilates", "judo", "wrestling", "bjj", "taekwondo", "kickboxing", "aikido", "hapkido", "krav-maga", "capoeira", "wing-chun", "silat", "arnis", "savate", "sambo", "sumo", "sanda", "tai-chi", "kalaripayattu"]
     glb_data = make_minimal_glb()
     created = 0
     skipped = 0
@@ -48,7 +48,7 @@ def main():
             print(f"  SKIP (no manifest): {discipline}")
             continue
 
-        with open(manifest_path) as f:
+        with open(manifest_path, encoding="utf-8") as f:
             manifest = json.load(f)
 
         for movement in manifest.get("movements", []):
