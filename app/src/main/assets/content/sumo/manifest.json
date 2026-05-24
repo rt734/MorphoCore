@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "sumo",
+  "disciplineName": "Sumo",
+  "description": "Sumo is Japan's national sport and ancient ritual wrestling art, governed by the Japan Sumo Association and conducted under rules that have changed only marginally over fifteen centuries: a bout is won by forcing the opponent out of the circular dohyo (clay ring, 4.55 m diameter) or by causing any part of the opponent's body other than the soles of the feet to touch the ground. These two win conditions — oshidashi (push out) and yorikiri (force out with grip) — create a combat system in which every technique is either a pushing, lifting, twisting, or throwing action designed to break the opponent's position relative to the ring edge or the floor. Sumo wrestlers (rikishi) compete barefoot in only a mawashi (silk loincloth/belt) that serves as the primary gripping surface, making belt grips the primary tactical weapon. Sumo's 82 officially recognised kimarite (deciding techniques) range from straightforward frontal pushouts to acrobatic backward throws and arm-twisting over-the-shoulder falls, but the vast majority of bouts are decided by the handful of bread-and-butter techniques that arise from the positions created in the tachiai (initial charge). Professional sumo is simultaneously a Shinto ceremony and a combat sport, with ritual, ranking, and technique inseparable from each other.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "sumo.shiko",
+      "name": "Shiko",
+      "description": "The stamping exercise — the foundational sumo conditioning drill in which the wrestler raises one leg until the thigh is parallel to the floor, holds momentarily with the knee turned outward to the side, and stamps it forcefully down while the opposite leg bears the full body weight from a deep squat, alternating between legs in a slow rhythmic sequence. Shiko (Japanese: 'four stock') is the most ancient and essential sumo exercise, practised thousands of times daily by professional rikishi, and achieves several simultaneous training objectives: hip flexibility (the outward knee position requires wide hip-abductor mobility that enables the low, wide sumo stance), leg strength (supporting the full body weight in a deep single-leg squat on each repetition), and the inward-rotating hip power used for pushing and lifting techniques. The ground stamp is not decorative — it is a ritual act of purification in the Shinto context of sumo, and the force of the stamp serves as a measure of physical readiness. Shiko done correctly with the stamping foot landing flat, not on the heel, and the elevated knee pointing fully to the side rather than forward, forms the movement vocabulary from which all sumo footwork derives.",
+      "modelPath": "content/sumo/models/shiko.glb",
+      "defaultClip": "stamp",
+      "clips": [
+        {"name": "stamp", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "hamstrings", "core", "calves"],
+      "difficulty": "beginner",
+      "tags": ["conditioning", "fundamentals", "ritual", "footwork"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Raising the knee forward (hip flexion) rather than outward to the side (hip abduction), performing a high-knee march rather than the hip-opening movement that shiko is specifically designed to develop"},
+        {"description": "Stamping with the heel rather than landing the whole foot flat simultaneously, concentrating impact on a single joint rather than distributing it through the foot and developing the flat-footed grounding that sumo technique requires"}
+      ]
+    },
+    {
+      "id": "sumo.sonkyo",
+      "name": "Sonkyo",
+      "description": "The squat position — a deep crouch with the feet flat, thighs parallel to the floor, knees pushed outward, and the spine vertical, performed at the start and end of every sumo bout as a gesture of mutual respect and as the position from which the pre-bout ritual transitions into the tachiai (initial charge). Sonkyo (Japanese: 'crouching') is simultaneously a ritual posture and a diagnostic exercise: the ability to hold a stable, flat-footed, deep squat with knees fully out and spine upright reveals the hip and ankle flexibility that all sumo technique requires. Professional rikishi can hold sonkyo indefinitely and use it as a training position to develop the postural alignment of the low, wide stance from which all sumo pushing and gripping begins. The position also embodies sumo's philosophical core — the mutual lowering of the body before the bout, in equal measure by both wrestlers, is the ritual expression of the equality of the contest before the tachiai.",
+      "modelPath": "content/sumo/models/sonkyo.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves", "hamstrings"],
+      "difficulty": "beginner",
+      "tags": ["stance", "ritual", "fundamentals", "flexibility"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Allowing the heels to rise off the floor rather than maintaining flat-footed contact throughout the squat, losing the ankle dorsiflexion depth that sumo sonkyo requires and shifting weight forward onto the toes"},
+        {"description": "Folding the torso forward as the depth increases rather than maintaining a vertical spine, compensating for insufficient hip mobility with lumbar flexion and developing poor positional habits for the low pushing stance"}
+      ]
+    },
+    {
+      "id": "sumo.tachiai",
+      "name": "Tachiai",
+      "description": "The initial charge — the simultaneous explosive forward drive of both wrestlers at the moment the bout begins, each driving from the low crouch position into full body contact with the opponent in a fraction of a second. Tachiai (Japanese: 'standing together') is the decisive moment that determines which wrestler achieves the first positional advantage: a fast, well-timed tachiai can immediately establish an inside grip advantage; a mistimed tachiai (charging too early) results in a false start and restart; a slow tachiai allows the opponent to control the engagement angle before the charging wrestler can react. The tachiai is driven by the legs and hips from the sonkyo position — the explosive quad extension and hip drive that shiko develops manifests here as the first half-step that closes the distance before the opponent can adjust. Professional rikishi develop the ability to read the opponent's micro-movements in the pre-tachiai crouch and time the charge to arrive simultaneously with or just before the opponent's drive.",
+      "modelPath": "content/sumo/models/tachiai.glb",
+      "defaultClip": "charge",
+      "clips": [
+        {"name": "charge", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves", "shoulders"],
+      "difficulty": "beginner",
+      "tags": ["entry", "charge", "fundamentals", "explosive"],
+      "cameraPreset": "side",
+      "prerequisites": ["sumo.shiko", "sumo.sonkyo"],
+      "commonMistakes": [
+        {"description": "Charging head-first rather than shoulder-first, exposing the neck and making the first contact point the skull rather than the deltoid and collarbone area, which distributes impact poorly and can be used by the opponent to redirect the charge"},
+        {"description": "Standing upright before charging rather than driving low and forward from the crouch, raising the centre of gravity before contact and allowing the opponent to get under the charging wrestler's body mass"}
+      ]
+    },
+    {
+      "id": "sumo.nodowa",
+      "name": "Nodowa",
+      "description": "The throat push — an open-palm thrust to the opponent's throat or upper chest that drives them backward and disrupts their posture without allowing them to establish a mawashi grip. Nodowa (Japanese: 'throat push') is the primary no-mawashi attacking tool: by targeting the throat with the heel of the palm, the practitioner simultaneously controls the opponent's head direction and drives the body backward, creating the distance and disrupted posture needed to manoeuvre for a more decisive push-out or to close for a belt grip. The nodowa requires precise hand placement — the palm must drive through the throat rather than the chin (which allows the head to tuck) or the chest (which the opponent's arms can deflect) — and must be applied with forward body drive rather than just arm extension. The nodowa is one of the first techniques that reveals sumo's underlying logic: pushing through a smaller target with concentrated force is more disruptive than pushing a broader surface with the same total force.",
+      "modelPath": "content/sumo/models/nodowa.glb",
+      "defaultClip": "push",
+      "clips": [
+        {"name": "push", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["push", "throat", "no-belt"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sumo.tachiai"],
+      "commonMistakes": [
+        {"description": "Pushing with the fingertips rather than the heel of the palm, reducing structural force transmission and risking finger joint injury when the opponent drives back against the push with full body weight"},
+        {"description": "Extending both arms fully into the nodowa without body follow-through, making the push a purely arm-based movement that the opponent can absorb by bending slightly and then immediately closing the grip gap"}
+      ]
+    },
+    {
+      "id": "sumo.oshi-dashi",
+      "name": "Oshi-Dashi",
+      "description": "The frontal push-out — the most common winning technique in sumo, in which the wrestler drives both hands into the opponent's chest, shoulders, or armpits and walks them directly backward and out of the dohyo using relentless forward pressure. Oshi-Dashi (Japanese: 'push out') wins approximately 15-20% of all professional bouts and is the archetypal no-belt sumo technique. The decisive element is not the initial push but the continuous forward drive — the pushing wrestler must keep their hips under their body and their weight moving forward as the opponent retreats, since any pause allows the opponent to plant a foot and redirect the push sideways for a pulling counter. Oshi-dashi wrestlers (oshizumo specialists) typically have stronger legs and shorter, lower body proportions that make the forward hip drive geometrically more effective, and they develop the ability to maintain the push even when the opponent grasps their forearms to slow the advance.",
+      "modelPath": "content/sumo/models/oshi_dashi.glb",
+      "defaultClip": "pushout",
+      "clips": [
+        {"name": "pushout", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "chest", "shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["push-out", "no-belt", "pressure"],
+      "cameraPreset": "side",
+      "prerequisites": ["sumo.nodowa", "sumo.tachiai"],
+      "commonMistakes": [
+        {"description": "Leaning the upper body forward at the expense of the hip drive, creating forward-falling momentum that is easy to redirect by a sideways pull — the push must come from the legs through the hips, not from the torso falling toward the opponent"},
+        {"description": "Slowing the push when the opponent nears the ring edge, allowing them to find their feet and mount a desperate resistance at the tawara (straw bale boundary), which is the most common moment for oshi-dashi attempts to fail"}
+      ]
+    },
+    {
+      "id": "sumo.mawashi-grip",
+      "name": "Mawashi Grip",
+      "description": "Belt-gripping position — the establishment of one or both hands on the opponent's mawashi (belt) at the front, side, or back, creating the fundamental lever for all belt-based sumo techniques including the force-out, hip throw, and leg lift. Mawashi grip in sumo has specific strategic value: an inside grip (hand between the opponent's arm and body on their mawashi) is superior to an outside grip (hand on the mawashi over the opponent's arm), and a double inside grip (both hands inside) is the strongest position for forward pushing and lifting. The grip establishment process — fought from the tachiai through the initial body contact — determines the quality of the belt position: an inside grip on the front of the mawashi with the elbow driving inward and upward is the setup for yorikiri (force-out), uwatenage (over-arm throw), and shitatenage (under-arm throw). Without a mawashi grip, only push-and-slap techniques are available; with a strong mawashi grip, the full arsenal of sumo throwing and lifting techniques opens.",
+      "modelPath": "content/sumo/models/mawashi_grip.glb",
+      "defaultClip": "grip",
+      "clips": [
+        {"name": "grip", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "core", "chest"],
+      "difficulty": "intermediate",
+      "tags": ["grip", "belt", "control", "fundamentals"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sumo.tachiai"],
+      "commonMistakes": [
+        {"description": "Reaching for the mawashi before achieving body contact and a stable position, over-extending the arm for the grip and allowing the opponent to deflect the reaching arm while driving through the gap"},
+        {"description": "Accepting an outside grip rather than fighting for the inside position, believing a lower grip is better when the structural advantage of inside position creates far more force and lifting opportunities than grip depth alone"}
+      ]
+    },
+    {
+      "id": "sumo.yorikiri",
+      "name": "Yorikiri",
+      "description": "The frontal belt-hold force-out — the single most common winning technique in sumo, in which the wrestler has achieved a mawashi grip on both sides and walks the opponent steadily backward and out of the ring while maintaining belt control. Yorikiri (Japanese: 'force out while holding') wins approximately 30% of all professional bouts and represents the ideal execution of sumo's belt-based strategic concept: with both hands on the opponent's mawashi, the pushing wrestler controls both the direction of force (forward) and the opponent's ability to resist laterally (the belt prevents sideways step-through). The key mechanical element is the simultaneous action of the legs driving forward and the arms pulling the opponent's belt toward the practitioner's hips — the pull-and-drive creates a pinching force that loads the opponent's legs backward faster than they can step. Yorikiri is distinguished from oshi-dashi in that it uses belt control; from the opponent's perspective, the belt grip removes the ability to duck, spin, or redirect the force and makes the backward walk largely unavoidable.",
+      "modelPath": "content/sumo/models/yorikiri.glb",
+      "defaultClip": "forceout",
+      "clips": [
+        {"name": "forceout", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "back", "core", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["force-out", "belt", "pressure"],
+      "cameraPreset": "side",
+      "prerequisites": ["sumo.mawashi-grip", "sumo.oshi-dashi"],
+      "commonMistakes": [
+        {"description": "Pulling the belt upward rather than driving it toward the practitioner's own hips, attempting to lift the opponent rather than drive them backward, which requires far more strength and is easier to counter"},
+        {"description": "Stopping the drive after the first step of the force-out to consolidate the position, allowing the opponent to plant and counter rather than maintaining continuous walking pressure that denies them a stable defensive moment"}
+      ]
+    },
+    {
+      "id": "sumo.uwatenage",
+      "name": "Uwatenage",
+      "description": "The over-arm throw — an outer-belt grip throw in which the wrestler holds the opponent's far-side mawashi from above (over the opponent's arm) and uses the belt leverage combined with a rotating hip drive to throw the opponent in a rotating arc to the dohyo floor. Uwatenage (Japanese: 'over-arm throw') is the archetypal sumo throwing technique and the outside-grip version of the fundamental outer-belt throw. The throw uses the principle of the lever: the outer belt grip is the pull, the practitioner's hip becomes the pivot, and the downward and sideward arc is the output. Because the throw is executed with a rotating movement around the practitioner's body, the opponent's weight and momentum contribute to the throw's force — a heavier, faster-charging opponent is actually easier to uwatenage if the timing is correct. In competition, uwatenage is often used as a counter: when the opponent commits to a forward drive, the defender rotates at the hip to swing them past.",
+      "modelPath": "content/sumo/models/uwatenage.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["back", "core", "shoulders", "glutes", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["throw", "belt", "over-arm"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sumo.mawashi-grip", "sumo.yorikiri"],
+      "commonMistakes": [
+        {"description": "Pulling the belt arm straight across the body rather than arcing it in a downward circular sweep, converting the throw from a rotational lever into a straight pull that requires much greater strength to overcome the opponent's base"},
+        {"description": "Failing to turn the hips into the throw by pulling without rotating the lower body, making the throw an upper-body-only movement that loses the hip rotation force that provides the throw's mechanical power"}
+      ]
+    },
+    {
+      "id": "sumo.shitatenage",
+      "name": "Shitatenage",
+      "description": "The under-arm throw — an inner-belt grip throw in which the wrestler holds the opponent's near-side mawashi from below (under the opponent's arm) and executes a throwing arc by rotating the hip and driving the belt-gripping arm upward and across. Shitatenage (Japanese: 'under-arm throw') uses the inside-grip position — the most advantageous belt control position — as its entry, making it the natural completion of a successful inside-grip fight. Where uwatenage relies on the outside grip to swing the opponent in a wide arc, shitatenage uses the inside leverage to turn the opponent's arm against their own structure and drive them into the ground. The inside grip is harder to obtain than the outside grip but rewards the practitioner with direct access to the opponent's centreline, making the throw faster and harder to counter because there is no gap between the practitioner and the opponent from which the defensive base can be extended.",
+      "modelPath": "content/sumo/models/shitatenage.glb",
+      "defaultClip": "throw",
+      "clips": [
+        {"name": "throw", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "core", "glutes", "quadriceps"],
+      "difficulty": "advanced",
+      "tags": ["throw", "belt", "under-arm", "advanced"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sumo.uwatenage", "sumo.mawashi-grip"],
+      "commonMistakes": [
+        {"description": "Attempting shitatenage from an outside grip position where uwatenage is the natural throw, using the mechanically inferior technique for the grip position and requiring significantly more strength to complete"},
+        {"description": "Driving the under-arm upward without simultaneous hip rotation, splitting the throw into a lifting action and a rotation rather than a single unified movement that combines both forces to multiply the resulting torque"}
+      ]
+    },
+    {
+      "id": "sumo.tsukidashi",
+      "name": "Tsukidashi",
+      "description": "The thrust-out — a frontal push-out technique using repeated thrusting slaps to the opponent's chest and shoulders rather than sustained continuous pushing pressure, driving the opponent backward through a series of sharp, forceful palm strikes that disrupt their balance at each contact and prevent them from planting against a steady force. Tsukidashi (Japanese: 'thrust out') is the thrusting counterpart to oshi-dashi and is preferred by wrestlers with exceptional upper-body explosive power: where oshi-dashi uses relentless continuous forward pressure, tsukidashi uses percussive impacts that stagger the opponent backward with each contact. Each thrust resets the practitioner's arm position for the next, creating a rapid-fire sequence of jolting impacts that cumulatively drive the opponent to the edge. The technique is effective against wrestlers who are skilled at absorbing continuous pressure but less effective at absorbing rapid discrete shocks, and against opponents who attempt to lean their weight into the expected steady push.",
+      "modelPath": "content/sumo/models/tsukidashi.glb",
+      "defaultClip": "thrust",
+      "clips": [
+        {"name": "thrust", "durationSeconds": 1.2, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "quadriceps", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["thrust-out", "no-belt", "strikes"],
+      "cameraPreset": "side",
+      "prerequisites": ["sumo.nodowa", "sumo.oshi-dashi"],
+      "commonMistakes": [
+        {"description": "Pushing continuously between thrusts rather than resetting the arm position for each discrete strike, blending tsukidashi into oshi-dashi and losing the percussive shock quality that distinguishes the technique"},
+        {"description": "Planting the feet between thrusts rather than stepping forward with each impact, allowing the opponent to retreat and absorb each thrust without moving toward the ring edge"}
+      ]
+    },
+    {
+      "id": "sumo.sotogake",
+      "name": "Sotogake",
+      "description": "The outer leg trip — a technique in which the wrestler hooks one leg around the outside of the opponent's near leg and sweeps it backward while pulling the opponent forward and downward with belt or upper-body grip, tripping them to the floor in a backward arc. Sotogake (Japanese: 'outer leg hook') is one of sumo's leg-trip kimarite and is applied from the clinch after a mawashi grip is established: the outer-hooking leg traps the opponent's leg and prevents them from stepping back to defend a forward push, while the simultaneous belt pull drives their upper body toward the floor in the same direction the leg is being swept. Sotogake is particularly effective against opponents who have planted a wide defensive stance to resist a force-out — the wide stance prevents lateral escape but makes each planted leg independently vulnerable to the outer hook. The technique's timing is critical: it must be applied at the moment the opponent's weight transfers onto the targeted leg, not while the leg is unweighted and free to be simply lifted away.",
+      "modelPath": "content/sumo/models/sotogake.glb",
+      "defaultClip": "trip",
+      "clips": [
+        {"name": "trip", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["glutes", "hamstrings", "core", "back", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["trip", "leg-hook", "belt"],
+      "cameraPreset": "side",
+      "prerequisites": ["sumo.mawashi-grip", "sumo.yorikiri"],
+      "commonMistakes": [
+        {"description": "Hooking the leg before establishing upper-body control, allowing the opponent to step away from the hook or use the free movement of their upper body to counterbalance and prevent the backward arc"},
+        {"description": "Attempting sotogake against the lead leg when both the opponent's weight is evenly distributed, since the technique is most effective against the leg bearing maximum weight at the moment of the sweep"}
+      ]
+    },
+    {
+      "id": "sumo.hatakikomi",
+      "name": "Hatakikomi",
+      "description": "The slap-down — a defensive counter in which the wrestler steps to the side, grabs the opponent's shoulder or neck, and pulls or slaps them down as they charge forward, using the opponent's forward momentum to drive their upper body toward the dohyo floor. Hatakikomi (Japanese: 'slap down') is the quintessential sumo counter-technique and illustrates the principle that forward momentum can be redirected rather than resisted: when an opponent commits fully to a forward charge and the practitioner steps offline and pulls the neck or shoulder, the opponent's legs cannot stop their forward-falling upper body before it hits the floor. Hatakikomi wins a high percentage of bouts and is the primary answer to an aggressive tachiai-and-push opponent — the practitioner intentionally allows the charge to over-commit before redirecting it. In professional sumo, hatakikomi is controversial because it is seen as passive and non-engaging relative to the ideal of forward sumo, but its effectiveness makes it a tournament staple.",
+      "modelPath": "content/sumo/models/hatakikomi.glb",
+      "defaultClip": "slapdown",
+      "clips": [
+        {"name": "slapdown", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "core", "quadriceps"],
+      "difficulty": "intermediate",
+      "tags": ["counter", "slap-down", "deflection"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sumo.tachiai", "sumo.nodowa"],
+      "commonMistakes": [
+        {"description": "Initiating hatakikomi while the opponent is still out of reach rather than waiting for their forward commitment to bring them close enough that the step-offline and pull cover the deflection in a single movement"},
+        {"description": "Pulling the opponent's shoulder downward when they are not yet over-committed, which pulls rather than redirects and requires strength to force the slap-down rather than timing to exploit the forward momentum"}
+      ]
+    },
+    {
+      "id": "sumo.tsuri-dashi",
+      "name": "Tsuri-Dashi",
+      "description": "The lift-out — a spectacular belt technique in which the wrestler grips the opponent's mawashi with both hands and lifts them completely off the ground, then carries them to the ring edge and deposits them outside the boundary. Tsuri-Dashi (Japanese: 'lift out') is one of sumo's most physically demanding techniques and is used when the opponent has planted their feet so firmly that forward driving cannot budge them — by lifting, the planted feet leave the ground and the resistance disappears instantly. The lift requires gripping the mawashi low (typically at the knot at the back of the belt) and straightening the legs explosively while pulling the belt in and up, similar to a deadlift but against a live, resistant opponent. Because the lift removes the opponent's ability to base out with their feet, it converts a defensive stalemate into a decisive win, and it is one of the few techniques that can overcome a significant weight disadvantage since leverage rather than mass determines the outcome.",
+      "modelPath": "content/sumo/models/tsuri_dashi.glb",
+      "defaultClip": "lift",
+      "clips": [
+        {"name": "lift", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "back", "core", "shoulders", "hamstrings"],
+      "difficulty": "advanced",
+      "tags": ["lift-out", "belt", "advanced", "strength"],
+      "cameraPreset": "front",
+      "prerequisites": ["sumo.yorikiri", "sumo.shitatenage"],
+      "commonMistakes": [
+        {"description": "Attempting tsuri-dashi against an opponent who has not yet been destabilised by forward pressure, lifting a fully planted and resistant opponent rather than one whose base has been disrupted and who is already slightly off-balance"},
+        {"description": "Gripping the mawashi at the side rather than at the back knot, losing the lowest and most mechanical grip point and reducing the available leverage for the lift"}
+      ]
+    },
+    {
+      "id": "sumo.kimarite-combination",
+      "name": "Kimarite Combination",
+      "description": "The winning technique combination — the tactical sequencing of multiple techniques in a single continuous engagement to set up and complete the decisive technique, representing the advanced understanding of sumo as a reactive art rather than a sequence of independent actions. Kimarite (Japanese: 'deciding technique') combinations exploit the opponent's defensive responses: a nodowa throat push forces the opponent to drop their hands to block, opening the mawashi for a grip; an oshi-dashi backward drive forces the opponent to brace forward, creating the over-committed posture that hatakikomi requires. At advanced levels, sumo practitioners develop the ability to read the opponent's reaction speed and defensive habits and select the combination that turns each reaction into a vulnerability. The highest expression of sumo technique is not the ability to execute a single powerful technique but the capacity to chain techniques in real time so that every defensive response opens the next attack — a fluid adaptive system rather than a planned sequence.",
+      "modelPath": "content/sumo/models/kimarite_combination.glb",
+      "defaultClip": "sequence",
+      "clips": [
+        {"name": "sequence", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "back", "shoulders", "hamstrings"],
+      "difficulty": "advanced",
+      "tags": ["combination", "advanced", "tactical", "adaptive"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["sumo.hatakikomi", "sumo.tsuri-dashi"],
+      "commonMistakes": [
+        {"description": "Planning the combination in advance rather than reading the opponent's actual reaction and selecting from available options in real time, producing a scripted sequence that fails when the opponent does not respond as expected"},
+        {"description": "Using the combination framework to delay committing to a technique, cycling through setups without executing the decisive move when the opening appears — combination thinking must lead to faster decisive action, not slower indecision"}
+      ]
+    },
+    {
+      "id": "sumo.keiko",
+      "name": "Keiko (Sumo Training)",
+      "description": "The sumo training session — the structured daily practice in which rikishi perform butsukari-geiko (practitioner repeatedly charges into a stationary partner who absorbs each drive), moshi-ai (successive bouts where the winner stays and the loser is replaced by the next challenger), and sanban-geiko (extended multi-bout exchange between two specified practitioners) to develop conditioning, technique, and the ring presence that only repeated full-contact practice under match conditions can build. Keiko (Japanese: 'training/practice') in sumo is the bridge between isolated technique drilling and the tournament environment: it develops the ability to apply techniques against resisting opponents, builds the cardiovascular endurance for multiple consecutive bouts in a tournament, and creates the psychological composure to execute technique correctly under competitive pressure. Professional rikishi typically practice four to six hours of keiko daily six days per week in the stable's practice dohyo, with the intensity and pattern varying by seniority — higher-ranked wrestlers train harder and less often; lower-ranked wrestlers train more frequently but against weaker resistance.",
+      "modelPath": "content/sumo/models/keiko.glb",
+      "defaultClip": "practice",
+      "clips": [
+        {"name": "practice", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "back", "shoulders", "calves"],
+      "difficulty": "advanced",
+      "tags": ["training", "sparring", "advanced", "conditioning"],
+      "cameraPreset": "side",
+      "prerequisites": ["sumo.kimarite-combination", "sumo.yorikiri"],
+      "commonMistakes": [
+        {"description": "Training only butsukari (charge-and-absorb) and neglecting moshi-ai competitive rounds, developing conditioning and individual techniques while missing the tactical adaptability that only live opponent variation builds"},
+        {"description": "Avoiding contact with heavier or stronger training partners during keiko, limiting challenge to comfortable opposition and preventing the development of the strength and technique needed to compete at the level where those opponents exist"}
+      ]
+    }
+  ]
+}
