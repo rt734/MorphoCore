@@ -1,0 +1,341 @@
+{
+  "discipline": {
+    "id": "bokator",
+    "name": "Bokator",
+    "description": "Bokator (បុកទោរ, literally 'pounding a lion') is an ancient Khmer combat system from Cambodia — one of the oldest codified martial arts in Southeast Asia, with origins reaching back at least 1,700 years as depicted in the stone carvings of Angkor Wat. Unlike most martial arts that developed as civilian or civilian-derived practices, Bokator was created as a battlefield system for the armies of the Khmer Empire, training soldiers to fight armed and unarmed, on foot and on horseback, against single opponents and multiple attackers. The system was nearly extinguished during the Khmer Rouge regime (1975–1979), which killed most senior practitioners; it has been painstakingly reconstructed since the 1990s by Grand Master San Kim Sean. Bokator incorporates over 10,000 techniques across 341 sub-systems organised around animal styles (crane, eagle, horse, dragon, naga serpent) and is distinguished by its simultaneous attack-and-defence philosophy, elbow- and knee-dominant close-range striking, and ground-fighting sequences that predate comparable grappling arts in the region.",
+    "movementIds": [
+      "bokator.horse-stance",
+      "bokator.crane-guard",
+      "bokator.naga-footwork",
+      "bokator.elbow-strike",
+      "bokator.knee-drive",
+      "bokator.crane-block",
+      "bokator.horse-kick",
+      "bokator.neck-clinch",
+      "bokator.eagle-claw-grab",
+      "bokator.sweeping-throw",
+      "bokator.ground-control",
+      "bokator.naga-strike",
+      "bokator.dragon-combination",
+      "bokator.multiple-attacker",
+      "bokator.bokator-form"
+    ]
+  },
+  "movements": [
+    {
+      "id": "bokator.horse-stance",
+      "name": "Horse Stance",
+      "description": "The foundational power position of Bokator — a wide, deep squat-like stance where both feet point forward, knees track over the toes, and the thighs approach horizontal. Named for the horse-mounted warriors of the Khmer cavalry, the horse stance develops the quadriceps, glute, and adductor strength required for Bokator's low-level strikes and ground-based grappling. In practice it is held statically for extended periods to build endurance, then transitioned between dynamically as the practitioner moves. The Khmer term for this position emphasises weight — the practitioner should feel rooted like a stone during the static phase.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/bokator/models/horse_stance.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 4.0, "fps": 30 },
+        { "name": "transition", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "tags": ["stance", "beginner", "horse", "foundation", "strength"],
+      "cameraPreset": "front",
+      "muscleGroups": ["quadriceps", "glutes", "adductors", "core"],
+      "commonMistakes": [
+        "Allowing the knees to collapse inward — they must track directly over the second toe throughout",
+        "Leaning forward — the torso must remain upright with the spine neutral to replicate the fighting position",
+        "Holding the breath — Bokator's stance training requires maintained diaphragmatic breathing throughout"
+      ]
+    },
+    {
+      "id": "bokator.crane-guard",
+      "name": "Crane Guard",
+      "description": "The defensive ready position from the crane (kOng krabey) sub-system — one hand raised high near the forehead with the elbow point forward (the 'crane beak'), the other arm positioned low to protect the ribs, and the weight shifted to the rear leg with the lead foot lightly touching the ground, ready to kick or step. The crane guard is associated with simultaneous attack-and-defence: the raised elbow simultaneously blocks incoming strikes to the head and positions the elbow tip to drive into the opponent's face as a counter. In Bokator, guard positions are weapon-like rather than passive — every guard posture conceals an immediate attack.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/bokator/models/crane_guard.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "weight-shift", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "tags": ["guard", "beginner", "crane", "simultaneous-defence", "ready"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "core", "legs", "back"],
+      "commonMistakes": [
+        "Treating the raised arm as passive — the elbow beak must always be directed toward the opponent, ready to strike",
+        "Planting the lead foot fully — it should barely touch the ground so the kick or step can be initiated instantly",
+        "Tensing the body — the crane guard should feel light and spring-loaded, not rigid"
+      ]
+    },
+    {
+      "id": "bokator.naga-footwork",
+      "name": "Naga Footwork",
+      "description": "The serpentine movement pattern from Bokator's naga (mythical Khmer serpent) sub-system — a fluid, low, weaving path that keeps the practitioner's head and body constantly moving in the horizontal plane, making them difficult to strike with a committed attack while simultaneously maintaining close range for counter-attacks. The naga footwork uses a crouched, wide base with the head bobbing side-to-side in small arcs, each arc a slight evasion that keeps the head off the centreline. The pattern is slower and more sinuous than the angular footwork of other arts, designed to work at close range where the opponent expects stillness.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/bokator/models/naga_footwork.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "weave", "durationSeconds": 5.0, "fps": 30 }
+      ],
+      "tags": ["footwork", "beginner", "naga", "evasion", "fluid"],
+      "cameraPreset": "top",
+      "muscleGroups": ["legs", "core", "back", "hips"],
+      "commonMistakes": [
+        "Moving too quickly — the naga pattern is slow and deliberate, not frantic; speed negates the sinuous quality",
+        "Straightening upright between movements — the head must stay continuously below the opponent's shoulder height in the naga range",
+        "Using large steps — naga footwork uses small weight transfers, not full steps; only the weight moves, not the feet"
+      ]
+    },
+    {
+      "id": "bokator.elbow-strike",
+      "name": "Elbow Strike",
+      "description": "Bokator's most characteristic weapon — a short, powerful blow delivered with the tip or edge of the elbow at close range. Unlike Muay Thai elbows which are most often thrown in the clinch, Bokator elbow strikes are integrated into the initial attack sequence from the guard position, using the elbow that was already raised defensively as the 'crane beak.' The transition from guard-to-elbow-strike is effectively a single motion where the arm that was blocking is simultaneously striking, a principle called 'eating and defending' in Khmer martial terminology. Bokator recognises seven directional elbow strikes: horizontal, diagonal-down, diagonal-up, vertical, spinning-back, dropping, and rising.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["bokator.crane-guard", "bokator.horse-stance"],
+      "modelPath": "content/bokator/models/elbow_strike.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.4, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "elbow", "close-range", "crane"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "lats", "core", "triceps"],
+      "commonMistakes": [
+        "Swinging the elbow in a wide arc — Bokator elbows travel in tight, short paths that are fast and difficult to see",
+        "Stepping back before striking — Bokator's 'eating' philosophy means the elbow goes forward as the body absorbs the incoming blow, not away from it",
+        "Using only one direction — the seven directional elbows must all be practised; relying only on the horizontal makes the attack predictable"
+      ]
+    },
+    {
+      "id": "bokator.knee-drive",
+      "name": "Knee Drive",
+      "description": "A thrusting or circular knee strike delivered to the thigh, abdomen, solar plexus, or face — Bokator uses the knee as a primary weapon because the art specialises in close-range where punches and kicks are ineffective. The knee drive is initiated from the horse stance or naga footwork, driving the knee vertically into the groin or abdomen (straight), horizontally into the thigh (round), or upward into a bent opponent's face (rising). Unlike Muay Thai knees that require a clinch grip, Bokator's knee drives are frequently delivered without grip control, from a position where both hands are busy blocking or striking.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["bokator.horse-stance", "bokator.naga-footwork"],
+      "modelPath": "content/bokator/models/knee_drive.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.5, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "knee", "close-range", "power"],
+      "cameraPreset": "side",
+      "muscleGroups": ["hip-flexors", "quadriceps", "core", "glutes"],
+      "commonMistakes": [
+        "Relying on the clinch — practise knee drives without grip control to build the hip power necessary for a free knee",
+        "Targeting only the head — Bokator knees work through multiple levels; the thigh knee is often the most practical in close range",
+        "Telegraphing with the shoulder — the knee must come from the hip directly, not announced by a shoulder dip"
+      ]
+    },
+    {
+      "id": "bokator.crane-block",
+      "name": "Crane Block",
+      "description": "The crane sub-system's primary defensive technique — an arcing, redirecting block that deflects an incoming strike offline using a wing-like sweeping motion of the forearm, then immediately converts the blocking arm into a strike using the elbow or palm heel. The crane block operates on the principle that contact with the opponent's arm is an opportunity, not just a defence: as the incoming strike is redirected, the crane arm coils and extends, using the opponent's momentary commitment to their blocked strike as the opening for an immediate counter. The block and counter land in such rapid succession that they are perceived as a single event.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["bokator.crane-guard", "bokator.elbow-strike"],
+      "modelPath": "content/bokator/models/crane_block.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "block-counter", "durationSeconds": 0.7, "fps": 60 }
+      ],
+      "tags": ["defence", "intermediate", "crane", "block-counter", "simultaneous"],
+      "cameraPreset": "front",
+      "muscleGroups": ["shoulders", "forearms", "back", "core"],
+      "commonMistakes": [
+        "Stopping at the block — the counter must follow with no additional thought; block and counter are one motion, not two",
+        "Using a hard stop rather than a redirecting arc — the incoming force should be deflected sideways, not absorbed",
+        "Waiting until the strike arrives to begin the block — the crane block must begin at the first visible hint of the attack"
+      ]
+    },
+    {
+      "id": "bokator.horse-kick",
+      "name": "Horse Kick",
+      "description": "A powerful thrusting kick from the horse sub-system — driven from the rear leg in a forward-thrusting motion targeting the opponent's abdomen, sternum, or hip, using the ball or heel of the foot. Unlike a karate front kick which emphasises speed, the horse kick uses the hip extension to generate force analogous to a horse's rear leg kick — slow build-up followed by an explosive hip thrust that transfers the practitioner's full body mass. It is typically delivered from the horse stance, making it a close-range to mid-range weapon rather than a long-range tool.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["bokator.horse-stance", "bokator.naga-footwork"],
+      "modelPath": "content/bokator/models/horse_kick.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "kick", "durationSeconds": 0.6, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "kick", "horse", "power"],
+      "cameraPreset": "side",
+      "muscleGroups": ["quadriceps", "glutes", "hip-flexors", "core"],
+      "commonMistakes": [
+        "Swinging the leg rather than thrusting — the horse kick is a linear drive, not a snap or arc",
+        "Straightening the supporting leg — the bent-knee base of the horse stance must be maintained through the kick",
+        "Committing too early — the kick should be launched from close range where the hip drive is still available"
+      ]
+    },
+    {
+      "id": "bokator.neck-clinch",
+      "name": "Neck Clinch",
+      "description": "Control of the opponent's head and neck to direct their posture for knee, elbow, and throw follow-ups — Bokator's version of the double collar-tie employs both hands behind the opponent's neck (or one hand on the neck, one on the collar-bone) and uses pulling and pushing combinations to force the head into the path of ascending knees or to rotate the opponent's body for sweeping throws. The neck clinch in Bokator is typically established mid-sequence, flowing from a crane block or elbow exchange when both fighters close to near-contact distance.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["bokator.elbow-strike", "bokator.knee-drive"],
+      "modelPath": "content/bokator/models/neck_clinch.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "pull", "durationSeconds": 1.5, "fps": 30 }
+      ],
+      "tags": ["clinch", "intermediate", "neck-control", "grappling", "setup"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "back", "core", "grip"],
+      "commonMistakes": [
+        "Crossing the hands at the back of the neck — the Bokator grip keeps the hands separated to allow independent push-pull forces",
+        "Pulling the head down without adding rotational force — the most effective posture breaks combine a pull with a lateral twist",
+        "Staying static in the clinch — the neck clinch must transition immediately to a knee or throw; holding it still gives the opponent time to counter"
+      ]
+    },
+    {
+      "id": "bokator.eagle-claw-grab",
+      "name": "Eagle Claw Grab",
+      "description": "A gripping technique from Bokator's eagle sub-system — a seizing hold applied to the wrist, forearm, or shoulder using the fingers pressed into nerve clusters and tendons rather than a full palm grip. The eagle claw uses the tips of four fingers simultaneously pressed into soft tissue to generate intense localised pain and involuntary muscle contraction, causing the opponent to move reflexively in the direction of the pain — then immediately exploiting that involuntary movement with a throw or strike. This tradition of nerve-targeting grappling is common in Southeast and East Asian martial systems and represents an alternative control model to the leverage-based throws of judo.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["bokator.crane-block", "bokator.neck-clinch"],
+      "modelPath": "content/bokator/models/eagle_claw_grab.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "grip", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "tags": ["grappling", "intermediate", "eagle", "nerve", "control"],
+      "cameraPreset": "front",
+      "muscleGroups": ["forearms", "grip", "fingers", "shoulders"],
+      "commonMistakes": [
+        "Using a flat-palm grip rather than finger-tip pressure — the eagle claw derives its effect from concentration of force, not spread",
+        "Grabbing without targeting — each eagle claw application must target a specific nerve cluster or tendon, not just anywhere on the arm",
+        "Holding too long — the grab creates a window of opportunity lasting 1-2 seconds before the opponent adapts; the follow-up must be immediate"
+      ]
+    },
+    {
+      "id": "bokator.sweeping-throw",
+      "name": "Sweeping Throw",
+      "description": "A low-line trip or sweep that removes one of the opponent's supporting legs — Bokator's most common takedown method, often set up by an eagle claw grab or neck clinch that occupies the opponent's attention and balance control while the sweeping leg hooks behind their ankle or knee. The sweep is delivered from a dropped base position (horse stance contribution) so the sweeping leg travels horizontally at floor level, catching the opponent's foot before they can adjust. In Bokator, falling opponents are immediately followed to the ground where elbow and knee strikes are applied, making the transition from standing to ground a continuous offensive sequence.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["bokator.horse-stance", "bokator.eagle-claw-grab"],
+      "modelPath": "content/bokator/models/sweeping_throw.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "sweep", "durationSeconds": 0.9, "fps": 60 }
+      ],
+      "tags": ["throwing", "intermediate", "sweep", "takedown", "leg"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["legs", "core", "glutes", "back"],
+      "commonMistakes": [
+        "Sweeping without upper-body control — the grab or neck clinch must maintain the opponent's balance disruption throughout the sweep",
+        "Lifting the sweeping leg too high — the sweep should travel barely above floor level; a high sweep telegraphs and misses",
+        "Not following to the ground — in Bokator the throw is a transition, not a finish; the attack must continue on the ground"
+      ]
+    },
+    {
+      "id": "bokator.ground-control",
+      "name": "Ground Control",
+      "description": "Dominance from top position on the ground — Bokator's ground game focuses on maintaining top position while delivering strikes rather than the positional chess of BJJ or wrestling. The practitioner pins the opponent using bodyweight and strategic knee placement (across the abdomen, on the thigh, over the arm), leaving both hands free for elbow and palm strikes. Unlike grappling sports where the objective is submission, Bokator ground control is designed for a combat scenario where other attackers may be present — the objective is to incapacitate the downed opponent quickly with powerful downward strikes and disengage.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["bokator.sweeping-throw", "bokator.elbow-strike"],
+      "modelPath": "content/bokator/models/ground_control.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "control-strike", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "tags": ["grappling", "advanced", "ground", "top-control", "striking"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "glutes", "shoulders", "back"],
+      "commonMistakes": [
+        "Spending too much time on the ground — Bokator ground control is designed to be brief; the objective is to finish quickly and regain standing",
+        "Neglecting the bodyweight base — strikes from the top require the knee and hip weight anchoring the opponent; pulling up to strike loses the pin",
+        "Focusing only on the head — the solar plexus and floating ribs are effective targets that require less precision under stress"
+      ]
+    },
+    {
+      "id": "bokator.naga-strike",
+      "name": "Naga Strike",
+      "description": "A coiling, undulating palm strike from the naga sub-system — delivered with a rising serpentine motion where the striking arm travels a curving path that rises from below the opponent's sight line to the chin or throat. The naga strike uses the naga footwork's weaving evasion as the entry: the practitioner ducks under an incoming strike, closes the distance during the duck, then rises with a palm heel strike to the underside of the chin in a motion resembling a serpent striking upward. The palm heel (rather than fist) is used because it can be applied more precisely at close range and does not risk knuckle injury on the bony jaw.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["bokator.naga-footwork", "bokator.crane-block"],
+      "modelPath": "content/bokator/models/naga_strike.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "rise-strike", "durationSeconds": 0.6, "fps": 60 }
+      ],
+      "tags": ["striking", "advanced", "naga", "palm-heel", "evasion"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "shoulders", "legs", "back"],
+      "commonMistakes": [
+        "Rising too early — the body must complete the duck under the incoming strike before beginning to rise with the counter",
+        "Striking with the fist — the naga strike always uses the palm heel to preserve the ability to grab after the strike",
+        "Forgetting the naga footwork entry — the strike derives its power from the rising body momentum; without the entry, it is just an arm push"
+      ]
+    },
+    {
+      "id": "bokator.dragon-combination",
+      "name": "Dragon Combination",
+      "description": "A multi-technique sequence from the dragon sub-system — Bokator's most complex animal style, which combines elements of the crane (elbow), horse (kick), and naga (coiling) into fluid, unpredictable combinations that flow between stand-up striking, clinch, and ground-attack. A standard dragon combination involves an entry block-and-elbow counter, transitions to neck clinch and knee, follows with a sweep, and finishes on the ground — all executed as a single continuous flow. The dragon style is considered the synthesis of Bokator's animal sub-systems and is the benchmark of advanced practitioner ability.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["bokator.neck-clinch", "bokator.naga-strike", "bokator.ground-control"],
+      "modelPath": "content/bokator/models/dragon_combination.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "combination", "durationSeconds": 5.0, "fps": 30 }
+      ],
+      "tags": ["combination", "advanced", "dragon", "multi-range", "synthesis"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["full-body", "core", "shoulders", "legs"],
+      "commonMistakes": [
+        "Pausing between phases — the dragon combination must be seamless; any hesitation signals the next technique and gives the opponent time to react",
+        "Reverting to a single animal style under pressure — the dragon synthesis requires all styles to remain available",
+        "Over-practicing the combination on a compliant partner — the sequence must be adapted to what the opponent actually gives; it is a framework, not a script"
+      ]
+    },
+    {
+      "id": "bokator.multiple-attacker",
+      "name": "Multiple Attacker Strategy",
+      "description": "Tactical principles for handling two or more simultaneous attackers — Bokator's ancient battlefield origin makes it one of the few systems with codified, practised protocols for outnumbered combat. The core principles include: never stopping between attackers (the pause between incapacitating one and turning to face another is when you are struck); using attackers as shields against each other (controlling one person to block a second's line of attack); and working the shortest-distance geometry (always turning to face the nearest attacker while maintaining peripheral awareness of others). These are trained through structured partner drills with increasing numbers of attackers.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["bokator.dragon-combination", "bokator.sweeping-throw"],
+      "modelPath": "content/bokator/models/multiple_attacker.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "strategy", "durationSeconds": 6.0, "fps": 30 }
+      ],
+      "tags": ["strategy", "advanced", "multiple-attackers", "tactics", "battlefield"],
+      "cameraPreset": "top",
+      "muscleGroups": ["full-body", "core", "legs"],
+      "commonMistakes": [
+        "Standing still between attackers — continuous movement to new defensive angles is the single most important principle",
+        "Finishing one attacker completely before addressing the next — incapacitate enough to disengage, then immediately address the next threat",
+        "Failing to use the first attacker as a shield — positioning one attacker between you and the others is the primary tactical tool"
+      ]
+    },
+    {
+      "id": "bokator.bokator-form",
+      "name": "Bokator Form (Kbach)",
+      "description": "A complete Bokator sequence (kbach) — a codified pattern of movements that chains dozens of techniques from multiple animal sub-systems into a solo practice form that trains the body to produce Bokator's techniques with correct power, timing, and transition. Bokator has 341 kbach sequences covering every animal style, weapon, and tactical situation. Unlike kata from Japanese arts, kbach incorporate ground movements, rises, turns, and striking at multiple levels, demanding more three-dimensional space awareness. The kbach serves simultaneously as a syllabus record (preserving techniques in pre-literate Khmer culture), a conditioning drill, and a moving meditation practice associated with the Buddhist spiritual dimension of the art.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["bokator.dragon-combination", "bokator.multiple-attacker", "bokator.naga-strike"],
+      "modelPath": "content/bokator/models/bokator_form.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "form", "durationSeconds": 12.0, "fps": 30 }
+      ],
+      "tags": ["form", "advanced", "kbach", "synthesis", "traditional"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["full-body", "core", "shoulders", "legs", "back"],
+      "commonMistakes": [
+        "Rushing the form — kbach must be performed at the speed that allows every technique its full mechanical expression",
+        "Losing the animal quality — each section of the kbach should feel like the animal it represents; crane movements must be light, horse movements powerful",
+        "Skipping the ground sections — many practitioners omit the floor portions of kbach because they are more demanding; these are among the most technically important sequences"
+      ]
+    }
+  ]
+}
