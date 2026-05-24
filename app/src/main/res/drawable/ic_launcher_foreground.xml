@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer ring -->
+    <path
+        android:fillColor="#00BFFF"
+        android:pathData="M54,18 A36,36 0 1,1 53.99,18 Z M54,24 A30,30 0 1,0 54.01,24 Z" />
+
+    <!-- Dynamic figure: torso -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,30 C52,30 50,31.5 50,33 L50,50 C50,51.5 52,53 54,53 C56,53 58,51.5 58,50 L58,33 C58,31.5 56,30 54,30 Z" />
+
+    <!-- Left arm extended upward-left (striking pose) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,36 L38,26 C37,25 35.5,25.5 35,26.5 C34.5,27.5 35,29 36,29.5 L48,39.5 Z" />
+
+    <!-- Right arm guard at face -->
+    <path
+        android:fillColor="#00BFFF"
+        android:pathData="M58,34 L65,29 C66,28.5 67.5,29 67.5,30.5 C67.5,31.5 66.5,32.5 65.5,32.5 L59,38 Z" />
+
+    <!-- Left leg forward (fighting stance) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,50 L44,67 C43.5,68.5 44.5,70 46,70 C47,70 48,69 48.5,68 L54,52 Z" />
+
+    <!-- Right leg back -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M58,50 L63,67 C63.5,68.5 62.5,70 61,70 C60,70 59,69 58.5,68 L54,52 Z" />
+
+    <!-- Head -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,22 A5,5 0 1,1 53.99,22 Z" />
+
+    <!-- M lettermark (subtle, lower portion) -->
+    <path
+        android:fillColor="#00BFFF"
+        android:pathData="M40,80 L40,90 L43,90 L43,83.5 L46.5,90 L50,90 L50,80 Z M54,80 L54,90 L57,90 L57,83.5 L60.5,90 L64,90 L64,80 L61,80 L61,86.5 L57.5,80 Z"
+        android:strokeWidth="0" />
+
+</vector>

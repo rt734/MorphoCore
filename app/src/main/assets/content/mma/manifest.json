@@ -1,0 +1,341 @@
+{
+  "discipline": {
+    "id": "mma",
+    "name": "MMA",
+    "description": "Mixed Martial Arts (MMA) is a full-contact combat sport and self-defence system that integrates striking, clinch, and ground-fighting techniques drawn from boxing, Muay Thai, wrestling, Brazilian jiu-jitsu, judo, and other disciplines. Emerging from vale-tudo competitions in Brazil and popularised globally through the Ultimate Fighting Championship (founded 1993), MMA has evolved from a 'which style wins?' experiment into a complete athletic discipline with its own dedicated techniques, training methodology, and competitive ruleset. Practitioners train across all three engagement ranges — stand-up, clinch, and ground — and must be equally comfortable initiating and defending transitions between them.",
+    "movementIds": [
+      "mma.jab",
+      "mma.cross",
+      "mma.stance",
+      "mma.hook",
+      "mma.sprawl",
+      "mma.double-leg-takedown",
+      "mma.guard",
+      "mma.mount",
+      "mma.clinch",
+      "mma.elbow-strike",
+      "mma.knee-strike",
+      "mma.rear-naked-choke",
+      "mma.armbar",
+      "mma.triangle-choke",
+      "mma.ground-and-pound"
+    ]
+  },
+  "movements": [
+    {
+      "id": "mma.jab",
+      "name": "Jab",
+      "description": "The foundational lead-hand straight punch — the most frequently thrown strike in MMA and the cornerstone of boxing-based stand-up. The jab extends from the guard position along the centreline with a simultaneous shoulder rotation and partial weight transfer, returning immediately to guard on retraction. In MMA the jab serves four functions: rangefinder (gauging distance before committing to combinations), distractor (occupying the opponent's vision before a level change or rear-hand attack), counter (timed against incoming aggression), and range-maintainer (keeping opponents at the end of your reach). Because it travels the shortest path of any punch, it is the hardest to see and time.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/mma/models/jab.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.4, "fps": 60 }
+      ],
+      "tags": ["striking", "beginner", "boxing", "lead-hand", "fundamental"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "triceps", "core"],
+      "commonMistakes": [
+        "Dropping the rear hand guard while throwing — the rear glove must stay at the cheek throughout",
+        "Telegraphing by drawing the elbow back before extending — the jab starts from the guard position directly",
+        "Planting the feet before throwing — elite jabbing uses a simultaneous step-jab to gain range advantage"
+      ]
+    },
+    {
+      "id": "mma.cross",
+      "name": "Cross",
+      "description": "The rear-hand straight punch — the primary power weapon in MMA stand-up. The cross generates maximum force by chaining hip rotation, shoulder rotation, and arm extension into a single kinetic wave, transferring the body's full rotational mass through the small surface of the knuckles. Thrown from the orthodox stance with the right hand, or southpaw with the left, the cross is typically set up by the jab and followed by hooks or kicks. Unlike boxing, MMA fighters often throw the cross from a wider stance to maintain takedown defence, which slightly reduces hip rotation and power but dramatically improves base.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/mma/models/cross.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.45, "fps": 60 }
+      ],
+      "tags": ["striking", "beginner", "boxing", "rear-hand", "power"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "chest", "triceps", "core", "hips"],
+      "commonMistakes": [
+        "Squaring the hips fully — over-rotation exposes the back and destroys return-to-guard speed",
+        "Losing the chin behind the shoulder — the rear shoulder should brush the chin as the cross extends",
+        "Stopping the punch on the surface rather than punching through the target"
+      ]
+    },
+    {
+      "id": "mma.stance",
+      "name": "Fighting Stance",
+      "description": "The foundational body position from which all MMA techniques are initiated and returned to — a dynamic equilibrium that balances offence, defence, mobility, and takedown resistance simultaneously. The standard MMA stance is wider than a boxing stance (roughly shoulder-width-and-a-half) with knees slightly bent, weight distributed 55/45 rear to front, hands at cheekbone height with elbows protecting the ribs, and chin tucked. The wider base provides a platform for explosive level changes without sacrificing the mobility needed to circle, close distance, and cut angles.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/mma/models/stance.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "footwork", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "tags": ["footwork", "beginner", "base", "fundamental", "guard"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["legs", "core", "back"],
+      "commonMistakes": [
+        "Standing too narrow — a boxing-width stance makes single-leg takedown defence extremely difficult",
+        "Crossing the feet when moving — always step-close, never cross, to maintain balance throughout movement",
+        "Locking the knees — the slight knee bend must be maintained at all times to enable explosive level changes"
+      ]
+    },
+    {
+      "id": "mma.hook",
+      "name": "Hook",
+      "description": "A lateral arc punch that travels the horizontal plane, targeting the jaw hinge, temple, or ear to produce rotational force on the skull and stunning concussive effect. The hook bends the arm to roughly 90 degrees, rotates from the hip and shoulder simultaneously, and lands with the first two knuckles. In MMA the hook is a close-range weapon used inside straight punch range where crosses and jabs lose effectiveness, frequently thrown as the final strike in a jab-cross-hook combination or as a lead-off against an opponent whose head is drifting laterally. The lead hook is one of the most common knockout techniques in MMA history.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["mma.jab", "mma.cross"],
+      "modelPath": "content/mma/models/hook.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.4, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "boxing", "knockout", "lateral"],
+      "cameraPreset": "front",
+      "muscleGroups": ["shoulders", "biceps", "core", "lats"],
+      "commonMistakes": [
+        "Arm-punching the hook — power comes from the hip pivot, not shoulder or elbow extension",
+        "Looping too wide — the elbow should not exceed shoulder height, keeping the arc tight and fast",
+        "Dropping the rear hand — every hook attempt is a window for the opponent's counter cross"
+      ]
+    },
+    {
+      "id": "mma.sprawl",
+      "name": "Sprawl",
+      "description": "The primary defensive response to a double-leg or single-leg takedown attempt — a rapid redistribution of body weight backward and downward that strips the opponent's grip, elevates the hips out of reach, and positions the defender to establish back control or return to standing. When an opponent shoots for the legs, the defender's hips shoot backward and down while the hands post on the opponent's back, driving them into the mat. A successful sprawl transitions immediately to a whizzer, front headlock, or standing reset. Sprawl timing is the single most important defensive skill for MMA fighters who do not come from a wrestling background.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["mma.stance"],
+      "modelPath": "content/mma/models/sprawl.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "sprawl", "durationSeconds": 0.8, "fps": 60 }
+      ],
+      "tags": ["wrestling", "intermediate", "defence", "takedown-defence", "explosive"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "glutes", "hip-flexors", "shoulders"],
+      "commonMistakes": [
+        "Posting the feet rather than the hips — the hips must go backward, not just the upper body",
+        "Sprawling too late — the hip extension must begin the instant the opponent drops their level",
+        "Posting both hands flat — use one forearm on the back and one to underhook or control the head"
+      ]
+    },
+    {
+      "id": "mma.double-leg-takedown",
+      "name": "Double Leg Takedown",
+      "description": "The most fundamental and high-percentage offensive wrestling technique — a level change that shoots both arms around the opponent's thighs, drives through with the hips, and finishes by lifting and dumping or running through the legs. The double-leg begins from striking range with a level change that drops the hips and extends one foot forward (the shot), penetrating inside the opponent's kicking distance before they can react. Finishing options include the dump (redirect sideways), the lift-and-slam, and the leg trip. Elite wrestlers combine the double-leg with jabs and feints to set up the level change.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["mma.stance", "mma.sprawl"],
+      "modelPath": "content/mma/models/double_leg_takedown.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "shot", "durationSeconds": 0.9, "fps": 60 }
+      ],
+      "tags": ["wrestling", "intermediate", "takedown", "level-change", "offensive"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["legs", "core", "back", "shoulders"],
+      "commonMistakes": [
+        "Shooting from too far away — the opponent's knee should be within reach before initiating the level change",
+        "Looking down during the shot — the head must stay up (forehead into the opponent's hip) or the sprawl will land on the back of the neck",
+        "Stopping on the knees — successful shots drive through the opponent continuously until the finish"
+      ]
+    },
+    {
+      "id": "mma.guard",
+      "name": "Guard Position",
+      "description": "The foundational bottom grappling position — lying on the back with legs wrapped around or positioned above the opponent, controlling distance and creating submission or sweep opportunities from the bottom. Full guard (legs locked behind the opponent's back) limits their posture and striking ability while enabling armbars, triangles, and sweeps. Half guard (one leg trapped) offers defensive scramble options. Open guard (legs not locked) allows more dynamic attacks. In MMA the guard is significantly more dangerous for the top fighter than in pure grappling due to upward elbows, and less safe for the bottom fighter due to downward strikes.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["mma.stance"],
+      "modelPath": "content/mma/models/guard.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "posture-break", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "tags": ["grappling", "intermediate", "bjj", "bottom", "submission-defence"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "hip-flexors", "adductors", "back"],
+      "commonMistakes": [
+        "Lying flat — the guard must be active, with the hips off the mat and constantly adjusting angle",
+        "Crossing the ankles rather than squeezing with the thighs in full guard — ankle locks are weak and easily broken",
+        "Leaving the arms out wide — arms that drift outside the hips are vulnerable to stacking and passing"
+      ]
+    },
+    {
+      "id": "mma.mount",
+      "name": "Mount",
+      "description": "The most dominant ground position — straddling the opponent's torso while they are on their back, with the knees on the mat and hips directly above the opponent's hips. Mount gives the top fighter gravity-assisted striking, the ability to control both the opponent's arms, and proximity to the neck for rear-naked-choke transitions. High mount (near the armpits) is preferred for submission attempts; low mount (near the hips) is more stable against the upa escape. In MMA, mount is where fights are most frequently stopped — the bottom fighter cannot defend effectively against downward hammerfists and elbows while simultaneously protecting against submissions.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["mma.guard"],
+      "modelPath": "content/mma/models/mount.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "striking", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "tags": ["grappling", "intermediate", "dominant-position", "top-control", "bjj"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "adductors", "glutes", "back"],
+      "commonMistakes": [
+        "Sitting up too high — weight should be forward on the chest, not over the hips, to resist the upa escape",
+        "Posting both hands on the mat — grips on the opponent's wrists or collar control the arms and prevent escapes",
+        "Staying static — mount is maintained through constant small weight shifts and hip adjustments, not a locked position"
+      ]
+    },
+    {
+      "id": "mma.clinch",
+      "name": "Clinch Work",
+      "description": "The standing grappling range between full striking distance and the ground — where fighters control each other with grips, underhooks, overhooks, and neck ties. The clinch is the most contested range in MMA, serving as both a transition zone (striking to takedown, takedown attempt to defensive clinch) and a productive attack position (knees, short elbows, throws). Muay Thai plum (double collar-tie) enables repetitive knee strikes to the body and head; wrestling underhooks enable hip-level entries for single-leg and double-leg shots; judo grips set up hip and foot sweeps. Clinch skill is the primary differentiator between fighters who control where the fight goes and fighters who react to it.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["mma.jab", "mma.cross"],
+      "modelPath": "content/mma/models/clinch.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "underhook-battle", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "tags": ["clinch", "intermediate", "grappling", "muay-thai", "wrestling"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "back", "core", "grip"],
+      "commonMistakes": [
+        "Tying up passively — clinch that does not attack creates a stalemate and results in a referee restart",
+        "Over-committing to a single grip — elite clinch fighters switch between underhooks, overhooks, and neck ties fluidly",
+        "Bending at the waist rather than the hips — a bent-waist clinch exposes the neck and back for chokes and body-lock takedowns"
+      ]
+    },
+    {
+      "id": "mma.elbow-strike",
+      "name": "Elbow Strike",
+      "description": "Short-range strikes using the tip or edge of the elbow — among the most damaging weapons in MMA due to the elbow's dense bone structure and small surface area, which concentrates force and splits skin efficiently. Legal MMA elbows include horizontal, diagonal-downward (12-6 is prohibited), and upward trajectories. Elbows are most effective from clinch range, mount, and side control where punches cannot achieve full extension. The horizontal elbow (thrown like a hook but landing with the elbow point) and the spinning back elbow (set up by a level change or feint) are the most commonly seen variations in competition.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["mma.hook", "mma.clinch"],
+      "modelPath": "content/mma/models/elbow_strike.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.35, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "clinch", "close-range", "cutting"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "lats", "core", "triceps"],
+      "commonMistakes": [
+        "Swinging the elbow in a wide arc — effective elbows travel a tight, short path, not a looping hook motion",
+        "Targeting only the head — body elbows to the ribs and liver are highly effective and less well-defended",
+        "Losing clinch control after the strike — each elbow should land from and return to a dominant clinch grip"
+      ]
+    },
+    {
+      "id": "mma.knee-strike",
+      "name": "Knee Strike",
+      "description": "Powerful strikes delivered with the kneecap or the patella tendon area — most effective from the clinch where distance is controlled and the opponent's posture can be manipulated downward into the ascending knee. Muay Thai-style double collar-tie knees drive upward into the face or descend toward the thigh; body knees from the underhook position target the liver and solar plexus. Flying knees from distance are high-risk, high-reward attacks that have produced many MMA stoppages. In clinch range, alternating knees to the body force the opponent to lower their guard, opening the head.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["mma.clinch"],
+      "modelPath": "content/mma/models/knee_strike.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.5, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "clinch", "muay-thai", "body-attack"],
+      "cameraPreset": "side",
+      "muscleGroups": ["hip-flexors", "glutes", "core", "quadriceps"],
+      "commonMistakes": [
+        "Releasing the head control before the knee lands — grip must be maintained through impact to direct the opponent into the strike",
+        "Kneeing from a square stance rather than pulling the opponent's posture down and into the ascending knee",
+        "Using only the thigh — the knee travels straight up along the centreline, not swinging wide"
+      ]
+    },
+    {
+      "id": "mma.rear-naked-choke",
+      "name": "Rear Naked Choke",
+      "description": "The most finished submission in MMA history — a blood choke applied from back control that compresses both carotid arteries simultaneously, producing unconsciousness in 8–12 seconds without pain. The choking arm reaches across the opponent's neck with the elbow at the centreline, the hand hooks behind the opponent's head or grips the bicep of the supporting arm, and the hips squeeze while arching back to apply pressure. 'Naked' refers to the absence of a gi or jacket — the choke is arm-only. Success requires: securing back mount, seatbelt control, getting both hooks in, then obtaining the choke arm past the chin.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["mma.mount"],
+      "modelPath": "content/mma/models/rear_naked_choke.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "finish", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "tags": ["submission", "advanced", "choke", "back-control", "bjj"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["biceps", "lats", "core", "forearms"],
+      "commonMistakes": [
+        "Getting the throat rather than the carotid — a windpipe choke is painful but inefficient; the elbow must be at the centreline under the chin",
+        "Losing the hooks when applying the choke — opponents often try to roll; hooks must be maintained throughout",
+        "Squeezing with only the choking arm — finishing pressure comes from arching the back and squeezing the entire body, not just the arm"
+      ]
+    },
+    {
+      "id": "mma.armbar",
+      "name": "Armbar",
+      "description": "A hyperextension submission targeting the elbow joint — the body's most high-percentage joint-lock in MMA. The armbar controls the opponent's wrist and rotates their elbow so it faces upward, then applies hip pressure across the joint in opposition to its natural extension range. Armbar entries exist from guard (breaking the opponent's posture and swinging the leg over the face), mount (isolating an arm that posts to push away), and numerous transitional positions. The submission is typically finished before the joint breaks — most opponents tap to the controlled stretch before damage occurs.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["mma.guard", "mma.mount"],
+      "modelPath": "content/mma/models/armbar.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "finish", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "tags": ["submission", "advanced", "joint-lock", "bjj", "guard"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "hip-flexors", "adductors", "back"],
+      "commonMistakes": [
+        "Leaving space between the thighs and the opponent's shoulder — any gap allows the opponent to stack and escape",
+        "Pulling the wrist rather than bridging the hips — the submission pressure comes from the hips extending over the elbow, not arm strength",
+        "Not controlling the thumb direction — the opponent's thumb must point upward to ensure the elbow faces the correct direction for leverage"
+      ]
+    },
+    {
+      "id": "mma.triangle-choke",
+      "name": "Triangle Choke",
+      "description": "A blood choke applied using the legs from guard position — one leg crosses behind the opponent's head while the other locks at the ankle or knee, creating a triangle shape that compresses one carotid with the leg and the other with the opponent's own shoulder. The triangle is one of BJJ's most versatile submissions, entered from guard when the opponent posts one arm inside and one arm outside the legs (an inadvertent setup). Unlike the rear naked choke, the triangle can be applied while the fighter is on the bottom — a significant advantage in MMA where being on top is normally dominant.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["mma.guard"],
+      "modelPath": "content/mma/models/triangle_choke.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "finish", "durationSeconds": 2.0, "fps": 30 }
+      ],
+      "tags": ["submission", "advanced", "choke", "guard", "bjj"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["adductors", "hip-flexors", "core", "hamstrings"],
+      "commonMistakes": [
+        "Allowing the head to remain inline — the opponent's head must be pulled down and to the side (breaking their posture) before the leg locks",
+        "Not cutting the angle — the fighter must rotate 30–45 degrees to apply full pressure; a square triangle is easy to stack and escape",
+        "Gripping the knee rather than the ankle of the locking leg — ankle control is tighter and harder to break"
+      ]
+    },
+    {
+      "id": "mma.ground-and-pound",
+      "name": "Ground and Pound",
+      "description": "The coordinated use of strikes from dominant ground positions — punches, hammerfists, and elbows thrown from mount, half-guard top, and side control against an opponent who cannot create distance or fully defend. Ground and pound (GnP) is both a finishing technique and a strategic tool: sustained GnP forces the opponent to expose submission attempts as they cover defensively, and it is the primary mechanism by which wrestling and top-control skills translate to stoppages in MMA. The most effective GnP fighters load from the hip and use their body weight — sitting up and dropping the punch rather than pushing it from a stationary shoulder.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["mma.mount", "mma.elbow-strike"],
+      "modelPath": "content/mma/models/ground_and_pound.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 3.0, "fps": 30 },
+        { "name": "striking", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "tags": ["striking", "advanced", "mount", "ground-control", "finishing"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "core", "back", "glutes"],
+      "commonMistakes": [
+        "Staying high and punching down at arm's length — effective GnP gets the hips low and drops the body weight into the strike",
+        "Targeting only the head — body shots to the ribs force the opponent to move their arms, opening the head and resetting the fight",
+        "Forgetting positional control — each strike attempt should maintain or improve position; never abandon dominant position for a single strike"
+      ]
+    }
+  ]
+}
