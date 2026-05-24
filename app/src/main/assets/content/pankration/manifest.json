@@ -1,0 +1,341 @@
+{
+  "discipline": {
+    "id": "pankration",
+    "name": "Pankration",
+    "description": "Pankration (παγκράτιον, 'all powers') is the ancient Greek combat sport introduced to the Olympic Games in 648 BCE, combining wrestling, striking, chokes, and joint locks with virtually no restrictions. Ancient practitioners were celebrated alongside boxers and wrestlers as the greatest athletes of antiquity. Modern pankration is practised through international federations that preserve the holistic nature of the original art — strikes on the ground, clinch wrestling, and submission holds are all permitted, making it one of the closest historical predecessors to mixed martial arts.",
+    "movementIds": [
+      "pankration.orthostaden",
+      "pankration.pale",
+      "pankration.kataballein",
+      "pankration.pygme",
+      "pankration.klimakismos",
+      "pankration.anamesos-hold",
+      "pankration.drasmos",
+      "pankration.trachilismos",
+      "pankration.anastrophe",
+      "pankration.ground-strike",
+      "pankration.mese",
+      "pankration.sphairein",
+      "pankration.akrocheirismos",
+      "pankration.lion-hold",
+      "pankration.hyptiasmos"
+    ]
+  },
+  "movements": [
+    {
+      "id": "pankration.orthostaden",
+      "name": "Orthostaden",
+      "description": "Upright stance — the foundational standing posture of the pankratiast, feet shoulder-width apart with the lead foot forward, hands raised to guard the face and body. Orthostaden describes not just the stance but the entire upright phase of combat (as opposed to kato-pale, ground combat). From orthostaden, the fighter transitions seamlessly between striking and grappling without changing fundamental body alignment.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/pankration/models/orthostaden.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.5, "fps": 30 },
+        { "name": "guard", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "tags": ["stance", "beginner", "upright", "guard"],
+      "cameraPreset": "front",
+      "muscleGroups": ["core", "legs", "shoulders"],
+      "commonMistakes": [
+        "Planting both feet flat, which limits explosive forward movement",
+        "Holding the guard too low — hands must protect both head and body simultaneously",
+        "Tensing the upper body, which slows striking speed and signals aggression"
+      ]
+    },
+    {
+      "id": "pankration.pale",
+      "name": "Pale",
+      "description": "Wrestling grip and clinch work — the foundational grappling skills of pankration derived from Greek wrestling (pale). Pale encompasses collar-and-elbow ties, over-under body control, and wrist control used to set up throws, trips, and takedowns. In ancient contests, a throw to the ground scored a point; in modern sport pankration, the clinch remains a critical bridge between striking range and the ground phase.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/pankration/models/pale.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "clinch", "durationSeconds": 3.0, "fps": 30 }
+      ],
+      "tags": ["grappling", "beginner", "clinch", "wrestling"],
+      "cameraPreset": "front",
+      "muscleGroups": ["back", "shoulders", "core", "forearms"],
+      "commonMistakes": [
+        "Reaching for the head or neck immediately without first establishing an underhook",
+        "Allowing the elbows to flare out, which breaks the structural integrity of the clinch",
+        "Pulling rather than driving — pankration clinch control is offensive and pressure-based"
+      ]
+    },
+    {
+      "id": "pankration.kataballein",
+      "name": "Kataballein",
+      "description": "Throwing down — the generic term for takedowns in pankration, encompassing hip throws, leg trips, and body slams derived from pale wrestling. A kataballein was one of the primary ways to score in the standing phase of ancient competition. Modern practitioners use the kataballein framework to understand the spectrum of standing-to-ground transitions, from high-amplitude hip throws to low knee buckle trips.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/pankration/models/kataballein.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "throw", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "tags": ["takedown", "beginner", "throw", "trip"],
+      "cameraPreset": "side",
+      "muscleGroups": ["glutes", "back", "core", "legs"],
+      "commonMistakes": [
+        "Attempting the throw without first obtaining hip or head position advantage",
+        "Releasing the opponent during the throw rather than following them to the ground",
+        "Using only upper-body strength — all kataballein techniques require leg drive"
+      ]
+    },
+    {
+      "id": "pankration.pygme",
+      "name": "Pygme",
+      "description": "Striking — the punching techniques of pankration derived from ancient Greek boxing (pygmachia). Pankration's strikes are more utilitarian than boxing's refined combinations: straight punches to the face, hammerfists to the body, open-hand slaps to the ear, and overhand blows are all included. The key distinction from boxing is that every punch in pankration must be threat-aware — the fighter cannot box from a pure striking stance because the clinch and takedown are always imminent.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["pankration.orthostaden"],
+      "modelPath": "content/pankration/models/pygme.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "jab-cross", "durationSeconds": 0.7, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "punching", "standing"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "chest", "core", "forearms"],
+      "commonMistakes": [
+        "Over-committing to punches and leaving the head exposed to a clinch entry",
+        "Punching without transitional awareness — each punch should either score or set up a grab",
+        "Standing upright during the strike, which reduces power and makes the puncher easy to take down"
+      ]
+    },
+    {
+      "id": "pankration.klimakismos",
+      "name": "Klimakismos",
+      "description": "Ladder hold — a grappling technique where the practitioner climbs onto the opponent's back from behind, wrapping the legs around the waist (body scissors) while reaching for a choke or neck crank. Historical accounts describe klimakismos as one of the defining techniques of great pankratiasts. In modern practice, obtaining the back with body scissors followed by a submission is one of the highest-percentage finishing positions in the sport.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["pankration.pale", "pankration.kataballein"],
+      "modelPath": "content/pankration/models/klimakismos.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "back-take", "durationSeconds": 1.5, "fps": 30 }
+      ],
+      "tags": ["back-control", "intermediate", "body-scissors", "climbing"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "legs", "back", "shoulders"],
+      "commonMistakes": [
+        "Not establishing body scissors before reaching for the neck — the scissors stabilises the back mount",
+        "Crossing the feet in the body scissors, which weakens the leg lock and invites a heel hook counter",
+        "Reaching for a high collar instead of working for a lower choke entry from the back"
+      ]
+    },
+    {
+      "id": "pankration.anamesos-hold",
+      "name": "Anamesos Hold",
+      "description": "The squeeze hold — a body constriction technique where the opponent is encircled from behind with both arms around the torso and squeezed with the entire body, compressing the ribs and making breathing difficult. The anamesos hold may be combined with a trip to take the opponent down while maintaining the squeeze, or used to control a standing opponent against a wall or obstacle. It is one of the submission-like techniques documented in ancient Greek athletic tradition.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["pankration.pale", "pankration.klimakismos"],
+      "modelPath": "content/pankration/models/anamesos_hold.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "squeeze", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "tags": ["hold", "intermediate", "squeeze", "body"],
+      "cameraPreset": "front",
+      "muscleGroups": ["back", "core", "arms", "shoulders"],
+      "commonMistakes": [
+        "Interlocking the fingers rather than using a palm-to-palm grip, which fatigues the hands faster",
+        "Squeezing with the arms alone instead of driving the chest and hips forward to amplify compression",
+        "Not controlling the opponent's hips with the thighs, allowing them to swing sideways out of the hold"
+      ]
+    },
+    {
+      "id": "pankration.drasmos",
+      "name": "Drasmos",
+      "description": "Escape and evasion — the movement skills used to avoid or exit clinch holds, takedowns, and ground control. Drasmos encompasses hip escapes, stand-ups, and postural recoveries that allow the fighter to return to orthostaden or reverse position. In ancient pankration, a fighter could concede a knockdown but not a submission; modern rules similarly reward recovery and continuity of action over passive ground control.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["pankration.kataballein", "pankration.orthostaden"],
+      "modelPath": "content/pankration/models/drasmos.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "escape", "durationSeconds": 1.3, "fps": 30 }
+      ],
+      "tags": ["escape", "intermediate", "movement", "recovery"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "legs", "back", "glutes"],
+      "commonMistakes": [
+        "Escaping straight backward when lateral hip movement is faster and harder to follow",
+        "Standing up without first creating the necessary space from the opponent",
+        "Neglecting to recover the guard — an upright exit without guard invites a strike on the way up"
+      ]
+    },
+    {
+      "id": "pankration.trachilismos",
+      "name": "Trachilismos",
+      "description": "Neck leverage — twisting and bending the opponent's neck to break their posture, force a concession, or create an opening for a throw. Trachilismos includes neck cranks, cervical compressions, and head-and-neck control used to steer the opponent's entire body by controlling the head. It is one of the few techniques that converts head control directly into a submission — something neither pure wrestling nor pure boxing employs.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["pankration.pale", "pankration.pygme"],
+      "modelPath": "content/pankration/models/trachilismos.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "neck-crank", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "tags": ["neck-control", "intermediate", "crank", "posture-break"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Applying rotational neck force without first gaining contact control of the head",
+        "Clamping too close to the jawline instead of controlling at the occipital region",
+        "Using the technique on a resistant opponent without first breaking their base"
+      ]
+    },
+    {
+      "id": "pankration.anastrophe",
+      "name": "Anastrophe",
+      "description": "Reversal — the class of techniques used to turn a disadvantaged ground position into a dominant one. Anastrophe encompasses the bridge-and-roll from bottom, the sit-out turn from turtle position, and the hip switch that reverses a side control. In ancient pankration, a skilled fighter who could continually reverse the ground phase was considered especially gifted, as the ground fight was often where bouts were decided.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["pankration.drasmos", "pankration.klimakismos"],
+      "modelPath": "content/pankration/models/anastrophe.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "reversal", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "tags": ["reversal", "intermediate", "ground", "bridge"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "glutes", "back", "legs"],
+      "commonMistakes": [
+        "Bridging straight upward instead of diagonally across the opponent's weight",
+        "Sitting out without first creating hip distance from the opponent's grip",
+        "Stopping the movement after the reversal instead of continuing to a dominant position"
+      ]
+    },
+    {
+      "id": "pankration.ground-strike",
+      "name": "Ground Strike",
+      "description": "Striking while grounded — punches, hammerfists, and elbow strikes delivered from top position on the ground, one of the defining features that distinguishes pankration from pure wrestling. Ground strikes are used to open submissions, force the opponent to defend their face rather than their neck, and score points in modern sport. The practitioner must maintain positional control with the lower body while striking with the upper body.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["pankration.pygme", "pankration.anastrophe"],
+      "modelPath": "content/pankration/models/ground_strike.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "punch", "durationSeconds": 0.6, "fps": 60 }
+      ],
+      "tags": ["striking", "intermediate", "ground", "top-position"],
+      "cameraPreset": "top",
+      "muscleGroups": ["shoulders", "core", "forearms", "chest"],
+      "commonMistakes": [
+        "Raising off the hips to generate power, which sacrifices positional control",
+        "Cocking the punch with a visible windup, telegraphing the strike and allowing a guard escape",
+        "Striking without a clear target — ground strikes should target the ear, temple, or orbital bone"
+      ]
+    },
+    {
+      "id": "pankration.mese",
+      "name": "Mese",
+      "description": "Middle finger strike — a precise fingertip strike to pressure points, the solar plexus, or the throat that uses a single extended middle finger reinforced by the other fingers to deliver concentrated force. Historical accounts of pankration and ancient martial arts describe finger strikes as a way to target areas too small for a fist and to cause temporary dysfunction without the commitment of a full punch. The mese trains accuracy and the ability to fight at half-distance.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["pankration.pygme", "pankration.trachilismos"],
+      "modelPath": "content/pankration/models/mese.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.4, "fps": 60 }
+      ],
+      "tags": ["strike", "advanced", "precision", "pressure-point"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Not reinforcing the middle finger — a single unsupported finger breaks easily on impact",
+        "Targeting bony structures rather than soft tissue — mese is effective only on the throat, solar plexus, and nerve clusters",
+        "Telegraphing with a full-arm wind-up — mese should shoot from existing guard position"
+      ]
+    },
+    {
+      "id": "pankration.sphairein",
+      "name": "Sphairein",
+      "description": "Hammer blow — a powerful overhand strike using the bottom of the closed fist, originally used in pankration to target the back of the neck, the kidney, and the side of the skull. Sphairein is a short-power strike most effective at mid to close range when the practitioner has stepped to the outside of the opponent's lead leg, giving a clear angle to the vulnerable sides of the head and body not covered by the forward-facing guard.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["pankration.pygme", "pankration.ground-strike"],
+      "modelPath": "content/pankration/models/sphairein.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.5, "fps": 60 }
+      ],
+      "tags": ["strike", "advanced", "hammerfist", "overhand"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "core", "forearms", "back"],
+      "commonMistakes": [
+        "Targeting directly downward — sphairein's power path is diagonal, like a hammer striking a nail at an angle",
+        "Using only arm strength instead of driving through with the shoulder and hip",
+        "Standing in front of the opponent during the strike — angle to the outside first"
+      ]
+    },
+    {
+      "id": "pankration.akrocheirismos",
+      "name": "Akrocheirismos",
+      "description": "Finger joint manipulation — a family of small-joint locks applied to the fingers and thumb that produce immediate pain compliance without requiring strength or size advantage. In pankration, akrocheirismos attacks the fingers when the opponent grips the arm, gi collar, or face, turning their grip into a liability. The locks include wrist-assist bends, individual finger peels, and thumb compressions applied with a 'scooping' hand movement.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["pankration.trachilismos", "pankration.anamesos-hold"],
+      "modelPath": "content/pankration/models/akrocheirismos.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "lock", "durationSeconds": 0.9, "fps": 30 }
+      ],
+      "tags": ["finger-lock", "advanced", "small-joint", "pain-compliance"],
+      "cameraPreset": "front",
+      "muscleGroups": ["forearms", "shoulders"],
+      "commonMistakes": [
+        "Bending multiple fingers simultaneously instead of isolating one for maximum lever arm",
+        "Applying too slowly — the lock works only if the opponent cannot reposition their grip first",
+        "Depending on finger locks as a primary technique rather than as a disruption to set up a larger technique"
+      ]
+    },
+    {
+      "id": "pankration.lion-hold",
+      "name": "Lion Hold",
+      "description": "A pinning and compression position from historical Greek wrestling accounts where the practitioner straddles the opponent from above, controls both wrists by pinning them to the ground or inward, and applies chest-to-chest pressure. The lion hold represents the classical endpoint of a successful kataballein — once the opponent is pinned with their wrists controlled, they can be struck, choked, or held until concession. Modern pankration uses a version of this as a scoring mount position.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["pankration.klimakismos", "pankration.ground-strike", "pankration.anastrophe"],
+      "modelPath": "content/pankration/models/lion_hold.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "pin", "durationSeconds": 2.5, "fps": 30 }
+      ],
+      "tags": ["pin", "advanced", "mount", "control"],
+      "cameraPreset": "top",
+      "muscleGroups": ["core", "glutes", "back", "legs"],
+      "commonMistakes": [
+        "Sitting too high on the chest rather than on the hip crease, making the mount unstable",
+        "Pinning both wrists without establishing a hip-based base first — this leads to being bucked off",
+        "Not transitioning to a submission — the lion hold is a control position, not a finish by itself"
+      ]
+    },
+    {
+      "id": "pankration.hyptiasmos",
+      "name": "Hyptiasmos",
+      "description": "Throwing onto the back — an advanced trip or sacrifice throw that uses the fighter's own falling body weight to project the opponent into the air and crash them to the ground back-first. Hyptiasmos encompasses the lateral drop sacrifice, the tomoe-nage-like stomach throw, and the inner trip with body drop. The technique requires total commitment: once the sacrifice motion begins, the practitioner fully commits their own balance to generate the required height and force.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["pankration.kataballein", "pankration.akrocheirismos", "pankration.lion-hold"],
+      "modelPath": "content/pankration/models/hyptiasmos.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "throw", "durationSeconds": 1.4, "fps": 60 }
+      ],
+      "tags": ["throw", "advanced", "sacrifice", "airborne"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "legs", "back", "glutes", "shoulders"],
+      "commonMistakes": [
+        "Not fully committing the bodyweight to the falling motion — a half-committed hyptiasmos projects the opponent at an angle rather than straight up",
+        "Attempting the technique when the opponent's hips are low and stable — hyptiasmos requires the opponent to be upright and moving forward",
+        "Landing without a controlled rolling recovery, which leaves the practitioner prone on the ground after the throw"
+      ]
+    }
+  ]
+}
