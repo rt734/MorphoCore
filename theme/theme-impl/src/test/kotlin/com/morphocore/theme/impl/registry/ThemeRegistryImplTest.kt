@@ -77,4 +77,30 @@ class ThemeRegistryImplTest {
         advanceUntilIdle()
         assertTrue(registry.themes.value.isEmpty())
     }
+
+    @Test
+    fun `refresh called twice replaces themes not appends`() = runTest {
+        val registry = ThemeRegistryImpl(
+            source = FakeThemeAssetSource(manifests = mapOf("studio" to studioJson)),
+            ioDispatcher = StandardTestDispatcher(testScheduler),
+            scope = this
+        )
+        registry.refresh()
+        advanceUntilIdle()
+        registry.refresh()
+        advanceUntilIdle()
+        assertEquals(1, registry.themes.value.size)
+    }
+
+    @Test
+    fun `loaded theme preserves isDefault flag`() = runTest {
+        val registry = ThemeRegistryImpl(
+            source = FakeThemeAssetSource(manifests = mapOf("studio" to studioJson)),
+            ioDispatcher = StandardTestDispatcher(testScheduler),
+            scope = this
+        )
+        registry.refresh()
+        advanceUntilIdle()
+        assertTrue(registry.themes.value.first().isDefault)
+    }
 }
