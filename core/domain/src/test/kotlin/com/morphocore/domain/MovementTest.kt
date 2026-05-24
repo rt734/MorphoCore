@@ -63,4 +63,49 @@ class MovementTest {
     fun `Difficulty fromString throws on unknown value`() {
         assertThrows<IllegalArgumentException> { Difficulty.fromString("expert") }
     }
+
+    // ── MuscleGroup.fromString ────────────────────────────────────────────
+
+    @Test
+    fun `MuscleGroup fromString returns HipFlexors for underscore variant`() {
+        assertEquals(MuscleGroup.HipFlexors, MuscleGroup.fromString("hip_flexors"))
+    }
+
+    @Test
+    fun `MuscleGroup fromString returns HipFlexors for hyphen variant`() {
+        // Manifests written since Sprint 88 use "hip-flexors" (hyphen).
+        // Without this mapping the parser silently produced Unknown("hip-flexors").
+        assertEquals(MuscleGroup.HipFlexors, MuscleGroup.fromString("hip-flexors"))
+    }
+
+    @Test
+    fun `MuscleGroup fromString is case-insensitive for all known groups`() {
+        assertEquals(MuscleGroup.Quadriceps, MuscleGroup.fromString("QUADRICEPS"))
+        assertEquals(MuscleGroup.Core,       MuscleGroup.fromString("Core"))
+        assertEquals(MuscleGroup.Shoulders,  MuscleGroup.fromString("shoulders"))
+        assertEquals(MuscleGroup.HipFlexors, MuscleGroup.fromString("HIP-FLEXORS"))
+    }
+
+    @Test
+    fun `MuscleGroup fromString returns correct singleton for each known name`() {
+        val expected = mapOf(
+            "quadriceps" to MuscleGroup.Quadriceps,
+            "hamstrings" to MuscleGroup.Hamstrings,
+            "glutes"     to MuscleGroup.Glutes,
+            "core"       to MuscleGroup.Core,
+            "shoulders"  to MuscleGroup.Shoulders,
+            "back"       to MuscleGroup.Back,
+            "chest"      to MuscleGroup.Chest,
+            "calves"     to MuscleGroup.Calves
+        )
+        expected.forEach { (token, group) ->
+            assertEquals(group, MuscleGroup.fromString(token), "fromString($token) should return $group")
+        }
+    }
+
+    @Test
+    fun `Movement description defaults to empty string when not supplied`() {
+        val m = validMovement()
+        assertEquals("", m.description)
+    }
 }
