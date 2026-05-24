@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "tai-chi",
+  "disciplineName": "Tai Chi",
+  "description": "Tai Chi (太極拳, Taijiquan — 'Supreme Ultimate Fist') is a Chinese internal martial art characterised by slow, continuous, circular movement practised as a flowing form (taolu) that trains the body's structural alignment, the ability to generate force without muscular tension, and the practitioner's sensitivity to and redirection of incoming force. Developed from the Chen family style in Henan province in the 17th century and later branching into the Yang, Wu, Sun, and other family styles, Tai Chi is today practised worldwide primarily for its well-documented health benefits — reduced cardiovascular risk, improved balance and fall prevention, stress reduction — while a smaller community maintains its martial application in the push-hands (tuishou) partner practice. The art's central theoretical framework draws on Taoist philosophy: the opposing forces of yin (soft, yielding, receiving) and yang (firm, active, expressing) are embodied in every technique, so that what appears to be a yield is simultaneously a redirection, and what appears to be stillness contains stored potential energy. Unlike external martial arts that seek to overcome force with greater force, Tai Chi seeks to neutralise force by redirecting its path so that it misses the target and exhausts itself, then expressing force back along the opponent's now-unguarded line.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "tai-chi.wuji-stance",
+      "name": "Wuji Stance",
+      "description": "The pre-form standing meditation — an upright standing posture with feet shoulder-width apart, arms hanging naturally at the sides, eyes gazing softly forward, and the mind settling into a state of quiet alertness that precedes all Tai Chi practice. Wuji (Chinese: 'limitless/void') represents the state of undifferentiated potential before Tai Chi (supreme polarity) arises — philosophically, the stance before the first movement is the ground condition from which all movement emerges and to which it returns. Physically, wuji practice develops postural alignment: the feet rooted, the knees slightly bent, the hips released downward, the spine vertical without stiffening, the shoulders dropped, the crown of the head suspended as if by a thread from above. Practitioners hold wuji for 5–20 minutes in advanced practice, developing the ability to maintain structural alignment under the progressive fatigue that sustained standing produces. The alignment established in wuji is the structural baseline that all Tai Chi movement refines — practice quality in wuji directly predicts the structural quality of the form that follows.",
+      "modelPath": "content/tai-chi/models/wuji_stance.glb",
+      "defaultClip": "stand",
+      "clips": [
+        {"name": "stand", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["core", "quadriceps", "back", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "meditation", "fundamentals", "alignment"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Locking the knees fully straight rather than keeping them soft and slightly bent, creating tension in the joint that prevents the grounding sensation and restricts the hip-release that the stance is developing"},
+        {"description": "Consciously trying to relax by letting the posture collapse rather than finding the structural alignment that makes relaxation sustainable — Wuji relaxation is upright and supported, not sagging"}
+      ]
+    },
+    {
+      "id": "tai-chi.ward-off",
+      "name": "Peng — Ward Off",
+      "description": "The outward expanding structure — a rounded, outward-facing arm and body position that intercepts and redirects incoming force by presenting a convex surface rather than a flat one, using the expansion of the practitioner's own structure to deflect rather than block. Peng (Chinese: roughly 'ward-off / outward expanding energy') is the first and most fundamental of Tai Chi's eight energies (ba jin) and is not a specific technique but a quality that pervades all techniques: the arm maintains a curved, springy tension that neither collapses under pressure nor locks rigid against it. In push-hands training, peng is tested by the partner pressing on the forearm — a correct peng maintains its shape and redirects the force around the body rather than absorbing it. Ward-off as a specific movement appears in the first position of all major Tai Chi forms and establishes the arm structure that all subsequent techniques build on.",
+      "modelPath": "content/tai-chi/models/ward_off.glb",
+      "defaultClip": "expand",
+      "clips": [
+        {"name": "expand", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "beginner",
+      "tags": ["peng", "defense", "fundamentals", "energy"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Holding the arm out with muscular tension rather than a springy structural expansion, creating a stiff block rather than the resilient outward structure that redirects force by springiness rather than resistance"},
+        {"description": "Allowing the arm to collapse inward when pressed rather than maintaining the curve's integrity, losing peng and becoming subject to the force rather than neutralising it"}
+      ]
+    },
+    {
+      "id": "tai-chi.grasp-birds-tail",
+      "name": "Grasp the Bird's Tail",
+      "description": "The four-energy sequence — a foundational four-technique movement sequence that combines ward-off (peng), roll-back (lu), press (ji), and push (an) into a continuous form that expresses all four of Tai Chi's primary energies in succession. Grasp the Bird's Tail (Lan Que Wei) is the most recognised movement in Yang-style Tai Chi and serves both as a form exercise and as the primary push-hands training template: the four energies are practised in the two-person rollover push-hands drill with each practitioner cycling through peng→lu→ji→an in a rotating exchange. The sequence embodies the principle of round, continuous movement — there are no stops or reversals, only smooth transitions from one energy to the next — and it is the sequence from which all Tai Chi applications are derived by extracting individual phases. The bird's tail metaphor refers to the practitioner's arm position and movement suggesting the gentle control of a captured bird — firm enough to hold without crushing.",
+      "modelPath": "content/tai-chi/models/grasp_birds_tail.glb",
+      "defaultClip": "sequence",
+      "clips": [
+        {"name": "sequence", "durationSeconds": 5.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "quadriceps", "glutes"],
+      "difficulty": "beginner",
+      "tags": ["form", "four-energies", "fundamentals", "combination"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["tai-chi.wuji-stance", "tai-chi.ward-off"],
+      "commonMistakes": [
+        {"description": "Pausing between the four energies rather than flowing continuously, treating Grasp the Bird's Tail as four separate postures rather than one uninterrupted movement sequence"},
+        {"description": "Keeping the weight static rather than shifting from front to rear and back to front as each energy phase requires, performing upper-body shapes without the weight-shifting root that drives the energies from the ground"}
+      ]
+    },
+    {
+      "id": "tai-chi.single-whip",
+      "name": "Single Whip",
+      "description": "The extended guard position — a wide-stance posture with the lead arm extended forward palm-facing-out and the rear arm extended out to the side in a hook-hand (crane-beak) position, covering both flanks simultaneously with the body turned to face slightly off-centre. Single Whip (Dan Bian) appears in all major Tai Chi styles and is one of the most photographically recognised Tai Chi postures. The crane-beak hand (fingers pinched to the thumb, wrist dropped) is a unique structural hand position that concentrates the downward energy of the arm into the fingers for a finger-attack application while stretching the tendons of the forearm. Single Whip as a martial application controls the opponent's rear arm with the crane-beak while the lead palm either pushes forward or strikes, creating an inescapable two-point control. In form practice, the extended, unhurried settling into Single Whip develops the practitioner's ability to express the peng quality through a fully extended arm without muscular lock.",
+      "modelPath": "content/tai-chi/models/single_whip.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "intermediate",
+      "tags": ["form", "posture", "guard"],
+      "cameraPreset": "front",
+      "prerequisites": ["tai-chi.grasp-birds-tail"],
+      "commonMistakes": [
+        {"description": "Extending both arms simultaneously rather than following the sequential weight-shift and arm-extension that the transition into Single Whip requires, losing the spiral energy that rises from the foot through the turning hip into the arm"},
+        {"description": "Holding the crane-beak by gripping the fingers with muscular effort rather than letting them pinch naturally from structural alignment, creating forearm tension that blocks the energy flow the position is specifically designed to develop"}
+      ]
+    },
+    {
+      "id": "tai-chi.rollback",
+      "name": "Lu — Roll Back",
+      "description": "The yielding redirection — a retreating, spiral movement in which the practitioner steps or shifts backward while guiding the opponent's extended arm in a circular arc that leads their momentum to empty space and repositions them into vulnerability. Lu (Chinese: roughly 'roll-back / yielding energy') is the yin complement to peng: where peng expands outward against incoming force, lu yields inward and downward in a circular path that carries the incoming force past the practitioner's body. In push-hands, lu is applied when peng no longer can redirect the force — when the opponent is too committed or too strong, the practitioner yields completely, leading the force in a circle until it exhausts itself and the opponent over-extends. The critical element is that yielding in lu is active rather than passive: the practitioner leads the force along a specific spiralling path that creates a specific positional disadvantage for the opponent, not merely collapsing away from the pressure.",
+      "modelPath": "content/tai-chi/models/rollback.glb",
+      "defaultClip": "yield",
+      "clips": [
+        {"name": "yield", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders", "quadriceps", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["lu", "defense", "yielding", "redirection"],
+      "cameraPreset": "side",
+      "prerequisites": ["tai-chi.ward-off", "tai-chi.grasp-birds-tail"],
+      "commonMistakes": [
+        {"description": "Retreating straight backward rather than in a circular arc, removing the body from the force but losing the positional control that lu is designed to establish by leading the opponent into an over-extended posture"},
+        {"description": "Abandoning contact with the opponent's arm during the yield, losing the tactile connection that allows the practitioner to sense and respond to changes in the opponent's direction or force"}
+      ]
+    },
+    {
+      "id": "tai-chi.push",
+      "name": "An — Push",
+      "description": "The downward-and-forward expressive force — a two-palm press delivered forward and slightly downward into the opponent's torso or shoulders, using the full body's coordinated wave of ground-reaction force rising through the legs, hips, and spine to the hands. An (Chinese: roughly 'press downward / push') is the fourth energy in the Grasp the Bird's Tail sequence and the primary expressing technique in Tai Chi push-hands: after peng neutralises, lu redirects, and ji (press) consolidates, an delivers the practitioner's intention through the structure in a single connected impulse. Because an uses the ground through the body to the hands in an unbroken chain, it does not require muscular arm extension — the arms are conduits, not sources. In practice, an is the technique that reveals whether the practitioner's structure is truly connected: a disconnected an requires muscular arm strength; a connected an requires no arm effort at all because the legs do all the work.",
+      "modelPath": "content/tai-chi/models/push.glb",
+      "defaultClip": "press",
+      "clips": [
+        {"name": "press", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["core", "back", "glutes", "quadriceps", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["an", "push", "expression", "ground-force"],
+      "cameraPreset": "side",
+      "prerequisites": ["tai-chi.rollback", "tai-chi.grasp-birds-tail"],
+      "commonMistakes": [
+        {"description": "Pushing with arm extension rather than weight shift and leg drive, producing an arm-powered push that the opponent can resist with equal arm strength rather than a whole-body wave that is biomechanically unanswerable"},
+        {"description": "Over-extending the push past the point of contact and losing structural alignment at full extension, disconnecting the chain from the ground and making the follow-through empty rather than continuously connected"}
+      ]
+    },
+    {
+      "id": "tai-chi.brush-knee",
+      "name": "Brush Knee and Push",
+      "description": "The combination defense-and-attack — a simultaneous low-gate defence and high-gate strike in which one hand brushes downward across the knee to intercept or redirect a low-line attack while the opposite hand drives a palm strike forward. Brush Knee and Push (Lou Xi Ao Bu) appears repeatedly in Yang-style Tai Chi forms and teaches the principle of using both hands simultaneously for different purposes — defence and offence — a practical application of the yin-yang principle in which the two hands express opposite qualities (yielding and expressing) at the same instant. The stepping forward during Brush Knee involves a specifically Tai Chi footwork pattern: the heel lands first with the foot empty, then weight transfers forward as the hands complete their respective motions, synchronising the step, the brush, and the push into a single connected action.",
+      "modelPath": "content/tai-chi/models/brush_knee.glb",
+      "defaultClip": "step",
+      "clips": [
+        {"name": "step", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "shoulders", "back"],
+      "difficulty": "intermediate",
+      "tags": ["form", "defense", "strike", "simultaneous"],
+      "cameraPreset": "side",
+      "prerequisites": ["tai-chi.grasp-birds-tail", "tai-chi.single-whip"],
+      "commonMistakes": [
+        {"description": "Moving the hands before the weight shift begins rather than initiating both simultaneously, breaking the synchronisation between step and hand movement and losing the ground-driven wave that powers the palm strike"},
+        {"description": "Brushing the knee in isolation rather than as a connected downward circle that leads from the shoulder — the brush is a whole-arm deflection that begins at the shoulder, not a hand-only motion from the wrist"}
+      ]
+    },
+    {
+      "id": "tai-chi.cloud-hands",
+      "name": "Cloud Hands",
+      "description": "The lateral stepping drill — a side-stepping sequence in which the arms trace overlapping horizontal circles like moving clouds while the weight shifts smoothly from foot to foot and the waist turns to power each arm transition. Cloud Hands (Yun Shou) is practised as a continuous drill in addition to appearing in the form and is one of the most meditative and physically demanding Tai Chi movement patterns at advanced speed: the side-steps must be precise (heel-down, then toe-in), the weight shifts complete before the next step, and the arms maintain their spherical quality throughout the lateral travel. The martial application of Cloud Hands is redirecting a series of sequential attacks from both sides simultaneously — each arm alternately deflects and expresses — making it a training tool for the ambidirectional sensitivity that push-hands develops. Because it is practised in both directions and involves multiple repetitions, Cloud Hands is the Tai Chi movement that most directly develops the whole-body coordination and waist-powered arm movement that characterise advanced practice.",
+      "modelPath": "content/tai-chi/models/cloud_hands.glb",
+      "defaultClip": "lateral",
+      "clips": [
+        {"name": "lateral", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders", "quadriceps", "glutes"],
+      "difficulty": "intermediate",
+      "tags": ["form", "coordination", "footwork", "drill"],
+      "cameraPreset": "front",
+      "prerequisites": ["tai-chi.single-whip", "tai-chi.brush-knee"],
+      "commonMistakes": [
+        {"description": "Moving the arms through the circles with shoulder and elbow effort rather than waist rotation, producing arm-circles driven from the arms rather than whole-arm arcs driven from the turning waist"},
+        {"description": "Allowing the weight to become stranded mid-shift during the lateral step, stepping onto a foot before the previous shift is complete and creating an unstable transitional double-weight that Tai Chi theory and practice consistently identify as vulnerability"}
+      ]
+    },
+    {
+      "id": "tai-chi.push-hands",
+      "name": "Push Hands (Tuishou)",
+      "description": "The sensitivity partner drill — the cooperative two-person practice in which both practitioners maintain wrist-to-forearm contact and cycle through Grasp the Bird's Tail's four energies in a rolling exchange, each practitioner simultaneously practising neutralisation of the partner's force and expression of their own. Tuishou (Chinese: 'push hands') is the bridge between solo form practice and martial application: while forms develop structural alignment and movement quality in isolation, push-hands tests those qualities against a live, reactive partner. The drill begins with fixed-step single-hand rollover (both practitioners stationary, one hand each), progressing to double-hand rollover, free-step push-hands, and ultimately the freestyle pushing that is Tai Chi competition's main event. In push-hands, practitioners develop the listening energy (ting jin) — the ability to sense the partner's force direction, rootedness, and intent through the point of contact — which is Tai Chi's defining sensitivity skill and the ability from which all application derives.",
+      "modelPath": "content/tai-chi/models/push_hands.glb",
+      "defaultClip": "roll",
+      "clips": [
+        {"name": "roll", "durationSeconds": 4.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders", "quadriceps", "glutes"],
+      "difficulty": "advanced",
+      "tags": ["push-hands", "partner-work", "sensitivity", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["tai-chi.push", "tai-chi.rollback"],
+      "commonMistakes": [
+        {"description": "Using force to try to push the partner rather than listening to their force and neutralising it before expressing, turning push-hands into a strength contest that defeats its purpose as a sensitivity training tool"},
+        {"description": "Breaking contact with the partner's arm to avoid their push, abandoning the contact through which listening energy (ting jin) is developed — the practitioner must stay in contact and yield, not escape"}
+      ]
+    },
+    {
+      "id": "tai-chi.wave-hands-clouds",
+      "name": "Wave Hands Like Clouds",
+      "description": "The upper-gate redirection sequence — a flowing series of turning, stepping movements in which the hands trace spherical paths that simultaneously intercept upper-level attacks from both sides while creating express-yield alternations that embody the Tai Chi principle. Wave Hands Like Clouds (Yun Shou variant, upper level) is trained at different speeds: slowly to develop the spherical, unbroken quality of the arm path; at conversation speed to develop the coordination of step-shift-turn-hand; at full speed to develop the reflexive neutralisation responses that only emerge when the movement is automatic rather than deliberated. The sequence's length — it is repeated three times in standard Yang forms — develops stamina and the ability to maintain structural quality under progressive fatigue, since the arm path degrading under tiredness is the primary indicator that the movement is still muscular rather than structural.",
+      "modelPath": "content/tai-chi/models/wave_hands_clouds.glb",
+      "defaultClip": "flow",
+      "clips": [
+        {"name": "flow", "durationSeconds": 5.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders", "quadriceps", "glutes", "calves"],
+      "difficulty": "advanced",
+      "tags": ["form", "flowing", "advanced", "multi-directional"],
+      "cameraPreset": "front",
+      "prerequisites": ["tai-chi.cloud-hands", "tai-chi.push-hands"],
+      "commonMistakes": [
+        {"description": "Speeding up the sequence to complete it faster rather than maintaining the deliberate, spacious timing that reveals whether the movement is truly relaxed and connected, since tension and disconnection become apparent at slow speeds and are hidden at fast ones"},
+        {"description": "Performing the arm paths as flat circles in a single plane rather than as three-dimensional spherical arcs, reducing the movement to a two-dimensional sweep that lacks the depth of field that gives Wave Hands its neutralisation geometry"}
+      ]
+    },
+    {
+      "id": "tai-chi.white-crane",
+      "name": "White Crane Spreads Wings",
+      "description": "The single-leg rising guard — a momentary posture in which the practitioner's weight settles entirely on the rear foot while the lead foot becomes empty, the upper arm rises to guard height and the lower arm drops to waist height, creating a simultaneous high-gate guard and low-gate opening that invites and then controls the opponent's response. White Crane Spreads Wings (Bai He Liang Chi) is one of Tai Chi's most visually striking postures and teaches the concept of empty (xu) and full (shi) — the principle that the practitioner is never equally weighted on both feet but always clear about which leg bears and which leg is free. The empty front leg is simultaneously a withdrawal from the opponent's low-kick range (it cannot be swept because it bears no weight) and a ready position from which a kick can be delivered without telegraphing. The rising guard arm intercepts a high-level strike while the lowering arm either intercepts a body strike or attacks an opening created by the opponent's rising arm.",
+      "modelPath": "content/tai-chi/models/white_crane.glb",
+      "defaultClip": "rise",
+      "clips": [
+        {"name": "rise", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "core", "back", "shoulders", "calves"],
+      "difficulty": "intermediate",
+      "tags": ["form", "balance", "single-leg", "guard"],
+      "cameraPreset": "front",
+      "prerequisites": ["tai-chi.grasp-birds-tail", "tai-chi.single-whip"],
+      "commonMistakes": [
+        {"description": "Balancing on the rear foot by tensing the standing leg rather than finding the structural root that makes the balance effortless — tension in the standing leg vibrates under held balance, revealing that the weight is managed muscularly rather than structurally"},
+        {"description": "Splitting the attention between the two arms and executing each separately rather than expressing the two arms as a single oppositely-directed movement powered by the same waist rotation and connected through the torso"}
+      ]
+    },
+    {
+      "id": "tai-chi.repulse-monkey",
+      "name": "Repulse Monkey",
+      "description": "The retreating counter-strike — a backward-stepping sequence in which the practitioner steps back repeatedly while one hand deflects a grabbing or advancing attack inward-and-downward and the other hand strikes forward at the now-exposed target. Repulse Monkey (Dao Juan Gong) is Tai Chi's answer to an opponent who is pressing aggressively forward: the practitioner does not retreat to escape but retreats to lead the opponent's advance into a strike, with each step backward drawing the opponent forward into the awaiting palm. The technique embodies the principle of using the opponent's force against themselves — the more forcefully they advance, the more decisively they walk into the counter-strike. In form practice, Repulse Monkey is typically performed three to five times in sequence, developing the ability to continue fighting while retreating without the defensive framing of the backward step colouring the movement as only defensive.",
+      "modelPath": "content/tai-chi/models/repulse_monkey.glb",
+      "defaultClip": "retreat",
+      "clips": [
+        {"name": "retreat", "durationSeconds": 3.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "back", "shoulders"],
+      "difficulty": "intermediate",
+      "tags": ["form", "counter", "retreat", "footwork"],
+      "cameraPreset": "side",
+      "prerequisites": ["tai-chi.brush-knee", "tai-chi.rollback"],
+      "commonMistakes": [
+        {"description": "Looking backward over the shoulder when stepping back rather than maintaining forward gaze, losing the opponent visual connection that the simultaneous strike requires and creating a hesitation between the step and the forward palm expression"},
+        {"description": "Stepping backward before the deflecting hand has completed its inward sweep, causing the step and the hand to be disconnected in time and preventing the simultaneous whole-body expression that makes the technique effective"}
+      ]
+    },
+    {
+      "id": "tai-chi.fair-lady-works-shuttles",
+      "name": "Fair Lady Works Shuttles",
+      "description": "The four-corner combination — a movement sequence executed in four diagonal directions that combines a ward-off arm position with a simultaneous upward forearm block and a forward palm push, each repetition oriented 45 degrees from the last and covering all four diagonal attack lines. Fair Lady Works Shuttles (Yu Nu Chuan Suo) is one of Yang-style Tai Chi's most complex movements and earns its name from the weaving shuttle of a loom — the hands pass repeatedly in opposing directions while the body turns to face each diagonal in succession. The four-corner structure trains spatial orientation (proprioception of where the body faces relative to the training space), the simultaneous use of both arms for different defensive functions, and the weight-shifting that drives each of the eight arm movements from the legs rather than the shoulders. At the advanced level, the sequence is used to train the practitioner's ability to apply the ward-off/push combination against attacks arriving from any angle without the conscious calculation that real-time combat does not permit.",
+      "modelPath": "content/tai-chi/models/fair_lady_works_shuttles.glb",
+      "defaultClip": "shuttle",
+      "clips": [
+        {"name": "shuttle", "durationSeconds": 6.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "back", "shoulders", "calves"],
+      "difficulty": "advanced",
+      "tags": ["form", "four-corners", "advanced", "spatial"],
+      "cameraPreset": "top",
+      "prerequisites": ["tai-chi.wave-hands-clouds", "tai-chi.repulse-monkey"],
+      "commonMistakes": [
+        {"description": "Turning the body before placing the stepping foot, rotating the torso into the new diagonal before the weight has transferred onto the new support foot and losing the stable base that the pivot requires"},
+        {"description": "Treating each of the four corners as a separate technique with a full stop between each, missing the continuous weaving rhythm that the shuttle metaphor describes and that distinguishes correct Fair Lady from a sequence of four repeated ward-off/pushes"}
+      ]
+    },
+    {
+      "id": "tai-chi.needle-at-sea-bottom",
+      "name": "Needle at Sea Bottom",
+      "description": "The downward penetrating energy — a technique in which the practitioner shifts to the rear foot and drives one hand sharply downward toward the floor in a concentrated, precise movement while the other arm guards overhead, the whole action expressing the quality of a needle penetrating downward through the water to the sea floor. Needle at Sea Bottom (Hai Di Zhen) is one of Tai Chi's most distinctive single-hand techniques and illustrates the art's precision principle: all the body's connected force is gathered into a single pointed expression directed at a specific target through a single concentrated downward path. The martial application intercepts the opponent's attacking arm from above and drives it sharply downward, taking the opponent's structure and balance by pulling their extended limb toward the floor. In form practice, the exaggerated downward expression of the needle technique is an exercise in gathering and focusing force rather than diffusing it, developing the concentrated jin (refined force) quality that distinguishes Tai Chi expression from muscular hitting.",
+      "modelPath": "content/tai-chi/models/needle_at_sea_bottom.glb",
+      "defaultClip": "pierce",
+      "clips": [
+        {"name": "pierce", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["core", "back", "shoulders", "quadriceps", "glutes"],
+      "difficulty": "advanced",
+      "tags": ["form", "downward-force", "advanced", "precision"],
+      "cameraPreset": "side",
+      "prerequisites": ["tai-chi.push", "tai-chi.fair-lady-works-shuttles"],
+      "commonMistakes": [
+        {"description": "Leaning the torso forward to reach toward the floor rather than shifting the weight fully to the rear foot first and then driving the arm downward from that stable rear-weighted position, which is the structural source of the downward energy"},
+        {"description": "Using the shoulder and arm to generate the downward force rather than connecting the downward expression to the rear-foot grounding, producing an arm-press rather than a ground-connected penetrating energy"}
+      ]
+    },
+    {
+      "id": "tai-chi.yang-form",
+      "name": "Yang 24-Form",
+      "description": "The simplified Yang-style Tai Chi form — a 24-movement sequence standardised by the Chinese Sports Commission in 1956 as a simplified introduction to Yang-style Tai Chi, containing the most representative movements of the full Yang form in an accessible sequence that takes approximately 5–6 minutes to complete and is the most widely practised Tai Chi form worldwide. Yang 24-Form (Simplified Taijiquan) distils the core techniques and movement principles of classical Yang Tai Chi — including Grasp the Bird's Tail, Single Whip, Wave Hands Like Clouds, Brush Knee, Repulse Monkey, and Fair Lady Works Shuttles — into a forward-and-back journey across the practice space that begins and ends at the same point. Performing the full form as a single continuous movement, without pauses or resets, is the integration exercise that tests whether all the individual components have been successfully absorbed as a unified practice: the quality of each movement reflects the quality of all preceding movements, since errors of alignment, weight distribution, or arm structure accumulate through the form rather than resetting at each posture.",
+      "modelPath": "content/tai-chi/models/yang_form.glb",
+      "defaultClip": "form",
+      "clips": [
+        {"name": "form", "durationSeconds": 6.0, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "back", "shoulders", "calves"],
+      "difficulty": "advanced",
+      "tags": ["form", "yang-style", "advanced", "full-form"],
+      "cameraPreset": "side",
+      "prerequisites": ["tai-chi.push-hands", "tai-chi.needle-at-sea-bottom"],
+      "commonMistakes": [
+        {"description": "Memorising the sequence of movements before achieving structural quality in individual postures, building a habit of moving through forms with familiar shapes but incorrect alignment, which is significantly harder to correct at the form level than at the individual technique level"},
+        {"description": "Practising the form at a single consistent speed rather than varying the tempo to understand which transitions are structural (and can be done at any speed) versus superficially mechanical (which break down at slow speed, revealing the incompleteness of the understanding)"}
+      ]
+    }
+  ]
+}
