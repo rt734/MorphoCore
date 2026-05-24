@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "disciplineId": "wing-chun",
+  "disciplineName": "Wing Chun",
+  "description": "Wing Chun (詠春拳) is a Chinese martial art developed in southern China focused on close-range combat, economy of motion, and the principle of the centerline — an imaginary vertical axis running through the centre of the body that governs both attack and defence. Almost all Wing Chun techniques travel along or protect the centerline, making the system structurally different from circular martial arts. Wing Chun is distinguished by simultaneous defence and attack: a deflecting hand and a striking hand operate independently yet together so that the response to any attack is always a counter-strike. Chi Sao (sticky hands), a tactile sensitivity drill practised with a partner, develops the ability to feel and redirect force rather than relying on sight, enabling the system to function at the close ranges where vision-based reaction time is too slow.",
+  "iconPath": null,
+  "movements": [
+    {
+      "id": "wing-chun.yee-ji-kim-yeung-ma",
+      "name": "Yee Ji Kim Yeung Ma",
+      "description": "The foundational training stance of Wing Chun, in which the feet are parallel and shoulder-width apart with the toes turned inward, the knees pressed outward against the inward tension of the turned-in feet, and the pelvis tucked to create a rooted, spring-loaded base. The name (Cantonese: 'character two adduction horse') refers to the character for the number two (二), which the feet approximate in alignment. Yee Ji Kim Yeung Ma is not used as a combat stance but as a training position that develops the muscular tension, structural alignment, and energy pathways that underpin all Wing Chun techniques. Practitioners hold the stance for extended periods while practising hand techniques, drilling the legs to support rapid upper-body movement without shifting the base.",
+      "modelPath": "content/wing-chun/models/yee_ji_kim_yeung_ma.glb",
+      "defaultClip": "hold",
+      "clips": [
+        {"name": "hold", "durationSeconds": 2.5, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves"],
+      "difficulty": "beginner",
+      "tags": ["stance", "fundamentals", "structure"],
+      "cameraPreset": "front",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Allowing the knees to fall inward rather than pressing them outward against the pigeon-toed tension, collapsing the structural base and reducing power transfer to the hands"},
+        {"description": "Standing with the torso leaning forward rather than vertically upright, shifting the centre of gravity forward and making the stance susceptible to being pushed backward"}
+      ]
+    },
+    {
+      "id": "wing-chun.tan-sao",
+      "name": "Tan Sao",
+      "description": "The dispersing hand — a palm-up forearm deflection in which the forearm sweeps outward from the centreline in a rising arc, redirecting an incoming strike away from the body. Tan Sao (Cantonese: 'palm-up hand') is one of the three foundational gate-opening techniques in Wing Chun and is the primary answer to a straight punch directed at the upper gate. The palm faces upward and the elbow drops slightly below the wrist, creating a structural wedge that redirects force laterally rather than absorbing it. Tan Sao is always trained in combination with a simultaneous strike from the opposite hand — the concept of simultaneous defence and attack is built into the technique from its first repetition.",
+      "modelPath": "content/wing-chun/models/tan_sao.glb",
+      "defaultClip": "deflect",
+      "clips": [
+        {"name": "deflect", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "beginner",
+      "tags": ["defense", "deflection", "fundamentals"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Raising the elbow above the wrist, inverting the structural angle and turning the deflection into a horizontal block that absorbs rather than redirects force"},
+        {"description": "Pushing the tan sao outward past the shoulder line, over-committing the deflecting arm and exposing the centreline on the deflecting side"}
+      ]
+    },
+    {
+      "id": "wing-chun.fook-sao",
+      "name": "Fook Sao",
+      "description": "The bridge-on arm — a bent-arm position in which the forearm rests on or presses down on the opponent's arm, maintaining contact and structural pressure from above. Fook Sao (Cantonese: 'subduing hand') sits just inside and above the opponent's limb, using the elbow's downward angle to create a controlling bridge. Unlike a deflection, fook sao is a maintaining technique: once contact is established it rides the opponent's arm to feel and control their force and intent. It is the primary hand position used in chi sao training for the inner arm and develops the sensitivity to distinguish pulling, pushing, and withdrawing forces through touch rather than sight.",
+      "modelPath": "content/wing-chun/models/fook_sao.glb",
+      "defaultClip": "bridge",
+      "clips": [
+        {"name": "bridge", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "beginner",
+      "tags": ["defense", "bridging", "fundamentals"],
+      "cameraPreset": "side",
+      "prerequisites": [],
+      "commonMistakes": [
+        {"description": "Straightening the elbow fully rather than keeping it bent at roughly 135 degrees, eliminating the spring that absorbs incoming force and allows rapid transition to strikes"},
+        {"description": "Gripping the opponent's arm rather than resting the forearm on it, switching from sensitivity-based control to strength-based holding — the opposite of Wing Chun's principle"}
+      ]
+    },
+    {
+      "id": "wing-chun.bong-sao",
+      "name": "Bong Sao",
+      "description": "The wing arm — a high deflection in which the elbow rises to shoulder height or above and the forearm drops inward, creating a sloping surface that redirects incoming force upward and off the centreline. Bong Sao (Cantonese: 'wing arm') is the defining image of Wing Chun and forms the basis for the Biu Jee and Wooden Dummy forms. The raised elbow and dropped wrist create a wedge that uses the upper half of the forearm to redirect rather than block, preventing force from reaching the body without requiring muscular resistance. Bong Sao is most commonly used against an incoming punch to the high gate and transitions fluidly into a Tan Sao or strike as the deflection completes.",
+      "modelPath": "content/wing-chun/models/bong_sao.glb",
+      "defaultClip": "deflect",
+      "clips": [
+        {"name": "deflect", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "deflection", "high-gate"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wing-chun.tan-sao"],
+      "commonMistakes": [
+        {"description": "Raising the entire arm straight rather than elevating the elbow while allowing the wrist to drop inward, producing a rigid block rather than the sloping surface that makes bong sao a redirect"},
+        {"description": "Holding bong sao as a static final position rather than transitioning out of it immediately, since a held bong sao is structurally weak and can be overridden by sustained pressure"}
+      ]
+    },
+    {
+      "id": "wing-chun.pak-sao",
+      "name": "Pak Sao",
+      "description": "A sharp slapping deflection in which the palm strikes the opponent's forearm laterally to redirect it off the centreline, typically followed immediately by a strike from the same hand or the opposite hand. Pak Sao (Cantonese: 'slapping hand') is the primary tool for intercepting and clearing a committed straight punch at mid-range. The slap is not a block — it uses short, sharp palm contact to redirect the arm's momentum rather than stop it, and the deflecting hand immediately recovers or converts into a strike before the opponent can respond. The combination of pak sao with a simultaneous chain punch is one of the most common Wing Chun exchanges and exemplifies the style's simultaneous-attack-and-defence principle.",
+      "modelPath": "content/wing-chun/models/pak_sao.glb",
+      "defaultClip": "slap",
+      "clips": [
+        {"name": "slap", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "deflection", "simultaneous"],
+      "cameraPreset": "front",
+      "prerequisites": ["wing-chun.tan-sao"],
+      "commonMistakes": [
+        {"description": "Pushing the arm sideways with sustained pressure rather than using a sharp percussive contact, slowing the response and allowing the opponent's arm to return to the centreline"},
+        {"description": "Deflecting without a simultaneous strike, treating pak sao as a complete defensive action rather than the first half of a single combined movement"}
+      ]
+    },
+    {
+      "id": "wing-chun.lien-wan-kuen",
+      "name": "Lien Wan Kuen",
+      "description": "The chain punch — a rapid sequence of straight punches travelling along the centreline in immediate succession, each punch replacing the previous as the retracting hand drives the next forward. Lien Wan Kuen (Cantonese: 'continuous linked punches') operates on the principle that the fastest and most direct path between two points is the straight line — the punches travel a shorter distance than circular strikes and therefore arrive faster. The simultaneous push-and-pull of the two arms creates a linked-chain energy in which the retracting fist generates as much force contribution as the forward punch. At full speed the individual punches merge into a continuous barrage that prevents the opponent from finding a gap to counterattack.",
+      "modelPath": "content/wing-chun/models/lien_wan_kuen.glb",
+      "defaultClip": "punch",
+      "clips": [
+        {"name": "punch", "durationSeconds": 1.5, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["strike", "punch", "centerline"],
+      "cameraPreset": "side",
+      "prerequisites": ["wing-chun.yee-ji-kim-yeung-ma"],
+      "commonMistakes": [
+        {"description": "Punching with the knuckles turned horizontally rather than vertically, spreading the impact over a larger surface and reducing the penetrating force along the centreline"},
+        {"description": "Allowing gaps between punches where the retracting fist completes its pull before the next punch launches, breaking the chain and giving the opponent a recovery window"}
+      ]
+    },
+    {
+      "id": "wing-chun.wu-sao",
+      "name": "Wu Sao",
+      "description": "The guarding hand — a vertical palm-facing-outward position held at centreline height as a passive guard for the secondary hand while the primary hand is extended or engaged. Wu Sao (Cantonese: 'guarding hand') sits in reserve: it does not deflect until called upon but maintains structural readiness so that a transition from passive to active requires minimal movement. In Wing Chun practice the wu sao hand changes role constantly — what is wu sao one moment becomes the striking or deflecting hand the next. Developing a relaxed wu sao that remains structurally sound without tensing prevents the guard from becoming rigid, which would slow the transitions that make the system work.",
+      "modelPath": "content/wing-chun/models/wu_sao.glb",
+      "defaultClip": "guard",
+      "clips": [
+        {"name": "guard", "durationSeconds": 1.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "core", "back"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "guard", "structure"],
+      "cameraPreset": "front",
+      "prerequisites": ["wing-chun.fook-sao"],
+      "commonMistakes": [
+        {"description": "Tensing the wu sao hand so that it becomes a fist rather than an open palm, slowing the transition to active techniques and broadcasting the guard as a potential target"},
+        {"description": "Allowing the wu sao hand to drift off the centreline over time, leaving the central axis unguarded when the primary hand is committed to a deflection or strike"}
+      ]
+    },
+    {
+      "id": "wing-chun.gum-sao",
+      "name": "Gum Sao",
+      "description": "The pinning hand — a downward palm press that intercepts a low attack or pins the opponent's arm to prevent it from rising or striking. Gum Sao (Cantonese: 'pressing/pinning hand') is used to immobilise the opponent's limb momentarily while the other hand strikes. The press travels downward along the centreline and uses gravity and body structure rather than muscular force, so maintaining alignment matters more than physical strength. In chi sao training gum sao develops the sensitivity to detect a rising or forward force and respond with a downward redirection faster than the opponent can recover, trapping the arm below the critical line.",
+      "modelPath": "content/wing-chun/models/gum_sao.glb",
+      "defaultClip": "pin",
+      "clips": [
+        {"name": "pin", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["defense", "pinning", "low-gate"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wing-chun.tan-sao"],
+      "commonMistakes": [
+        {"description": "Pushing the arm downward with the elbow rather than the palm, converting the technique from a structural press to a muscular push that the opponent can redirect"},
+        {"description": "Holding the pin past the moment of impact and control, over-committing the gum sao hand and preventing the simultaneous strike from the other hand"}
+      ]
+    },
+    {
+      "id": "wing-chun.huen-sao",
+      "name": "Huen Sao",
+      "description": "The circling hand — a small wrist rotation that redirects a grabbing hand or an arm that is pressing on a held position, using circular motion to recover the centreline without withdrawing the arm. Huen Sao (Cantonese: 'circling hand') is the escape technique when an opponent grabs or applies sustained pressure on the forearm — rather than pulling back, the practitioner rotates the wrist in a small circle to wind out of the grip or pressure, maintaining proximity and immediately following with a strike. The rotation is minimal and tight: a large circular motion wastes time and commits the arm; the Huen Sao is a twisting of the wrist joint rather than a movement of the whole arm.",
+      "modelPath": "content/wing-chun/models/huen_sao.glb",
+      "defaultClip": "circle",
+      "clips": [
+        {"name": "circle", "durationSeconds": 0.7, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "intermediate",
+      "tags": ["escape", "grip-release", "wrist"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wing-chun.tan-sao"],
+      "commonMistakes": [
+        {"description": "Making a large arm circle rather than a compact wrist rotation, wasting motion and time while signalling the escape to the opponent before it is complete"},
+        {"description": "Withdrawing the arm backward when caught rather than circling in place, abandoning the bridge and giving up the close-range structural advantage Wing Chun relies on"}
+      ]
+    },
+    {
+      "id": "wing-chun.jik-geuk",
+      "name": "Jik Geuk",
+      "description": "The straight front kick — a direct linear thrust using the heel targeting the opponent's knee, midsection, or hip to create distance or destabilise the stance. Jik Geuk (Cantonese: 'straight leg/kick') follows the same centreline principle as the chain punch: the foot travels the shortest path to the target rather than an arc. Unlike roundhouse or crescent kicks, the Jik Geuk does not sacrifice structure for reach; the supporting leg remains grounded and the kicking leg drives forward from the hip as a push rather than a swing. In Wing Chun kicking theory, kicks below the waist are preferred because high kicks compromise the practitioner's own balance and the low targets — the knee and supporting leg — are more decisive in close-range fighting.",
+      "modelPath": "content/wing-chun/models/jik_geuk.glb",
+      "defaultClip": "kick",
+      "clips": [
+        {"name": "kick", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "hip-flexors", "glutes", "core"],
+      "difficulty": "intermediate",
+      "tags": ["kick", "low-kick", "centerline"],
+      "cameraPreset": "side",
+      "prerequisites": ["wing-chun.yee-ji-kim-yeung-ma"],
+      "commonMistakes": [
+        {"description": "Chambering the knee high before extending the kick, converting the straight-line drive into a downward arc and telegraphing the kick well before it arrives"},
+        {"description": "Kicking at head height, abandoning the structural rooting of the stance and presenting the raised leg as a target for the opponent's grab or redirection"}
+      ]
+    },
+    {
+      "id": "wing-chun.lap-sao",
+      "name": "Lap Sao",
+      "description": "The grabbing or pulling hand — a short, sharp grip and pull of the opponent's forearm that draws their arm across the body, breaking their structure and creating an immediate opening on the cleared side. Lap Sao (Cantonese: 'grabbing hand') works because in Wing Chun the opponent's arm is already in contact (through the bridge); the lap sao converts that bridge contact into a displacement by pulling rather than redirecting. The pull is short and explosive, not a sustained hold — the goal is the structure-breaking effect of the sudden yank, which creates the gap for an immediate strike before the opponent can recover. Lap sao is almost never used alone; it is the first part of a two-count: pull, then strike.",
+      "modelPath": "content/wing-chun/models/lap_sao.glb",
+      "defaultClip": "pull",
+      "clips": [
+        {"name": "pull", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["back", "shoulders", "core"],
+      "difficulty": "intermediate",
+      "tags": ["grab", "control", "structure-breaking"],
+      "cameraPreset": "three_quarter",
+      "prerequisites": ["wing-chun.pak-sao"],
+      "commonMistakes": [
+        {"description": "Pulling the opponent's arm in a large arc rather than straight across the body, rotating them rather than breaking their forward structure and failing to create the intended opening"},
+        {"description": "Holding the grip after the initial pull rather than immediately releasing to strike, wasting the window the yank created and giving the opponent time to recover their balance"}
+      ]
+    },
+    {
+      "id": "wing-chun.bil-jee",
+      "name": "Bil Jee",
+      "description": "The thrusting finger strike — an explosive thrust of the extended fingers, typically targeting the throat, eyes, or solar plexus, used when all other structural tools have been exhausted or when the arm is trapped and a conventional punch cannot be launched. Bil Jee (Cantonese: 'thrusting/darting fingers') is from the third and most advanced Wing Chun form, which covers emergency recovery techniques — how to fight when the preferred structure has been broken. The Bil Jee is not a primary tool; it is a last resort and a structural recovery, launching from a compromised arm position to reach a target that a normal punch cannot access. The speed of the thrust and the small surface area of the fingertips combine to deliver significant force to soft targets.",
+      "modelPath": "content/wing-chun/models/bil_jee.glb",
+      "defaultClip": "thrust",
+      "clips": [
+        {"name": "thrust", "durationSeconds": 0.6, "fps": 30}
+      ],
+      "muscles": ["shoulders", "chest", "core", "back"],
+      "difficulty": "advanced",
+      "tags": ["strike", "fingers", "advanced", "emergency"],
+      "cameraPreset": "side",
+      "prerequisites": ["wing-chun.lien-wan-kuen", "wing-chun.bong-sao"],
+      "commonMistakes": [
+        {"description": "Hyper-extending the fingers at contact, risking ligament damage at the joints — the fingers must be aligned and reinforced rather than flexible at the moment of impact"},
+        {"description": "Throwing the bil jee as a primary attack against guarded targets rather than as an emergency recovery tool against soft unguarded targets, using the technique out of its correct strategic context"}
+      ]
+    },
+    {
+      "id": "wing-chun.chi-sao-dan",
+      "name": "Chi Sao (Dan Chi)",
+      "description": "Single-arm chi sao (sticky hands) — the foundational sensitivity drill of Wing Chun in which two practitioners maintain forearm contact and exchange cyclical rolling patterns (a fook sao rolling to tan sao and back) while each attempts to feel and redirect the other's force. Dan Chi (Cantonese: 'single sticky hand') teaches the core chi sao concepts using one arm at a time before the more complex double-arm version. The drill develops the tactile ability to distinguish the opponent's intent — advancing, withdrawing, or changing angle — through the quality of pressure at the point of contact, and to respond with the appropriate technique faster than visual reaction time allows. Chi sao is not sparring; it is a cooperative training dialogue that develops sensitivity, structure, and technique under light pressure.",
+      "modelPath": "content/wing-chun/models/chi_sao_dan.glb",
+      "defaultClip": "roll",
+      "clips": [
+        {"name": "roll", "durationSeconds": 2.0, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core"],
+      "difficulty": "advanced",
+      "tags": ["sensitivity", "chi-sao", "drill", "advanced"],
+      "cameraPreset": "side",
+      "prerequisites": ["wing-chun.fook-sao", "wing-chun.wu-sao"],
+      "commonMistakes": [
+        {"description": "Using muscular force to push through the drill rather than maintaining light contact, converting the sensitivity exercise into an arm-wrestling match and preventing the development of tactile awareness"},
+        {"description": "Thinking too far ahead to plan responses rather than responding to what is felt in the moment, creating stiffness and lag in the transitions that defeats the entire purpose of chi sao training"}
+      ]
+    },
+    {
+      "id": "wing-chun.gan-sao",
+      "name": "Gan Sao",
+      "description": "The splitting block — a simultaneous two-hand deflection in which one hand redirects an incoming high-gate attack while the other redirects a low-gate attack, splitting both threats away from the centreline at the same moment. Gan Sao (Cantonese: 'cultivating/splitting hand') is the answer when both arms are simultaneously threatened, which typically occurs in a clinch or when the opponent throws simultaneous high and low attacks. The upper hand uses a tan sao angle to redirect the high threat, and the lower hand uses a downward gum sao angle to pin the low threat. Gan sao represents the Wing Chun principle of centreline economics at its most compressed: two different problems solved with two different hands in the same instant.",
+      "modelPath": "content/wing-chun/models/gan_sao.glb",
+      "defaultClip": "split",
+      "clips": [
+        {"name": "split", "durationSeconds": 0.9, "fps": 30}
+      ],
+      "muscles": ["shoulders", "back", "core", "chest"],
+      "difficulty": "advanced",
+      "tags": ["defense", "split-block", "simultaneous", "advanced"],
+      "cameraPreset": "front",
+      "prerequisites": ["wing-chun.bong-sao"],
+      "commonMistakes": [
+        {"description": "Executing the two deflections sequentially rather than simultaneously, allowing the second attack to land during the interval between the first and second movements"},
+        {"description": "Over-extending both arms far from the body in the split, breaking the tight structural geometry that makes gan sao functional and leaving the body's centreline momentarily unanchored"}
+      ]
+    },
+    {
+      "id": "wing-chun.biu-ma",
+      "name": "Biu Ma",
+      "description": "The shooting horse — an explosive forward step in which the practitioner drives the entire body mass suddenly into the opponent's space, typically combined with a simultaneous strike or deflection. Biu Ma (Cantonese: 'shooting horse') is the offensive footwork of Wing Chun, used to close the gap from medium to close range in a single committed movement. The step is driven by the rear leg's push, not a reaching front leg, so the body arrives as a unit rather than stepping first and then striking. The sudden spatial aggression of biu ma often breaks the opponent's structure not only physically but psychologically — the abrupt collapse of distance changes the opponent's timing expectations and creates an opening where none was visible at medium range.",
+      "modelPath": "content/wing-chun/models/biu_ma.glb",
+      "defaultClip": "step",
+      "clips": [
+        {"name": "step", "durationSeconds": 0.8, "fps": 30}
+      ],
+      "muscles": ["quadriceps", "glutes", "core", "calves", "hip-flexors"],
+      "difficulty": "advanced",
+      "tags": ["footwork", "advancing", "advanced", "structure"],
+      "cameraPreset": "side",
+      "prerequisites": ["wing-chun.jik-geuk", "wing-chun.lien-wan-kuen"],
+      "commonMistakes": [
+        {"description": "Stepping forward with the front foot first and then bringing the body forward, creating a reach-then-follow-through pattern that telegraphs the advance and arrives without structural integrity"},
+        {"description": "Biu ma without a simultaneous hand technique, arriving in the opponent's space without a ready attack and pausing to reset before striking, wasting the timing advantage the sudden advance created"}
+      ]
+    }
+  ]
+}
