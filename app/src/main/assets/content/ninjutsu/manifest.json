@@ -1,0 +1,342 @@
+{
+  "discipline": {
+    "id": "ninjutsu",
+    "name": "Ninjutsu",
+    "description": "Ninjutsu (忍術) is the martial art and tradecraft of the shinobi, the covert agents of feudal Japan. Unlike most budo disciplines, ninjutsu encompasses not only combat techniques but also espionage, camouflage, and strategic thinking. Its unarmed combat system, taijutsu, emphasises fluid body movement, off-angle positioning, and redirection of force rather than direct confrontation. Modern practitioners study ninjutsu primarily through the Bujinkan organisation founded by Masaaki Hatsumi, which preserves nine classical schools of the art.",
+    "movementIds": [
+      "ninjutsu.kamae",
+      "ninjutsu.ukemi",
+      "ninjutsu.san-shin-no-kata",
+      "ninjutsu.jumonji",
+      "ninjutsu.koshi-kudaki",
+      "ninjutsu.gyaku-te",
+      "ninjutsu.omote-gyaku",
+      "ninjutsu.oni-kudaki",
+      "ninjutsu.shuto",
+      "ninjutsu.nage-waza",
+      "ninjutsu.kakushi-bo",
+      "ninjutsu.tobi-geri",
+      "ninjutsu.metsubushi",
+      "ninjutsu.kage-aruki",
+      "ninjutsu.rokushaku-bo"
+    ]
+  },
+  "movements": [
+    {
+      "id": "ninjutsu.kamae",
+      "name": "Kamae",
+      "description": "The fighting postures of ninjutsu — a set of eight foundational stances that position the body for specific tactical purposes. Unlike the static stances of other arts, kamae are dynamic starting points from which all movement flows. Each stance communicates intent, controls distance, and predetermines the first counter-response. The eight include ichimonji, jumonji, hira, hicho, doko, ihen, kosei, and shizen-tai.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/ninjutsu/models/kamae.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.5, "fps": 30 },
+        { "name": "transitions", "durationSeconds": 5.0, "fps": 30 }
+      ],
+      "tags": ["stance", "beginner", "posture", "foundation"],
+      "cameraPreset": "front",
+      "muscleGroups": ["core", "legs", "back"],
+      "commonMistakes": [
+        "Holding kamae as a rigid static pose rather than a fluid ready state",
+        "Distributing weight evenly — most kamae favour a specific weight bias",
+        "Tensing the shoulders, which telegraphs movement and limits reaction speed"
+      ]
+    },
+    {
+      "id": "ninjutsu.ukemi",
+      "name": "Ukemi",
+      "description": "The art of falling — rolling, breakfalling, and recovering from throws without injury. Ninjutsu ukemi goes beyond standard martial arts breakfalls to include silent rolls, rolls from height, and recovering into a combat-ready position. The shinobi's ukemi also encompasses tumbling over obstacles and recovering from traps, making it one of the most practically important survival skills in the system.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/ninjutsu/models/ukemi.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "forward-roll", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "back-roll", "durationSeconds": 1.5, "fps": 30 }
+      ],
+      "tags": ["falling", "beginner", "rolling", "safety"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "back", "shoulders"],
+      "commonMistakes": [
+        "Reaching out with the hands to break the fall instead of rolling through",
+        "Stopping in a seated position rather than continuing momentum into a ready stance",
+        "Tucking the chin inconsistently — it must protect the head on every roll"
+      ]
+    },
+    {
+      "id": "ninjutsu.san-shin-no-kata",
+      "name": "San Shin No Kata",
+      "description": "The three hearts form — a foundational kata comprising five elemental strikes (chi, sui, ka, fu, ku) that teach the body's natural weapons and corresponding movement patterns. Each strike trains a different aspect of body mechanics: earth is stability, water is fluidity, fire is aggression, wind is evasion, void is formlessness. San-shin-no-kata is often the first structured form taught and encodes the entire movement vocabulary of taijutsu.",
+      "difficulty": "BEGINNER",
+      "prerequisites": [],
+      "modelPath": "content/ninjutsu/models/san_shin_no_kata.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "kata", "durationSeconds": 12.0, "fps": 30 }
+      ],
+      "tags": ["kata", "beginner", "elemental", "foundation"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "shoulders", "legs", "back"],
+      "commonMistakes": [
+        "Rushing through the form to complete it rather than feeling each element",
+        "Striking with only the arm — each strike requires full body unification",
+        "Ignoring the step pattern, which creates the evasive angle built into each technique"
+      ]
+    },
+    {
+      "id": "ninjutsu.jumonji",
+      "name": "Jumonji",
+      "description": "The cross-shaped guard — a double forearm block where both arms form an X in front of the body, capable of intercepting a downward strike, a double-handed grab, or a weapon attack. From jumonji no kamae, the practitioner transitions into locks, throws, or counterstrikes by opening the cross and redirecting the opponent's force along the already-established angle of the arms.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["ninjutsu.kamae", "ninjutsu.san-shin-no-kata"],
+      "modelPath": "content/ninjutsu/models/jumonji.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "block", "durationSeconds": 0.7, "fps": 60 }
+      ],
+      "tags": ["block", "intermediate", "cross-guard", "intercept"],
+      "cameraPreset": "front",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Meeting force with force instead of redirecting along the X angle",
+        "Leaving the elbows too high — the cross should cover the centreline from neck to navel",
+        "Freezing in the cross rather than immediately flowing into the follow-up technique"
+      ]
+    },
+    {
+      "id": "ninjutsu.koshi-kudaki",
+      "name": "Koshi Kudaki",
+      "description": "The hip breaker — a close-range throw initiated by stepping behind the opponent's lead leg, loading the opponent's weight onto the hip, and explosively rotating to project them backward. Koshi-kudaki is derived from the classical koshi nage family and trains the practitioner to use the skeleton as a lever rather than muscular force, making it effective against larger opponents.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["ninjutsu.ukemi", "ninjutsu.kamae"],
+      "modelPath": "content/ninjutsu/models/koshi_kudaki.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "throw", "durationSeconds": 1.2, "fps": 30 }
+      ],
+      "tags": ["throw", "intermediate", "hip", "close-range"],
+      "cameraPreset": "side",
+      "muscleGroups": ["glutes", "core", "back", "quadriceps"],
+      "commonMistakes": [
+        "Loading the opponent too high on the back instead of across the hip bone",
+        "Straightening the knees before driving — the power comes from leg drive, not lean",
+        "Stepping too far behind the opponent, overshooting the loading position"
+      ]
+    },
+    {
+      "id": "ninjutsu.gyaku-te",
+      "name": "Gyaku Te",
+      "description": "Reverse hand — the family of wrist and finger manipulation techniques that exploit the joint's limited range to direct the opponent's entire body. Gyaku-te begins when the opponent grabs the wrist or lapel, using their own grip to apply leverage. The practitioner rotates the captured hand against the joint's natural direction, collapsing the opponent's structure and leading them into a lock, takedown, or painful compliance position.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["ninjutsu.san-shin-no-kata", "ninjutsu.ukemi"],
+      "modelPath": "content/ninjutsu/models/gyaku_te.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "lock", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "tags": ["wrist-lock", "intermediate", "joint-manipulation", "counter"],
+      "cameraPreset": "front",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Gripping too tightly — the controlling hand should guide, not crush",
+        "Applying the lock without first disrupting the opponent's balance",
+        "Moving only the wrist joint without engaging shoulder and spine rotation"
+      ]
+    },
+    {
+      "id": "ninjutsu.omote-gyaku",
+      "name": "Omote Gyaku",
+      "description": "Front wrist reverse — one of the most practised kihon happo techniques, applied when the opponent's wrist is presented forward. The hand is captured, rotated outward to expose the inner wrist, and pressed forward and down while the elbow is simultaneously elevated, creating a figure-four pressure that drives the opponent to the ground. Omote-gyaku appears in dozens of ninjutsu kata as a universal transition lock.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["ninjutsu.gyaku-te", "ninjutsu.jumonji"],
+      "modelPath": "content/ninjutsu/models/omote_gyaku.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "lock", "durationSeconds": 1.1, "fps": 30 }
+      ],
+      "tags": ["wrist-lock", "intermediate", "kihon-happo", "takedown"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Pressing only downward without also controlling the elbow elevation",
+        "Standing upright — drop your weight into the lock by bending the knees",
+        "Allowing the opponent to spin out by not maintaining the figure-four alignment"
+      ]
+    },
+    {
+      "id": "ninjutsu.oni-kudaki",
+      "name": "Oni Kudaki",
+      "description": "Demon crusher — a shoulder and elbow compression technique applied when the practitioner moves to the outside of an oncoming strike, trapping the arm and folding it against the joint's natural direction. Oni-kudaki is considered one of the most painful locks in the system because it compresses the elbow, shoulder, and wrist simultaneously, making resistance instinctive and therefore counterproductive for the opponent.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["ninjutsu.omote-gyaku", "ninjutsu.koshi-kudaki"],
+      "modelPath": "content/ninjutsu/models/oni_kudaki.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "lock", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "tags": ["arm-lock", "intermediate", "elbow", "shoulder"],
+      "cameraPreset": "side",
+      "muscleGroups": ["core", "forearms", "back", "shoulders"],
+      "commonMistakes": [
+        "Trapping the arm too far from the body — keep it pulled in tight",
+        "Applying pressure to the forearm rather than compressing at the elbow crease",
+        "Stepping to the inside of the strike instead of the outside"
+      ]
+    },
+    {
+      "id": "ninjutsu.shuto",
+      "name": "Shuto",
+      "description": "Sword hand — a strike with the blade edge of the open hand to the neck, temple, throat, or radial nerve on the outer forearm. In ninjutsu, shuto is not a chop but a snap strike that recoils immediately, making it difficult to catch. The fingers are extended and tightly grouped, the wrist cocked back, and the strike travels diagonally across the target to maximise the cutting sensation.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["ninjutsu.san-shin-no-kata", "ninjutsu.kamae"],
+      "modelPath": "content/ninjutsu/models/shuto.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "strike", "durationSeconds": 0.5, "fps": 60 }
+      ],
+      "tags": ["strike", "intermediate", "open-hand", "nerve"],
+      "cameraPreset": "side",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Striking with the heel of the palm rather than the blade edge",
+        "Following through too deeply — shuto snaps back, not through",
+        "Bending the fingers on impact, risking injury to the small joints"
+      ]
+    },
+    {
+      "id": "ninjutsu.nage-waza",
+      "name": "Nage Waza",
+      "description": "The throwing techniques — a family of classical throws adapted into the ninjutsu curriculum from jujutsu that use redirection, off-balancing, and body positioning to project the opponent. Nage-waza in ninjutsu differs from judo in that throws are typically followed by an atemi strike as the opponent falls, or used to throw the opponent into obstacles or other attackers rather than cleanly to the ground.",
+      "difficulty": "INTERMEDIATE",
+      "prerequisites": ["ninjutsu.ukemi", "ninjutsu.koshi-kudaki"],
+      "modelPath": "content/ninjutsu/models/nage_waza.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "throw", "durationSeconds": 1.3, "fps": 30 }
+      ],
+      "tags": ["throw", "intermediate", "projection", "jujutsu"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["core", "back", "legs", "shoulders"],
+      "commonMistakes": [
+        "Skipping the kuzushi (off-balancing) phase and attempting to throw before control is established",
+        "Not following with an atemi — the throw alone is incomplete in ninjutsu context",
+        "Throwing to the ground rather than directing to a target or obstacle"
+      ]
+    },
+    {
+      "id": "ninjutsu.kakushi-bo",
+      "name": "Kakushi Bo",
+      "description": "Hidden stick — the art of fighting with a short concealed rod (typically 30–45 cm) that can be produced from a sleeve, sash, or walking cane. Kakushi-bo techniques use the stick as a force multiplier for strikes to nerve clusters and pressure points, as a lever for locks, and as a blocking tool that protects the hands against bladed weapons. The practitioner learns to integrate the weapon seamlessly with empty-hand movements.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["ninjutsu.shuto", "ninjutsu.oni-kudaki"],
+      "modelPath": "content/ninjutsu/models/kakushi_bo.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "strike-lock", "durationSeconds": 1.3, "fps": 60 }
+      ],
+      "tags": ["weapon", "advanced", "hidden-stick", "nerve-strike"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["forearms", "shoulders", "core"],
+      "commonMistakes": [
+        "Using the stick only as a striking tool and ignoring its lever function",
+        "Producing the weapon obviously — the draw should be invisible until the moment of use",
+        "Changing technique completely when the stick is introduced instead of adapting existing patterns"
+      ]
+    },
+    {
+      "id": "ninjutsu.tobi-geri",
+      "name": "Tobi Geri",
+      "description": "Flying kick — a leaping kick that achieves a height advantage over a standing opponent, targeting the head, neck, or chest. In ninjutsu, tobi-geri is valued not for its power but for its ability to cross distance rapidly or kick over a foreground obstacle while simultaneously launching from a height. The kick is often followed by a ground-recovery roll rather than a standing landing.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["ninjutsu.san-shin-no-kata", "ninjutsu.ukemi", "ninjutsu.nage-waza"],
+      "modelPath": "content/ninjutsu/models/tobi_geri.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "jump-kick", "durationSeconds": 1.2, "fps": 60 }
+      ],
+      "tags": ["kick", "advanced", "aerial", "distance"],
+      "cameraPreset": "side",
+      "muscleGroups": ["quadriceps", "hip_flexors", "glutes", "core"],
+      "commonMistakes": [
+        "Landing flat-footed instead of rolling through the landing",
+        "Kicking at the apex of the jump rather than slightly after to maximise downward force",
+        "Using the jump kick in situations where a ground-level kick would be safer and equally effective"
+      ]
+    },
+    {
+      "id": "ninjutsu.metsubushi",
+      "name": "Metsubushi",
+      "description": "Eye-crushing — the tactical use of powders, sand, or blinding agents thrown into the opponent's eyes to enable escape or disarm. In modern practice without actual agents, metsubushi is trained as the precise throwing motion with small objects and the accompanying body movement that brings the practitioner to a dominant angle while the opponent's vision is disrupted. It represents ninjutsu's philosophy that avoidance and escape are always preferred over direct combat.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["ninjutsu.san-shin-no-kata", "ninjutsu.omote-gyaku", "ninjutsu.tobi-geri"],
+      "modelPath": "content/ninjutsu/models/metsubushi.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 1.5, "fps": 30 },
+        { "name": "throw-evade", "durationSeconds": 1.0, "fps": 30 }
+      ],
+      "tags": ["blinding", "advanced", "tactical", "evasion"],
+      "cameraPreset": "three_quarter",
+      "muscleGroups": ["shoulders", "core", "legs"],
+      "commonMistakes": [
+        "Throwing without simultaneously moving to a new angle",
+        "Telegraphing the throw by raising the hand visibly before the release",
+        "Focusing on the throw without having a clear escape or follow-up plan"
+      ]
+    },
+    {
+      "id": "ninjutsu.kage-aruki",
+      "name": "Kage Aruki",
+      "description": "Shadow walking — the movement methods used to traverse terrain silently, remain in shadow, and avoid detection. Kage-aruki encompasses the nuki-ashi (silent step), the ko-ashi (small step crossing), body lowering techniques, and methods for moving along walls and through narrow spaces. The practitioner trains proprioception to move without looking at the ground, keeping eyes on the environment.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["ninjutsu.kamae", "ninjutsu.ukemi", "ninjutsu.metsubushi"],
+      "modelPath": "content/ninjutsu/models/kage_aruki.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.0, "fps": 30 },
+        { "name": "silent-walk", "durationSeconds": 4.0, "fps": 30 }
+      ],
+      "tags": ["stealth", "advanced", "movement", "silent"],
+      "cameraPreset": "side",
+      "muscleGroups": ["calves", "core", "legs", "glutes"],
+      "commonMistakes": [
+        "Looking down at the feet instead of maintaining environmental awareness",
+        "Over-relying on the toe-heel nuki-ashi pattern in all surfaces — adjust per terrain",
+        "Tensing the body when moving slowly — silence requires full muscular release"
+      ]
+    },
+    {
+      "id": "ninjutsu.rokushaku-bo",
+      "name": "Rokushaku Bo",
+      "description": "Six-shaku staff — the 180 cm long staff of the ninjutsu curriculum, considered the mother weapon from which all other staff techniques derive. Rokushaku-bo trains the practitioner in the nine striking angles, blocks, sweeps, and thrusting techniques that transfer across all lengths of pole weapon. The staff is also a tool for vaulting obstacles, testing surfaces, and probing for traps in the shinobi's environmental context.",
+      "difficulty": "ADVANCED",
+      "prerequisites": ["ninjutsu.kakushi-bo", "ninjutsu.kage-aruki"],
+      "modelPath": "content/ninjutsu/models/rokushaku_bo.glb",
+      "defaultClip": "idle",
+      "clips": [
+        { "name": "idle", "durationSeconds": 2.5, "fps": 30 },
+        { "name": "form", "durationSeconds": 8.0, "fps": 30 }
+      ],
+      "tags": ["staff", "advanced", "weapon", "bo"],
+      "cameraPreset": "side",
+      "muscleGroups": ["shoulders", "core", "forearms", "back"],
+      "commonMistakes": [
+        "Choking up on the staff — keep a full grip separation for maximum leverage",
+        "Treating the staff as a linear weapon; use circular and diagonal paths to generate power",
+        "Neglecting the environmental applications — staff technique in ninjutsu is tactical, not just martial"
+      ]
+    }
+  ]
+}
